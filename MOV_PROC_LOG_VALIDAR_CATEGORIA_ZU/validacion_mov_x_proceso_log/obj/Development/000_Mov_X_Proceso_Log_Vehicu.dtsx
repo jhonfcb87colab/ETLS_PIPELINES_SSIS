@@ -1,0 +1,516 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/15/2023 11:35:04 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="COBTADGR164617L"
+  DTS:CreatorName="SERVIENT\inteligencianegocios"
+  DTS:DTSID="{34FBBEB7-5208-4B79-B6CF-4EA121D6B576}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="22538"
+  DTS:ObjectName="000_Mov_X_Proceso_Log_Vehicu"
+  DTS:PackageType="5"
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{71E20EB9-F36E-4587-8177-E5E4EA1FC6D4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{82EF4221-5C71-4A31-8AE6-964B6D8B4CA9}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&lt;Batch xmlns='http://schemas.microsoft.com/analysisservices/2003/engine'&gt;&#xA;  &lt;ErrorConfiguration xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;&#xA;    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;    &lt;KeyNotFound&gt;IgnoreError&lt;/KeyNotFound&gt;&#xA;    &lt;NullKeyNotAllowed&gt;IgnoreError&lt;/NullKeyNotAllowed&gt;&#xA;  &lt;/ErrorConfiguration&gt;&#xA;  &lt;Parallel&gt;&#xA;    &lt;Process xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;SIG_COL_LOGISTICA&lt;/DatabaseID&gt;&#xA;        &lt;CubeID&gt;MOVIMIENTO POR PROCESO LOGISTICO&lt;/CubeID&gt;&#xA;        &lt;MeasureGroupID&gt;MOV POR PROCESO PRODUCTO&lt;/MeasureGroupID&gt;&#xA;        &lt;PartitionID&gt;MOV POR PROCESO PRODUCTO &quot;+ (DT_WSTR,50) YEAR( (DT_DBDATE)  @[$Project::FULL_FACH_FIN]  ) +&quot; &quot;+ RIGHT(&quot;0&quot;+ (DT_WSTR,50) MONTH( (DT_DBDATE)  @[$Project::FULL_FACH_FIN]  ),2) +&quot;&lt;/PartitionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;&#x9;  &quot;+    @[User::Val_Distinto_Mes_MovXProcesoLog]    +&quot;&#xA;  &lt;/Parallel&gt;&#xA;&lt;/Batch&gt; &quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Processo_Part_Cubo_MovXProcesoLog">
+      <DTS:VariableValue
+        DTS:DataType="8">&lt;Batch xmlns='http://schemas.microsoft.com/analysisservices/2003/engine'&gt;
+  &lt;ErrorConfiguration xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;
+    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;
+    &lt;KeyNotFound&gt;IgnoreError&lt;/KeyNotFound&gt;
+    &lt;NullKeyNotAllowed&gt;IgnoreError&lt;/NullKeyNotAllowed&gt;
+  &lt;/ErrorConfiguration&gt;
+  &lt;Parallel&gt;
+    &lt;Process xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;
+      &lt;Object&gt;
+        &lt;DatabaseID&gt;SIG_COL_LOGISTICA&lt;/DatabaseID&gt;
+        &lt;CubeID&gt;MOVIMIENTO POR PROCESO LOGISTICO&lt;/CubeID&gt;
+        &lt;MeasureGroupID&gt;MOV POR PROCESO PRODUCTO&lt;/MeasureGroupID&gt;
+        &lt;PartitionID&gt;MOV POR PROCESO PRODUCTO 1900 01&lt;/PartitionID&gt;
+      &lt;/Object&gt;
+      &lt;Type&gt;ProcessFull&lt;/Type&gt;
+      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;
+    &lt;/Process&gt;
+	  
+  &lt;/Parallel&gt;
+&lt;/Batch&gt; </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7FDDE7C1-F9A4-4242-8BAA-9D39968A1AA7}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&lt;Batch xmlns='http://schemas.microsoft.com/analysisservices/2003/engine'&gt;&#xA;  &lt;ErrorConfiguration xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;&#xA;    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;    &lt;KeyNotFound&gt;IgnoreError&lt;/KeyNotFound&gt;&#xA;    &lt;NullKeyNotAllowed&gt;IgnoreError&lt;/NullKeyNotAllowed&gt;&#xA;  &lt;/ErrorConfiguration&gt;&#xA;  &lt;Parallel&gt;&#xA;    &lt;Process xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;SIG_COL_LOGISTICA&lt;/DatabaseID&gt;&#xA;        &lt;CubeID&gt;MOVIMIENTO_POR_PROCESO_VEHICULO&lt;/CubeID&gt;&#xA;        &lt;MeasureGroupID&gt;MOV POR PROCESO VEHICULO&lt;/MeasureGroupID&gt;&#xA;        &lt;PartitionID&gt;MOV POR PROCESO VEHICULO &quot;+ (DT_WSTR,50) YEAR( (DT_DBDATE)  @[$Project::FULL_FACH_FIN]  ) +&quot; &quot;+ RIGHT(&quot;0&quot;+ (DT_WSTR,50) MONTH( (DT_DBDATE)  @[$Project::FULL_FACH_FIN]  ),2) +&quot;&lt;/PartitionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA;&#xA;   &quot;+    @[User::Val_Distinto_Mes_MovXProcesoVehic]    +&quot;&#xA;  &lt;/Parallel&gt;&#xA;&lt;/Batch&gt; &quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Processo_Part_Cubo_MovXProcesoVehic">
+      <DTS:VariableValue
+        DTS:DataType="8">&lt;Batch xmlns='http://schemas.microsoft.com/analysisservices/2003/engine'&gt;
+  &lt;ErrorConfiguration xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;
+    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;
+    &lt;KeyNotFound&gt;IgnoreError&lt;/KeyNotFound&gt;
+    &lt;NullKeyNotAllowed&gt;IgnoreError&lt;/NullKeyNotAllowed&gt;
+  &lt;/ErrorConfiguration&gt;
+  &lt;Parallel&gt;
+    &lt;Process xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;
+      &lt;Object&gt;
+        &lt;DatabaseID&gt;SIG_COL_LOGISTICA&lt;/DatabaseID&gt;
+        &lt;CubeID&gt;MOVIMIENTO_POR_PROCESO_VEHICULO&lt;/CubeID&gt;
+        &lt;MeasureGroupID&gt;MOV POR PROCESO VEHICULO&lt;/MeasureGroupID&gt;
+        &lt;PartitionID&gt;MOV POR PROCESO VEHICULO 1900 01&lt;/PartitionID&gt;
+      &lt;/Object&gt;
+      &lt;Type&gt;ProcessFull&lt;/Type&gt;
+      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;
+    &lt;/Process&gt;
+
+   
+  &lt;/Parallel&gt;
+&lt;/Batch&gt; </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{646AD318-BD09-4D63-BA30-728491E139BE}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&lt;Batch xmlns='http://schemas.microsoft.com/analysisservices/2003/engine'&gt;&#xA;&#x9;&lt;ErrorConfiguration xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;&#xA;&#x9;&#x9;&lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;&#x9;&#x9;&lt;KeyNotFound&gt;IgnoreError&lt;/KeyNotFound&gt;&#xA;&#x9;&#x9;&lt;NullKeyNotAllowed&gt;IgnoreError&lt;/NullKeyNotAllowed&gt;&#xA;&#x9;&lt;/ErrorConfiguration&gt;&#xA;&#x9;&lt;Parallel&gt;&#xA;&#x9;&#x9;&lt;Process xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;&#xA;&#x9;&#x9;&#x9;&lt;Object&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;DatabaseID&gt;SIG_COL_LOGISTICA&lt;/DatabaseID&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;CubeID&gt;MOVIMIENTO_POR_PROCESO_VEHICULO&lt;/CubeID&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;MeasureGroupID&gt;MOV POR PROCESO VEHICULO 1&lt;/MeasureGroupID&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;PartitionID&gt;MOV POR PROCESO VEHICULO &quot;+ (DT_WSTR,50) YEAR( (DT_DBDATE)  @[$Project::FULL_FACH_FIN]  ) +&quot; &quot;+ RIGHT(&quot;0&quot;+ (DT_WSTR,50) MONTH( (DT_DBDATE)  @[$Project::FULL_FACH_FIN]  ),2) +&quot;&lt;/PartitionID&gt;&#xA;&#x9;&#x9;&#x9;&lt;/Object&gt;&#xA;&#x9;&#x9;&#x9;&lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;&#x9;&#x9;&#x9;&lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;&#x9;&#x9;&lt;/Process&gt;&#xA;&#xA;&quot;+    @[User::Val_Distinto_Mes_MovXProcesoVehicAux]    +&quot;&#xA;&#x9;&lt;/Parallel&gt;&#xA;&lt;/Batch&gt;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Processo_Part_Cubo_MovXProcesoVehicAux">
+      <DTS:VariableValue
+        DTS:DataType="8">&lt;Batch xmlns='http://schemas.microsoft.com/analysisservices/2003/engine'&gt;
+	&lt;ErrorConfiguration xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;
+		&lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;
+		&lt;KeyNotFound&gt;IgnoreError&lt;/KeyNotFound&gt;
+		&lt;NullKeyNotAllowed&gt;IgnoreError&lt;/NullKeyNotAllowed&gt;
+	&lt;/ErrorConfiguration&gt;
+	&lt;Parallel&gt;
+		&lt;Process xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;
+			&lt;Object&gt;
+				&lt;DatabaseID&gt;SIG_COL_LOGISTICA&lt;/DatabaseID&gt;
+				&lt;CubeID&gt;MOVIMIENTO_POR_PROCESO_VEHICULO&lt;/CubeID&gt;
+				&lt;MeasureGroupID&gt;MOV POR PROCESO VEHICULO 1&lt;/MeasureGroupID&gt;
+				&lt;PartitionID&gt;MOV POR PROCESO VEHICULO 1900 01&lt;/PartitionID&gt;
+			&lt;/Object&gt;
+			&lt;Type&gt;ProcessFull&lt;/Type&gt;
+			&lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;
+		&lt;/Process&gt;
+
+
+	&lt;/Parallel&gt;
+&lt;/Batch&gt;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{251D1275-761C-45AD-A8F5-C165D9DA246E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="YEAR((DT_DBDATE) @[$Project::FULL_FACH_INI]) == YEAR((DT_DBDATE) @[$Project::FULL_FACH_FIN] ) &amp;&amp;  MONTH((DT_DBDATE) @[$Project::FULL_FACH_INI])  == MONTH((DT_DBDATE) @[$Project::FULL_FACH_FIN])  ? (DT_WSTR,50) &quot;&quot;  : (DT_WSTR,1500)&#xA;&quot; &lt;Process xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;&#xA;&#x9;&lt;Object&gt;&#xA;&#x9;&#x9;&lt;DatabaseID&gt;SIG_COL_LOGISTICA&lt;/DatabaseID&gt;&#xA;&#x9;&#x9;&lt;CubeID&gt;MOVIMIENTO POR PROCESO LOGISTICO&lt;/CubeID&gt;&#xA;&#x9;&#x9;&lt;MeasureGroupID&gt;MOV POR PROCESO PRODUCTO&lt;/MeasureGroupID&gt;&#xA;&#x9;&#x9;&lt;PartitionID&gt;MOV POR PROCESO PRODUCTO &quot;+ (DT_WSTR,50) YEAR( (DT_DBDATE)  @[$Project::FULL_FACH_INI]  ) +&quot; &quot;+ RIGHT(&quot;0&quot;+ (DT_WSTR,50) MONTH( (DT_DBDATE)  @[$Project::FULL_FACH_INI]  ),2) +&quot;&lt;/PartitionID&gt;&#xA;&#x9;&lt;/Object&gt;&#xA;&#x9;&lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;&#x9;&lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;&lt;/Process&gt;&#xA;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Val_Distinto_Mes_MovXProcesoLog">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{429312E7-4DEC-49AE-B3DC-122BEB00EC46}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="YEAR((DT_DBDATE) @[$Project::FULL_FACH_INI]) == YEAR((DT_DBDATE) @[$Project::FULL_FACH_FIN] ) &amp;&amp;  MONTH((DT_DBDATE) @[$Project::FULL_FACH_INI])  == MONTH((DT_DBDATE) @[$Project::FULL_FACH_FIN])  ? (DT_WSTR,50) &quot;&quot;  : (DT_WSTR,1500)&#xA;&quot;&#xA;&lt;Process xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;&#xA;&#x9;&lt;Object&gt;&#xA;&#x9;&#x9;&lt;DatabaseID&gt;SIG_COL_LOGISTICA&lt;/DatabaseID&gt;&#xA;&#x9;&#x9;&lt;CubeID&gt;MOVIMIENTO_POR_PROCESO_VEHICULO&lt;/CubeID&gt;&#xA;&#x9;&#x9;&lt;MeasureGroupID&gt;MOV POR PROCESO VEHICULO&lt;/MeasureGroupID&gt;&#xA;&#x9;&#x9;&lt;PartitionID&gt;MOV POR PROCESO VEHICULO &quot;+ (DT_WSTR,50) YEAR( (DT_DBDATE)  @[$Project::FULL_FACH_INI]  ) +&quot; &quot;+ RIGHT(&quot;0&quot;+ (DT_WSTR,50) MONTH( (DT_DBDATE)  @[$Project::FULL_FACH_INI]  ),2) +&quot;&lt;/PartitionID&gt;&#xA;&#x9;&lt;/Object&gt;&#xA;&#x9;&lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;&#x9;&lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;&lt;/Process&gt;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Val_Distinto_Mes_MovXProcesoVehic">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A08BA740-4AF0-4CF3-88DF-2230AD30167C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="YEAR((DT_DBDATE) @[$Project::FULL_FACH_INI]) == YEAR((DT_DBDATE) @[$Project::FULL_FACH_FIN] ) &amp;&amp;  MONTH((DT_DBDATE) @[$Project::FULL_FACH_INI])  == MONTH((DT_DBDATE) @[$Project::FULL_FACH_FIN])  ? (DT_WSTR,50) &quot;&quot;  : (DT_WSTR,1500)&#xA;&quot;&#xA;&lt;Process xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;&#xA;&#x9;&lt;Object&gt;&#xA;&#x9;&#x9;&lt;DatabaseID&gt;SIG_COL_LOGISTICA&lt;/DatabaseID&gt;&#xA;&#x9;&#x9;&lt;CubeID&gt;MOVIMIENTO_POR_PROCESO_VEHICULO&lt;/CubeID&gt;&#xA;&#x9;&#x9;&lt;MeasureGroupID&gt;MOV POR PROCESO VEHICULO 1&lt;/MeasureGroupID&gt;&#xA;&#x9;&#x9;&lt;PartitionID&gt;MOV POR PROCESO VEHICULO &quot;+ (DT_WSTR,50) YEAR( (DT_DBDATE)  @[$Project::FULL_FACH_INI]  ) +&quot; &quot;+ RIGHT(&quot;0&quot;+ (DT_WSTR,50) MONTH( (DT_DBDATE)  @[$Project::FULL_FACH_INI]  ),2) +&quot;&lt;/PartitionID&gt;&#xA;&#x9;&lt;/Object&gt;&#xA;&#x9;&lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;&#x9;&lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;&lt;/Process&gt;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Val_Distinto_Mes_MovXProcesoVehicAux">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\P01 AP01 EXTRACCION"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{5B94FFF8-C6FE-4473-B2E6-6D986483B88C}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="P01 AP01 EXTRACCION"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>EXTRACCION.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\P02 AP02 DIMENSIONES"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{A9B1D212-1365-4A30-9796-30C36EF01F0B}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="P02 AP02 DIMENSIONES"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>DIMENSIONES.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\P03 AP03 TRANSFORMACION"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{D4E7F8F8-591A-402F-90B5-3BAA837B2078}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="P03 AP03 TRANSFORMACION"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>TRANSFORMACION.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\P04_AP04_SISMILENIO_EXTRAER_MOV_POR_PROCESO_PRODUCTO"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{9501CBE8-7A22-49FA-8A6A-4D84DF5CF938}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="P04_AP04_SISMILENIO_EXTRAER_MOV_POR_PROCESO_PRODUCTO"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>SISMILENIO_EXTRAER_MOV_POR_PROCESO_PRODUCTO.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BFA05FD1-5707-4934-B2EA-280D5F80561F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Process_CB_MovXProcesoLog"
+          DTS:CreationName="Microsoft.ASExecuteDDLTask"
+          DTS:Description="Analysis Services Execute DDL Task"
+          DTS:DTSID="{696A4643-8A95-4C27-8A8F-393CF2B7DC72}"
+          DTS:ExecutableType="Microsoft.ASExecuteDDLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process_CB_MovXProcesoLog"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ASDdlData
+              ConnectionName="SERV-DBI01.SIG_COL_LOGISTICA"
+              SourceType="Variable"
+              Source="User::Processo_Part_Cubo_MovXProcesoLog" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Process_CB_MovXProcesoVehic"
+          DTS:CreationName="Microsoft.ASExecuteDDLTask"
+          DTS:Description="Analysis Services Execute DDL Task"
+          DTS:DTSID="{4BEFDD06-7530-4E70-B3E5-5265E72148F2}"
+          DTS:ExecutableType="Microsoft.ASExecuteDDLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process_CB_MovXProcesoVehic"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ASDdlData
+              ConnectionName="SERV-DBI01.SIG_COL_LOGISTICA"
+              SourceType="Variable"
+              Source="User::Processo_Part_Cubo_MovXProcesoVehic" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Process_CB_MovXProcesoVehicAux"
+          DTS:CreationName="Microsoft.ASExecuteDDLTask"
+          DTS:Description="Analysis Services Execute DDL Task"
+          DTS:DTSID="{5fed6850-f5dc-47c1-bb57-0f23b8e55999}"
+          DTS:ExecutableType="Microsoft.ASExecuteDDLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process_CB_MovXProcesoVehicAux"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ASDdlData
+              ConnectionName="SERV-DBI01.SIG_COL_LOGISTICA"
+              SourceType="Variable"
+              Source="User::Processo_Part_Cubo_MovXProcesoVehicAux" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{9F0E97EA-4A78-41F4-85E3-10658F8E6EB8}"
+          DTS:From="Package\Sequence Container\Process_CB_MovXProcesoVehic"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Process_CB_MovXProcesoVehicAux" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{EA889E4A-3071-4A1E-B733-AD67D3CEB53C}"
+          DTS:From="Package\Sequence Container\Process_CB_MovXProcesoLog"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Process_CB_MovXProcesoVehic" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{1180C21A-1FE6-4FAE-A615-225DD3752590}"
+      DTS:From="Package\P04_AP04_SISMILENIO_EXTRAER_MOV_POR_PROCESO_PRODUCTO"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Sequence Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{064C4561-6DC0-4F19-846D-EA09E7E0DC4C}"
+      DTS:From="Package\P01 AP01 EXTRACCION"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\P02 AP02 DIMENSIONES" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{09B95769-C130-43BC-848F-A608914CFA5A}"
+      DTS:From="Package\P02 AP02 DIMENSIONES"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\P03 AP03 TRANSFORMACION" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{64019ED0-D4C0-4AE8-8E7B-DAD8281E052C}"
+      DTS:From="Package\P03 AP03 TRANSFORMACION"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\P04_AP04_SISMILENIO_EXTRAER_MOV_POR_PROCESO_PRODUCTO" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="190,42"
+          Id="Package\P01 AP01 EXTRACCION"
+          TopLeft="56,9.25" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\P02 AP02 DIMENSIONES"
+          TopLeft="53,82.25" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\P03 AP03 TRANSFORMACION"
+          TopLeft="43.5,157.25" />
+        <NodeLayout
+          Size="251,42"
+          Id="Package\P04_AP04_SISMILENIO_EXTRAER_MOV_POR_PROCESO_PRODUCTO"
+          TopLeft="27.5,231.25" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Sequence Container\Process_CB_MovXProcesoLog"
+          TopLeft="6.5,5.5" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Sequence Container\Process_CB_MovXProcesoVehic"
+          TopLeft="5.5,79.5" />
+        <NodeLayout
+          Size="244,42"
+          Id="Package\Sequence Container\Process_CB_MovXProcesoVehicAux"
+          TopLeft="2.5,151.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="121.5,121.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="117,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="254,279"
+          Size="254,322"
+          Id="Package\Sequence Container"
+          TopLeft="29,306.75" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="154.5,273.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.5"
+              Start="0,0"
+              End="0,26">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="151,51.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="152,124.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="153,199.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

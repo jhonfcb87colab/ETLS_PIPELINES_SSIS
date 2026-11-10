@@ -1,0 +1,175 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="97549b5c-ca0a-4631-b760-701e6b013069" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>MECI_PS_ESTRUCTURA_ORGANIZACIONAL</ID>
+  <Name>MECI_PS_ESTRUCTURA_ORGANIZACIONAL</Name>
+  <CreatedTimestamp>2013-07-16T16:00:31.066667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-08-02T15:19:27.646667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-10-30T23:24:54.086667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="a7f1bbbe-5826-4ccc-b806-c31848cc6f83">
+    <DataSourceViewID>SIG_PS_MECI_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="9b5fc7b8-b2bf-4ca8-bc4f-6dfc0d602201">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="57963875-49a0-4c14-8afe-694ce988026b">
+      <ID>ID SUBPROCESO</ID>
+      <Name>SUBPROCESO</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="746e40a5-2be3-4a79-a73a-7e0e9dfe6d06">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f05a499c-dfad-485f-bd19-45b6b515d978">
+            <TableID>DIM_MECI_PS_ESTRUCTURA_ORGANIZACIONAL</TableID>
+            <ColumnID>ID_SUBPROCESO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="38119843-61f2-4013-b831-30aeaf658003">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="15406fa2-0fe6-4722-b676-11a993c307c9">
+          <TableID>DIM_MECI_PS_ESTRUCTURA_ORGANIZACIONAL</TableID>
+          <ColumnID>DESCR_SUBPROCESO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="932e59ab-066d-4b9b-9d81-7436d46c0f4c">
+          <AttributeID>ID MACROPROCESO</AttributeID>
+          <Name>MACROPROCESO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1fd50ee3-cc73-4e79-8b3a-97abe58c9a93">
+          <AttributeID>ID PROCESO</AttributeID>
+          <Name>PROCESO</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fe8291fb-ecde-49df-a7bb-9973b9699276">
+      <ID>ID MACROPROCESO</ID>
+      <Name>MACROPROCESO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="545f6221-941f-4745-9f22-eafe12582545">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3c7da2b4-b0f2-4dfd-84a9-9d2594df4de6">
+            <TableID>DIM_MECI_PS_ESTRUCTURA_ORGANIZACIONAL</TableID>
+            <ColumnID>ID_MACROPROCESO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="3675b3c1-70e6-445b-8ed8-64f0feda40f5">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="ac231d35-3014-4de8-9649-057e735effcf">
+          <TableID>DIM_MECI_PS_ESTRUCTURA_ORGANIZACIONAL</TableID>
+          <ColumnID>DESCR_MACROPROCESO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="df5e2b29-f90e-4d9e-850c-c8051e80bea2">
+      <ID>ID PROCESO</ID>
+      <Name>PROCESO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b1d65f30-cca9-42a9-9866-20c1c73fb306">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="072a4b5d-f943-44e6-80d3-957500397897">
+            <TableID>DIM_MECI_PS_ESTRUCTURA_ORGANIZACIONAL</TableID>
+            <ColumnID>ID_PROCESO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="5024aed8-e580-4f05-a4ff-a6d3862455a2">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="ee4574e9-2f96-46a8-84ab-597b838e36c2">
+          <TableID>DIM_MECI_PS_ESTRUCTURA_ORGANIZACIONAL</TableID>
+          <ColumnID>DESCR_PROCESO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="48cc4f51-c40c-430a-a31a-a97db765f241">
+      <ID>Hierarchy</ID>
+      <Name>ESTRUCTURA_ORG</Name>
+      <Levels>
+        <Level dwd:design-time-name="fc55a9b8-ff39-4d0a-9ca4-3b4131c8b155">
+          <ID>MACROPROCESO</ID>
+          <Name>MACROPROCESO</Name>
+          <SourceAttributeID>ID MACROPROCESO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="98a6674c-7296-4e57-9280-e57ee6e809ea">
+          <ID>PROCESO</ID>
+          <Name>PROCESO</Name>
+          <SourceAttributeID>ID PROCESO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="a7d6b895-fdc4-486a-b5ca-73301d6fc707">
+          <ID>SUBPROCESO</ID>
+          <Name>SUBPROCESO</Name>
+          <SourceAttributeID>ID SUBPROCESO</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="e33de672-539e-44aa-b8e6-ad8efc669846">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="a90fdf34-f0ab-49f5-a69d-0aacc574d59a" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

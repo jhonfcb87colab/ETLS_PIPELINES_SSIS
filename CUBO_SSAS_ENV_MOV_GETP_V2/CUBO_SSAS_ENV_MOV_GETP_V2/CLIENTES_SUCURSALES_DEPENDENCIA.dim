@@ -1,0 +1,267 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="b2cc7d77-3abb-4615-aae0-557053aacdcd" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>CLIENTES_SUCURSALES_DEPENDENCIA</ID>
+  <Name>CLIENTES_SUCURSALES_DEPENDENCIA</Name>
+  <CreatedTimestamp>2016-07-05T20:35:33.686667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2021-10-20T15:41:22.766667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-09-27T12:05:32.61Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="0fe3c27f-9c0f-47d2-afff-30ba05f0ce24">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="400d63d5-de2b-46e1-b065-bc7dab0bade3">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="d9b5e9ed-0002-4980-8eee-cbafa63d054e">
+      <ID>Codigo_Ser</ID>
+      <Name>Codigo_Ser</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="81a73a40-a347-4033-971b-178ffb2a2987">
+          <DataType>WChar</DataType>
+          <DataSize>15</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="05f8dd2b-41fb-4869-ac1c-19139c19401c">
+            <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+            <ColumnID>CODIGO_SER</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="976c29cd-d31d-4975-a143-fd403fbbc452">
+        <DataType>WChar</DataType>
+        <DataSize>15</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6a93b3f1-7b95-4aad-af7e-b8e8d84fe605">
+          <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+          <ColumnID>CODIGO_SER</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="333e320c-38ca-4a6c-bc44-35a7ab944f1c">
+          <AttributeID>Cliente</AttributeID>
+          <Name>Cliente</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a0f1cce5-e9ba-4098-b6fd-717a90c12782">
+          <AttributeID>Mes_Vencido</AttributeID>
+          <Name>Mes_Vencido</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="74eb1819-5cf2-4517-926d-e3a58ff17e19">
+          <AttributeID>Id_Cliente</AttributeID>
+          <Name>Id_Cliente</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="655ce6ec-0fcd-475a-8fbd-8f082082d139">
+      <ID>Sucursal</ID>
+      <Name>Sucursal</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fd73b5d8-8896-4f36-9f21-da792c97eefc">
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e0668314-9bcc-4583-94a6-66dd8829de7e">
+            <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+            <ColumnID>ID_SUCURSAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="38b4c03b-6135-4d9d-af39-5e2d55cbb65b">
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="47d27a18-1b4d-4f90-846b-c9aef908d95b">
+          <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+          <ColumnID>NOMBRE_SUCURSAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="baf151a2-4411-4090-99be-c590f5433087">
+          <AttributeID>Dependencia</AttributeID>
+          <Name>Dependencia</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4f21ced8-14a7-4449-a9be-2abf2cd66dad">
+      <ID>Cliente</ID>
+      <Name>Cliente</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="47f38c43-fb4c-40c7-911c-7634bdbbffed">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2b37f026-0c46-4b9c-b5a9-e6e328a691d1">
+            <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+            <ColumnID>NOMBRE_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2e956e06-716c-43e7-adc8-6fc51ee9a693">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="eb24ea5f-a158-40cf-b139-5d19adfe0af3">
+          <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+          <ColumnID>NOMBRE_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="d535a4d3-7774-4ada-93b4-7a94ab1b7c90">
+          <AttributeID>Sucursal</AttributeID>
+          <Name>Sucursal</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="42c0ebd2-86db-45e6-88bb-71d7e74bc357">
+      <ID>Dependencia</ID>
+      <Name>Dependencia</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0a246006-0a93-4579-a759-aac264c0bc96">
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="aaae5af2-2ac8-4ee5-bb65-e4ee0db69f52">
+            <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+            <ColumnID>ID_DEPENDENCIA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7226432a-9cb2-4334-b7be-f09430900420">
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="ef5c9708-00dc-4a5c-81e2-14ecfa49ac29">
+          <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+          <ColumnID>NOMBRE_DEPENDENCIA</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="759b3d5e-9126-40c4-8ee2-1c82507f3cfb">
+      <ID>Mes_Vencido</ID>
+      <Name>Mes_Vencido</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="21d41eb9-1ccc-403b-98a5-2d6f7d09f4ff">
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="76a546fd-8e8e-4260-a940-07457b721a0b">
+            <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+            <ColumnID>MES_VENCIDO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="53aa85ab-5807-4973-b101-166a0954fe79">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="7d16b51f-8024-44bf-8310-0a0a4b703585">
+          <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+          <ColumnID>MES_VENCIDO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="35251680-db35-4cb8-a541-01ed97720422">
+      <ID>Id_Cliente</ID>
+      <Name>Id_Cliente</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="28445b83-8951-42f4-aedc-ecf0adace62f">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="07e2d3e2-ab26-4855-9cb5-c3661851749b">
+            <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+            <ColumnID>ID_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="fa6f8b21-bb07-4fa7-9122-af9a4a84695f">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="793d1046-da65-4742-b84b-47c6279782f4">
+          <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+          <ColumnID>ID_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="42d81485-1655-4348-aecf-d7f578864eaf">
+      <ID>Hierarchy</ID>
+      <Name>Clientes_Sucursales_Dependencia</Name>
+      <Levels>
+        <Level dwd:design-time-name="17dad68a-8139-4e5b-9fea-c46a532a7d12">
+          <ID>Cliente</ID>
+          <Name>Cliente</Name>
+          <SourceAttributeID>Cliente</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="6237ffd3-87e6-4b44-8d00-87f273ab2082">
+          <ID>Sucursal</ID>
+          <Name>Sucursal</Name>
+          <SourceAttributeID>Sucursal</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="9ee835cd-cc78-4815-8845-cef5e0d8be25">
+          <ID>Dependencia</ID>
+          <Name>Dependencia</Name>
+          <SourceAttributeID>Dependencia</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="dc5ada04-c825-4fa9-9ada-f2069a7e7116">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="0bc6f11b-43af-492f-b486-cabba97d8e19" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

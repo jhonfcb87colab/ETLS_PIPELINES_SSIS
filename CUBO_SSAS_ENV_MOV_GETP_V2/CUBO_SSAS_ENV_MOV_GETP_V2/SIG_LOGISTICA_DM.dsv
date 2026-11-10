@@ -1,0 +1,598 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SIG_LOGISTICA_DM</ID>
+  <Name>SIG_LOGISTICA_DM</Name>
+  <CreatedTimestamp>2017-11-08T21:09:13.333333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2017-11-17T20:28:27.793333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:NameMatchingCriteria</Name>
+      <Value>1</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>SIG_LOGISTICA_DM</DataSourceID>
+  <Schema>
+    <xs:schema id="SIG_LOGISTICA_DM" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="SIG_LOGISTICA_DM" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="FAC_MOVILIZADOS_POR_CLIENTE" msprop:DbTableName="MOVILIZADOS_POR_CLIENTE" msprop:FriendlyName="MOVILIZADOS_POR_CLIENTE" msprop:DbSchemaName="FAC" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SE_FECHA" msprop:DbColumnName="SE_FECHA" msprop:FriendlyName="SE_FECHA" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="SE_NUMERO_GUIA" msprop:DbColumnName="SE_NUMERO_GUIA" msprop:FriendlyName="SE_NUMERO_GUIA" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="D_ID_CIUDAD" msprop:DbColumnName="D_ID_CIUDAD" msprop:FriendlyName="D_ID_CIUDAD" type="xs:int" minOccurs="0" />
+                  <xs:element name="SE_ID_PROCESO" msprop:DbColumnName="SE_ID_PROCESO" msprop:FriendlyName="SE_ID_PROCESO" type="xs:short" minOccurs="0" />
+                  <xs:element name="SE_ID_PRODUCTO" msprop:DbColumnName="SE_ID_PRODUCTO" msprop:FriendlyName="SE_ID_PRODUCTO" type="xs:short" minOccurs="0" />
+                  <xs:element name="D_ID_CIUDAD_ZONA_URBA" msprop:DbColumnName="D_ID_CIUDAD_ZONA_URBA" msprop:FriendlyName="D_ID_CIUDAD_ZONA_URBA" type="xs:int" minOccurs="0" />
+                  <xs:element name="D_ID_ZONA_URBA" msprop:DbColumnName="D_ID_ZONA_URBA" msprop:FriendlyName="D_ID_ZONA_URBA" type="xs:short" minOccurs="0" />
+                  <xs:element name="D_ID_CONDUCTOR" msprop:DbColumnName="D_ID_CONDUCTOR" msprop:FriendlyName="D_ID_CONDUCTOR" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="D_ID_AUXILIAR1" msprop:DbColumnName="D_ID_AUXILIAR1" msprop:FriendlyName="D_ID_AUXILIAR1" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="D_ID_AUXILIAR2" msprop:DbColumnName="D_ID_AUXILIAR2" msprop:FriendlyName="D_ID_AUXILIAR2" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="D_PLACA_VEHICULO" msprop:DbColumnName="D_PLACA_VEHICULO" msprop:FriendlyName="D_PLACA_VEHICULO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="G_ID_TIEMPO_ENTREGA" msprop:DbColumnName="G_ID_TIEMPO_ENTREGA" msprop:FriendlyName="G_ID_TIEMPO_ENTREGA" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="SE_CANTIDAD_PIEZAS" msprop:DbColumnName="SE_CANTIDAD_PIEZAS" msprop:FriendlyName="SE_CANTIDAD_PIEZAS" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="SE_CANTIDAD_GUIAS" msprop:DbColumnName="SE_CANTIDAD_GUIAS" msprop:FriendlyName="SE_CANTIDAD_GUIAS" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="GIA_VALOR_RECAUDAR" msprop:DbColumnName="GIA_VALOR_RECAUDAR" msprop:FriendlyName="GIA_VALOR_RECAUDAR" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="GIA_NUMERO_CODIGO_EFECTY" msprop:DbColumnName="GIA_NUMERO_CODIGO_EFECTY" msprop:FriendlyName="GIA_NUMERO_CODIGO_EFECTY" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="COD_VALOR_COD" msprop:DbColumnName="COD_VALOR_COD" msprop:FriendlyName="COD_VALOR_COD" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="TIME_ID" msprop:DbColumnName="TIME_ID" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_CLIENTE" msprop:DbColumnName="ID_CLIENTE" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_CIUD_ZONA" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="Clave" msprop:DbColumnName="ID_CIUD_ZONA" msprop:ComputedColumnExpression="CONVERT(VARCHAR(5),D_ID_CIUDAD_ZONA_URBA) + '-' + CONVERT(VARCHAR(4),D_ID_ZONA_URBA)" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CANT_ID_PQR" msprop:DbColumnName="CANT_ID_PQR" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_vwGEOGRAFIA" msprop:DbTableName="vwGEOGRAFIA" msprop:FriendlyName="vwGEOGRAFIA" msprop:DbSchemaName="DIM" msprop:TableType="View">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_CIUDAD" msprop:DbColumnName="ID_CIUDAD" msprop:FriendlyName="ID_CIUDAD" type="xs:int" />
+                  <xs:element name="CIUDAD" msprop:DbColumnName="CIUDAD" msprop:FriendlyName="CIUDAD" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_DEPARTAMENTO" msprop:DbColumnName="ID_DEPARTAMENTO" msprop:FriendlyName="ID_DEPARTAMENTO" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="DEPARTAMENTO" msprop:DbColumnName="DEPARTAMENTO" msprop:FriendlyName="DEPARTAMENTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_REGIONAL" msprop:DbColumnName="ID_REGIONAL" msprop:FriendlyName="ID_REGIONAL" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="REGIONAL" msprop:DbColumnName="REGIONAL" msprop:FriendlyName="REGIONAL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_vwPROCESO_LOGISTICO" msprop:DbTableName="vwPROCESO_LOGISTICO" msprop:FriendlyName="vwPROCESO_LOGISTICO" msprop:DbSchemaName="DIM" msprop:TableType="View">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PROCESO" msprop:DbColumnName="ID_PROCESO" msprop:FriendlyName="ID_PROCESO" type="xs:short" />
+                  <xs:element name="PROCESO_LOGISTICO" msprop:DbColumnName="PROCESO_LOGISTICO" msprop:FriendlyName="PROCESO_LOGISTICO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_vwPRODUCTO" msprop:DbTableName="vwPRODUCTO" msprop:FriendlyName="vwPRODUCTO" msprop:DbSchemaName="DIM" msprop:TableType="View">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PRODUCTO" msprop:DbColumnName="ID_PRODUCTO" msprop:FriendlyName="ID_PRODUCTO" type="xs:short" />
+                  <xs:element name="PRODUCTO" msprop:DbColumnName="PRODUCTO" msprop:FriendlyName="PRODUCTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_vwZONAS_URBANAS" msprop:DbTableName="vwZONAS_URBANAS" msprop:FriendlyName="vwZONAS_URBANAS" msprop:DbSchemaName="DIM" msprop:TableType="View">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PAIS" msprop:DbColumnName="ID_PAIS" msprop:FriendlyName="ID_PAIS" type="xs:short" minOccurs="0" />
+                  <xs:element name="ID_CIUDAD" msprop:DbColumnName="ID_CIUDAD" msprop:FriendlyName="ID_CIUDAD" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_ZONA_URBA" msprop:DbColumnName="ID_ZONA_URBA" msprop:FriendlyName="ID_ZONA_URBA" type="xs:short" minOccurs="0" />
+                  <xs:element name="NOMBRE_ZONA_URBA" msprop:DbColumnName="NOMBRE_ZONA_URBA" msprop:FriendlyName="NOMBRE_ZONA_URBA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_CIUD_ZONA" msdata:ReadOnly="true" msprop:DbColumnName="ID_CIUD_ZONA" msprop:FriendlyName="ID_CIUD_ZONA">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_vwEMPLEADOS" msprop:DbTableName="vwEMPLEADOS" msprop:FriendlyName="vwEMPLEADOS" msprop:DbSchemaName="DIM" msprop:TableType="View">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_EMPLEADO" msprop:DbColumnName="ID_EMPLEADO" msprop:FriendlyName="ID_EMPLEADO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_EMPLEADO" msprop:DbColumnName="NOMBRE_EMPLEADO" msprop:FriendlyName="NOMBRE_EMPLEADO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="APELLIDO_EMPLEADO" msprop:DbColumnName="APELLIDO_EMPLEADO" msprop:FriendlyName="APELLIDO_EMPLEADO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOM_APE_COLABORADOR" msprop:DbColumnName="NOM_APE_COLABORADOR" msprop:FriendlyName="NOM_APE_COLABORADOR" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="85" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_vwTIEMPOENTREGA" msprop:DbTableName="vwTIEMPOENTREGA" msprop:FriendlyName="vwTIEMPOENTREGA" msprop:DbSchemaName="DIM" msprop:TableType="View">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_TIEMPO_ENTREGA" msprop:DbColumnName="ID_TIEMPO_ENTREGA" msprop:FriendlyName="ID_TIEMPO_ENTREGA" type="xs:unsignedByte" />
+                  <xs:element name="TIEMPO_ENTREGA" msprop:DbColumnName="TIEMPO_ENTREGA" msprop:FriendlyName="TIEMPO_ENTREGA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_vwTIEMPO" msprop:DbTableName="vwTIEMPO" msprop:FriendlyName="vwTIEMPO" msprop:DbSchemaName="DIM" msprop:TableType="View">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TIME_ID" msprop:DbColumnName="TIME_ID" msprop:FriendlyName="TIME_ID" type="xs:int" />
+                  <xs:element name="DATE" msprop:DbColumnName="DATE" msprop:FriendlyName="DATE" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="DAY" msprop:DbColumnName="DAY" msprop:FriendlyName="DAY" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="MONTH" msprop:DbColumnName="MONTH" msprop:FriendlyName="MONTH" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="YEAR" msprop:DbColumnName="YEAR" msprop:FriendlyName="YEAR" type="xs:int" minOccurs="0" />
+                  <xs:element name="DAY_OF_MONTH" msprop:DbColumnName="DAY_OF_MONTH" msprop:FriendlyName="DAY_OF_MONTH" type="xs:int" minOccurs="0" />
+                  <xs:element name="WEEK_OF_YEAR" msprop:DbColumnName="WEEK_OF_YEAR" msprop:FriendlyName="WEEK_OF_YEAR" type="xs:int" minOccurs="0" />
+                  <xs:element name="MONTH_OF_YEAR" msprop:DbColumnName="MONTH_OF_YEAR" msprop:FriendlyName="MONTH_OF_YEAR" type="xs:int" minOccurs="0" />
+                  <xs:element name="QUARTER_OF_YEAR" msprop:DbColumnName="QUARTER_OF_YEAR" msprop:FriendlyName="QUARTER_OF_YEAR" type="xs:int" minOccurs="0" />
+                  <xs:element name="Anio_Mes" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Anio_Mes" msprop:ComputedColumnExpression="CONVERT(VARCHAR, YEAR) + RIGHT( '0' + CONVERT(VARCHAR,MONTH_OF_YEAR),2)" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="32" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Anio_Cuatrimestre" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Anio_Cuatrimestre" msprop:ComputedColumnExpression="CONVERT(VARCHAR, YEAR) + RIGHT( '0' + CONVERT(VARCHAR,QUARTER_OF_YEAR),2)" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="32" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="NUMERO_GUIA" msprop:IsLogical="True" msprop:FriendlyName="NUMERO_GUIA" msprop:DbTableName="NUMERO_GUIA" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT DISTINCT SE_NUMERO_GUIA AS NUMERO_GUIA&#xD;&#xA;FROM            FAC.MOVILIZADOS_POR_CLIENTE WITH (NOLOCK)" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="NUMERO_GUIA" msprop:DbColumnName="NUMERO_GUIA" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PLACA_VEHICULO" msprop:IsLogical="True" msprop:FriendlyName="PLACA_VEHICULO" msprop:DbTableName="PLACA_VEHICULO" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT DISTINCT D_PLACA_VEHICULO AS PLACA_VEHICULO&#xD;&#xA;FROM            FAC.MOVILIZADOS_POR_CLIENTE WITH (NOLOCK)" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="PLACA_VEHICULO" msprop:DbColumnName="PLACA_VEHICULO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="CODIGO_EFECTY" msprop:IsLogical="True" msprop:FriendlyName="CODIGO_EFECTY" msprop:DbTableName="CODIGO_EFECTY" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT DISTINCT GIA_NUMERO_CODIGO_EFECTY AS NUMERO_CODIGO_EFECTY&#xD;&#xA;FROM            FAC.MOVILIZADOS_POR_CLIENTE WITH (NOLOCK)" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="NUMERO_CODIGO_EFECTY" msprop:DbColumnName="NUMERO_CODIGO_EFECTY">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_vwCLIENTES" msprop:DbTableName="vwCLIENTES" msprop:FriendlyName="vwCLIENTES" msprop:DbSchemaName="DIM" msprop:TableType="View">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_CLIENTE" msprop:DbColumnName="ID_CLIENTE" msprop:FriendlyName="ID_CLIENTE">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE" msprop:DbColumnName="NOMBRE" msprop:FriendlyName="NOMBRE" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="60" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="APELLIDO" msprop:DbColumnName="APELLIDO" msprop:FriendlyName="APELLIDO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="RAZON_SOCIAL_CORTA" msprop:DbColumnName="RAZON_SOCIAL_CORTA" msprop:FriendlyName="RAZON_SOCIAL_CORTA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="TIPO_CLIENTE" msprop:DbColumnName="TIPO_CLIENTE" msprop:FriendlyName="TIPO_CLIENTE" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="CANT_ID_PROCESO_GUIA" msprop:IsLogical="True" msprop:FriendlyName="CANT_ID_PROCESO_GUIA" msprop:DbTableName="CANT_ID_PROCESO_GUIA" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT        SE_NUMERO_GUIA, COUNT(SE_ID_PROCESO) AS CANT_ID_PROCESO&#xD;&#xA;FROM            FAC.MOVILIZADOS_POR_CLIENTE WITH (NOLOCK)&#xD;&#xA;GROUP BY SE_NUMERO_GUIA" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SE_NUMERO_GUIA" msprop:DbColumnName="SE_NUMERO_GUIA" msprop:FriendlyName="SE_NUMERO_GUIA" type="xs:decimal" />
+                  <xs:element name="CANT_ID_PROCESO" msdata:ReadOnly="true" msprop:DbColumnName="CANT_ID_PROCESO" msprop:FriendlyName="CANT_ID_PROCESO" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="CANT_ID_PROCESO" msprop:IsLogical="True" msprop:FriendlyName="CANT_ID_PROCESO" msprop:DbTableName="CANT_ID_PROCESO" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT DISTINCT CANT_ID_PQR&#xD;&#xA;FROM            FAC.MOVILIZADOS_POR_CLIENTE WITH (NOLOCK)" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CANT_ID_PQR" msprop:DbColumnName="CANT_ID_PQR" msprop:FriendlyName="CANT_ID_PQR" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="FAC_MOVILIZADOS_POR_CLIENTE_GUIAS" msprop:DbTableName="MOVILIZADOS_POR_CLIENTE_GUIAS" msprop:FriendlyName="MOVILIZADOS_POR_CLIENTE_GUIAS" msprop:DbSchemaName="FAC" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SE_TIME_ID_HM" msprop:DbColumnName="SE_TIME_ID_HM" msprop:FriendlyName="SE_TIME_ID_HM" type="xs:int" minOccurs="0" />
+                  <xs:element name="SE_FECHA_HM" msprop:DbColumnName="SE_FECHA_HM" msprop:FriendlyName="SE_FECHA_HM" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="SE_NUMERO_GUIA" msprop:DbColumnName="SE_NUMERO_GUIA" msprop:FriendlyName="SE_NUMERO_GUIA" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="G_ID_CLIENTE" msprop:DbColumnName="G_ID_CLIENTE" msprop:FriendlyName="G_ID_CLIENTE" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="G_ID_TIEMPO_ENTREGA" msprop:DbColumnName="G_ID_TIEMPO_ENTREGA" msprop:FriendlyName="G_ID_TIEMPO_ENTREGA" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="SE_CANTIDAD_PIEZAS" msprop:DbColumnName="SE_CANTIDAD_PIEZAS" msprop:FriendlyName="SE_CANTIDAD_PIEZAS" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="SE_CANTIDAD_GUIAS" msprop:DbColumnName="SE_CANTIDAD_GUIAS" msprop:FriendlyName="SE_CANTIDAD_GUIAS" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="GIA_VALOR_RECAUDAR" msprop:DbColumnName="GIA_VALOR_RECAUDAR" msprop:FriendlyName="GIA_VALOR_RECAUDAR" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="GIA_ID_FORMA_PAGO_GUIA" msprop:DbColumnName="GIA_ID_FORMA_PAGO_GUIA" msprop:FriendlyName="GIA_ID_FORMA_PAGO_GUIA" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="GIA_NUMERO_CODIGO_EFECTY" msprop:DbColumnName="GIA_NUMERO_CODIGO_EFECTY" msprop:FriendlyName="GIA_NUMERO_CODIGO_EFECTY" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="COD_VALOR_COD" msprop:DbColumnName="COD_VALOR_COD" msprop:FriendlyName="COD_VALOR_COD" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="FAC_MOVILIZADOS_POR_CLIENTE_PROCESOS" msprop:DbTableName="MOVILIZADOS_POR_CLIENTE_PROCESOS" msprop:FriendlyName="MOVILIZADOS_POR_CLIENTE_PROCESOS" msprop:DbSchemaName="FAC" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SE_TIME_ID_HM" msprop:DbColumnName="SE_TIME_ID_HM" msprop:FriendlyName="SE_TIME_ID_HM" type="xs:int" minOccurs="0" />
+                  <xs:element name="SE_FECHA_HM" msprop:DbColumnName="SE_FECHA_HM" msprop:FriendlyName="SE_FECHA_HM" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="SE_NUMERO_GUIA" msprop:DbColumnName="SE_NUMERO_GUIA" msprop:FriendlyName="SE_NUMERO_GUIA" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="G_ID_CLIENTE" msprop:DbColumnName="G_ID_CLIENTE" msprop:FriendlyName="G_ID_CLIENTE" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="G_ID_TIEMPO_ENTREGA" msprop:DbColumnName="G_ID_TIEMPO_ENTREGA" msprop:FriendlyName="G_ID_TIEMPO_ENTREGA" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="D_ID_CIUDAD" msprop:DbColumnName="D_ID_CIUDAD" msprop:FriendlyName="D_ID_CIUDAD" type="xs:int" minOccurs="0" />
+                  <xs:element name="SE_ID_PROCESO" msprop:DbColumnName="SE_ID_PROCESO" msprop:FriendlyName="SE_ID_PROCESO" type="xs:short" minOccurs="0" />
+                  <xs:element name="SE_ID_PRODUCTO" msprop:DbColumnName="SE_ID_PRODUCTO" msprop:FriendlyName="SE_ID_PRODUCTO" type="xs:short" minOccurs="0" />
+                  <xs:element name="D_ID_CIUDAD_ZONA_URBA" msprop:DbColumnName="D_ID_CIUDAD_ZONA_URBA" msprop:FriendlyName="D_ID_CIUDAD_ZONA_URBA" type="xs:int" minOccurs="0" />
+                  <xs:element name="D_ID_ZONA_URBA" msprop:DbColumnName="D_ID_ZONA_URBA" msprop:FriendlyName="D_ID_ZONA_URBA" type="xs:short" minOccurs="0" />
+                  <xs:element name="D_ID_CONDUCTOR" msprop:DbColumnName="D_ID_CONDUCTOR" msprop:FriendlyName="D_ID_CONDUCTOR" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="D_ID_AUXILIAR1" msprop:DbColumnName="D_ID_AUXILIAR1" msprop:FriendlyName="D_ID_AUXILIAR1" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="D_ID_AUXILIAR2" msprop:DbColumnName="D_ID_AUXILIAR2" msprop:FriendlyName="D_ID_AUXILIAR2" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="D_PLACA_VEHICULO" msprop:DbColumnName="D_PLACA_VEHICULO" msprop:FriendlyName="D_PLACA_VEHICULO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="ID_CIUD_ZONA" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="ID_CIUD_ZONA" msprop:ComputedColumnExpression="CONVERT(VARCHAR(5),D_ID_CIUDAD_ZONA_URBA) + '-' + CONVERT(VARCHAR(4),D_ID_ZONA_URBA)" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="NUM_GUIA" msprop:IsLogical="True" msprop:FriendlyName="NUM_GUIA" msprop:DbTableName="NUM_GUIA" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT DISTINCT SE_NUMERO_GUIA AS NUMERO_GUIA&#xD;&#xA;FROM            FAC.MOVILIZADOS_POR_CLIENTE_GUIAS WITH (NOLOCK)" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="NUMERO_GUIA" msprop:DbColumnName="NUMERO_GUIA" msprop:FriendlyName="NUMERO_GUIA" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_vwFORMA_PAGO" msprop:DbTableName="vwFORMA_PAGO" msprop:FriendlyName="vwFORMA_PAGO" msprop:DbSchemaName="DIM" msprop:TableType="View">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_FORMAPAGO" msprop:DbColumnName="ID_FORMAPAGO" msprop:FriendlyName="ID_FORMAPAGO" type="xs:unsignedByte" />
+                  <xs:element name="FORMA_DE_PAGO" msprop:DbColumnName="FORMA_DE_PAGO" msprop:FriendlyName="FORMA_DE_PAGO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="COD_EFECTY" msprop:IsLogical="True" msprop:FriendlyName="COD_EFECTY" msprop:DbTableName="COD_EFECTY" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT DISTINCT GIA_NUMERO_CODIGO_EFECTY AS NUMERO_CODIGO_EFECTY&#xD;&#xA;FROM            FAC.MOVILIZADOS_POR_CLIENTE_GUIAS WITH (NOLOCK)" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="NUMERO_CODIGO_EFECTY" msprop:DbColumnName="NUMERO_CODIGO_EFECTY" msprop:FriendlyName="NUMERO_CODIGO_EFECTY">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PLACA_VEHIC" msprop:IsLogical="True" msprop:FriendlyName="PLACA_VEHIC" msprop:DbTableName="PLACA_VEHIC" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT DISTINCT D_PLACA_VEHICULO AS PLACA_VEHICULO&#xD;&#xA;FROM            FAC.MOVILIZADOS_POR_CLIENTE_PROCESOS WITH (NOLOCK)" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="PLACA_VEHICULO" msprop:DbColumnName="PLACA_VEHICULO" msprop:FriendlyName="PLACA_VEHICULO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_vwGEOGRAFIA" />
+          <xs:field xpath="ID_CIUDAD" />
+        </xs:unique>
+        <xs:unique name="DIM_vwPROCESO_LOGISTICO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_vwPROCESO_LOGISTICO" />
+          <xs:field xpath="ID_PROCESO" />
+        </xs:unique>
+        <xs:unique name="DIM_vwPRODUCTO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_vwPRODUCTO" />
+          <xs:field xpath="ID_PRODUCTO" />
+        </xs:unique>
+        <xs:unique name="DIM_vwZONAS_URBANAS_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_vwZONAS_URBANAS" />
+          <xs:field xpath="ID_CIUD_ZONA" />
+        </xs:unique>
+        <xs:unique name="DIM_vwEMPLEADOS_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_vwEMPLEADOS" />
+          <xs:field xpath="ID_EMPLEADO" />
+        </xs:unique>
+        <xs:unique name="DIM_vwTIEMPOENTREGA_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_vwTIEMPOENTREGA" />
+          <xs:field xpath="ID_TIEMPO_ENTREGA" />
+        </xs:unique>
+        <xs:unique name="DIM_vwTIEMPO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_vwTIEMPO" />
+          <xs:field xpath="TIME_ID" />
+        </xs:unique>
+        <xs:unique name="NUMERO_GUIA_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//NUMERO_GUIA" />
+          <xs:field xpath="NUMERO_GUIA" />
+        </xs:unique>
+        <xs:unique name="PLACA_VEHICULO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PLACA_VEHICULO" />
+          <xs:field xpath="PLACA_VEHICULO" />
+        </xs:unique>
+        <xs:unique name="CODIGO_EFECTY_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//CODIGO_EFECTY" />
+          <xs:field xpath="NUMERO_CODIGO_EFECTY" />
+        </xs:unique>
+        <xs:unique name="DIM_vwCLIENTES_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_vwCLIENTES" />
+          <xs:field xpath="ID_CLIENTE" />
+        </xs:unique>
+        <xs:unique name="CANT_ID_PROCESO_GUIA_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//CANT_ID_PROCESO_GUIA" />
+          <xs:field xpath="SE_NUMERO_GUIA" />
+        </xs:unique>
+        <xs:unique name="CANT_ID_PROCESO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//CANT_ID_PROCESO" />
+          <xs:field xpath="CANT_ID_PQR" />
+        </xs:unique>
+        <xs:unique name="NUM_GUIA_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//NUM_GUIA" />
+          <xs:field xpath="NUMERO_GUIA" />
+        </xs:unique>
+        <xs:unique name="DIM_vwFORMA_PAGO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_vwFORMA_PAGO" />
+          <xs:field xpath="ID_FORMAPAGO" />
+        </xs:unique>
+        <xs:unique name="COD_EFECTY_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//COD_EFECTY" />
+          <xs:field xpath="NUMERO_CODIGO_EFECTY" />
+        </xs:unique>
+        <xs:unique name="PLACA_VEHIC_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PLACA_VEHIC" />
+          <xs:field xpath="PLACA_VEHICULO" />
+        </xs:unique>
+      </xs:element>
+      <xs:annotation>
+        <xs:appinfo>
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-vwTIEMPO" msdata:parent="DIM_vwTIEMPO" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="TIME_ID" msdata:childkey="TIME_ID" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-vwGEOGRAFIA" msdata:parent="DIM_vwGEOGRAFIA" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="ID_CIUDAD" msdata:childkey="D_ID_CIUDAD" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-vwPROCESO_LOGISTICO" msdata:parent="DIM_vwPROCESO_LOGISTICO" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="ID_PROCESO" msdata:childkey="SE_ID_PROCESO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-vwPRODUCTO" msdata:parent="DIM_vwPRODUCTO" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="ID_PRODUCTO" msdata:childkey="SE_ID_PRODUCTO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-vwZONAS_URBANAS" msdata:parent="DIM_vwZONAS_URBANAS" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="ID_CIUD_ZONA" msdata:childkey="ID_CIUD_ZONA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-vwEMPLEADOS" msdata:parent="DIM_vwEMPLEADOS" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="ID_EMPLEADO" msdata:childkey="D_ID_CONDUCTOR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-vwEMPLEADOS1" msdata:parent="DIM_vwEMPLEADOS" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="ID_EMPLEADO" msdata:childkey="D_ID_AUXILIAR1" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-vwEMPLEADOS2" msdata:parent="DIM_vwEMPLEADOS" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="ID_EMPLEADO" msdata:childkey="D_ID_AUXILIAR2" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-vwTIEMPOENTREGA" msdata:parent="DIM_vwTIEMPOENTREGA" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="ID_TIEMPO_ENTREGA" msdata:childkey="G_ID_TIEMPO_ENTREGA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-vwCLIENTES" msdata:parent="DIM_vwCLIENTES" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="ID_CLIENTE" msdata:childkey="ID_CLIENTE" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-CODIGO_EFECTY" msdata:parent="CODIGO_EFECTY" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="NUMERO_CODIGO_EFECTY" msdata:childkey="GIA_NUMERO_CODIGO_EFECTY" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-PLACA_VEHICULO" msdata:parent="PLACA_VEHICULO" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="PLACA_VEHICULO" msdata:childkey="D_PLACA_VEHICULO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-NUMERO_GUIA" msdata:parent="NUMERO_GUIA" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="NUMERO_GUIA" msdata:childkey="SE_NUMERO_GUIA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-CANT_ID_PROCESO_GUIA" msdata:parent="CANT_ID_PROCESO_GUIA" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="SE_NUMERO_GUIA" msdata:childkey="SE_NUMERO_GUIA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE-CANT_ID_PROCESO" msdata:parent="CANT_ID_PROCESO" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE" msdata:parentkey="CANT_ID_PQR" msdata:childkey="CANT_ID_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_GUIAS-vwTIEMPO" msdata:parent="DIM_vwTIEMPO" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_GUIAS" msdata:parentkey="TIME_ID" msdata:childkey="SE_TIME_ID_HM" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_PROCESOS-vwTIEMPO" msdata:parent="DIM_vwTIEMPO" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_PROCESOS" msdata:parentkey="TIME_ID" msdata:childkey="SE_TIME_ID_HM" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_GUIAS-NUM_GUIA" msdata:parent="NUM_GUIA" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_GUIAS" msdata:parentkey="NUMERO_GUIA" msdata:childkey="SE_NUMERO_GUIA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_PROCESOS-NUM_GUIA" msdata:parent="NUM_GUIA" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_PROCESOS" msdata:parentkey="NUMERO_GUIA" msdata:childkey="SE_NUMERO_GUIA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_GUIAS-vwFORMA_PAGO" msdata:parent="DIM_vwFORMA_PAGO" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_GUIAS" msdata:parentkey="ID_FORMAPAGO" msdata:childkey="GIA_ID_FORMA_PAGO_GUIA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_PROCESOS-vwTIEMPOENTREGA" msdata:parent="DIM_vwTIEMPOENTREGA" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_PROCESOS" msdata:parentkey="ID_TIEMPO_ENTREGA" msdata:childkey="G_ID_TIEMPO_ENTREGA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_PROCESOS-vwZONAS_URBANAS" msdata:parent="DIM_vwZONAS_URBANAS" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_PROCESOS" msdata:parentkey="ID_CIUD_ZONA" msdata:childkey="ID_CIUD_ZONA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_PROCESOS-vwEMPLEADOS" msdata:parent="DIM_vwEMPLEADOS" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_PROCESOS" msdata:parentkey="ID_EMPLEADO" msdata:childkey="D_ID_CONDUCTOR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_PROCESOS-vwEMPLEADOS1" msdata:parent="DIM_vwEMPLEADOS" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_PROCESOS" msdata:parentkey="ID_EMPLEADO" msdata:childkey="D_ID_AUXILIAR1" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_PROCESOS-vwEMPLEADOS2" msdata:parent="DIM_vwEMPLEADOS" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_PROCESOS" msdata:parentkey="ID_EMPLEADO" msdata:childkey="D_ID_AUXILIAR2" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_PROCESOS-vwGEOGRAFIA" msdata:parent="DIM_vwGEOGRAFIA" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_PROCESOS" msdata:parentkey="ID_CIUDAD" msdata:childkey="D_ID_CIUDAD" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_PROCESOS-vwPRODUCTO" msdata:parent="DIM_vwPRODUCTO" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_PROCESOS" msdata:parentkey="ID_PRODUCTO" msdata:childkey="SE_ID_PRODUCTO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_PROCESOS-vwPROCESO_LOGISTICO" msdata:parent="DIM_vwPROCESO_LOGISTICO" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_PROCESOS" msdata:parentkey="ID_PROCESO" msdata:childkey="SE_ID_PROCESO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_PROCESOS-vwCLIENTES" msdata:parent="DIM_vwCLIENTES" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_PROCESOS" msdata:parentkey="ID_CLIENTE" msdata:childkey="G_ID_CLIENTE" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_GUIAS-COD_EFECTY" msdata:parent="COD_EFECTY" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_GUIAS" msdata:parentkey="NUMERO_CODIGO_EFECTY" msdata:childkey="GIA_NUMERO_CODIGO_EFECTY" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MOVILIZADOS_POR_CLIENTE_PROCESOS-PLACA_VEHIC" msdata:parent="PLACA_VEHIC" msdata:child="FAC_MOVILIZADOS_POR_CLIENTE_PROCESOS" msdata:parentkey="PLACA_VEHICULO" msdata:childkey="D_PLACA_VEHICULO" msprop:IsLogical="True" msprop:Description="" />
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:schema>
+    <SIG_LOGISTICA_DM xmlns="" />
+  </Schema>
+</DataSourceView>

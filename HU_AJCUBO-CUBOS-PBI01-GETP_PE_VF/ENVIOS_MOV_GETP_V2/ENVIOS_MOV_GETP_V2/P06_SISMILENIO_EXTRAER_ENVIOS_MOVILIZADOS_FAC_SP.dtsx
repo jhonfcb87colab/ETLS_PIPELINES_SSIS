@@ -1,0 +1,1349 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/26/2016 9:49:20 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SERV-DBI01"
+  DTS:CreatorName="SERVIENT\diana.beltran"
+  DTS:DTSID="{6A808C7D-BB4F-4E74-A2DA-570764E69B8A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="P06_SISMILENIO_EXTRAER_ENVIOS_MOVILIZADOS_FAC_SP"
+  DTS:PackageType="5"
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{358E29F6-90AD-45AC-9B7F-5AA790AF5114}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FF19B07D-A7E4-4E55-8C65-4A2AB0DAE29C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DATE) @[$Project::FULL_FACH_FIN] == (DT_DATE) &quot;1900-01-01&quot;?&#xA;(DT_DATE)((DT_WSTR,4)YEAR(DATEADD(&quot;DD&quot;, 1 ,GETDATE()))+&quot;-&quot;+RIGHT(&quot;0&quot;+(DT_WSTR,2)MONTH(DATEADD(&quot;DD&quot;,1,GETDATE())),2)+&quot;-&quot;+RIGHT(&quot;0&quot;+(DT_WSTR,2)DAY(DATEADD(&quot;DD&quot;,1,GETDATE())),2))&#xA;: (DT_DATE) @[$Project::FULL_FACH_FIN]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FechaFin">
+      <DTS:VariableValue
+        DTS:DataType="7">10/31/2026</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D14B0169-E30F-4184-8F5D-FC85DB1A9389}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DATE)   @[$Project::FULL_FACH_INI]    == (DT_DATE) &quot;1900-01-01&quot;? &#xA;(DT_DATE)((DT_WSTR,4)YEAR(DATEADD(&quot;DD&quot;, -@[$Project::DiaIni], GETDATE()))+&quot;-&quot;&#xA;+RIGHT(&quot;0&quot;+(DT_WSTR,2)MONTH(DATEADD(&quot;DD&quot;,-@[$Project::DiaIni],GETDATE() )),2)+&quot;-&quot;&#xA;+RIGHT(&quot;0&quot;+(DT_WSTR,2)DAY(DATEADD(&quot;DD&quot;, -@[$Project::DiaIni],GETDATE() )),2))&#xA;: (DT_DATE) @[$Project::FULL_FACH_INI]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FechaIni">
+      <DTS:VariableValue
+        DTS:DataType="7">10/20/2026</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3C74BCB9-5DF1-4731-B634-A9810E68D573}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot; DECLARE @FEC_INI  INT  =   CONVERT(INT, CONVERT( DATETIME, '&quot;+ @[User::STR_FechaIni] +&quot;' ) )&#xA;, @FEC_FIN  INT  =   CONVERT(INT, CONVERT( DATETIME, '&quot;+ @[User::STR_FechaFin] +&quot;' ) )&#xA;&#xA;-------------------------&#xA;--Ingreso Tiempo Oferta&#xA;-------------------------&#xA;&#xA;SELECT&#x9;DISTINCT EM.ID_CIUDAD_ORIGEN, &#xA;&#x9;&#x9;EM.ID_CIUDAD_DESTINO, &#xA;&#x9;&#x9;TIEMPO_EN_ENTREGA,&#xA;&#x9;&#x9;TIEMPO_ENTREGA_COMERCIAL AS T_CIAL&#xA;&#x9;&#x9;INTO #CLIENTE_CORPORATIVO_RED_OPERATIVA &#xA;FROM&#x9;FAC.ENVIOS_MOVILIZADOS  AS EM WITH(NOLOCK)&#xA;&#x9;&#x9;INNER JOIN DIM.RED_OPERATIVA_TIEMPO_TAB_F AS RED WITH(NOLOCK) ON &#xA;&#x9;( EM.TIME_ID &gt;= @FEC_INI AND  EM.TIME_ID &lt; @FEC_FIN )  AND&#xA;&#x9;EM.ID_CIUDAD_ORIGEN = RED.ID_CIUDAD_ORIGEN &#xA;&#x9;AND EM.ID_CIUDAD_DESTINO = RED.ID_CIUDAD_DESTINO&#xA;&#xA;CREATE INDEX IDX_ENVIOS_MOVILIZADOS1 ON #CLIENTE_CORPORATIVO_RED_OPERATIVA&#xA;(ID_CIUDAD_ORIGEN,ID_CIUDAD_DESTINO,TIEMPO_EN_ENTREGA)&#xA;&#xA;UPDATE&#x9;FAC.ENVIOS_MOVILIZADOS&#xA;SET&#x9;&#x9;&#xA;&#x9;TIEMPO_OFERTA = ISNULL(RO.T_CIAL,36) * CANT_GUIAS&#xA;FROM&#x9;FAC.ENVIOS_MOVILIZADOS AS EM WITH(NOLOCK)&#xA;&#x9;&#x9;INNER JOIN #CLIENTE_CORPORATIVO_RED_OPERATIVA AS RO ON&#x9;&#xA;&#x9;( EM.TIME_ID &gt;= @FEC_INI AND  EM.TIME_ID &lt; @FEC_FIN ) AND&#xA;&#x9;EM.ID_CIUDAD_ORIGEN = RO.ID_CIUDAD_ORIGEN&#xA;&#x9;AND EM.ID_CIUDAD_DESTINO = RO.ID_CIUDAD_DESTINO&#xA;&#x9;AND EM.TIEMPO_EN_ENTREGA = RO.TIEMPO_EN_ENTREGA&#xA;&#xA;&#xA;DROP TABLE IF EXISTS  #CLIENTE_CORPORATIVO_RED_OPERATIVA&#xA;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IngresoTiempoOferta">
+      <DTS:VariableValue
+        DTS:DataType="8"> DECLARE @FEC_INI  INT  =   CONVERT(INT, CONVERT( DATETIME, '20261020' ) )
+, @FEC_FIN  INT  =   CONVERT(INT, CONVERT( DATETIME, '20261031' ) )
+
+-------------------------
+--Ingreso Tiempo Oferta
+-------------------------
+
+SELECT	DISTINCT EM.ID_CIUDAD_ORIGEN, 
+		EM.ID_CIUDAD_DESTINO, 
+		TIEMPO_EN_ENTREGA,
+		TIEMPO_ENTREGA_COMERCIAL AS T_CIAL
+		INTO #CLIENTE_CORPORATIVO_RED_OPERATIVA 
+FROM	FAC.ENVIOS_MOVILIZADOS  AS EM WITH(NOLOCK)
+		INNER JOIN DIM.RED_OPERATIVA_TIEMPO_TAB_F AS RED WITH(NOLOCK) ON 
+	( EM.TIME_ID &gt;= @FEC_INI AND  EM.TIME_ID &lt; @FEC_FIN )  AND
+	EM.ID_CIUDAD_ORIGEN = RED.ID_CIUDAD_ORIGEN 
+	AND EM.ID_CIUDAD_DESTINO = RED.ID_CIUDAD_DESTINO
+
+CREATE INDEX IDX_ENVIOS_MOVILIZADOS1 ON #CLIENTE_CORPORATIVO_RED_OPERATIVA
+(ID_CIUDAD_ORIGEN,ID_CIUDAD_DESTINO,TIEMPO_EN_ENTREGA)
+
+UPDATE	FAC.ENVIOS_MOVILIZADOS
+SET		
+	TIEMPO_OFERTA = ISNULL(RO.T_CIAL,36) * CANT_GUIAS
+FROM	FAC.ENVIOS_MOVILIZADOS AS EM WITH(NOLOCK)
+		INNER JOIN #CLIENTE_CORPORATIVO_RED_OPERATIVA AS RO ON	
+	( EM.TIME_ID &gt;= @FEC_INI AND  EM.TIME_ID &lt; @FEC_FIN ) AND
+	EM.ID_CIUDAD_ORIGEN = RO.ID_CIUDAD_ORIGEN
+	AND EM.ID_CIUDAD_DESTINO = RO.ID_CIUDAD_DESTINO
+	AND EM.TIEMPO_EN_ENTREGA = RO.TIEMPO_EN_ENTREGA
+
+
+DROP TABLE IF EXISTS  #CLIENTE_CORPORATIVO_RED_OPERATIVA
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D0F0916D-15CD-49C5-A0B3-274F20909CD2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_WSTR, 10)&#xA;( &#xA;&#x9;(&#xA;&#x9;&#x9;(&#xA;&#x9;&#x9;&#x9;(  YEAR( @[User::FechaFin] )*100 )   &#xA;&#x9;&#x9;&#x9;+&#xA;&#x9;&#x9;&#x9;(  MONTH( @[User::FechaFin] )  )&#xA;&#x9;&#x9;)*100&#xA;&#x9;)+ DAY( @[User::FechaFin] )&#xA;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="STR_FechaFin">
+      <DTS:VariableValue
+        DTS:DataType="8">20261031</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3B433DE8-FB6D-421E-AEAF-4D8ED292056C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_WSTR, 10)&#xA;( &#xA;&#x9;(&#xA;&#x9;&#x9;(&#xA;&#x9;&#x9;&#x9;(  YEAR( @[User::FechaIni]  )*100 )   &#xA;&#x9;&#x9;&#x9;+&#xA;&#x9;&#x9;&#x9;(  MONTH( @[User::FechaIni] )  )&#xA;&#x9;&#x9;)*100&#xA;&#x9;)+ DAY( @[User::FechaIni] )&#xA;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="STR_FechaIni">
+      <DTS:VariableValue
+        DTS:DataType="8">20261020</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task TMP a FAC Envios_Movilizados"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{5DD30EF7-D8E0-4C60-990E-30E90F2A3075}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task TMP a FAC Envios_Movilizados"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) )"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) )"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[FAC].[ENVIOS_MOVILIZADOS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Connections[OleDbConnection]"
+                  connectionManagerID="{57E6F15A-0984-4D7E-A335-3C620BDD84C4}:invalid"
+                  connectionManagerRefId="{57E6F15A-0984-4D7E-A335-3C620BDD84C4}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[FECHA]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FECHA"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[FECHA]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[FECHA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[DIA]"
+                      cachedDataType="i4"
+                      cachedName="DIA"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[DIA]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[DIA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[MES]"
+                      cachedDataType="i4"
+                      cachedName="MES"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[MES]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[MES]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[AÑO]"
+                      cachedDataType="i4"
+                      cachedName="AÑO"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[AÑO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[AÑO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_PAIS_ORIGEN]"
+                      cachedDataType="i2"
+                      cachedName="ID_PAIS_ORIGEN"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_ORIGEN]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_PAIS_ORIGEN]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_CIUDAD_ORIGEN]"
+                      cachedDataType="i4"
+                      cachedName="ID_CIUDAD_ORIGEN"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_ORIGEN]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_ORIGEN]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_PAIS_DESTINO]"
+                      cachedDataType="i2"
+                      cachedName="ID_PAIS_DESTINO"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_DESTINO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_PAIS_DESTINO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_CIUDAD_DESTINO]"
+                      cachedDataType="i4"
+                      cachedName="ID_CIUDAD_DESTINO"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_DESTINO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_DESTINO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_TIPO_GUIA]"
+                      cachedDataType="ui1"
+                      cachedName="ID_TIPO_GUIA"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPO_GUIA]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_TIPO_GUIA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_CLIENTE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="ID_CLIENTE"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_ESTADO_ENVIO]"
+                      cachedDataType="ui1"
+                      cachedName="ID_ESTADO_ENVIO"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADO_ENVIO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_ESTADO_ENVIO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_PROCESO]"
+                      cachedDataType="i2"
+                      cachedName="ID_PROCESO"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_PROCESO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_PROCESO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_MED_TRANS]"
+                      cachedDataType="ui1"
+                      cachedName="ID_MED_TRANS"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_MED_TRANS]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_MED_TRANS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_PRODUCTO]"
+                      cachedDataType="i2"
+                      cachedName="ID_PRODUCTO"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUCTO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_SUBPRODUCTO]"
+                      cachedDataType="i2"
+                      cachedName="ID_SUBPRODUCTO"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_SUBPRODUCTO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_SUBPRODUCTO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_ESTADO_GUIA]"
+                      cachedDataType="ui1"
+                      cachedName="ID_ESTADO_GUIA"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADO_GUIA]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_ESTADO_GUIA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_TIEMPO_ENTREGA]"
+                      cachedDataType="ui1"
+                      cachedName="ID_TIEMPO_ENTREGA"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_TIEMPO_ENTREGA]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_TIEMPO_ENTREGA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[ID_REQ_EMBALAJE]"
+                      cachedDataType="ui1"
+                      cachedName="ID_REQ_EMBALAJE"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_REQ_EMBALAJE]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_REQ_EMBALAJE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[CANT_GUIAS]"
+                      cachedDataType="i4"
+                      cachedName="CANT_GUIAS"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[CANT_GUIAS]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[CANT_GUIAS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[CANT_PIEZAS]"
+                      cachedDataType="i4"
+                      cachedName="CANT_PIEZAS"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[CANT_PIEZAS]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[CANT_PIEZAS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[TIEMPO_EN_DIGITALIZAR]"
+                      cachedDataType="i4"
+                      cachedName="TIEMPO_EN_DIGITALIZAR"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[TIEMPO_EN_DIGITALIZAR]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[TIEMPO_EN_DIGITALIZAR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[TIEMPO_ENTREGA]"
+                      cachedDataType="i4"
+                      cachedName="TIEMPO_ENTREGA"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[TIEMPO_EN_ENTREGA]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[TIEMPO_ENTREGA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].Columns[TIMEID]"
+                      cachedDataType="numeric"
+                      cachedName="TIMEID"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[TIME_ID]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[TIMEID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[TIME_ID]"
+                      dataType="i4"
+                      name="TIME_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[FECHA]"
+                      dataType="dbTimeStamp"
+                      name="FECHA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[DIA]"
+                      dataType="i4"
+                      name="DIA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[MES]"
+                      dataType="i4"
+                      name="MES" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[AÑO]"
+                      dataType="i4"
+                      name="AÑO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_ORIGEN]"
+                      dataType="i2"
+                      name="ID_PAIS_ORIGEN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_ORIGEN]"
+                      dataType="i4"
+                      name="ID_CIUDAD_ORIGEN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_DESTINO]"
+                      dataType="i2"
+                      name="ID_PAIS_DESTINO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_DESTINO]"
+                      dataType="i4"
+                      name="ID_CIUDAD_DESTINO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPO_GUIA]"
+                      dataType="ui1"
+                      name="ID_TIPO_GUIA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ID_CLIENTE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADO_ENVIO]"
+                      dataType="ui1"
+                      name="ID_ESTADO_ENVIO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_PROCESO]"
+                      dataType="i2"
+                      name="ID_PROCESO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_MED_TRANS]"
+                      dataType="ui1"
+                      name="ID_MED_TRANS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUCTO]"
+                      dataType="i2"
+                      name="ID_PRODUCTO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_SUBPRODUCTO]"
+                      dataType="i2"
+                      name="ID_SUBPRODUCTO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADO_GUIA]"
+                      dataType="ui1"
+                      name="ID_ESTADO_GUIA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_TIEMPO_ENTREGA]"
+                      dataType="ui1"
+                      name="ID_TIEMPO_ENTREGA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_REQ_EMBALAJE]"
+                      dataType="ui1"
+                      name="ID_REQ_EMBALAJE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[CANT_GUIAS]"
+                      dataType="numeric"
+                      name="CANT_GUIAS"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[CANT_PIEZAS]"
+                      dataType="numeric"
+                      name="CANT_PIEZAS"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[TIEMPO_OFERTA]"
+                      dataType="numeric"
+                      name="TIEMPO_OFERTA"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[TIEMPO_EN_ENTREGA]"
+                      dataType="numeric"
+                      name="TIEMPO_EN_ENTREGA"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[TIEMPO_EN_DIGITALIZAR]"
+                      dataType="numeric"
+                      name="TIEMPO_EN_DIGITALIZAR"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[TIEMPO_PROMESA_H]"
+                      dataType="numeric"
+                      name="TIEMPO_PROMESA_H"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[TIEMPO_PROMESA_CUMPLE_H]"
+                      dataType="numeric"
+                      name="TIEMPO_PROMESA_CUMPLE_H"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[TIEMPO_PROMESA_CUMPLE_D]"
+                      dataType="numeric"
+                      name="TIEMPO_PROMESA_CUMPLE_D"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPO_FORMATO_IMPRESION]"
+                      dataType="i4"
+                      name="ID_TIPO_FORMATO_IMPRESION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_CODIGO_ZONA_ORIG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ID_CODIGO_ZONA_ORIG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[ID_CODIGO_ZONA_DEST]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ID_CODIGO_ZONA_DEST" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[CANT_GUIAS_RURAL]"
+                      dataType="numeric"
+                      name="CANT_GUIAS_RURAL"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input].ExternalColumns[CANT_PIEZAS_RURAL]"
+                      dataType="numeric"
+                      name="CANT_PIEZAS_RURAL"
+                      precision="18" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source TMP"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">/*************************************************************************************
+	CUBO: ENVIOS MOVILIZADOS
+	FECHA: 10/05/2017	POR: D. MILEIDY BELTRÁN L.
+	COMO NO SE CALCULA EL TIEMPO DE PROMESA PARA ESTE CUBO (APARTE), SE DEJA SOLO 
+	EL SCRIPT TENIENDO COMO FUENTE LA TABLA TMP.ENVIOS_MOV.
+	IMPLEMENTACIÓN A PARTIR DE ABRIL 2017	
+**************************************************************************************/
+
+SELECT CONVERT(NUMERIC,CONVERT(DATETIME,CONVERT(CHAR(11),EM.FECHA_ENVIO)))AS TIMEID
+	,CONVERT(DATETIME,CONVERT(CHAR(11),EM.FECHA_ENVIO))AS FECHA
+	,DAY (EM.FECHA_ENVIO) AS DIA
+	,MONTH (EM.FECHA_ENVIO) AS MES
+	,YEAR (EM.FECHA_ENVIO) AS AÑO
+	,ISNULL(EM.ID_PAIS_ORIGEN,0) AS ID_PAIS_ORIGEN
+	,ISNULL(EM.ID_CIUDAD_ORIGEN,0) AS ID_CIUDAD_ORIGEN
+	,ISNULL(EM.ID_PAIS_DESTINO,0) AS ID_PAIS_DESTINO
+	,ISNULL(EM.ID_CIUDAD_DESTINO,0) AS ID_CIUDAD_DESTINO
+	,ISNULL(EM.ID_TIPOGUIA,0) AS ID_TIPO_GUIA
+	,ISNULL(RTRIM(EM.ID_CLIENTE),0) AS ID_CLIENTE  
+	,ISNULL(EM.ID_ESTADOENVIO,0) AS ID_ESTADO_ENVIO
+	,ISNULL(EM.ID_DOCU_ULT_MOVI,0) AS   ID_PROCESO
+	,ISNULL(EM.ID_MEDTRANS,0) AS ID_MED_TRANS
+	,ISNULL(EM.ID_PRODUCTO,0) AS ID_PRODUCTO
+	,ISNULL(EM.ID_SUBPRODUCTO,0) AS ID_SUBPRODUCTO
+	,ISNULL(EM.ID_ESTADOGUIA,0) AS ID_ESTADO_GUIA
+	,ISNULL(EM.ID_TIEMPO_ENTREGA,0) AS ID_TIEMPO_ENTREGA
+	,ISNULL(EM.ID_REQ_EMBALAJE,0) AS ID_REQ_EMBALAJE
+	,COUNT(DISTINCT EM.NUMERO_GUIA) AS CANT_GUIAS
+	,SUM(CASE WHEN ISNULL(EM.NUMERO_PIEZAS,0) = 0 THEN 1 ELSE EM.NUMERO_PIEZAS END) AS CANT_PIEZAS
+	,CASE
+		WHEN EM.ID_ESTADOENVIO &lt; 3 AND EM.FECHA_ENTREGA IS NULL 
+			THEN 2880
+		WHEN (EM.ID_DOCU_ULT_MOVI &lt;&gt; 11 OR EM.ID_DOCU_ULT_MOVI &lt;&gt; 24) AND EM.FECHA_ENTREGA IS NULL 
+			THEN 2880
+		WHEN EM.FECHA_ENTREGA &lt; EM.FECHA_ENVIO 
+			THEN 2880
+		WHEN DATEPART (HH, EM.FECHA_ENVIO )= 0 
+			THEN (ISNULL(DATEDIFF(MI,EM.FECHA_ENVIO,EM.FECHA_ENTREGA),0) - 960)
+		ELSE ISNULL(DATEDIFF(MI,EM.FECHA_ENVIO,EM.FECHA_ENTREGA),0) 
+	END AS TIEMPO_ENTREGA
+	,ISNULL(DATEDIFF(MI,EM.FECHA_ENTREGA,EM.FECHA_MODIFICACION),0) AS TIEMPO_EN_DIGITALIZAR
+FROM SIG_COL_LOGISTICA_DW.TMP.ENVIOS_MOV EM WITH (NOLOCK)
+GROUP BY CONVERT(NUMERIC,CONVERT(DATETIME,CONVERT(CHAR(11),EM.FECHA_ENVIO)))
+	,CONVERT(DATETIME,CONVERT(CHAR(11),EM.FECHA_ENVIO))
+	,DAY (EM.FECHA_ENVIO)
+	,MONTH (EM.FECHA_ENVIO)
+	,YEAR (EM.FECHA_ENVIO)
+	,ISNULL(EM.ID_PAIS_ORIGEN,0)
+	,ISNULL(EM.ID_CIUDAD_ORIGEN,0)
+	,ISNULL(EM.ID_PAIS_DESTINO,0)
+	,ISNULL(EM.ID_CIUDAD_DESTINO,0)
+	,ISNULL(EM.ID_TIPOGUIA,0)
+	,ISNULL(RTRIM(EM.ID_CLIENTE),0)
+	,ISNULL(EM.ID_ESTADOENVIO,0)
+	,ISNULL(EM.ID_DOCU_ULT_MOVI,0)
+	,ISNULL(EM.ID_MEDTRANS,0)
+	,ISNULL(EM.ID_PRODUCTO,0) 
+	,ISNULL(EM.ID_SUBPRODUCTO,0)
+	,ISNULL(EM.ID_ESTADOGUIA,0)
+	,ISNULL(EM.ID_TIEMPO_ENTREGA,0) 
+	,ISNULL(EM.ID_REQ_EMBALAJE,0)
+	,CASE
+		WHEN EM.ID_ESTADOENVIO &lt; 3 AND EM.FECHA_ENTREGA IS NULL 
+			THEN 2880
+		WHEN (EM.ID_DOCU_ULT_MOVI &lt;&gt; 11 OR EM.ID_DOCU_ULT_MOVI &lt;&gt; 24) AND EM.FECHA_ENTREGA IS NULL 
+			THEN 2880
+		WHEN EM.FECHA_ENTREGA &lt; EM.FECHA_ENVIO 
+			THEN 2880
+		WHEN DATEPART (HH, EM.FECHA_ENVIO )= 0 
+			THEN (ISNULL(DATEDIFF(MI,EM.FECHA_ENVIO,EM.FECHA_ENTREGA),0) - 960)
+		ELSE ISNULL(DATEDIFF(MI,EM.FECHA_ENVIO,EM.FECHA_ENTREGA),0) 
+	END
+	,ISNULL(DATEDIFF(MI,EM.FECHA_ENTREGA,EM.FECHA_MODIFICACION),0)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Connections[OleDbConnection]"
+                  connectionManagerID="{57E6F15A-0984-4D7E-A335-3C620BDD84C4}:invalid"
+                  connectionManagerRefId="{57E6F15A-0984-4D7E-A335-3C620BDD84C4}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[TIMEID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[TIMEID]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[TIMEID]"
+                      name="TIMEID"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[FECHA]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[FECHA]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[FECHA]"
+                      name="FECHA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[DIA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[DIA]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[DIA]"
+                      name="DIA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[MES]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[MES]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[MES]"
+                      name="MES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[AÑO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[AÑO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[AÑO]"
+                      name="AÑO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_PAIS_ORIGEN]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_ORIGEN]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_PAIS_ORIGEN]"
+                      name="ID_PAIS_ORIGEN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_ORIGEN]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_ORIGEN]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_ORIGEN]"
+                      name="ID_CIUDAD_ORIGEN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_PAIS_DESTINO]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_DESTINO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_PAIS_DESTINO]"
+                      name="ID_PAIS_DESTINO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_DESTINO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_DESTINO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_DESTINO]"
+                      name="ID_CIUDAD_DESTINO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_TIPO_GUIA]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPO_GUIA]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_TIPO_GUIA]"
+                      name="ID_TIPO_GUIA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                      length="20"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                      name="ID_CLIENTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_ESTADO_ENVIO]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADO_ENVIO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_ESTADO_ENVIO]"
+                      name="ID_ESTADO_ENVIO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_PROCESO]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_PROCESO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_PROCESO]"
+                      name="ID_PROCESO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_MED_TRANS]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_MED_TRANS]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_MED_TRANS]"
+                      name="ID_MED_TRANS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_PRODUCTO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]"
+                      name="ID_PRODUCTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_SUBPRODUCTO]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_SUBPRODUCTO]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_SUBPRODUCTO]"
+                      name="ID_SUBPRODUCTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_ESTADO_GUIA]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADO_GUIA]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_ESTADO_GUIA]"
+                      name="ID_ESTADO_GUIA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_TIEMPO_ENTREGA]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_TIEMPO_ENTREGA]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_TIEMPO_ENTREGA]"
+                      name="ID_TIEMPO_ENTREGA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_REQ_EMBALAJE]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_REQ_EMBALAJE]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[ID_REQ_EMBALAJE]"
+                      name="ID_REQ_EMBALAJE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[CANT_GUIAS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[CANT_GUIAS]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[CANT_GUIAS]"
+                      name="CANT_GUIAS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[CANT_PIEZAS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[CANT_PIEZAS]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[CANT_PIEZAS]"
+                      name="CANT_PIEZAS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[TIEMPO_ENTREGA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[TIEMPO_ENTREGA]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[TIEMPO_ENTREGA]"
+                      name="TIEMPO_ENTREGA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[TIEMPO_EN_DIGITALIZAR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[TIEMPO_EN_DIGITALIZAR]"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].Columns[TIEMPO_EN_DIGITALIZAR]"
+                      name="TIEMPO_EN_DIGITALIZAR"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[TIMEID]"
+                      dataType="numeric"
+                      name="TIMEID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[FECHA]"
+                      dataType="dbTimeStamp"
+                      name="FECHA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[DIA]"
+                      dataType="i4"
+                      name="DIA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[MES]"
+                      dataType="i4"
+                      name="MES" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[AÑO]"
+                      dataType="i4"
+                      name="AÑO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_ORIGEN]"
+                      dataType="i2"
+                      name="ID_PAIS_ORIGEN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_ORIGEN]"
+                      dataType="i4"
+                      name="ID_CIUDAD_ORIGEN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_DESTINO]"
+                      dataType="i2"
+                      name="ID_PAIS_DESTINO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_DESTINO]"
+                      dataType="i4"
+                      name="ID_CIUDAD_DESTINO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPO_GUIA]"
+                      dataType="ui1"
+                      name="ID_TIPO_GUIA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ID_CLIENTE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADO_ENVIO]"
+                      dataType="ui1"
+                      name="ID_ESTADO_ENVIO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_PROCESO]"
+                      dataType="i2"
+                      name="ID_PROCESO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_MED_TRANS]"
+                      dataType="ui1"
+                      name="ID_MED_TRANS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_PRODUCTO]"
+                      dataType="i2"
+                      name="ID_PRODUCTO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_SUBPRODUCTO]"
+                      dataType="i2"
+                      name="ID_SUBPRODUCTO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADO_GUIA]"
+                      dataType="ui1"
+                      name="ID_ESTADO_GUIA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_TIEMPO_ENTREGA]"
+                      dataType="ui1"
+                      name="ID_TIEMPO_ENTREGA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[ID_REQ_EMBALAJE]"
+                      dataType="ui1"
+                      name="ID_REQ_EMBALAJE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[CANT_GUIAS]"
+                      dataType="i4"
+                      name="CANT_GUIAS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[CANT_PIEZAS]"
+                      dataType="i4"
+                      name="CANT_PIEZAS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[TIEMPO_ENTREGA]"
+                      dataType="i4"
+                      name="TIEMPO_ENTREGA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output].ExternalColumns[TIEMPO_EN_DIGITALIZAR]"
+                      dataType="i4"
+                      name="TIEMPO_EN_DIGITALIZAR" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[TIMEID]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[TIMEID]"
+                      name="TIMEID"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[FECHA]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[FECHA]"
+                      name="FECHA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[DIA]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[DIA]"
+                      name="DIA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[MES]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[MES]"
+                      name="MES" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[AÑO]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[AÑO]"
+                      name="AÑO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_ORIGEN]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_ORIGEN]"
+                      name="ID_PAIS_ORIGEN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_ORIGEN]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_ORIGEN]"
+                      name="ID_CIUDAD_ORIGEN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_DESTINO]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_DESTINO]"
+                      name="ID_PAIS_DESTINO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_DESTINO]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_DESTINO]"
+                      name="ID_CIUDAD_DESTINO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_TIPO_GUIA]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_TIPO_GUIA]"
+                      name="ID_TIPO_GUIA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                      name="ID_CLIENTE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_ESTADO_ENVIO]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_ESTADO_ENVIO]"
+                      name="ID_ESTADO_ENVIO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_PROCESO]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_PROCESO]"
+                      name="ID_PROCESO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_MED_TRANS]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_MED_TRANS]"
+                      name="ID_MED_TRANS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_PRODUCTO]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_PRODUCTO]"
+                      name="ID_PRODUCTO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_SUBPRODUCTO]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_SUBPRODUCTO]"
+                      name="ID_SUBPRODUCTO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_ESTADO_GUIA]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_ESTADO_GUIA]"
+                      name="ID_ESTADO_GUIA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_TIEMPO_ENTREGA]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_TIEMPO_ENTREGA]"
+                      name="ID_TIEMPO_ENTREGA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_REQ_EMBALAJE]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ID_REQ_EMBALAJE]"
+                      name="ID_REQ_EMBALAJE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[CANT_GUIAS]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[CANT_GUIAS]"
+                      name="CANT_GUIAS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[CANT_PIEZAS]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[CANT_PIEZAS]"
+                      name="CANT_PIEZAS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[TIEMPO_ENTREGA]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[TIEMPO_ENTREGA]"
+                      name="TIEMPO_ENTREGA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[TIEMPO_EN_DIGITALIZAR]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[TIEMPO_EN_DIGITALIZAR]"
+                      name="TIEMPO_EN_DIGITALIZAR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task TMP a FAC Envios_Movilizados.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) ).Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task CUMPLIMIENTO_TIEMPOS_PROMESA_DIAS_HORAS"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{C9CA2D59-BE3D-49FF-80AC-A5D9C3DEEA9F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task CUMPLIMIENTO_TIEMPOS_PROMESA_DIAS_HORAS"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{57E6F15A-0984-4D7E-A335-3C620BDD84C4}"
+          SQLTask:SqlStatementSource="-------------------------------------------------------------------&#xA;--CUMPLIMIENTO_TIEMPOS_PROMESA_DIAS_HORAS&#xA;------------------------------------------------------------------- (ACTUAL)&#xA;&#xA;UPDATE [SIG_COL_LOGISTICA_DW].[FAC].[ENVIOS_MOVILIZADOS]&#xA;SET [TIEMPO_PROMESA_CUMPLE_H] = (CASE WHEN TIEMPO_PROMESA_H &gt;  (CASE &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN TIEMPO_OFERTA &lt;= 36&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;THEN 36&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN TIEMPO_OFERTA &gt; 36 AND TIEMPO_OFERTA &lt;= 60&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;THEN 60&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN TIEMPO_OFERTA &gt; 60 AND TIEMPO_OFERTA &lt;= 84&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;THEN 84&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE TIEMPO_OFERTA END) THEN 0 ELSE 1  END),&#xA;[TIEMPO_PROMESA_CUMPLE_D] = (CASE WHEN TIEMPO_PROMESA_H &gt;  (CASE &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN TIEMPO_OFERTA &lt;= 36&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;THEN 36&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN TIEMPO_OFERTA &gt; 36 AND TIEMPO_OFERTA &lt;= 60&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;THEN 60&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN TIEMPO_OFERTA &gt; 60 AND TIEMPO_OFERTA &lt;= 84&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;THEN 84&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE TIEMPO_OFERTA END) THEN 0 ELSE 1  END)&#xA;WHERE TIME_ID &gt;= CONVERT(NUMERIC, CONVERT(DATETIME,CONVERT(VARCHAR(23),GETDATE() - 15)))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task Ingreso Tiempo Oferta"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B853D702-53B6-483D-AEFF-93D43531670A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task Ingreso Tiempo Oferta"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{57E6F15A-0984-4D7E-A335-3C620BDD84C4}"
+          SQLTask:SqlStmtSourceType="Variable"
+          SQLTask:SqlStatementSource="User::IngresoTiempoOferta" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task SP"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{C4C403F5-0E6D-464E-9BF9-72DE49EA24A8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task SP"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{57E6F15A-0984-4D7E-A335-3C620BDD84C4}"
+          SQLTask:SqlStatementSource="EXECUTE SIG_COL_LOGISTICA_DW.FAC.proENVIOS_MOVILIZADOS_CALCULO_TIEMPO_INSERT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task SP Inserta en FAC"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E2482912-8BBA-402E-8EC9-47C8EED25A21}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task SP Inserta en FAC"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{57E6F15A-0984-4D7E-A335-3C620BDD84C4}"
+          SQLTask:SqlStatementSource="EXECUTE SIG_COL_LOGISTICA_DW.FAC.proENVIOS_MOVILIZADOS_INSERT_FAC" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{58F2F37E-C025-4372-AF1F-A7998729CB19}"
+      DTS:From="Package\Execute SQL Task SP Inserta en FAC"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Execute SQL Task Ingreso Tiempo Oferta" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{49AF80FB-92E4-4A82-9DE8-F8B952CD0A3B}"
+      DTS:From="Package\Execute SQL Task Ingreso Tiempo Oferta"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Execute SQL Task CUMPLIMIENTO_TIEMPOS_PROMESA_DIAS_HORAS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="194,44"
+          Id="Package\Data Flow Task TMP a FAC Envios_Movilizados"
+          TopLeft="232.122641509434,5.6698113207547" />
+        <NodeLayout
+          Size="238,56"
+          Id="Package\Execute SQL Task CUMPLIMIENTO_TIEMPOS_PROMESA_DIAS_HORAS"
+          TopLeft="91.952830188679,365.839622641509" />
+        <NodeLayout
+          Size="191,44"
+          Id="Package\Execute SQL Task Ingreso Tiempo Oferta"
+          TopLeft="115.915094339623,261.084905660377" />
+        <NodeLayout
+          Size="167,44"
+          Id="Package\Execute SQL Task SP"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="173,44"
+          Id="Package\Execute SQL Task SP Inserta en FAC"
+          TopLeft="126.009433962264,165.537735849057" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="211.962264150944,209.537735849057">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.54716981132"
+              Start="0,0"
+              End="0,44.04716981132">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.04716981132" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="210.990566037736,305.009433962264">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.8301886792453"
+              Start="0,0"
+              End="0,53.3301886792453">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.3301886792453" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task TMP a FAC Envios_Movilizados">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="515,42"
+          Id="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) )"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP"
+          TopLeft="72,5.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task TMP a FAC Envios_Movilizados.Paths[OLE DB Source Output]"
+          TopLeft="159,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="104,60"
+              Start="0,0"
+              End="104,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="100,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="100,30"
+                    Point2="104,30"
+                    Point3="104,34" />
+                  <mssgle:LineSegment
+                    End="104,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Destination FAC ENVIOS_MOVILIZADOS (SE MODIFICAR EL DESTINO A CHAR(20) )">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task TMP a FAC Envios_Movilizados\OLE DB Source TMP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

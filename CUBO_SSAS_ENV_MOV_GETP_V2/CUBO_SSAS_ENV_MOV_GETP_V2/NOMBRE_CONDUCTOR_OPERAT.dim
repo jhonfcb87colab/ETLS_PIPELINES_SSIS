@@ -1,0 +1,236 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="0dc79e17-d722-4e9c-a35e-cea0d19c0e4c" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>NOMBRE_CONDUCTOR_OPERAT</ID>
+  <Name>NOMBRE_CONDUCTOR_OPERAT</Name>
+  <CreatedTimestamp>2013-01-11T22:36:52.936667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-01-11T22:36:52.936667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="18" scrolltop="-6195" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="94" x="5874" y="14208" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="CONDUCTOR_OPERATIVO" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="6244" height="2725" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="0008000064180000a50a0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DIM_CONDUCTOR_OPERATIVO" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>18</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-6195</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>94</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="195">
+            <Shape Id="ID CONDUCTOR OPERATIVO" Expanded="false">
+              <Attributes>
+                <Attribute Id="ID CONDUCTOR OPERATIVO" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="LOGIN CONDUCTOR" Expanded="false">
+              <Attributes>
+                <Attribute Id="LOGIN CONDUCTOR" />
+              </Attributes>
+              <Position x="268" y="20" />
+            </Shape>
+            <Shape Id="NOMBRE CONDUCTOR OPERATIVO" Expanded="false">
+              <Attributes>
+                <Attribute Id="NOMBRE CONDUCTOR OPERATIVO" />
+              </Attributes>
+              <Position x="517" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-09-27T12:03:22.69Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="5e865fe0-fcc6-47ef-a3ae-bcfeafc1e05d">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="139a0e58-dce7-4eed-a607-744ebfe27666">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="403622fe-afbe-4005-b406-58db3d0e5fef">
+      <ID>ID CONDUCTOR OPERATIVO</ID>
+      <Name>ID CONDUCTOR OPERATIVO</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>3594</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="20d368b5-d3f0-438f-ae2b-81d635e946a9">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="eeb8982e-dfe2-47fc-b9f7-184e5724ce7c">
+            <TableID>DIM_CONDUCTOR_OPERATIVO</TableID>
+            <ColumnID>ID_CONDUCTOR_OPERATIVO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="8d98c528-5696-4964-909d-a43fdc18edbf">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2f04e04a-af70-4162-8647-90ec4a7c82b9">
+          <TableID>DIM_CONDUCTOR_OPERATIVO</TableID>
+          <ColumnID>ID_CONDUCTOR_OPERATIVO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="a998e823-809d-43b2-a993-034318a2d1d4">
+          <AttributeID>LOGIN CONDUCTOR</AttributeID>
+          <Name>Login Conductor</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="bee41469-084e-4c27-970b-b42257e3fc5e">
+      <ID>NOMBRE CONDUCTOR OPERATIVO</ID>
+      <Name>Nombre Conductor Operativo</Name>
+      <EstimatedCount>3560</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1d6a7feb-92c8-4c6f-9e2a-7b98856feba3">
+          <DataType>WChar</DataType>
+          <DataSize>55</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2710290f-167a-4310-8688-bcf6a3fb7c50">
+            <TableID>DIM_CONDUCTOR_OPERATIVO</TableID>
+            <ColumnID>NOMBRE_CONDUCTOR_OPERATIVO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="828bb4ba-f163-4470-902c-7df186848a96">
+        <DataType>WChar</DataType>
+        <DataSize>55</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="efa7b9de-59f7-4282-b204-f7bb77402501">
+          <TableID>DIM_CONDUCTOR_OPERATIVO</TableID>
+          <ColumnID>NOMBRE_CONDUCTOR_OPERATIVO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="16411fca-0319-4eb0-a4be-12145a9921c3">
+      <ID>LOGIN CONDUCTOR</ID>
+      <Name>Login Conductor</Name>
+      <EstimatedCount>1044</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="94b1e0f5-5935-4c3f-8b54-53730427754e">
+          <DataType>WChar</DataType>
+          <DataSize>15</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="60fad699-f12c-4634-8cf1-1260e085c411">
+            <TableID>DIM_CONDUCTOR_OPERATIVO</TableID>
+            <ColumnID>LOGIN_CONDUCTOR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="69ac787a-4656-41f3-8dc3-9dbd8862e703">
+        <DataType>WChar</DataType>
+        <DataSize>15</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2fc22fa3-83fc-4801-bf92-78aabfe92fd2">
+          <TableID>DIM_CONDUCTOR_OPERATIVO</TableID>
+          <ColumnID>LOGIN_CONDUCTOR</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="c3b8fe8b-99f5-4447-a335-ef1718123908">
+          <AttributeID>NOMBRE CONDUCTOR OPERATIVO</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Nombre Conductor Operativo</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Nombre_Conductor_Operat</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="47e02445-1762-42e1-8dab-7754c774e9ee">
+      <ID>Jerarquía</ID>
+      <Name>NOMBRE_CONDUCTOR_OPERAT</Name>
+      <Levels>
+        <Level dwd:design-time-name="236b9ef8-593f-4112-b705-eed08f8923da">
+          <ID>Nombre Conductor Operativo</ID>
+          <Name>Nombre Conductor Operativo</Name>
+          <SourceAttributeID>NOMBRE CONDUCTOR OPERATIVO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="e7189e64-57ca-4f20-acbc-e168d89c3493">
+          <ID>Login Conductor</ID>
+          <Name>Login Conductor</Name>
+          <SourceAttributeID>LOGIN CONDUCTOR</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="23d02a21-26a5-41bb-a1c8-d86bc38cc710">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="6d49788b-3be4-48c5-bdec-b869a3162fe1" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

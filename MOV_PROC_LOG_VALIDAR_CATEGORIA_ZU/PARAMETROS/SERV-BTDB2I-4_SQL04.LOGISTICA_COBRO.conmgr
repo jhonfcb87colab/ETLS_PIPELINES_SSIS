@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SERV-BTDB2I-4_SQL04.LOGISTICA_COBRO"
+  DTS:DTSID="{ED3949EA-A12D-4AA6-A0F9-5D6372951D6A}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=SERV-BTDB2I-4\SQL04;Initial Catalog=LOGISTICA_COBRO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

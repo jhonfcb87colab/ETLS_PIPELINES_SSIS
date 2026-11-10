@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectInfo>
+    <Name>MODELO GREEN MOBILE</Name>
+    <LastWriteTime>2026-11-10T16:04:49.6740121Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+  </ProjectInfo>
+  <LastBuildInfos>
+    <ProjectBuildItemInfo>
+      <Name>TRANSFORMACION RECOLECCION GM.dtsx</Name>
+      <LastWriteTime>2026-11-09T17:14:18.43957Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>CARGA RECOLECCION GM.dtsx</Name>
+      <LastWriteTime>2026-10-05T14:05:10.4812859Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>CARGA DISTRIBUCION GM.dtsx</Name>
+      <LastWriteTime>2026-11-10T16:45:14.1079494Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>EXTRACCION RECOLECCION GM.dtsx</Name>
+      <LastWriteTime>2026-10-05T14:05:10.6502873Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SISMILENIO_EXTRAER_GM_RECOLECCION.dtsx</Name>
+      <LastWriteTime>2026-10-05T14:05:10.6882887Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SISMILENIO_EXTRAER_GM_REC_RECHAZOS.dtsx</Name>
+      <LastWriteTime>2026-10-05T14:05:10.7012901Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SISMILENIO_EXTRAER_GM_DISTRIBUCION.dtsx</Name>
+      <LastWriteTime>2026-10-05T14:05:10.7152896Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SISMILENIO_EXTRAER_GM_HORA_DISTRIBUCION.dtsx</Name>
+      <LastWriteTime>2026-10-05T14:05:10.7232922Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>TRANSFORMACION DISTRIBUCION GM.dtsx</Name>
+      <LastWriteTime>2026-11-10T16:45:08.803685Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>EXTRACCION DISTRIBUCION GM.dtsx</Name>
+      <LastWriteTime>2026-11-10T13:30:27.1467715Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>000REPOBLAR_A_DESARROLLO.dtsx</Name>
+      <LastWriteTime>2026-11-10T13:03:01.0998999Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+  </LastBuildInfos>
+</BuildLog>

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "GUIA_MASIVA_NUEVOS_CAMPOS", "GUIA_MASIVA_NUEVOS_CAMPOS\GUIA_MASIVA_NUEVOS_CAMPOS.dtproj", "{16670F72-3130-446F-BF2B-E4DD8449B6B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16670F72-3130-446F-BF2B-E4DD8449B6B5}.Development|Default.ActiveCfg = Development
+		{16670F72-3130-446F-BF2B-E4DD8449B6B5}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6BED689E-4175-4B35-B3B8-38517EE1CD8D}
+	EndGlobalSection
+EndGlobal

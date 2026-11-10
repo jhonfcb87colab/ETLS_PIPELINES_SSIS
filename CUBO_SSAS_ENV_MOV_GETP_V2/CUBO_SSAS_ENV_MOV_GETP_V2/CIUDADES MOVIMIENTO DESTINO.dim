@@ -1,0 +1,169 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="82328e64-80d4-4c67-87a9-9b57ae5b92a9" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>CIUDADES MOVIMIENTO DESTINO</ID>
+  <Name>CIUDADES MOVIMIENTO DESTINO</Name>
+  <CreatedTimestamp>2013-04-11T21:40:58.063333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2014-02-14T15:02:45.75Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-10-19T21:33:49.533333Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="d93a016d-14bb-4a91-a785-33d608c71ccf">
+    <DataSourceViewID>SIG_SDM_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="73d1f934-6e5b-453e-8819-a528073379c5">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="ff1ef398-eb61-426e-960f-6bdd1a7c9e10">
+      <ID>ID CIUDAD</ID>
+      <Name>ID CIUDAD</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="98157c4b-189f-49fc-96b5-0d129063f7fb">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="83c8f3c3-1c0a-43f8-8151-5f2578d8e1f4">
+            <TableID>DIM_CIUDADES_MOVIMIENTO_DESTINO</TableID>
+            <ColumnID>ID_CIUDAD</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="60049bd5-f844-40d5-ae40-eead990e37be">
+        <DataType>WChar</DataType>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="35371990-9e54-4472-9354-ee49a03873de">
+          <TableID>DIM_CIUDADES_MOVIMIENTO_DESTINO</TableID>
+          <ColumnID>ID_CIUDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="d136b301-74a9-4daa-b8d4-9634e08231e9">
+          <AttributeID>NOMBRE CIUDAD</AttributeID>
+          <Name>NOMBRE CIUDAD</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="eee3b4b0-43bd-427b-a708-a7c0f84d7cab">
+          <AttributeID>NOMBRE REGIONAL</AttributeID>
+          <Name>NOMBRE REGIONAL</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ec40d553-476e-40ac-a7b5-a1ec00dc193c">
+      <ID>NOMBRE CIUDAD</ID>
+      <Name>NOMBRE CIUDAD</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f9020c59-5fe3-4c6e-89f9-572cc49add36">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3fb24090-0b52-4f55-a018-0da81acf1263">
+            <TableID>DIM_CIUDADES_MOVIMIENTO_DESTINO</TableID>
+            <ColumnID>ID_CIUDAD</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="5211fd6d-f6dd-494b-a429-ad9b5321fb3b">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3d69025a-95d3-4af4-ad73-288f1ec87f92">
+          <TableID>DIM_CIUDADES_MOVIMIENTO_DESTINO</TableID>
+          <ColumnID>NOMBRE_CIUDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5028cc84-9f35-46f9-8796-0873f616703d">
+      <ID>NOMBRE REGIONAL</ID>
+      <Name>NOMBRE REGIONAL</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4f070574-b1af-4fd1-9054-ae27a06ddff6">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6cc2ee18-e472-42e7-9e9f-b7502766a09f">
+            <TableID>DIM_CIUDADES_MOVIMIENTO_DESTINO</TableID>
+            <ColumnID>ID_REGIONAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="3d479667-7101-4c48-b80c-d09c301eafe7">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6ed92fe3-952e-4a13-9116-168ceaff141b">
+          <TableID>DIM_CIUDADES_MOVIMIENTO_DESTINO</TableID>
+          <ColumnID>NOMBRE_REGIONAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="1ec6cb54-401c-469a-beaf-93ab7b7e6555">
+      <ID>Hierarchy</ID>
+      <Name>CIUDADES MOVIMIENTO DESTINO</Name>
+      <Levels>
+        <Level dwd:design-time-name="9d1eddf8-d04b-413b-94d2-f602e369e9dd">
+          <ID>NOMBRE REGIONAL</ID>
+          <Name>NOMBRE REGIONAL</Name>
+          <SourceAttributeID>NOMBRE REGIONAL</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="a8d5ff35-2027-431d-85b9-f942ae100ad1">
+          <ID>NOMBRE CIUDAD</ID>
+          <Name>NOMBRE CIUDAD</Name>
+          <SourceAttributeID>NOMBRE CIUDAD</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="2c2828f2-9acc-41d7-bee1-83bba90b4460">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="5ff7d9fe-9132-4545-bb2e-aa37650810bc" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

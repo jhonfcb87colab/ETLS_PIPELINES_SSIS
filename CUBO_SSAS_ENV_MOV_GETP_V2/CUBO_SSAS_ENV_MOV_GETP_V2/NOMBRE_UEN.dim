@@ -1,0 +1,279 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="07e8e53d-5bd6-4da9-a065-05785a83cba0" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>NOMBRE_UEN</ID>
+  <Name>NOMBRE_UEN</Name>
+  <CreatedTimestamp>2013-01-11T22:37:00.426667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-01-11T22:37:00.426667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-99" scrolltop="-3017" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9604" y="14526" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="SUBPRODUCTOS_MOVIMIENTO" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="7064" height="3995" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000981b00009b0f0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DIM_SUBPRODUCTOS_MOVIMIENTO" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-99</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-3017</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="150">
+            <Shape Id="Clave Dimension" Expanded="false">
+              <Attributes>
+                <Attribute Id="Clave Dimension" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="NOMBRE SUBPRODUCTO" Expanded="false">
+              <Attributes>
+                <Attribute Id="NOMBRE SUBPRODUCTO" />
+              </Attributes>
+              <Position x="212" y="20" />
+            </Shape>
+            <Shape Id="NOMBRE PRODUCTO" Expanded="false">
+              <Attributes>
+                <Attribute Id="NOMBRE PRODUCTO" />
+              </Attributes>
+              <Position x="405" y="20" />
+            </Shape>
+            <Shape Id="NOMBRE UEN" Expanded="false">
+              <Attributes>
+                <Attribute Id="NOMBRE UEN" />
+              </Attributes>
+              <Position x="597" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-09-27T12:04:14.013333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="dcfcd7d2-5106-4124-897b-b2c03c4eabab">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="0672dba2-3b7e-458d-8f4a-d9ab477e7fa3">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="dc354aa0-6896-490a-98e8-8204809aceba">
+      <ID>Clave Dimension</ID>
+      <Name>Clave Dimension</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>559</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bfc166e0-2c62-4461-8f5c-0d973350cf2c">
+          <DataType>WChar</DataType>
+          <DataSize>6</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0b3d35cb-d80a-43b2-88b8-70e86278aa18">
+            <TableID>DIM_SUBPRODUCTOS_MOVIMIENTO</TableID>
+            <ColumnID>Clave_Dimension</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="3d75728e-9f67-4e58-bbac-5e33066d9d2e">
+        <DataType>WChar</DataType>
+        <DataSize>6</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5bc788bb-ab68-46af-8b47-58e23345171d">
+          <TableID>DIM_SUBPRODUCTOS_MOVIMIENTO</TableID>
+          <ColumnID>Clave_Dimension</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="f41b9eca-5d56-4f1c-82a3-cff90a619067">
+          <AttributeID>NOMBRE SUBPRODUCTO</AttributeID>
+          <Name>Nombre Subproducto</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="924c1a3d-a8ef-4fc7-866f-496216bc4be8">
+      <ID>NOMBRE SUBPRODUCTO</ID>
+      <Name>Nombre Subproducto</Name>
+      <EstimatedCount>432</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fa82e555-ab70-4a82-b1de-6cbfb141c6b8">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1bd7f175-0e45-4505-861d-7ce892418db3">
+            <TableID>DIM_SUBPRODUCTOS_MOVIMIENTO</TableID>
+            <ColumnID>NOMBRE_SUBPRODUCTO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f2e0d163-e031-4a3c-aea9-36a30785d602">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="07170cc0-8f46-4387-a39a-24450485c1ba">
+          <TableID>DIM_SUBPRODUCTOS_MOVIMIENTO</TableID>
+          <ColumnID>NOMBRE_SUBPRODUCTO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="759e6391-cede-4f6b-9aa4-91cab41ccf9d">
+          <AttributeID>NOMBRE PRODUCTO</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Nombre Producto</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="960076a6-ee46-4020-910e-db9491d06ae0">
+      <ID>NOMBRE PRODUCTO</ID>
+      <Name>Nombre Producto</Name>
+      <EstimatedCount>43</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="94a8297f-ce06-44bb-835d-1a8405e2b8d8">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9c5f392d-4f50-4220-ad99-46def7641293">
+            <TableID>DIM_SUBPRODUCTOS_MOVIMIENTO</TableID>
+            <ColumnID>NOMBRE_PRODUCTO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="85c5b8a8-ddf1-498c-8703-14bfa8b011d6">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="ea1a03f7-096e-4fd2-a68c-5b1230a505f0">
+          <TableID>DIM_SUBPRODUCTOS_MOVIMIENTO</TableID>
+          <ColumnID>NOMBRE_PRODUCTO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="0e54bf46-4d7d-4e2c-bce1-4ee7bd81d2d5">
+          <AttributeID>NOMBRE UEN</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Nombre Uen</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="857d8963-b550-4c87-8dd3-1145d2ce5339">
+      <ID>NOMBRE UEN</ID>
+      <Name>Nombre Uen</Name>
+      <EstimatedCount>10</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fecc4552-6790-439e-9cd2-348cf3be687a">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="af5119d3-775c-44f8-b585-c955a75c1f8e">
+            <TableID>DIM_SUBPRODUCTOS_MOVIMIENTO</TableID>
+            <ColumnID>NOMBRE_UEN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="22213340-3763-4651-bda4-768b6bcc643b">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5c191464-7653-4a77-b286-18e0dbec1564">
+          <TableID>DIM_SUBPRODUCTOS_MOVIMIENTO</TableID>
+          <ColumnID>NOMBRE_UEN</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Nombre Uen</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="21534c4c-ef3e-4ff7-8050-3bff58da36d5">
+      <ID>Hierarchy</ID>
+      <Name>NOMBRE_UEN</Name>
+      <Levels>
+        <Level dwd:design-time-name="731fd621-d0df-4964-96f1-59a28ed5d4c9">
+          <ID>Nombre Uen</ID>
+          <Name>Nombre Uen</Name>
+          <SourceAttributeID>NOMBRE UEN</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="934770c1-8c5d-419f-b722-2d9814fb0f7a">
+          <ID>Nombre Producto</ID>
+          <Name>Nombre Producto</Name>
+          <SourceAttributeID>NOMBRE PRODUCTO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="62621dde-e220-47d8-bad1-dab6af6eed94">
+          <ID>Nombre Subproducto</ID>
+          <Name>Nombre Subproducto</Name>
+          <SourceAttributeID>NOMBRE SUBPRODUCTO</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="7e3c6fff-cb65-4934-a2a5-654ae095cc8c">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="d0dfe3a5-6ec8-4ab5-90bd-9e6bced0fc21" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

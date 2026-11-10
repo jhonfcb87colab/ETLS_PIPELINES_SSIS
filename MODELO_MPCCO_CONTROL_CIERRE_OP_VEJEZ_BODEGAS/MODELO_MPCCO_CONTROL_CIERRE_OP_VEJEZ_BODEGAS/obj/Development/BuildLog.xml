@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectInfo>
+    <Name>MODELO_MPCCO_CONTROL_CIERRE_OP_VEJEZ_BODEGAS</Name>
+    <LastWriteTime>2026-10-30T00:40:47.169381Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+  </ProjectInfo>
+  <LastBuildInfos>
+    <ProjectBuildItemInfo>
+      <Name>02_TRANSFORMACION.dtsx</Name>
+      <LastWriteTime>2026-10-30T15:51:25.7387575Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>00_LLAMAR_PAQUETES.dtsx</Name>
+      <LastWriteTime>2026-10-30T00:40:26.4710476Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>03_CARGA.dtsx</Name>
+      <LastWriteTime>2026-10-30T00:40:27.6429322Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>01_EXTRACCION_E_INTEGRACION.dtsx</Name>
+      <LastWriteTime>2026-10-30T00:40:27.0491812Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+  </LastBuildInfos>
+</BuildLog>

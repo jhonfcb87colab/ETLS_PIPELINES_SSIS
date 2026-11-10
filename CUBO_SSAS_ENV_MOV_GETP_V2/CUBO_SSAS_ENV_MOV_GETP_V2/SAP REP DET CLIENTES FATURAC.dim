@@ -1,0 +1,268 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="28fc69dc-8277-451c-b1c9-f62e3b66c6ff" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SAP REP DET CLIENTES FATURAC</ID>
+  <Name>SAP REP DET CLIENTES FATURAC</Name>
+  <CreatedTimestamp>2018-09-07T16:18:39.506667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2018-09-07T16:27:51.63Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-11-03T12:01:54.86Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="7cf5c54e-50fc-4a89-9745-daefc6158a78">
+    <DataSourceViewID>SIG_COL_SAP_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="146138b8-3306-402b-82de-9a15f33af9ac">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>NO DISPONIBLE</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="d8559d97-7c62-4bac-945e-5534fcdb4253">
+      <ID>CODIGO SER</ID>
+      <Name>CODIGO SER</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d7781849-e35f-46b1-a340-9b0b009491cc">
+          <DataType>WChar</DataType>
+          <DataSize>15</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cfa8b079-b039-43a6-827c-57c7096bee1c">
+            <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+            <ColumnID>CODIGO_SER</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="13cb3d12-3ce8-4431-8b2e-ac48d24ef693">
+        <DataType>WChar</DataType>
+        <DataSize>15</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="22566569-2414-4376-b901-53e47925b4b4">
+          <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+          <ColumnID>CODIGO_SER</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="3481360a-d3cd-49f8-8acc-7761866b8080">
+          <AttributeID>CLIENTE</AttributeID>
+          <Name>CLIENTE</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="38180ad0-ac62-4d4f-89ac-cfd2561a826d">
+          <AttributeID>ID CLIENTE</AttributeID>
+          <Name>ID CLIENTE</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e2615e49-ea49-434b-a8ab-d8a52fc30359">
+          <AttributeID>FECHA RUC</AttributeID>
+          <Name>FECHA RUC</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="da3c33d7-479c-4adc-a6e8-0f909517504f">
+          <AttributeID>ANIO FECHA RUC</AttributeID>
+          <Name>ANIO FECHA RUC</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c8051367-d70f-40e6-a194-0544d1ab1ec1">
+          <AttributeID>MES FECHA RUC</AttributeID>
+          <Name>MES FECHA RUC</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="db63617e-486a-48fd-b374-07ccddbb7414">
+          <AttributeID>DIA FECHA RUC</AttributeID>
+          <Name>DIA FECHA RUC</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="868fb4f7-eaf3-4d42-9341-966c57f71db3">
+      <ID>CLIENTE</ID>
+      <Name>CLIENTE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b932e9e0-1da9-4d08-ac14-d80f480a869d">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0b57e3fd-7df3-4192-9f81-88647404e622">
+            <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+            <ColumnID>CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f0d2e074-51dc-4a62-b2b5-ebc889c63220">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e81b6799-80a7-47cf-9001-072d7892a324">
+          <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+          <ColumnID>CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="da2adddd-646c-439b-9231-50a8d0be9734">
+      <ID>ID CLIENTE</ID>
+      <Name>ID CLIENTE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="35a864bd-50e6-4d9e-b0c6-59e9f87319ff">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="02f09fb5-d68b-4aa1-9554-1915d9335a70">
+            <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+            <ColumnID>ID_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c124eca8-5976-4ac4-aa0d-8b7a31404733">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e0e1925a-de7b-435c-8ca9-44b75568c7b5">
+          <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+          <ColumnID>ID_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a6b7b73d-2a2c-461d-b474-9b4f7838aa42">
+      <ID>FECHA RUC</ID>
+      <Name>FECHA RUC</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b9193cd6-aae2-46a9-9810-a3bc2e86c397">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="def4296f-e77d-4a21-9894-b98f0c7b5ef8">
+            <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+            <ColumnID>FECHA_RUC</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="091dbc10-4717-43fd-a091-965d19a97f82">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="bf0529f1-ecc6-44c0-a28f-18ff2a014b8e">
+          <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+          <ColumnID>FECHA_RUC</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>FECHA RUC</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="bd6c1c90-e200-40ab-a5ee-b721ed22f0b5">
+      <ID>ANIO FECHA RUC</ID>
+      <Name>ANIO FECHA RUC</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0ef7473e-f3f3-4a63-ac17-1a64aac4ae5d">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5e191b5e-2827-4e71-938c-6278bcebc827">
+            <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+            <ColumnID>ANIO_FECHA_RUC</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="1106c3be-d569-4129-a018-378da6047231">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6f674615-2fc4-4b72-85cf-29b18555406b">
+          <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+          <ColumnID>ANIO_FECHA_RUC</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>FECHA RUC</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="90f5066f-6579-47b2-b5e2-e72465a81e20">
+      <ID>MES FECHA RUC</ID>
+      <Name>MES FECHA RUC</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ed9f4737-0e12-4982-9651-e588d7b8e66f">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e8b2112d-345e-4490-b0ea-543a1509704a">
+            <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+            <ColumnID>MES_FECHA_RUC</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="968d8008-944b-49de-970a-5ff2ae6f2fc4">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e4962303-9c1e-4626-9d4c-ddcbfc49dd12">
+          <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+          <ColumnID>MES_FECHA_RUC</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>FECHA RUC</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3508c084-f87f-4ce0-82b2-8b00bbc3d30c">
+      <ID>DIA FECHA RUC</ID>
+      <Name>DIA FECHA RUC</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="19c61fee-84e8-45f2-9153-98c76ea8c8e1">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="408f7d16-fec0-4749-9e8c-b0a79db68385">
+            <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+            <ColumnID>DIA_FECHA_RUC</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="57e3ecdb-fbdc-4e07-a973-7bbcfe10525c">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="84b856da-3d93-4eba-be1b-6853fdb139c4">
+          <TableID>DIM_SAP_REP_DET_CLIENTES_FATURAC</TableID>
+          <ColumnID>DIA_FECHA_RUC</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyDisplayFolder>FECHA RUC</AttributeHierarchyDisplayFolder>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching dwd:design-time-name="6052bc4f-6c99-47b5-9f7e-913a0ca2f8e0">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="73eec5f9-bf8a-4307-b04f-fb65147bf9e9" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

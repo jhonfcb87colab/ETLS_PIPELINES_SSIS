@@ -1,0 +1,124 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e9a8644a-9ca6-472b-bd61-a776ca0a91d1" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>ESTADO_FACTURACION</ID>
+  <Name>ESTADO_FACTURACION</Name>
+  <CreatedTimestamp>2021-02-08T19:21:51.716667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2021-02-08T19:22:40.376667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-10-06T13:22:05.466667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="7c3cc58e-c659-4df9-9842-ff70028d95e3">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="577e18c4-1864-4128-a695-90494e571487">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>NO DISPONIBLE</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="fb37cb5d-76bb-45a9-b7d3-2b931138acda">
+      <ID>ESTADO_FACTURADO</ID>
+      <Name>ESTADO_FACTURADO</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="96a3b003-c59c-4a03-be4a-a8cf3a969dbc">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b2b1492c-f08c-44d8-9e27-2bc0891d9875">
+            <TableID>DIM_ESTADO_FACTURACION</TableID>
+            <ColumnID>ID_FACTURADO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b77c9742-5d95-48be-80dc-9346693c2ebe">
+        <DataType>WChar</DataType>
+        <DataSize>81</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="31c6175f-bbfd-4dd9-8195-af235096b622">
+          <TableID>DIM_ESTADO_FACTURACION</TableID>
+          <ColumnID>DESCRIPCION</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="836dd708-cb3f-408e-9842-99c71c9f709a">
+          <AttributeID>GRUPO FACTURADO</AttributeID>
+          <Name>GRUPO FACTURADO</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5c84dcd2-232f-4c91-bd1c-79a23e116170">
+      <ID>GRUPO FACTURADO</ID>
+      <Name>GRUPO FACTURADO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5027eae4-1a14-4b09-8826-794432d56727">
+          <DataType>WChar</DataType>
+          <DataSize>12</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fa800ab9-243a-436f-b223-9d59bd94647c">
+            <TableID>DIM_ESTADO_FACTURACION</TableID>
+            <ColumnID>GRUPO_FACTURADO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="aeba3127-9f97-4b8a-8030-40a218951470">
+        <DataType>WChar</DataType>
+        <DataSize>12</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3f179da4-e72b-439a-8bf2-804b32c83a16">
+          <TableID>DIM_ESTADO_FACTURACION</TableID>
+          <ColumnID>GRUPO_FACTURADO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>TODOS</AttributeAllMemberName>
+  <ProactiveCaching dwd:design-time-name="492b1a2b-9cec-4121-92c1-bd7756fe22cc">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="cb5fd7cb-0780-4bf6-8908-ab67330094c2" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

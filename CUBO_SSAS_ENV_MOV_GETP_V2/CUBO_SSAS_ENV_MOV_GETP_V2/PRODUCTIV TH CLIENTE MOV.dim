@@ -1,0 +1,177 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="5d1ce150-74d2-4965-93bb-8b027b41ffce" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>PRODUCTIV TH CLIENTE MOV</ID>
+  <Name>PRODUCTIV TH CLIENTE MOV</Name>
+  <CreatedTimestamp>2014-01-10T13:28:41.313333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2014-01-10T14:06:20.266667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-11-03T09:52:38.46Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="cb12902c-0f7a-449a-90c7-a8d009e9c845">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="4a00d4fe-6412-499b-90e9-d3b4f3c97096">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="5dbb5ae0-89a7-46e2-a1dc-8d0f830ec091">
+      <ID>ID CLIENTE</ID>
+      <Name>ID CLIENTE</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7effc299-ad8c-4ce5-a841-beade8d5dc11">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7766474d-c47c-4d73-ba7c-76a71f9cc9a0">
+            <TableID>PRODUCTIV_TH_CLIENTE</TableID>
+            <ColumnID>ID_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="43c3f2ba-2354-4ac8-b714-e24786cc8d67">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="bd675cf0-8ac2-4916-a676-47b71f76a941">
+          <TableID>PRODUCTIV_TH_CLIENTE</TableID>
+          <ColumnID>ID_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="c37d5b3f-3b57-4035-b9da-99a2371947ce">
+          <AttributeID>NOMBRE CLIENTE</AttributeID>
+          <Name>NOMBRE CLIENTE</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="750d9925-ce93-44b9-ac9c-d61a8ab51fd4">
+          <AttributeID>SECTOR ECONOMICO</AttributeID>
+          <Name>SECTOR ECONOMICO</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="03ce49d7-d931-427c-b7c4-54f69191c938">
+      <ID>NOMBRE CLIENTE</ID>
+      <Name>NOMBRE CLIENTE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a5640900-55ff-4618-b93a-0ef811094cf7">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="927733b5-731c-4ea2-a8bf-4f62a6992b23">
+            <TableID>PRODUCTIV_TH_CLIENTE</TableID>
+            <ColumnID>NOMBRE_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="07deaaea-70b5-430f-85c5-98aa42549b83">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="054b69ac-e9ec-44d5-828a-eb5999edc01a">
+          <TableID>PRODUCTIV_TH_CLIENTE</TableID>
+          <ColumnID>NOMBRE_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1e995cdc-0b8a-43cf-bf02-b3bbec6d470d">
+      <ID>SECTOR ECONOMICO</ID>
+      <Name>SECTOR ECONOMICO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6bce2fd1-5e28-4930-bffe-41115072c93a">
+          <DataType>WChar</DataType>
+          <DataSize>25</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a53a4143-57c5-404d-b06e-932e5d751890">
+            <TableID>PRODUCTIV_TH_CLIENTE</TableID>
+            <ColumnID>SECTOR_ECONOMICO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="5153f0aa-5422-41d1-97a4-16f53e531d20">
+        <DataType>WChar</DataType>
+        <DataSize>25</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6d0c2eab-59e2-4513-a8f7-421ce9127c4c">
+          <TableID>PRODUCTIV_TH_CLIENTE</TableID>
+          <ColumnID>SECTOR_ECONOMICO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="536dc224-e4d3-45d7-a4bb-c9b58aa29e4d">
+      <ID>Hierarchy</ID>
+      <Name>Cliente</Name>
+      <Levels>
+        <Level dwd:design-time-name="ba82c2b3-1e3a-41b0-90e6-abb24bdcbdec">
+          <ID>NOMBRE CLIENTE</ID>
+          <Name>NOMBRE CLIENTE</Name>
+          <SourceAttributeID>NOMBRE CLIENTE</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="ed0c3313-5142-4810-a814-93ce1530a3cb">
+          <ID>ID CLIENTE</ID>
+          <Name>ID CLIENTE</Name>
+          <SourceAttributeID>ID CLIENTE</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="84cd55d6-b767-4882-b955-b6ba75e7da37">
+          <ID>SECTOR ECONOMICO</ID>
+          <Name>SECTOR ECONOMICO</Name>
+          <SourceAttributeID>SECTOR ECONOMICO</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="75f2d592-3b01-4b17-a06b-44bc11ba14db">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="ce19a708-e4c5-4595-8476-300de5536dba" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

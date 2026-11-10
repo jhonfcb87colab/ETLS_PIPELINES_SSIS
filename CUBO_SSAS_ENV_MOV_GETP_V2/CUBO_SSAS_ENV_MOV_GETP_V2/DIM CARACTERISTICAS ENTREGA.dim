@@ -1,0 +1,149 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="394a492a-14b9-4619-a51d-aa01c87c412f" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DIM CARACTERISTICAS ENTREGA</ID>
+  <Name>DIM CARACTERISTICAS ENTREGA</Name>
+  <CreatedTimestamp>2024-02-17T23:30:01.23Z</CreatedTimestamp>
+  <LastSchemaUpdate>2024-02-18T01:10:03.88Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-10-06T16:34:03.946667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="91508c29-32d1-43d7-927d-d8c10fc49236">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="e42641b7-6861-429b-b23d-1971d2c3f341">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="d19cc1fa-771a-456b-8acd-437caa7fcdaa">
+      <ID>ID</ID>
+      <Name>ID</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e0452d75-0b57-4597-9cc7-90de107829e4">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="da14e354-5290-48c5-9644-8eadcdc66c84">
+            <TableID>DIM_CARACTERISTICAS_ENTREGA</TableID>
+            <ColumnID>ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="260badcd-2fd7-46d8-a864-a2dcdba60231">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8d55b83e-57fe-4b41-a1c4-2cc8e80b1b71">
+          <TableID>DIM_CARACTERISTICAS_ENTREGA</TableID>
+          <ColumnID>ID</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="2a6a268d-9d68-4580-a7fb-e5885b332957">
+          <AttributeID>Tipo Prueba Entrega</AttributeID>
+          <Name>Tipo Prueba Entrega</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7838d2cf-0d39-4651-8946-9962a03491e0">
+          <AttributeID>Modo Entrega</AttributeID>
+          <Name>Modo Entrega</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6eb63f42-ecb5-4b0a-9be0-0822982d8ac6">
+      <ID>Tipo Prueba Entrega</ID>
+      <Name>Tipo Prueba Entrega</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f77cc7aa-e03d-4dc0-9fd6-32c26ae3514a">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0b68461f-0bd8-457b-8427-62e549791bbd">
+            <TableID>DIM_CARACTERISTICAS_ENTREGA</TableID>
+            <ColumnID>TipoPruebaEntrega</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="34e36d65-b357-491a-ac70-97535147efce">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="897f0446-c24c-4c6f-811f-9a2b655d0182">
+          <TableID>DIM_CARACTERISTICAS_ENTREGA</TableID>
+          <ColumnID>TipoPruebaEntrega</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="73ca79d9-5c85-44c1-9e56-eaeb23f8ad2d">
+      <ID>Modo Entrega</ID>
+      <Name>Modo Entrega</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="aec31ba8-36c9-4d61-af01-7442a18731d9">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4c893ede-d476-4de6-8986-6652330ed160">
+            <TableID>DIM_CARACTERISTICAS_ENTREGA</TableID>
+            <ColumnID>ModoEntrega</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="004b2eb7-bb17-45c2-80fa-8fe993f1a625">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1e6f3ce8-db31-406c-b5f3-e2a901b50f11">
+          <TableID>DIM_CARACTERISTICAS_ENTREGA</TableID>
+          <ColumnID>ModoEntrega</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching dwd:design-time-name="22f70dab-2c85-4df2-9ba1-b87216d0c6f8">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="a3d2051e-2767-4a39-9091-a23e9d193b6d" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

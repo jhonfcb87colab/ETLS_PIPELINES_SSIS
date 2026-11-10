@@ -1,0 +1,234 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="fc302351-c8f8-4387-ac16-8cbe5b25dede" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DIM_TIPO_NOVEDAD_FRANQ</ID>
+  <Name>DIM_TIPO_NOVEDAD_FRANQ</Name>
+  <CreatedTimestamp>2013-01-11T22:34:19.15Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-01-11T22:34:19.15Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-350" scrolltop="-3228" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="4683" y="14102" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="PFR_TIPOS_NOVEDAD_FRANQUICIA" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="5106" height="3572" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000f2130000f40d0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DIM_PFR_TIPOS_NOVEDAD_FRANQUICIA" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-350</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-3228</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="159">
+            <Shape Id="Clave Dimension" Expanded="false">
+              <Attributes>
+                <Attribute Id="Clave Dimension" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="DESCRIPCION NOVEDAD" Expanded="false">
+              <Attributes>
+                <Attribute Id="DESCRIPCION NOVEDAD" />
+              </Attributes>
+              <Position x="223" y="20" />
+            </Shape>
+            <Shape Id="DESCRIPCION AGRUPADOR" Expanded="false">
+              <Attributes>
+                <Attribute Id="DESCRIPCION AGRUPADOR" />
+              </Attributes>
+              <Position x="427" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-09-27T12:03:51.426667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="37715a01-0996-4c40-9f38-687f26a597d0">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="603f53e3-67a6-4061-ad48-dfa8121dabfa">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="b437ce69-bc00-4742-8d8a-892415c57a25">
+      <ID>Clave Dimension</ID>
+      <Name>Clave Dimension</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>41</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c12b2b33-716b-4681-a7ee-4d948d120dfd">
+          <DataType>WChar</DataType>
+          <DataSize>32</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c6aabd39-559d-482f-8763-a2dab7dc1e5e">
+            <TableID>DIM_PFR_TIPOS_NOVEDAD_FRANQUICIA</TableID>
+            <ColumnID>Clave_Dimension</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4c11e740-4d7c-44eb-9dd4-3e3a52f8d723">
+        <DataType>WChar</DataType>
+        <DataSize>32</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d866373e-ebfd-4920-aec7-4dcffd8f6d42">
+          <TableID>DIM_PFR_TIPOS_NOVEDAD_FRANQUICIA</TableID>
+          <ColumnID>Clave_Dimension</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="44a00a2c-35af-4dba-ba53-e4ba629249ae">
+          <AttributeID>DESCRIPCION NOVEDAD</AttributeID>
+          <Name>Descripcion Novedad</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3f8896d6-09b2-4fa0-9bb7-2ccdc2628ef5">
+      <ID>DESCRIPCION NOVEDAD</ID>
+      <Name>Descripcion Novedad</Name>
+      <EstimatedCount>35</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="db065f73-d807-4993-a88b-e15aa455198b">
+          <DataType>WChar</DataType>
+          <DataSize>32</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6badef05-386d-4167-bffd-7bec51713e20">
+            <TableID>DIM_PFR_TIPOS_NOVEDAD_FRANQUICIA</TableID>
+            <ColumnID>Clave_Dimension</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e10ac2ff-da95-4696-b364-a3014499fd97">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="847cab07-5883-4ca4-8cde-2f6a627f5ecc">
+          <TableID>DIM_PFR_TIPOS_NOVEDAD_FRANQUICIA</TableID>
+          <ColumnID>DESCRIPCION_NOVEDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="33616d0a-98fc-478c-95c8-3c787e8ccb79">
+          <AttributeID>DESCRIPCION AGRUPADOR</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Descripcion Agrupador</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="adfeb035-d8a1-4273-a379-989bb8292ac6">
+      <ID>DESCRIPCION AGRUPADOR</ID>
+      <Name>Descripcion Agrupador</Name>
+      <EstimatedCount>5</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fdde030e-5bd8-442d-982b-57962213d98f">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c249e3f1-a931-4007-a73f-40a11b1188be">
+            <TableID>DIM_PFR_TIPOS_NOVEDAD_FRANQUICIA</TableID>
+            <ColumnID>DESCRIPCION_AGRUPADOR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="18bec9d3-0ae1-44b7-ae9e-fe2fa34c1d2f">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2d6b8be6-409d-461b-be58-96d0678f391f">
+          <TableID>DIM_PFR_TIPOS_NOVEDAD_FRANQUICIA</TableID>
+          <ColumnID>DESCRIPCION_AGRUPADOR</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Dim_Tipo_Novedad_Franq</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="e9ae74da-ff06-4a63-bad9-5b5906b923ae">
+      <ID>Hierarchy</ID>
+      <Name>DIM_TIPO_NOVEDAD_FRANQ</Name>
+      <Levels>
+        <Level dwd:design-time-name="31bdfa38-a55d-4ca8-ab92-124893a21e51">
+          <ID>Descripcion Agrupador</ID>
+          <Name>Descripcion Agrupador</Name>
+          <SourceAttributeID>DESCRIPCION AGRUPADOR</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="abeb3045-7a85-4275-89d1-37c33f30d0be">
+          <ID>Descripcion Novedad</ID>
+          <Name>Descripcion Novedad</Name>
+          <SourceAttributeID>DESCRIPCION NOVEDAD</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="2ff373e7-ee2b-4374-a6ee-96d0d732adf6">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="cbbb716a-0c2e-46a9-8e9f-7e427e782857" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

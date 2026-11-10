@@ -1,0 +1,211 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="fc97149f-90f6-4484-83a4-8767b46994ce" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>MOXP BODEGAS</ID>
+  <Name>MOXP BODEGAS</Name>
+  <CreatedTimestamp>2021-02-10T12:48:23.766667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2021-02-10T12:49:50.136667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-10-06T16:34:03.96Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="c2cc8fe3-a9d8-4ab6-8498-278a6609cfb0">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="a1796627-3d06-47eb-bdff-66e7e58ca718">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>NO DISPONIBLE</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="ef5d9874-115c-4263-b6c5-1bb907c40e4c">
+      <ID>ID MOXP BODEGA</ID>
+      <Name>ID MOXP BODEGA</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e708acc2-fb09-43bb-8c12-9befdbcc27a5">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="acd7aa1f-615d-4fdc-a3f5-8bc1de8d8bf7">
+            <TableID>DIM_MOXP_BODEGAS</TableID>
+            <ColumnID>ID_MOXP_BODEGA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a969dbc7-f650-4176-9d5e-1e3c0ada4676">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="da4c5d60-b192-46af-857e-fd9c59c425d1">
+          <TableID>DIM_MOXP_BODEGAS</TableID>
+          <ColumnID>ID_MOXP_BODEGA</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="7a189d5c-f914-4899-8b10-e3a36892566c">
+          <AttributeID>BODEGA</AttributeID>
+          <Name>BODEGA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="45635d51-2717-40e0-9448-cc80345f19f3">
+          <AttributeID>TIPO BODEGA</AttributeID>
+          <Name>TIPO BODEGA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c5c79014-058d-4f33-887f-6bbbcad5c82e">
+          <AttributeID>TIPO BODEGA VEJEZ</AttributeID>
+          <Name>TIPO BODEGA VEJEZ</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="2ea70eaa-03d4-41fd-8f99-bc2908228ab1">
+          <AttributeID>FECHA EXTRACCION DW</AttributeID>
+          <Name>FECHA EXTRACCION DW</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3f0cc1af-67c7-4d76-8dac-d6def1a2c99c">
+      <ID>BODEGA</ID>
+      <Name>BODEGA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b333db22-4150-47f7-885c-66fe961e7e9f">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d3357b64-4349-4604-8532-1dd80e0fcf61">
+            <TableID>DIM_MOXP_BODEGAS</TableID>
+            <ColumnID>BODEGA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="28c43135-ac25-4ce9-8e7b-99e9871d67c0">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8abd6b2f-1108-4704-949c-c72d8df4898e">
+          <TableID>DIM_MOXP_BODEGAS</TableID>
+          <ColumnID>BODEGA</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1b72864d-9db9-4191-88d6-99cb49f12326">
+      <ID>TIPO BODEGA</ID>
+      <Name>TIPO BODEGA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="44f70a8a-3f27-47ae-8ae7-f4f3c00e4363">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1b73c2a9-d97d-47a4-bb75-26efd2a17265">
+            <TableID>DIM_MOXP_BODEGAS</TableID>
+            <ColumnID>TIPO_BODEGA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0bafec12-cc88-4219-a19f-467b6ea194f8">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="498a42a6-09e5-40c8-a1f9-73c70eac18ac">
+          <TableID>DIM_MOXP_BODEGAS</TableID>
+          <ColumnID>TIPO_BODEGA</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="be0bc861-3a63-4d1b-8313-b34b8d9877fc">
+      <ID>TIPO BODEGA VEJEZ</ID>
+      <Name>TIPO BODEGA VEJEZ</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b6ab6746-998f-49f2-845b-fd7a725215b2">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="711b89d0-e6ec-47a6-b890-863e55646d39">
+            <TableID>DIM_MOXP_BODEGAS</TableID>
+            <ColumnID>TIPO_BODEGA_VEJEZ</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0c161cee-57f1-426b-aebb-4507968881f1">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="104a1ee3-0b2a-413c-bec9-aa4494897030">
+          <TableID>DIM_MOXP_BODEGAS</TableID>
+          <ColumnID>TIPO_BODEGA_VEJEZ</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b5edcc41-5b2c-46ed-b426-0c3c7b54d787">
+      <ID>FECHA EXTRACCION DW</ID>
+      <Name>FECHA EXTRACCION DW</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b14a8544-f9f0-4c91-a8e1-2703469af62e">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1645a089-3c68-42e1-9ddb-ce8b4ebe4c2e">
+            <TableID>DIM_MOXP_BODEGAS</TableID>
+            <ColumnID>FECHA_EXTRACCION_DW</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="071cd52d-e49f-4a63-bb53-a38f6835934e">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="907493b4-f338-4b4d-8d68-4ab302fbf405">
+          <TableID>DIM_MOXP_BODEGAS</TableID>
+          <ColumnID>FECHA_EXTRACCION_DW</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>TODOS</AttributeAllMemberName>
+  <ProactiveCaching dwd:design-time-name="26cf8263-d594-4f3c-bec6-7518ee63c7a7">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="8393d983-40f6-4925-bd48-f475d495fa75" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

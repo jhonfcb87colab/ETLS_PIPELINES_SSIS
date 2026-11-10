@@ -1,0 +1,212 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="ca312ffa-8233-429c-b5cf-da83ad257246" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SAP CLIENTES</ID>
+  <Name>SAP_CLIENTES</Name>
+  <CreatedTimestamp>2015-08-27T21:14:58.406667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2015-08-27T21:17:45.283333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-10-20T13:17:09.4Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="5e6c7f89-b5ef-4e10-bdc0-b89aa45d852c">
+    <DataSourceViewID>SIG_COL_SAP_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="c3ea40c4-7f60-4885-80fc-59aaeb33203b">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="2c284fcd-5277-4f4b-815d-e6d753a6c5e7">
+      <ID>CODIGO_SER</ID>
+      <Name>CODIGO_SER</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="015c98c7-f937-475c-b979-026bb066f311">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e86308c4-5467-45e4-a5e7-cc78309b974b">
+            <TableID>DIM_SAP_CLIENTES</TableID>
+            <ColumnID>CODIGO_SER</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="297eacfc-90d9-497e-ae14-eb6d41d05883">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="551844b4-dff6-4f06-b5ab-5b6c980e33d6">
+          <TableID>DIM_SAP_CLIENTES</TableID>
+          <ColumnID>CODIGO_SER</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="56a3e788-dc40-42c7-b61b-ac7bb00bf653">
+          <AttributeID>ID_CLIENTE</AttributeID>
+          <Name>ID_CLIENTE</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f9ea557a-b18f-42a9-91af-319cd7ba4e60">
+          <AttributeID>NOMBRE_CLIENTE_SER</AttributeID>
+          <Name>NOMBRE_CLIENTE_SER</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1efe7f5a-222c-4d1c-8cc7-0a81e63c6c58">
+          <AttributeID>SECTOR_ECONOMICO</AttributeID>
+          <Name>SECTOR_ECONOMICO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="31b6b9c7-11c9-4b20-90af-239bba3430a5">
+          <AttributeID>CIIU</AttributeID>
+          <Name>CIIU</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6d506d88-c315-4053-a5d4-982f8bf385eb">
+      <ID>ID_CLIENTE</ID>
+      <Name>ID_CLIENTE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5e70cb54-f455-40aa-b4f4-03392bd12fdd">
+          <DataType>WChar</DataType>
+          <DataSize>16</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="446a043f-30e8-4b98-8f8c-fab9a29d53f0">
+            <TableID>DIM_SAP_CLIENTES</TableID>
+            <ColumnID>ID_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ae5c2690-e3a3-4fa1-a8f7-8a654bf5a167">
+        <DataType>WChar</DataType>
+        <DataSize>16</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="018ac218-6edd-4582-86d0-9c5debe509fc">
+          <TableID>DIM_SAP_CLIENTES</TableID>
+          <ColumnID>ID_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5770c448-9995-4430-b083-6f2338b702f6">
+      <ID>NOMBRE_CLIENTE_SER</ID>
+      <Name>NOMBRE_CLIENTE_SER</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1c8277b1-d4e4-4237-a309-f4c6442db1ac">
+          <DataType>WChar</DataType>
+          <DataSize>35</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f02468ca-c3b8-46cf-ba9c-2dd11a0f1f6c">
+            <TableID>DIM_SAP_CLIENTES</TableID>
+            <ColumnID>NOMBRE_CLIENTE_SER</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b239e5dd-d7db-49eb-84eb-8a8f9ba99b72">
+        <DataType>WChar</DataType>
+        <DataSize>35</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3f344e26-1b72-4eea-9a35-d30767ace7e4">
+          <TableID>DIM_SAP_CLIENTES</TableID>
+          <ColumnID>NOMBRE_CLIENTE_SER</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ae8f1e6e-47f4-4079-8a73-b00be82d56a5">
+      <ID>SECTOR_ECONOMICO</ID>
+      <Name>SECTOR_ECONOMICO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="51eaf7e6-af16-42cc-8604-2e0e62370a9f">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="38f1e3ac-79b4-4688-8aa4-4fbfdefc68c2">
+            <TableID>DIM_SAP_CLIENTES</TableID>
+            <ColumnID>SECTOR_ECONOMICO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e9b38a0c-e67e-4308-9c3f-6770bfc646b9">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="03fdcb05-43dc-4729-8bef-33367b6be2db">
+          <TableID>DIM_SAP_CLIENTES</TableID>
+          <ColumnID>SECTOR_ECONOMICO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="aa4a7a14-e1aa-4296-89ef-d4a6af252fc6">
+      <ID>CIIU</ID>
+      <Name>CIIU</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="56a593bd-9df1-414b-a4e6-37bc5bce7acc">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="748da8ee-ba7b-4637-a4a0-8ea000ee9bd9">
+            <TableID>DIM_SAP_CLIENTES</TableID>
+            <ColumnID>ID_CIIU</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="384ba5a4-92bd-408a-8e6d-6bc1d07a0f08">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d70b029a-f98e-465c-89e4-e00db28ca606">
+          <TableID>DIM_SAP_CLIENTES</TableID>
+          <ColumnID>ID_CIIU</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching dwd:design-time-name="ff657c4b-4666-416b-bcab-b87e6eaebbd6">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="cc47f7d2-04e8-4f9a-b0ce-57cd6913081a" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

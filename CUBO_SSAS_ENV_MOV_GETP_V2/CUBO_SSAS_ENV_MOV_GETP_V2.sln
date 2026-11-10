@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "CUBO_SSAS_ENV_MOV_GETP_V2", "CUBO_SSAS_ENV_MOV_GETP_V2\CUBO_SSAS_ENV_MOV_GETP_V2.dwproj", "{76B56EE7-0E1F-4541-97B5-BC75C8232AAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76B56EE7-0E1F-4541-97B5-BC75C8232AAD}.Development|Default.ActiveCfg = Development
+		{76B56EE7-0E1F-4541-97B5-BC75C8232AAD}.Development|Default.Build.0 = Development
+		{76B56EE7-0E1F-4541-97B5-BC75C8232AAD}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A0B0FA0-9F16-421B-9ABA-856C3A9E9F9F}
+	EndGlobalSection
+EndGlobal

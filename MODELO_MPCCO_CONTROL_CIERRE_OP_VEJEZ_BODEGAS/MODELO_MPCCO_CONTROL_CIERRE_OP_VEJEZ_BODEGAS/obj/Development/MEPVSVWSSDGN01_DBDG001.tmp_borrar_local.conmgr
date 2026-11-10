@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MEPVSVWSSDGN01_DBDG001.tmp_borrar_local"
+  DTS:DTSID="{5B2BDE35-0E5F-4DE2-A25A-19DB68B50268}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=BOPVSVWSSDGN02\DBDG001;Initial Catalog=tmp_borrar_local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

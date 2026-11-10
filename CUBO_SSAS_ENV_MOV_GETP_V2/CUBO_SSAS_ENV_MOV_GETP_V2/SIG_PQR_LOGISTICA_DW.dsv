@@ -1,0 +1,1948 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SIG_PQR_LOGISTICA_DW</ID>
+  <Name>SIG_PQR_LOGISTICA_DW</Name>
+  <CreatedTimestamp>2013-01-11T22:32:01.616667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2021-12-15T19:57:52.33Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout>
+              <dds>
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="111" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-9633" scrolltop="-2460" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="29686" y="22648" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                  <font>
+                    <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+                  </font>
+                  <mouseicon>
+                    <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+                  </mouseicon>
+                </diagram>
+                <layoutmanager>
+                  <ddsxmlobj />
+                </layoutmanager>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_HORA" left="2152" top="3226" logicalid="80" controlid="28" masterid="0" hint1="0" hint2="0" width="3254" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000b60c000057070000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_PQR_HORA" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_ORIGEN" left="15348" top="18421" logicalid="81" controlid="29" masterid="0" hint1="0" hint2="0" width="3545" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000d90d000057070000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_PQR_ORIGEN" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_PROCESO" left="15930" top="-3835" logicalid="82" controlid="30" masterid="0" hint1="0" hint2="0" width="5133" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="000800000d140000fe080000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_PQR_PROCESO" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_REGIMEN" left="9191" top="18421" logicalid="83" controlid="31" masterid="0" hint1="0" hint2="0" width="3757" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000ad0e000057070000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_PQR_REGIMEN" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_TIPOS" left="987" top="11360" logicalid="84" controlid="32" masterid="0" hint1="0" hint2="0" width="4419" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="0008000043110000fe080000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_PQR_TIPOS" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_TIPOS_SOLICITUDES" left="15656" top="13719" logicalid="85" controlid="33" masterid="0" hint1="0" hint2="0" width="6085" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000c5170000fe080000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_PQR_TIPOS_SOLICITUDES" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_COMPENSACIONES" left="7806" top="5944" logicalid="86" controlid="34" masterid="0" hint1="0" hint2="0" width="5450" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="000800004a15000088130000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="FAC_PQR_COMPENSACIONES" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="ORIGEN_SERVICIO" left="0" top="-5166" logicalid="87" controlid="35" masterid="0" hint1="0" hint2="0" width="6103" height="3633" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000d7170000310e0000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_ORIGEN_SERVICIO" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="TIPO_IDP" left="15656" top="867" logicalid="88" controlid="36" masterid="0" hint1="0" hint2="0" width="5327" height="3633" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000cf140000310e0000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_TIPO_IDP" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="TIEMPO" left="2170" top="18421" logicalid="89" controlid="37" masterid="0" hint1="0" hint2="0" width="4621" height="4904" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="000800000d12000028130000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_TIEMPO" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="2652" top="-2032" logicalid="90" controlid="38" masterid="0" hint1="0" hint2="0" width="7079" height="8276" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-ORIGEN_SERVICIO]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="35" destid="34" sourceattachpoint="11" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="3051" y="-1533" />
+                    <point x="3051" y="2205" />
+                    <point x="9431" y="2205" />
+                    <point x="9431" y="5944" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="5106" top="8694" logicalid="91" controlid="39" masterid="0" hint1="0" hint2="0" width="3000" height="4217" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_TIPOS]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="32" destid="34" sourceattachpoint="17" destattachpoint="28" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="5406" y="12511" />
+                    <point x="6606" y="12511" />
+                    <point x="6606" y="8994" />
+                    <point x="7806" y="8994" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="12956" top="9794" logicalid="92" controlid="40" masterid="0" hint1="0" hint2="0" width="3000" height="5476" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_TIPOS_SOLICITUDES]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="33" destid="34" sourceattachpoint="24" destattachpoint="33" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="15656" y="14870" />
+                    <point x="14456" y="14870" />
+                    <point x="14456" y="10094" />
+                    <point x="13256" y="10094" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="4081" top="10644" logicalid="93" controlid="41" masterid="0" hint1="0" hint2="0" width="5100" height="8277" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-TIEMPO]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="37" destid="34" sourceattachpoint="8" destattachpoint="3" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="4480" y="18421" />
+                    <point x="4480" y="14683" />
+                    <point x="8881" y="14683" />
+                    <point x="8881" y="10944" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="10231" top="10644" logicalid="94" controlid="42" masterid="0" hint1="0" hint2="0" width="1238" height="8277" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_REGIMEN]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="31" destid="34" sourceattachpoint="6" destattachpoint="9" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="11069" y="18421" />
+                    <point x="11069" y="14683" />
+                    <point x="10531" y="14683" />
+                    <point x="10531" y="10944" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="5106" top="4316" logicalid="95" controlid="43" masterid="0" hint1="0" hint2="0" width="3000" height="2778" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_HORA]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="28" destid="34" sourceattachpoint="15" destattachpoint="20" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="5406" y="4715" />
+                    <point x="6606" y="4715" />
+                    <point x="6606" y="6794" />
+                    <point x="7806" y="6794" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="5106" top="3766" logicalid="96" controlid="44" masterid="0" hint1="0" hint2="0" width="3000" height="2778" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_HORA1]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="28" destid="34" sourceattachpoint="13" destattachpoint="18" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="5406" y="4165" />
+                    <point x="6606" y="4165" />
+                    <point x="6606" y="6244" />
+                    <point x="7806" y="6244" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="11881" top="10644" logicalid="97" controlid="45" masterid="0" hint1="0" hint2="0" width="5639" height="8277" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_ORIGEN]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="29" destid="34" sourceattachpoint="6" destattachpoint="15" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="17120" y="18421" />
+                    <point x="17120" y="14683" />
+                    <point x="12181" y="14683" />
+                    <point x="12181" y="10944" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="11881" top="-2032" logicalid="98" controlid="46" masterid="0" hint1="0" hint2="0" width="7015" height="8276" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_PROCESO]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="30" destid="34" sourceattachpoint="9" destattachpoint="14" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="18496" y="-1533" />
+                    <point x="18496" y="2205" />
+                    <point x="12181" y="2205" />
+                    <point x="12181" y="5944" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="12956" top="2284" logicalid="99" controlid="47" masterid="0" hint1="0" hint2="0" width="3000" height="4810" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-TIPO_IDP]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="36" destid="34" sourceattachpoint="24" destattachpoint="21" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="15656" y="2683" />
+                    <point x="14456" y="2683" />
+                    <point x="14456" y="6794" />
+                    <point x="13256" y="6794" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_EMPLEADOS_REGISTRO" left="300" top="7505" logicalid="101" controlid="49" masterid="0" hint1="0" hint2="0" width="5106" height="1455" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000f2130000af050000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="PQR_EMPLEADOS_REGISTRO" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="5106" top="7833" logicalid="102" controlid="50" masterid="0" hint1="0" hint2="0" width="3000" height="911" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_EMPLEADOS_REGISTRO]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="49" destid="34" sourceattachpoint="21" destattachpoint="26" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="5406" y="8232" />
+                    <point x="6606" y="8232" />
+                    <point x="6606" y="8444" />
+                    <point x="7806" y="8444" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_EMPLEADOS_PROCESO" left="8503" top="-2988" logicalid="103" controlid="51" masterid="0" hint1="0" hint2="0" width="5027" height="1455" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000a3130000af050000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="PQR_EMPLEADOS_PROCESO" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="10231" top="-2032" logicalid="104" controlid="52" masterid="0" hint1="0" hint2="0" width="1185" height="8276" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_EMPLEADOS_PROCESO]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="51" destid="34" sourceattachpoint="9" destattachpoint="8" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="11016" y="-1533" />
+                    <point x="11016" y="2205" />
+                    <point x="10531" y="2205" />
+                    <point x="10531" y="5944" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_GEOGRAFIA" left="15656" top="6900" logicalid="107" controlid="55" masterid="0" hint1="0" hint2="0" width="4630" height="4419" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="000800001612000043110000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="PQR_GEOGRAFIA" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="12956" top="8144" logicalid="108" controlid="56" masterid="0" hint1="0" hint2="0" width="3000" height="1365" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_GEOGRAFIA]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="55" destid="34" sourceattachpoint="24" destattachpoint="27" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="15656" y="9109" />
+                    <point x="14456" y="9109" />
+                    <point x="14456" y="8444" />
+                    <point x="13256" y="8444" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_TIENE_GUIA" left="-2806" top="15143" logicalid="109" controlid="57" masterid="0" hint1="0" hint2="0" width="4797" height="1940" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000bd12000094070000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_PQR_TIENE_GUIA" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="1691" top="10344" logicalid="110" controlid="58" masterid="0" hint1="0" hint2="0" width="6415" height="5619" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_TIENE_GUIA]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="57" destid="34" sourceattachpoint="19" destattachpoint="34" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="1991" y="15563" />
+                    <point x="4898" y="15563" />
+                    <point x="4898" y="10644" />
+                    <point x="7806" y="10644" />
+                  </connector>
+                </ddscontrol>
+              </dds>
+            </DiagramLayout>
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>-9633</DiagramViewPortLeft>
+            <DiagramViewPortTop>-2460</DiagramViewPortTop>
+            <DiagramBoundingLeft>20</DiagramBoundingLeft>
+            <DiagramBoundingTop>-5166</DiagramBoundingTop>
+            <DiagramZoom>75</DiagramZoom>
+          </Diagram>
+          <Diagram>
+            <Name>PQR_COMPENSACIONES</Name>
+            <DiagramLayout>
+              <dds>
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="54" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="8478" scrolltop="-9645" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="33893" y="22648" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                  <font>
+                    <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+                  </font>
+                  <mouseicon>
+                    <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+                  </mouseicon>
+                </diagram>
+                <layoutmanager>
+                  <ddsxmlobj />
+                </layoutmanager>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_COMPENSACIONES" left="19907" top="-3162" logicalid="27" controlid="1" masterid="0" hint1="0" hint2="0" width="5106" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000f213000088130000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="FAC_PQR_COMPENSACIONES" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_HORA" left="14033" top="-3347" logicalid="28" controlid="2" masterid="0" hint1="0" hint2="0" width="3149" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="000800004d0c000057070000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_PQR_HORA" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_ORIGEN" left="15383" top="198" logicalid="29" controlid="3" masterid="0" hint1="0" hint2="0" width="3413" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000550d000057070000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_PQR_ORIGEN" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_PROCESO" left="15092" top="4908" logicalid="30" controlid="4" masterid="0" hint1="0" hint2="0" width="4868" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="0008000004130000fe080000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_PQR_PROCESO" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_REGIMEN" left="25278" top="3797" logicalid="31" controlid="5" masterid="0" hint1="0" hint2="0" width="3572" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000f40d000057070000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_PQR_REGIMEN" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_TIPOS" left="22447" top="-6654" logicalid="32" controlid="6" masterid="0" hint1="0" hint2="0" width="4233" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="0008000089100000fe080000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_PQR_TIPOS" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_TIPOS_SOLICITUDES" left="26521" top="-3348" logicalid="33" controlid="7" masterid="0" hint1="0" hint2="0" width="5821" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000bd160000fe080000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_PQR_TIPOS_SOLICITUDES" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="TIEMPO" left="31205" top="542" logicalid="34" controlid="8" masterid="0" hint1="0" hint2="0" width="3863" height="4842" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000170f0000ea120000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_TIEMPO" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="TIPO_IDP" left="9165" top="-807" logicalid="35" controlid="9" masterid="0" hint1="0" hint2="0" width="4286" height="3572" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000be100000f40d0000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_TIPO_IDP" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="ORIGEN_SERVICIO" left="14245" top="-7713" logicalid="36" controlid="10" masterid="0" hint1="0" hint2="0" width="4948" height="3572" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="0008000054130000f40d0000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="DIM_ORIGEN_SERVICIO" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="18520" top="-4640" logicalid="37" controlid="11" masterid="0" hint1="0" hint2="0" width="2040" height="1778" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-ORIGEN_SERVICIO]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="10" destid="1" sourceattachpoint="17" destattachpoint="0" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="18919" y="-4141" />
+                    <point x="18919" y="-3652" />
+                    <point x="20260" y="-3652" />
+                    <point x="20260" y="-3162" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="22514" top="-4851" logicalid="38" controlid="12" masterid="0" hint1="0" hint2="0" width="799" height="1989" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_TIPOS]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="6" destid="1" sourceattachpoint="1" destattachpoint="10" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="22913" y="-4352" />
+                    <point x="22913" y="-3757" />
+                    <point x="23010" y="-3757" />
+                    <point x="23010" y="-3162" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="24713" top="-3146" logicalid="39" controlid="13" masterid="0" hint1="0" hint2="0" width="2108" height="1134" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_TIPOS_SOLICITUDES]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="7" destid="1" sourceattachpoint="22" destattachpoint="21" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="26521" y="-2747" />
+                    <point x="25767" y="-2747" />
+                    <point x="25767" y="-2312" />
+                    <point x="25013" y="-2312" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="24713" top="138" logicalid="40" controlid="14" masterid="0" hint1="0" hint2="0" width="6792" height="1025" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-TIEMPO]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="8" destid="1" sourceattachpoint="14" destattachpoint="31" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="31205" y="763" />
+                    <point x="28109" y="763" />
+                    <point x="28109" y="438" />
+                    <point x="25013" y="438" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="24360" top="1538" logicalid="41" controlid="15" masterid="0" hint1="0" hint2="0" width="1454" height="2759" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_REGIMEN]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="5" destid="1" sourceattachpoint="0" destattachpoint="17" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="25414" y="3797" />
+                    <point x="25414" y="2818" />
+                    <point x="24660" y="2818" />
+                    <point x="24660" y="1838" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="16882" top="-2807" logicalid="42" controlid="16" masterid="0" hint1="0" hint2="0" width="3325" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_HORA]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="1" sourceattachpoint="13" destattachpoint="20" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="17182" y="-2408" />
+                    <point x="18544" y="-2408" />
+                    <point x="18544" y="-2312" />
+                    <point x="19907" y="-2312" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="16882" top="-3357" logicalid="43" controlid="17" masterid="0" hint1="0" hint2="0" width="3325" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_HORA1]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="1" sourceattachpoint="11" destattachpoint="18" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="17182" y="-2958" />
+                    <point x="18544" y="-2958" />
+                    <point x="18544" y="-2862" />
+                    <point x="19907" y="-2862" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="18496" top="138" logicalid="44" controlid="18" masterid="0" hint1="0" hint2="0" width="1711" height="849" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_ORIGEN]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="1" sourceattachpoint="11" destattachpoint="30" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="18796" y="587" />
+                    <point x="19351" y="587" />
+                    <point x="19351" y="438" />
+                    <point x="19907" y="438" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="19327" top="1538" logicalid="45" controlid="19" masterid="0" hint1="0" hint2="0" width="1233" height="3870" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_PROCESO]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="4" destid="1" sourceattachpoint="16" destattachpoint="1" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="19726" y="4908" />
+                    <point x="19726" y="3373" />
+                    <point x="20260" y="3373" />
+                    <point x="20260" y="1838" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="13151" top="-1070" logicalid="46" controlid="20" masterid="0" hint1="0" hint2="0" width="7056" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="2" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-TIPO_IDP]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="9" destid="1" sourceattachpoint="15" destattachpoint="26" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="13451" y="-671" />
+                    <point x="16679" y="-671" />
+                    <point x="16679" y="-662" />
+                    <point x="19907" y="-662" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_EMPLEADOS_REGISTRO" left="29999" top="-6697" logicalid="47" controlid="21" masterid="0" hint1="0" hint2="0" width="5106" height="1376" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000f213000060050000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="PQR_EMPLEADOS_REGISTRO" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="24713" top="-6958" logicalid="48" controlid="22" masterid="0" hint1="0" hint2="0" width="5586" height="8796" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_EMPLEADOS_REGISTRO]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="21" destid="1" sourceattachpoint="18" destattachpoint="35" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="29999" y="-6559" />
+                    <point x="25413" y="-6559" />
+                    <point x="25413" y="1538" />
+                    <point x="25013" y="1538" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_EMPLEADOS_PROCESO" left="33320" top="-2790" logicalid="49" controlid="23" masterid="0" hint1="0" hint2="0" width="5027" height="1455" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="00080000a3130000af050000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="PQR_EMPLEADOS_PROCESO" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="24713" top="-3162" logicalid="50" controlid="24" masterid="0" hint1="0" hint2="0" width="8907" height="949" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_EMPLEADOS_PROCESO]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="23" destid="1" sourceattachpoint="18" destattachpoint="19" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="33320" y="-2613" />
+                    <point x="29167" y="-2613" />
+                    <point x="29167" y="-2862" />
+                    <point x="25013" y="-2862" />
+                  </connector>
+                </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="PQR_GEOGRAFIA" left="21148" top="6203" logicalid="51" controlid="25" masterid="0" hint1="0" hint2="0" width="4630" height="4419" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="000800001612000043110000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="PQR_GEOGRAFIA" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
+                <ddscontrol controlprogid="MSDDS.Polyline" left="21964" top="1538" logicalid="52" controlid="26" masterid="0" hint1="0" hint2="0" width="799" height="5165" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobj>
+                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                    </ddsxmlobj>
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="dataSet.Relations[PQR_COMPENSACIONES-PQR_GEOGRAFIA]" vartype="8" />
+                      <property name="Virtual" value="0" vartype="11" />
+                      <property name="VisibleAP" value="0" vartype="3" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="25" destid="1" sourceattachpoint="4" destattachpoint="9" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="22363" y="6203" />
+                    <point x="22363" y="4127" />
+                    <point x="22460" y="4127" />
+                    <point x="22460" y="1838" />
+                  </connector>
+                </ddscontrol>
+              </dds>
+            </DiagramLayout>
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>8478</DiagramViewPortLeft>
+            <DiagramViewPortTop>-9645</DiagramViewPortTop>
+            <DiagramBoundingLeft>9165</DiagramBoundingLeft>
+            <DiagramBoundingTop>-7713</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>SIG_COL_LOGISTICA_DW</DataSourceID>
+  <Schema>
+    <xs:schema id="SIG_PQR_LOGISTICA_DW" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="SIG_PQR_LOGISTICA_DW" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="DIM_PQR_HORA" msprop:DbTableName="PQR_HORA" msprop:FriendlyName="PQR_HORA" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PQR_HORA" msprop:DbColumnName="ID_PQR_HORA" msprop:FriendlyName="ID_PQR_HORA" type="xs:short" />
+                  <xs:element name="DESCRIPCION" msprop:DbColumnName="DESCRIPCION" msprop:FriendlyName="DESCRIPCION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_PQR_ORIGEN" msprop:DbTableName="PQR_ORIGEN" msprop:FriendlyName="PQR_ORIGEN" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_ORIGEN_PQR" msprop:DbColumnName="ID_ORIGEN_PQR" msprop:FriendlyName="ID_ORIGEN_PQR" type="xs:unsignedByte" />
+                  <xs:element name="DESCRIPCION" msprop:DbColumnName="DESCRIPCION" msprop:FriendlyName="DESCRIPCION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_PQR_PROCESO" msprop:DbTableName="PQR_PROCESO" msprop:FriendlyName="PQR_PROCESO" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PROCESO_PQR" msprop:DbColumnName="ID_PROCESO_PQR" msprop:FriendlyName="ID_PROCESO_PQR" type="xs:unsignedByte" />
+                  <xs:element name="NOMBRE_PROCESO_PQR" msprop:DbColumnName="NOMBRE_PROCESO_PQR" msprop:FriendlyName="NOMBRE_PROCESO_PQR" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ESTADO_PROCESO_PQR" msprop:DbColumnName="ID_ESTADO_PROCESO_PQR" msprop:FriendlyName="ID_ESTADO_PROCESO_PQR" type="xs:unsignedByte" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_PQR_REGIMEN" msprop:DbTableName="PQR_REGIMEN" msprop:FriendlyName="PQR_REGIMEN" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PQR_REGIMEN" msprop:DbColumnName="ID_PQR_REGIMEN" msprop:FriendlyName="ID_PQR_REGIMEN" type="xs:unsignedByte" />
+                  <xs:element name="DESCRIPCION" msprop:DbColumnName="DESCRIPCION" msprop:FriendlyName="DESCRIPCION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_PQR_TIPOS" msprop:DbTableName="PQR_TIPOS" msprop:FriendlyName="PQR_TIPOS" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_TIPO_PQR" msprop:DbColumnName="ID_TIPO_PQR" msprop:FriendlyName="ID_TIPO_PQR" type="xs:unsignedByte" />
+                  <xs:element name="NOMBRE_TIPO_PQR" msprop:DbColumnName="NOMBRE_TIPO_PQR" msprop:FriendlyName="NOMBRE_TIPO_PQR" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ESTADO_TIPO_PQR" msprop:DbColumnName="ID_ESTADO_TIPO_PQR" msprop:FriendlyName="ID_ESTADO_TIPO_PQR" type="xs:unsignedByte" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_PQR_TIPOS_SOLICITUDES" msprop:DbTableName="PQR_TIPOS_SOLICITUDES" msprop:FriendlyName="PQR_TIPOS_SOLICITUDES" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_TIPO_SOLICITUD_PQR" msprop:DbColumnName="ID_TIPO_SOLICITUD_PQR" msprop:FriendlyName="ID_TIPO_SOLICITUD_PQR" type="xs:unsignedByte" />
+                  <xs:element name="NOMBRE_TIPO_SOLICITUD_PQR" msprop:DbColumnName="NOMBRE_TIPO_SOLICITUD_PQR" msprop:FriendlyName="NOMBRE_TIPO_SOLICITUD_PQR" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ESTADO_TIPO_SOLICITUD_PQR" msprop:DbColumnName="ID_ESTADO_TIPO_SOLICITUD_PQR" msprop:FriendlyName="ID_ESTADO_TIPO_SOLICITUD_PQR" type="xs:unsignedByte" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="FAC_PQR_COMPENSACIONES" msprop:DbTableName="PQR_COMPENSACIONES" msprop:FriendlyName="PQR_COMPENSACIONES" msprop:DbSchemaName="FAC" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TIME_ID" msprop:DbColumnName="TIME_ID" msprop:FriendlyName="TIME_ID" type="xs:int" minOccurs="0" />
+                  <xs:element name="FECHA" msprop:DbColumnName="FECHA" msprop:FriendlyName="FECHA" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="DIA" msprop:DbColumnName="DIA" msprop:FriendlyName="DIA" type="xs:int" minOccurs="0" />
+                  <xs:element name="MES" msprop:DbColumnName="MES" msprop:FriendlyName="MES" type="xs:int" minOccurs="0" />
+                  <xs:element name="AÑO" msprop:DbColumnName="AÑO" msprop:FriendlyName="AÑO" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_PQR" msprop:DbColumnName="ID_PQR" msprop:FriendlyName="ID_PQR" type="xs:int" minOccurs="0" />
+                  <xs:element name="NUMERO_GUIA" msprop:DbColumnName="NUMERO_GUIA" msprop:FriendlyName="NUMERO_GUIA" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="ID_ORIGEN_SERVICIO" msprop:DbColumnName="ID_ORIGEN_SERVICIO" msprop:FriendlyName="ID_ORIGEN_SERVICIO" type="xs:short" minOccurs="0" />
+                  <xs:element name="ID_TIPO_LOGISTICA" msprop:DbColumnName="ID_TIPO_LOGISTICA" msprop:FriendlyName="ID_TIPO_LOGISTICA" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_REGIMEN" msprop:DbColumnName="ID_REGIMEN" msprop:FriendlyName="ID_REGIMEN" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_PROCESO_PQR" msprop:DbColumnName="ID_PROCESO_PQR" msprop:FriendlyName="ID_PROCESO_PQR" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_TIPO_PQR" msprop:DbColumnName="ID_TIPO_PQR" msprop:FriendlyName="ID_TIPO_PQR" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_TIPO_SOLICITUD" msprop:DbColumnName="ID_TIPO_SOLICITUD" msprop:FriendlyName="ID_TIPO_SOLICITUD" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_CAUSAL_PQR" msprop:DbColumnName="ID_CAUSAL_PQR" msprop:FriendlyName="ID_CAUSAL_PQR" type="xs:short" minOccurs="0" />
+                  <xs:element name="FECHA_PROCESO" msprop:DbColumnName="FECHA_PROCESO" msprop:FriendlyName="FECHA_PROCESO" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="HORA_REGISTRO" msprop:DbColumnName="HORA_REGISTRO" msprop:FriendlyName="HORA_REGISTRO" type="xs:short" minOccurs="0" />
+                  <xs:element name="HORA_PROCESO" msprop:DbColumnName="HORA_PROCESO" msprop:FriendlyName="HORA_PROCESO" type="xs:short" minOccurs="0" />
+                  <xs:element name="ID_PAIS_CLIENTE" msprop:DbColumnName="ID_PAIS_CLIENTE" msprop:FriendlyName="ID_PAIS_CLIENTE" type="xs:short" minOccurs="0" />
+                  <xs:element name="ID_CIUDAD_CLIENTE" msprop:DbColumnName="ID_CIUDAD_CLIENTE" msprop:FriendlyName="ID_CIUDAD_CLIENTE" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_REGIONAL" msprop:DbColumnName="ID_REGIONAL" msprop:FriendlyName="ID_REGIONAL" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_DEPARTAMENTO" msprop:DbColumnName="ID_DEPARTAMENTO" msprop:FriendlyName="ID_DEPARTAMENTO" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="LOGIN_EMPLEADO_REGISTRO" msprop:DbColumnName="LOGIN_EMPLEADO_REGISTRO" msprop:FriendlyName="LOGIN_EMPLEADO_REGISTRO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="LOGIN_EMPLEADO_PROCESO" msprop:DbColumnName="LOGIN_EMPLEADO_PROCESO" msprop:FriendlyName="LOGIN_EMPLEADO_PROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="TIENE_GUIA" msprop:DbColumnName="TIENE_GUIA" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_CUN" msprop:DbColumnName="ID_CUN" type="xs:decimal" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_ORIGEN_SERVICIO" msprop:DbTableName="ORIGEN_SERVICIO" msprop:FriendlyName="ORIGEN_SERVICIO" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_ORIGEN_SERVICIO" msprop:DbColumnName="ID_ORIGEN_SERVICIO" msprop:FriendlyName="ID_ORIGEN_SERVICIO" type="xs:short" />
+                  <xs:element name="NOMBRE_ORIGEN_SERVICIO" msprop:DbColumnName="NOMBRE_ORIGEN_SERVICIO" msprop:FriendlyName="NOMBRE_ORIGEN_SERVICIO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_EST_ORIGEN_SERVICIO" msprop:DbColumnName="ID_EST_ORIGEN_SERVICIO" msprop:FriendlyName="ID_EST_ORIGEN_SERVICIO" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="LOGIN_EMPLEADO" msprop:DbColumnName="LOGIN_EMPLEADO" msprop:FriendlyName="LOGIN_EMPLEADO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_CREACION" msprop:DbColumnName="FECHA_CREACION" msprop:FriendlyName="FECHA_CREACION" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="FECHA_MODIFICACION" msprop:DbColumnName="FECHA_MODIFICACION" msprop:FriendlyName="FECHA_MODIFICACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_TIPO_IDP" msprop:DbTableName="TIPO_IDP" msprop:FriendlyName="TIPO_IDP" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_TIPO_IDP" msprop:DbColumnName="ID_TIPO_IDP" msprop:FriendlyName="ID_TIPO_IDP" type="xs:short" />
+                  <xs:element name="NOMBRE_TIPO_IDP" msprop:DbColumnName="NOMBRE_TIPO_IDP" msprop:FriendlyName="NOMBRE_TIPO_IDP">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_EST_TIPO_IDP" msprop:DbColumnName="ID_EST_TIPO_IDP" msprop:FriendlyName="ID_EST_TIPO_IDP" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="LOGIN_EMPLEADO" msprop:DbColumnName="LOGIN_EMPLEADO" msprop:FriendlyName="LOGIN_EMPLEADO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_CREACION" msprop:DbColumnName="FECHA_CREACION" msprop:FriendlyName="FECHA_CREACION" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="FECHA_MODIFICACION" msprop:DbColumnName="FECHA_MODIFICACION" msprop:FriendlyName="FECHA_MODIFICACION" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="ID_TIPO_PQR" msprop:DbColumnName="ID_TIPO_PQR" type="xs:unsignedByte" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_TIEMPO" msprop:DbTableName="TIEMPO" msprop:FriendlyName="TIEMPO" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TIME_ID" msprop:DbColumnName="TIME_ID" msprop:FriendlyName="TIME_ID" type="xs:int" />
+                  <xs:element name="DATE" msprop:DbColumnName="DATE" msprop:FriendlyName="DATE" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="DAY" msprop:DbColumnName="DAY" msprop:FriendlyName="DAY" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="MONTH" msprop:DbColumnName="MONTH" msprop:FriendlyName="MONTH" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="YEAR" msprop:DbColumnName="YEAR" msprop:FriendlyName="YEAR" type="xs:int" minOccurs="0" />
+                  <xs:element name="DAY_OF_MONTH" msprop:DbColumnName="DAY_OF_MONTH" msprop:FriendlyName="DAY_OF_MONTH" type="xs:int" minOccurs="0" />
+                  <xs:element name="WEEK_OF_YEAR" msprop:DbColumnName="WEEK_OF_YEAR" msprop:FriendlyName="WEEK_OF_YEAR" type="xs:int" minOccurs="0" />
+                  <xs:element name="MONTH_OF_YEAR" msprop:DbColumnName="MONTH_OF_YEAR" msprop:FriendlyName="MONTH_OF_YEAR" type="xs:int" minOccurs="0" />
+                  <xs:element name="QUARTER_OF_YEAR" msprop:DbColumnName="QUARTER_OF_YEAR" msprop:FriendlyName="QUARTER_OF_YEAR" type="xs:int" minOccurs="0" />
+                  <xs:element name="ANO_MES" msprop:IsLogical="True" msprop:FriendlyName="ANO_MES" msprop:Description="Clave para el atributo Mes" msprop:DbColumnName="ANO_MES" msprop:ComputedColumnExpression="convert(varchar, year) + right( '0' + convert(varchar,month_of_year),2)" type="xs:string" minOccurs="0" />
+                  <xs:element name="AÑO_CUATRIMESTRE" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="AÑO_CUATRIMESTRE" msprop:ComputedColumnExpression="convert(varchar, year) + right( '0' + convert(varchar,quarter_of_year),2)" type="xs:string" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PQR_EMPLEADOS_REGISTRO" msprop:IsLogical="True" msprop:FriendlyName="PQR_EMPLEADOS_REGISTRO" msprop:DbTableName="PQR_EMPLEADOS_REGISTRO" msprop:TableType="View" msprop:Description="PQR_EMPLEADOS_REGISTRO" msprop:QueryDefinition="SELECT DISTINCT &#xD;&#xA;                         C.LOGIN_EMPLEADO_REGISTRO, CASE WHEN C.LOGIN_EMPLEADO_REGISTRO = 'USRINTERNET' THEN 'USRINTERNET' ELSE ISNULL(E.NOMBRE_EMPLEADO, &#xD;&#xA;                         'NO') + ' ' + ISNULL(E.APELLIDO_EMPLEADO, 'DISPONIBLE') END AS NOMBRE_EMPLEADO&#xD;&#xA;FROM            FAC.PQR_COMPENSACIONES AS C LEFT OUTER JOIN&#xD;&#xA;                         DIM.EMPLEADOS AS E ON LTRIM(RTRIM(C.LOGIN_EMPLEADO_REGISTRO)) = LTRIM(RTRIM(E.LOGIN_EMPLEADO))" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="LOGIN_EMPLEADO_REGISTRO" msprop:DbColumnName="LOGIN_EMPLEADO_REGISTRO" msprop:FriendlyName="LOGIN_EMPLEADO_REGISTRO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_EMPLEADO" msprop:DbColumnName="NOMBRE_EMPLEADO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="81" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PQR_EMPLEADOS_PROCESO" msprop:IsLogical="True" msprop:FriendlyName="PQR_EMPLEADOS_PROCESO" msprop:DbTableName="PQR_EMPLEADOS_PROCESO" msprop:TableType="View" msprop:Description="PQR_EMPLEADOS_PROCESO" msprop:QueryDefinition="SELECT DISTINCT &#xD;&#xA;                         C.LOGIN_EMPLEADO_PROCESO, CASE WHEN C.LOGIN_EMPLEADO_PROCESO = 'USRINTERNET' THEN 'USRINTERNET' ELSE ISNULL(E.NOMBRE_EMPLEADO, &#xD;&#xA;                         'NO') + ' ' + ISNULL(E.APELLIDO_EMPLEADO, 'DISPONIBLE') END AS NOMBRE_EMPLEADO&#xD;&#xA;FROM            FAC.PQR_COMPENSACIONES AS C LEFT OUTER JOIN&#xD;&#xA;                         DIM.EMPLEADOS AS E ON LTRIM(RTRIM(C.LOGIN_EMPLEADO_PROCESO)) = LTRIM(RTRIM(E.LOGIN_EMPLEADO))" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="LOGIN_EMPLEADO_PROCESO" msprop:DbColumnName="LOGIN_EMPLEADO_PROCESO" msprop:FriendlyName="LOGIN_EMPLEADO_PROCESO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_EMPLEADO" msprop:DbColumnName="NOMBRE_EMPLEADO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="81" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PQR_GEOGRAFIA" msprop:IsLogical="True" msprop:FriendlyName="PQR_GEOGRAFIA" msprop:DbTableName="PQR_GEOGRAFIA" msprop:TableType="View" msprop:Description="PQR_GEOGRAFIA" msprop:QueryDefinition="SELECT        C.ID_PAIS, P.NOMBRE_PAIS, C.ID_REGIONAL, R.NOMBRE_REGIONAL, C.ID_DEPARTAMENTO, D.NOMBRE_DEPARTAMENTO, C.ID_CIUDAD, &#xD;&#xA;                         C.NOMBRE_CIUDAD&#xD;&#xA;FROM            DIM.CIUDADES AS C INNER JOIN&#xD;&#xA;                         DIM.PAISES AS P ON P.ID_PAIS = C.ID_PAIS INNER JOIN&#xD;&#xA;                         DIM.REGIONALES_PAIS AS R ON R.ID_REGIONAL = C.ID_REGIONAL INNER JOIN&#xD;&#xA;                         DIM.DEPARTAMENTOS AS D ON D.ID_DEPARTAMENTO = C.ID_DEPARTAMENTO" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PAIS" msprop:DbColumnName="ID_PAIS" msprop:FriendlyName="ID_PAIS" type="xs:short" minOccurs="0" />
+                  <xs:element name="NOMBRE_PAIS" msprop:DbColumnName="NOMBRE_PAIS" msprop:FriendlyName="NOMBRE_PAIS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_REGIONAL" msprop:DbColumnName="ID_REGIONAL" msprop:FriendlyName="ID_REGIONAL" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_DEPARTAMENTO" msprop:DbColumnName="ID_DEPARTAMENTO" msprop:FriendlyName="ID_DEPARTAMENTO" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="NOMBRE_DEPARTAMENTO" msprop:DbColumnName="NOMBRE_DEPARTAMENTO" msprop:FriendlyName="NOMBRE_DEPARTAMENTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_CIUDAD" msprop:DbColumnName="ID_CIUDAD" msprop:FriendlyName="ID_CIUDAD" type="xs:int" />
+                  <xs:element name="NOMBRE_CIUDAD" msprop:DbColumnName="NOMBRE_CIUDAD" msprop:FriendlyName="NOMBRE_CIUDAD" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_REGIONAL" msprop:DbColumnName="NOMBRE_REGIONAL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_PQR_TIENE_GUIA" msprop:DbTableName="PQR_TIENE_GUIA" msprop:FriendlyName="PQR_TIENE_GUIA" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PQR_TIENE_GUIA" msprop:DbColumnName="ID_PQR_TIENE_GUIA" msprop:FriendlyName="ID_PQR_TIENE_GUIA" type="xs:unsignedByte" />
+                  <xs:element name="DESCRIPCION" msprop:DbColumnName="DESCRIPCION" msprop:FriendlyName="DESCRIPCION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PQR_COMPENSACIONES_NUMERO_GUIA" msprop:IsLogical="True" msprop:FriendlyName="PQR_COMPENSACIONES_NUMERO_GUIA" msprop:DbTableName="PQR_COMPENSACIONES_NUMERO_GUIA" msprop:TableType="View" msprop:Description="PQR_COMPENSACIONES_NUMERO_GUIA" msprop:QueryDefinition="SELECT DISTINCT CONVERT(NUMERIC(18, 0), NUMERO_GUIA) AS NUMERO_GUIA&#xD;&#xA;FROM            FAC.PQR_COMPENSACIONES" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="NUMERO_GUIA" msprop:DbColumnName="NUMERO_GUIA" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PQR_COMPENSACIONES_ID_PQR" msprop:IsLogical="True" msprop:FriendlyName="PQR_COMPENSACIONES_ID_PQR" msprop:DbTableName="PQR_COMPENSACIONES_ID_PQR" msprop:TableType="View" msprop:Description="PQR_COMPENSACIONES_ID_PQR" msprop:QueryDefinition="SELECT DISTINCT CONVERT(INT, ID_PQR) AS ID_PQR&#xD;&#xA;FROM            FAC.PQR_COMPENSACIONES" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PQR" msprop:DbColumnName="ID_PQR" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PQR_COMPENSACIONES_ID_CUN" msprop:IsLogical="True" msprop:FriendlyName="PQR_COMPENSACIONES_ID_CUN" msprop:DbTableName="PQR_COMPENSACIONES_ID_CUN" msprop:TableType="View" msprop:Description="PQR_COMPENSACIONES_ID_CUN" msprop:QueryDefinition="SELECT DISTINCT ID_CUN&#xD;&#xA;FROM            FAC.PQR_COMPENSACIONES" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_CUN" msprop:DbColumnName="ID_CUN" msprop:FriendlyName="ID_CUN" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="FAC_PQR_MOVIMIENTO_POR_ESTADO" msprop:DbTableName="PQR_MOVIMIENTO_POR_ESTADO" msprop:FriendlyName="PQR_MOVIMIENTO_POR_ESTADO" msprop:DbSchemaName="FAC" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TIME_ID" msprop:DbColumnName="TIME_ID" msprop:FriendlyName="TIME_ID" type="xs:int" minOccurs="0" />
+                  <xs:element name="FECHA_PROCESO" msprop:DbColumnName="FECHA_PROCESO" msprop:FriendlyName="FECHA_PROCESO" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="DIA" msprop:DbColumnName="DIA" msprop:FriendlyName="DIA" type="xs:int" minOccurs="0" />
+                  <xs:element name="MES" msprop:DbColumnName="MES" msprop:FriendlyName="MES" type="xs:int" minOccurs="0" />
+                  <xs:element name="AÑO" msprop:DbColumnName="AÑO" msprop:FriendlyName="AÑO" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_PQR" msprop:DbColumnName="ID_PQR" msprop:FriendlyName="ID_PQR" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="ID_PROCESO_PQR" msprop:DbColumnName="ID_PROCESO_PQR" msprop:FriendlyName="ID_PROCESO_PQR" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="CUN" msprop:DbColumnName="CUN" msprop:FriendlyName="CUN" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="PQR_CON_GUIA" msprop:DbColumnName="PQR_CON_GUIA" msprop:FriendlyName="PQR_CON_GUIA" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_PROCESO_INVESTIGA" msprop:DbColumnName="ID_PROCESO_INVESTIGA" msprop:FriendlyName="ID_PROCESO_INVESTIGA" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_ESTADO_INDEMNIZACION_PQR" msprop:DbColumnName="ID_ESTADO_INDEMNIZACION_PQR" msprop:FriendlyName="ID_ESTADO_INDEMNIZACION_PQR" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="VALOR_RECLAMADO" msprop:DbColumnName="VALOR_RECLAMADO" msprop:FriendlyName="VALOR_RECLAMADO" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="VALOR_A_PAGAR" msprop:DbColumnName="VALOR_A_PAGAR" msprop:FriendlyName="VALOR_A_PAGAR" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="NUMERO_GUIA" msprop:DbColumnName="NUMERO_GUIA" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="ID_TIPO_LOGISTICA" msprop:DbColumnName="ID_TIPO_LOGISTICA" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_REGIMEN" msprop:DbColumnName="ID_REGIMEN" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_TIPO_SOLICITUD" msprop:DbColumnName="ID_TIPO_SOLICITUD" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_TIPO_PQR" msprop:DbColumnName="ID_TIPO_PQR" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_CAUSAL_PQR" msprop:DbColumnName="ID_CAUSAL_PQR" type="xs:short" minOccurs="0" />
+                  <xs:element name="VALOR_PAGADO" msprop:DbColumnName="VALOR_PAGADO" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="FECHA_PAGO" msprop:DbColumnName="FECHA_PAGO" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="ID_ORIGEN_SERVICIO" msprop:DbColumnName="ID_ORIGEN_SERVICIO" type="xs:short" minOccurs="0" />
+                  <xs:element name="ID_PAIS_CLIENTE_NOTIFICACION" msprop:DbColumnName="ID_PAIS_CLIENTE_NOTIFICACION" type="xs:short" minOccurs="0" />
+                  <xs:element name="ID_CIUDAD_CLIENTE_NOTIFICACION" msprop:DbColumnName="ID_CIUDAD_CLIENTE_NOTIFICACION" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_PAIS_ORIGEN_GUIA" msprop:DbColumnName="ID_PAIS_ORIGEN_GUIA" type="xs:short" minOccurs="0" />
+                  <xs:element name="ID_REGIONAL_ORIGEN_GUIA" msprop:DbColumnName="ID_REGIONAL_ORIGEN_GUIA" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_CIUDAD_ORIGEN_GUIA" msprop:DbColumnName="ID_CIUDAD_ORIGEN_GUIA" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_PAIS_DESTINO_GUIA" msprop:DbColumnName="ID_PAIS_DESTINO_GUIA" type="xs:short" minOccurs="0" />
+                  <xs:element name="ID_REGIONAL_DESTINO_GUIA" msprop:DbColumnName="ID_REGIONAL_DESTINO_GUIA" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_CIUDAD_DESTINO_GUIA" msprop:DbColumnName="ID_CIUDAD_DESTINO_GUIA" type="xs:int" minOccurs="0" />
+                  <xs:element name="TIPO_SOLICITUD_CIERRE" msprop:DbColumnName="TIPO_SOLICITUD_CIERRE" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_REGIONAL_CLIENTE_NOTIFICACION" msprop:DbColumnName="ID_REGIONAL_CLIENTE_NOTIFICACION" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_CLIENTE" msprop:DbColumnName="ID_CLIENTE" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_MODALIDAD_PAGO" msprop:DbColumnName="ID_MODALIDAD_PAGO" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_ESTADO_PQR" msprop:DbColumnName="ID_ESTADO_PQR" type="xs:int" minOccurs="0" />
+                  <xs:element name="NUMERO_GUIA_CIERRE" msprop:DbColumnName="NUMERO_GUIA_CIERRE" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="ID_COLABORADOR_PROCESO" msprop:DbColumnName="ID_COLABORADOR_PROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_PAIS_PROCESO" msprop:DbColumnName="ID_PAIS_PROCESO" type="xs:short" minOccurs="0" />
+                  <xs:element name="ID_REGIONAL_PROCESO" msprop:DbColumnName="ID_REGIONAL_PROCESO" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_CIUDAD_PROCESO" msprop:DbColumnName="ID_CIUDAD_PROCESO" type="xs:int" minOccurs="0" />
+                  <xs:element name="CLAVE_DIVISION_INVESTIGA" msprop:DbColumnName="CLAVE_DIVISION_INVESTIGA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="TIEMPO" msprop:DbColumnName="TIEMPO" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_TIPO_DIVISION_COLAB" msprop:DbColumnName="ID_TIPO_DIVISION_COLAB" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_CARGO" msprop:DbColumnName="ID_CARGO" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_CIUDAD_COLAB" msprop:DbColumnName="ID_CIUDAD_COLAB" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_DIVISION_COLAB" msprop:DbColumnName="ID_DIVISION_COLAB" type="xs:int" minOccurs="0" />
+                  <xs:element name="CLAVE_PROCESO" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:FriendlyName="CLAVE_PROCESO" msprop:Description="Clave Ciudad + Division + Tipo Division" msprop:DbColumnName="CLAVE_PROCESO" msprop:ComputedColumnExpression="CONVERT(NUMERIC(15,0), CONVERT(VARCHAR(5),ID_DIVISION_COLAB) + CONVERT(VARCHAR(5),ID_TIPO_DIVISION_COLAB))" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="ID_TIPO_SOLICITUD_INICIAL_PQR" msprop:DbColumnName="ID_TIPO_SOLICITUD_INICIAL_PQR" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_TIPO_SOLICITUD_FINAL_PQR" msprop:DbColumnName="ID_TIPO_SOLICITUD_FINAL_PQR" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_RESPONSABILIDAD" msprop:DbColumnName="ID_RESPONSABILIDAD" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_CIUDAD_RESPONSABILIAD" msprop:DbColumnName="ID_CIUDAD_RESPONSABILIAD" type="xs:int" minOccurs="0" />
+                  <xs:element name="VALOR_RESPONSABILIDAD" msprop:DbColumnName="VALOR_RESPONSABILIDAD" type="xs:decimal" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_PQR_ESTADOS_INDEMNIZACION" msprop:DbTableName="PQR_ESTADOS_INDEMNIZACION" msprop:FriendlyName="PQR_ESTADOS_INDEMNIZACION" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_ESTADO_INDEMNIZACION_PQR" msprop:DbColumnName="ID_ESTADO_INDEMNIZACION_PQR" msprop:FriendlyName="ID_ESTADO_INDEMNIZACION_PQR" type="xs:unsignedByte" />
+                  <xs:element name="NOMBRE_ESTADO_INDEMNIZACION_PQR" msprop:DbColumnName="NOMBRE_ESTADO_INDEMNIZACION_PQR" msprop:FriendlyName="NOMBRE_ESTADO_INDEMNIZACION_PQR" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ESTADO_ESTADO_INDEMNIZACION_PQR" msprop:DbColumnName="ID_ESTADO_ESTADO_INDEMNIZACION_PQR" msprop:FriendlyName="ID_ESTADO_ESTADO_INDEMNIZACION_PQR" type="xs:unsignedByte" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_DIVISIONES" msprop:DbTableName="DIVISIONES" msprop:FriendlyName="DIVISIONES" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PAIS" msprop:DbColumnName="ID_PAIS" msprop:FriendlyName="ID_PAIS" type="xs:short" />
+                  <xs:element name="ID_CIUDAD" msprop:DbColumnName="ID_CIUDAD" msprop:FriendlyName="ID_CIUDAD" type="xs:int" />
+                  <xs:element name="ID_DIVISION" msprop:DbColumnName="ID_DIVISION" msprop:FriendlyName="ID_DIVISION" type="xs:int" />
+                  <xs:element name="ID_TIPO_DIVISION" msprop:DbColumnName="ID_TIPO_DIVISION" msprop:FriendlyName="ID_TIPO_DIVISION" type="xs:int" />
+                  <xs:element name="NOMBRE_DIVISION" msprop:DbColumnName="NOMBRE_DIVISION" msprop:FriendlyName="NOMBRE_DIVISION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DIRECCION_DIVISION" msprop:DbColumnName="DIRECCION_DIVISION" msprop:FriendlyName="DIRECCION_DIVISION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ADMIN_ZONAS" msprop:DbColumnName="ID_ADMIN_ZONAS" msprop:FriendlyName="ID_ADMIN_ZONAS" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_DIVISION_PRINCIPAL" msprop:DbColumnName="ID_DIVISION_PRINCIPAL" msprop:FriendlyName="ID_DIVISION_PRINCIPAL" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_TELEFONO_BIENVENIDA" msprop:DbColumnName="ID_TELEFONO_BIENVENIDA" msprop:FriendlyName="ID_TELEFONO_BIENVENIDA" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="CODIGO_ACTUAL" msprop:DbColumnName="CODIGO_ACTUAL" msprop:FriendlyName="CODIGO_ACTUAL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_EST_DIVISION" msprop:DbColumnName="ID_EST_DIVISION" msprop:FriendlyName="ID_EST_DIVISION" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="RESPONDE_TAREA" msprop:DbColumnName="RESPONDE_TAREA" msprop:FriendlyName="RESPONDE_TAREA" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="LOGIN_EMPLEADO" msprop:DbColumnName="LOGIN_EMPLEADO" msprop:FriendlyName="LOGIN_EMPLEADO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_CREACION" msprop:DbColumnName="FECHA_CREACION" msprop:FriendlyName="FECHA_CREACION" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="FECHA_MODIFICACION" msprop:DbColumnName="FECHA_MODIFICACION" msprop:FriendlyName="FECHA_MODIFICACION" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="Clave_Dimension" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Clave_Dimension" msprop:ComputedColumnExpression="CONVERT(varchar,id_pais) +&#xD;&#xA;right( '0000' +  CONVERT(varchar,id_ciudad),4) +&#xD;&#xA;right( '00000' +  CONVERT(varchar,id_division),5)" type="xs:string" minOccurs="0" />
+                  <xs:element name="Clave_Dimension_Confir" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Clave_Dimension_Confir" msprop:ComputedColumnExpression="right( '0000' +  CONVERT(varchar,id_ciudad),4) +&#xD;&#xA;right( '00000' +  CONVERT(varchar,id_division),5)" type="xs:string" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_PQR_ESTADO" msprop:DbTableName="PQR_ESTADO" msprop:FriendlyName="PQR_ESTADO" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_ESTADO_PQR" msprop:DbColumnName="ID_ESTADO_PQR" msprop:FriendlyName="ID_ESTADO_PQR" type="xs:int" />
+                  <xs:element name="NOMBRE_ESTADO_PQR" msprop:DbColumnName="NOMBRE_ESTADO_PQR" msprop:FriendlyName="NOMBRE_ESTADO_PQR" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_DIVISIONES_CIUDADES_MOVIMIENTOS" msprop:DbTableName="DIVISIONES_CIUDADES_MOVIMIENTOS" msprop:FriendlyName="DIVISIONES_CIUDADES_MOVIMIENTOS" msprop:DbSchemaName="DIM" msprop:TableType="View">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PAIS" msprop:DbColumnName="ID_PAIS" msprop:FriendlyName="ID_PAIS" type="xs:short" />
+                  <xs:element name="ID_REGIONAL" msdata:ReadOnly="true" msprop:DbColumnName="ID_REGIONAL" msprop:FriendlyName="ID_REGIONAL" type="xs:unsignedByte" />
+                  <xs:element name="ID_CIUDAD" msprop:DbColumnName="ID_CIUDAD" msprop:FriendlyName="ID_CIUDAD" type="xs:int" />
+                  <xs:element name="ID_DIVISION" msprop:DbColumnName="ID_DIVISION" msprop:FriendlyName="ID_DIVISION" type="xs:int" />
+                  <xs:element name="NOMBRE_CIUDAD" msdata:ReadOnly="true" msprop:DbColumnName="NOMBRE_CIUDAD" msprop:FriendlyName="NOMBRE_CIUDAD">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="60" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_REGIONAL" msdata:ReadOnly="true" msprop:DbColumnName="NOMBRE_REGIONAL" msprop:FriendlyName="NOMBRE_REGIONAL">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_DIVISION" msprop:DbColumnName="NOMBRE_DIVISION" msprop:FriendlyName="NOMBRE_DIVISION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Clave_Dimension" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Clave_Dimension" msprop:ComputedColumnExpression="CONVERT(varchar,id_pais) +&#xD;&#xA;right( '0000' +  CONVERT(varchar,id_ciudad),4) +&#xD;&#xA;right( '00000' +  CONVERT(varchar,id_division),5)">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="39" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_REGIONAL_CIUDAD" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="ID_REGIONAL_CIUDAD" msprop:ComputedColumnExpression="right('00' + CONVERT(varchar,ID_REGIONAL),2) + right('0000' + CONVERT(varchar,ID_CIUDAD),4)" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_REGIONAL_CIUDAD_DIVISION" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="ID_REGIONAL_CIUDAD_DIVISION" msprop:ComputedColumnExpression="right('00' + CONVERT(varchar,ID_REGIONAL),2) + right('0000' + CONVERT(varchar,ID_CIUDAD),4) + right( '00000' +  CONVERT(varchar,id_division),5)" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="11" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_REGIONAL_CIUDAD" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="NOMBRE_REGIONAL_CIUDAD" msprop:ComputedColumnExpression="NOMBRE_REGIONAL + ' - ' + NOMBRE_CIUDAD">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="103" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_REGIONAL_CIUDAD_DIVISION" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="NOMBRE_REGIONAL_CIUDAD_DIVISION" msprop:ComputedColumnExpression="NOMBRE_REGIONAL + ' - ' + NOMBRE_CIUDAD + ' - ' + NOMBRE_DIVISION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="146" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_PQR_CLIENTES" msprop:DbTableName="PQR_CLIENTES" msprop:FriendlyName="PQR_CLIENTES" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_CLIENTE" msprop:DbColumnName="ID_CLIENTE" msprop:FriendlyName="ID_CLIENTE">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_EMPRESA" msprop:DbColumnName="NOMBRE_EMPRESA" msprop:FriendlyName="NOMBRE_EMPRESA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRES_APELLIDOS_CLIENTE" msprop:DbColumnName="NOMBRES_APELLIDOS_CLIENTE" msprop:FriendlyName="NOMBRES_APELLIDOS_CLIENTE" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_PAIS_CLIENTE" msprop:DbColumnName="ID_PAIS_CLIENTE" msprop:FriendlyName="ID_PAIS_CLIENTE" type="xs:short" minOccurs="0" />
+                  <xs:element name="ID_CIUDAD_CLIENTE" msprop:DbColumnName="ID_CIUDAD_CLIENTE" msprop:FriendlyName="ID_CIUDAD_CLIENTE" type="xs:int" minOccurs="0" />
+                  <xs:element name="LOGIN_EMPLEADO_CREA" msprop:DbColumnName="LOGIN_EMPLEADO_CREA" msprop:FriendlyName="LOGIN_EMPLEADO_CREA">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_CREA" msprop:DbColumnName="FECHA_CREA" msprop:FriendlyName="FECHA_CREA" type="xs:dateTime" />
+                  <xs:element name="LOGIN_EMPLEADO_MODIFICA" msprop:DbColumnName="LOGIN_EMPLEADO_MODIFICA" msprop:FriendlyName="LOGIN_EMPLEADO_MODIFICA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_MODIFICA" msprop:DbColumnName="FECHA_MODIFICA" msprop:FriendlyName="FECHA_MODIFICA" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="ID_PQR" msprop:DbColumnName="ID_PQR" msprop:FriendlyName="ID_PQR" type="xs:decimal" />
+                  <xs:element name="ID_TIPO_IDENTIFIC" msprop:DbColumnName="ID_TIPO_IDENTIFIC" msprop:FriendlyName="ID_TIPO_IDENTIFIC" type="xs:unsignedByte" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MODALIDAD_PAGO" msprop:DbTableName="MODALIDAD_PAGO" msprop:FriendlyName="MODALIDAD_PAGO" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_MODAL_PAGO" msprop:DbColumnName="ID_MODAL_PAGO" msprop:FriendlyName="ID_MODAL_PAGO" type="xs:unsignedByte" />
+                  <xs:element name="NOMBRE_MODAL_PAGO" msprop:DbColumnName="NOMBRE_MODAL_PAGO" msprop:FriendlyName="NOMBRE_MODAL_PAGO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_PIDE_DOCUM" msprop:DbColumnName="ID_PIDE_DOCUM" msprop:FriendlyName="ID_PIDE_DOCUM" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_PIDE_ENTIDAD" msprop:DbColumnName="ID_PIDE_ENTIDAD" msprop:FriendlyName="ID_PIDE_ENTIDAD" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="CREA_CONSIGNACION" msprop:DbColumnName="CREA_CONSIGNACION" msprop:FriendlyName="CREA_CONSIGNACION" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_EST_MODAL_PAGO" msprop:DbColumnName="ID_EST_MODAL_PAGO" msprop:FriendlyName="ID_EST_MODAL_PAGO" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="LOGIN_EMPLEADO" msprop:DbColumnName="LOGIN_EMPLEADO" msprop:FriendlyName="LOGIN_EMPLEADO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_CREACION" msprop:DbColumnName="FECHA_CREACION" msprop:FriendlyName="FECHA_CREACION" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="FECHA_MODIFICACION" msprop:DbColumnName="FECHA_MODIFICACION" msprop:FriendlyName="FECHA_MODIFICACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PQR_MOV_ESTADO_ID_PQR" msprop:IsLogical="True" msprop:FriendlyName="PQR_MOV_ESTADO_ID_PQR" msprop:DbTableName="PQR_MOV_ESTADO_ID_PQR" msprop:TableType="View" msprop:Description="ID_PQR" msprop:QueryDefinition="SELECT DISTINCT ID_PQR&#xD;&#xA;FROM         FAC.PQR_MOVIMIENTO_POR_ESTADO" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PQR" msprop:DbColumnName="ID_PQR" msprop:FriendlyName="ID_PQR" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PQR_MOV_ESTADO_CUN" msprop:IsLogical="True" msprop:FriendlyName="PQR_MOV_ESTADO_CUN" msprop:DbTableName="PQR_MOV_ESTADO_CUN" msprop:TableType="View" msprop:Description="NUMERO CUN" msprop:QueryDefinition="SELECT DISTINCT CUN&#xD;&#xA;FROM         FAC.PQR_MOVIMIENTO_POR_ESTADO" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CUN" msprop:DbColumnName="CUN" msprop:FriendlyName="CUN" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PQR_COLABORADORES_ME" msprop:IsLogical="True" msprop:FriendlyName="PQR_COLABORADORES_ME" msprop:DbTableName="PQR_COLABORADORES_ME" msprop:TableType="View" msprop:Description="Colaboradores Movimiento por Estado PQR" msprop:QueryDefinition="SELECT DISTINCT &#xD;&#xA;                      ME.ID_COLABORADOR_PROCESO, CASE WHEN ME.ID_COLABORADOR_PROCESO = 'USRINTERNET' THEN 'USRINTERNET' ELSE ISNULL(E.NOMBRE_EMPLEADO, &#xD;&#xA;                      'NO') + ' ' + ISNULL(E.APELLIDO_EMPLEADO, 'DISPONIBLE') END AS NOMBRE_COLABORADOR&#xD;&#xA;FROM         FAC.PQR_MOVIMIENTO_POR_ESTADO AS ME LEFT OUTER JOIN&#xD;&#xA;                      DIM.EMPLEADOS AS E ON ME.ID_COLABORADOR_PROCESO = E.ID_EMPLEADO" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_COLABORADOR_PROCESO" msprop:DbColumnName="ID_COLABORADOR_PROCESO" msprop:FriendlyName="ID_COLABORADOR_PROCESO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_COLABORADOR" msdata:ReadOnly="true" msprop:DbColumnName="NOMBRE_COLABORADOR" msprop:FriendlyName="NOMBRE_COLABORADOR" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="81" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PQR_GEOGRAFIA_CREA_PQR" msprop:IsLogical="True" msprop:FriendlyName="PQR_GEOGRAFIA_CREA_PQR" msprop:DbTableName="PQR_GEOGRAFIA_CREA_PQR" msprop:TableType="View" msprop:Description="Selecciona las PQR distintas con proceso Creacion (96)" msprop:QueryDefinition="SELECT DISTINCT &#xD;&#xA;                         PME.ID_PQR, C.ID_PAIS, P.NOMBRE_PAIS, C.ID_REGIONAL, R.NOMBRE_REGIONAL, C.ID_DEPARTAMENTO, D.NOMBRE_DEPARTAMENTO, C.ID_CIUDAD, &#xD;&#xA;                         C.NOMBRE_CIUDAD&#xD;&#xA;FROM            DIM.CIUDADES AS C INNER JOIN&#xD;&#xA;                         DIM.PAISES AS P ON P.ID_PAIS = C.ID_PAIS INNER JOIN&#xD;&#xA;                         DIM.REGIONALES_PAIS AS R ON R.ID_REGIONAL = C.ID_REGIONAL INNER JOIN&#xD;&#xA;                         DIM.DEPARTAMENTOS AS D ON D.ID_DEPARTAMENTO = C.ID_DEPARTAMENTO INNER JOIN&#xD;&#xA;                         FAC.PQR_MOVIMIENTO_POR_ESTADO AS PME ON C.ID_CIUDAD = PME.ID_CIUDAD_PROCESO&#xD;&#xA;WHERE        (PME.ID_PROCESO_PQR = 96)" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PAIS" msprop:DbColumnName="ID_PAIS" msprop:FriendlyName="ID_PAIS" type="xs:short" minOccurs="0" />
+                  <xs:element name="NOMBRE_PAIS" msprop:DbColumnName="NOMBRE_PAIS" msprop:FriendlyName="NOMBRE_PAIS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_REGIONAL" msprop:DbColumnName="ID_REGIONAL" msprop:FriendlyName="ID_REGIONAL" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="NOMBRE_REGIONAL" msprop:DbColumnName="NOMBRE_REGIONAL" msprop:FriendlyName="NOMBRE_REGIONAL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_DEPARTAMENTO" msprop:DbColumnName="ID_DEPARTAMENTO" msprop:FriendlyName="ID_DEPARTAMENTO" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="NOMBRE_DEPARTAMENTO" msprop:DbColumnName="NOMBRE_DEPARTAMENTO" msprop:FriendlyName="NOMBRE_DEPARTAMENTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_CIUDAD" msprop:DbColumnName="ID_CIUDAD" msprop:FriendlyName="ID_CIUDAD" type="xs:int" minOccurs="0" />
+                  <xs:element name="NOMBRE_CIUDAD" msprop:DbColumnName="NOMBRE_CIUDAD" msprop:FriendlyName="NOMBRE_CIUDAD" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_PQR" msprop:DbColumnName="ID_PQR" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_PQR_PROCESO_COLABORADOR" msprop:DbTableName="PQR_PROCESO_COLABORADOR" msprop:FriendlyName="PQR_PROCESO_COLABORADOR" msprop:DbSchemaName="DIM" msprop:TableType="View">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CLAVE_PROCESO" msprop:DbColumnName="CLAVE_PROCESO" type="xs:decimal" />
+                  <xs:element name="PROCESO" msprop:DbColumnName="PROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_PQR_TIPO_RESPONSABLE_INDEM" msprop:DbTableName="PQR_TIPO_RESPONSABLE_INDEM" msprop:FriendlyName="PQR_TIPO_RESPONSABLE_INDEM" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_TIPO_RESPONSABLE_INDEM" msprop:DbColumnName="ID_TIPO_RESPONSABLE_INDEM" msprop:FriendlyName="ID_TIPO_RESPONSABLE_INDEM" type="xs:unsignedByte" />
+                  <xs:element name="TIPO_RESPONSABLE_INDEM" msprop:DbColumnName="TIPO_RESPONSABLE_INDEM" msprop:FriendlyName="TIPO_RESPONSABLE_INDEM" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="FAC_PQR_RESPONSABILIDAD_INDEM" msprop:DbTableName="PQR_RESPONSABILIDAD_INDEM" msprop:FriendlyName="PQR_RESPONSABILIDAD_INDEM" msprop:DbSchemaName="FAC" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_RESPONSABILIDAD" msprop:DbColumnName="ID_RESPONSABILIDAD" msprop:FriendlyName="ID_RESPONSABILIDAD" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_PQR" msprop:DbColumnName="ID_PQR" msprop:FriendlyName="ID_PQR" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="CUN" msprop:DbColumnName="CUN" msprop:FriendlyName="CUN" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="ID_PAIS_RESP" msprop:DbColumnName="ID_PAIS_RESP" msprop:FriendlyName="ID_PAIS_RESP" type="xs:short" minOccurs="0" />
+                  <xs:element name="ID_CIUDAD_RESP" msprop:DbColumnName="ID_CIUDAD_RESP" msprop:FriendlyName="ID_CIUDAD_RESP" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_DIVISION_RESP" msprop:DbColumnName="ID_DIVISION_RESP" msprop:FriendlyName="ID_DIVISION_RESP" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_TIPO_RESPONSABLE" msprop:DbColumnName="ID_TIPO_RESPONSABLE" msprop:FriendlyName="ID_TIPO_RESPONSABLE" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_ESTADO_INDEMNIZACION_PQR" msprop:DbColumnName="ID_ESTADO_INDEMNIZACION_PQR" msprop:FriendlyName="ID_ESTADO_INDEMNIZACION_PQR" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="PORCENTAJE_RESPONSABILIDAD" msprop:DbColumnName="PORCENTAJE_RESPONSABILIDAD" msprop:FriendlyName="PORCENTAJE_RESPONSABILIDAD" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="VALOR_RESPONSABILIDAD" msprop:DbColumnName="VALOR_RESPONSABILIDAD" msprop:FriendlyName="VALOR_RESPONSABILIDAD" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="FECHA_CREA_RESP" msprop:DbColumnName="FECHA_CREA_RESP" msprop:FriendlyName="FECHA_CREA_RESP" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="FECHA_PROCESO_INDEM" msprop:DbColumnName="FECHA_PROCESO_INDEM" msprop:FriendlyName="FECHA_PROCESO_INDEM" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="FECHA_CREA_PQR" msprop:DbColumnName="FECHA_CREA_PQR" msprop:FriendlyName="FECHA_CREA_PQR" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="Clave_Detalle_Respons_Indem" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Clave_Detalle_Respons_Indem" msprop:ComputedColumnExpression="CONVERT(VARCHAR,ID_PAIS_RESP) +&#xD;&#xA;RIGHT( '0000' +  CONVERT(VARCHAR,ID_CIUDAD_RESP),4) +&#xD;&#xA;RIGHT( '00000' +  CONVERT(VARCHAR,ID_DIVISION_RESP),5)" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="39" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="TIME_ID_CREA_RESP" msprop:DbColumnName="TIME_ID_CREA_RESP" type="xs:int" minOccurs="0" />
+                  <xs:element name="TIME_ID_CREA_PQR" msprop:DbColumnName="TIME_ID_CREA_PQR" type="xs:int" minOccurs="0" />
+                  <xs:element name="TIME_ID_FECHA_PROCESO_INDEM" msprop:DbColumnName="TIME_ID_FECHA_PROCESO_INDEM" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_CLIENTE" msprop:DbColumnName="ID_CLIENTE" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_TIPO_SOLICITUD_FINAL_PQR" msprop:DbColumnName="ID_TIPO_SOLICITUD_FINAL_PQR" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="ID_CLIENTE_GUIA" msprop:DbColumnName="ID_CLIENTE_GUIA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="TIME_ID_FECHA_ENVIO" msprop:DbColumnName="TIME_ID_FECHA_ENVIO" type="xs:int" minOccurs="0" />
+                  <xs:element name="NUMERO_GUIA" msprop:DbColumnName="NUMERO_GUIA" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="ID_REGIMEN" msprop:DbColumnName="ID_REGIMEN" type="xs:unsignedByte" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_PQR_DETALLE_RESPONSABLE_INDEM" msprop:DbTableName="PQR_DETALLE_RESPONSABLE_INDEM" msprop:FriendlyName="PQR_DETALLE_RESPONSABLE_INDEM" msprop:DbSchemaName="DIM" msprop:TableType="View">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PAIS" msprop:DbColumnName="ID_PAIS" msprop:FriendlyName="ID_PAIS" type="xs:short" />
+                  <xs:element name="ID_CIUDAD" msprop:DbColumnName="ID_CIUDAD" msprop:FriendlyName="ID_CIUDAD" type="xs:int" />
+                  <xs:element name="ID_DIVISION" msprop:DbColumnName="ID_DIVISION" msprop:FriendlyName="ID_DIVISION" type="xs:int" />
+                  <xs:element name="DETALLE_RESPONSABLE_INDEM" msprop:DbColumnName="DETALLE_RESPONSABLE_INDEM" msprop:FriendlyName="DETALLE_RESPONSABLE_INDEM" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Clave_Detalle_Respons_Indem" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="Clave_Detalle_Respons_Indem" msprop:ComputedColumnExpression="CONVERT(VARCHAR,ID_PAIS) +&#xD;&#xA;RIGHT( '0000' +  CONVERT(VARCHAR,ID_CIUDAD),4) +&#xD;&#xA;RIGHT( '00000' +  CONVERT(VARCHAR,ID_DIVISION),5)">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="39" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PQR_RESP_INDEM_ID_PQR" msprop:IsLogical="True" msprop:FriendlyName="PQR_RESP_INDEM_ID_PQR" msprop:DbTableName="PQR_RESP_INDEM_ID_PQR" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT DISTINCT ID_PQR&#xD;&#xA;FROM            FAC.PQR_RESPONSABILIDAD_INDEM" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_PQR" msprop:DbColumnName="ID_PQR" msprop:FriendlyName="ID_PQR" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PQR_RESP_INDEM_CUN" msprop:IsLogical="True" msprop:FriendlyName="PQR_RESP_INDEM_CUN" msprop:DbTableName="PQR_RESP_INDEM_CUN" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT DISTINCT CUN&#xD;&#xA;FROM            FAC.PQR_RESPONSABILIDAD_INDEM" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CUN" msprop:DbColumnName="CUN" msprop:FriendlyName="CUN" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_PQR_RESP_INDEM_NUMERO_GUIA" msprop:DbTableName="PQR_RESP_INDEM_NUMERO_GUIA" msprop:FriendlyName="PQR_RESP_INDEM_NUMERO_GUIA" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="NUMERO_GUIA" msprop:DbColumnName="NUMERO_GUIA" msprop:FriendlyName="NUMERO_GUIA" type="xs:decimal" />
+                  <xs:element name="FECHA_EXTRACCION_DW" msprop:DbColumnName="FECHA_EXTRACCION_DW" msprop:FriendlyName="FECHA_EXTRACCION_DW" type="xs:dateTime" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MOXP_CLIENTES" msprop:DbTableName="MOXP_CLIENTES" msprop:FriendlyName="MOXP_CLIENTES" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_CLIENTE" msprop:DbColumnName="ID_CLIENTE" msprop:FriendlyName="ID_CLIENTE">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_CLIENTE" msprop:DbColumnName="NOMBRE_CLIENTE" msprop:FriendlyName="NOMBRE_CLIENTE" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="60" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_EXTRACCION_DW" msprop:DbColumnName="FECHA_EXTRACCION_DW" msprop:FriendlyName="FECHA_EXTRACCION_DW" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_HORA" />
+          <xs:field xpath="ID_PQR_HORA" />
+        </xs:unique>
+        <xs:unique name="DIM_PQR_ORIGEN_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_ORIGEN" />
+          <xs:field xpath="ID_ORIGEN_PQR" />
+        </xs:unique>
+        <xs:unique name="DIM_PQR_PROCESO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_PROCESO" />
+          <xs:field xpath="ID_PROCESO_PQR" />
+        </xs:unique>
+        <xs:unique name="DIM_PQR_REGIMEN_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_REGIMEN" />
+          <xs:field xpath="ID_PQR_REGIMEN" />
+        </xs:unique>
+        <xs:unique name="DIM_PQR_TIPOS_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_TIPOS" />
+          <xs:field xpath="ID_TIPO_PQR" />
+        </xs:unique>
+        <xs:unique name="DIM_PQR_TIPOS_SOLICITUDES_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_TIPOS_SOLICITUDES" />
+          <xs:field xpath="ID_TIPO_SOLICITUD_PQR" />
+        </xs:unique>
+        <xs:unique name="DIM_ORIGEN_SERVICIO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_ORIGEN_SERVICIO" />
+          <xs:field xpath="ID_ORIGEN_SERVICIO" />
+        </xs:unique>
+        <xs:unique name="DIM_TIPO_IDP_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_TIPO_IDP" />
+          <xs:field xpath="ID_TIPO_IDP" />
+        </xs:unique>
+        <xs:unique name="DIM_TIEMPO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_TIEMPO" />
+          <xs:field xpath="TIME_ID" />
+        </xs:unique>
+        <xs:unique name="PQR_EMPLEADOS_REGISTRO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PQR_EMPLEADOS_REGISTRO" />
+          <xs:field xpath="LOGIN_EMPLEADO_REGISTRO" />
+        </xs:unique>
+        <xs:unique name="PQR_EMPLEADOS_PROCESO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PQR_EMPLEADOS_PROCESO" />
+          <xs:field xpath="LOGIN_EMPLEADO_PROCESO" />
+        </xs:unique>
+        <xs:unique name="PQR_GEOGRAFIA_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PQR_GEOGRAFIA" />
+          <xs:field xpath="ID_CIUDAD" />
+        </xs:unique>
+        <xs:unique name="DIM_PQR_TIENE_GUIA_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_TIENE_GUIA" />
+          <xs:field xpath="ID_PQR_TIENE_GUIA" />
+        </xs:unique>
+        <xs:unique name="PQR_COMPENSACIONES_NUMERO_GUIA_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PQR_COMPENSACIONES_NUMERO_GUIA" />
+          <xs:field xpath="NUMERO_GUIA" />
+        </xs:unique>
+        <xs:unique name="PQR_COMPENSACIONES_ID_PQR_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PQR_COMPENSACIONES_ID_PQR" />
+          <xs:field xpath="ID_PQR" />
+        </xs:unique>
+        <xs:unique name="PQR_COMPENSACIONES_ID_CUN_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PQR_COMPENSACIONES_ID_CUN" />
+          <xs:field xpath="ID_CUN" />
+        </xs:unique>
+        <xs:unique name="DIM_PQR_ESTADOS_INDEMNIZACION_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_ESTADOS_INDEMNIZACION" />
+          <xs:field xpath="ID_ESTADO_INDEMNIZACION_PQR" />
+        </xs:unique>
+        <xs:unique name="DIM_DIVISIONES_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_DIVISIONES" />
+          <xs:field xpath="ID_CIUDAD" />
+        </xs:unique>
+        <xs:unique name="DIM_PQR_ESTADO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_ESTADO" />
+          <xs:field xpath="ID_ESTADO_PQR" />
+        </xs:unique>
+        <xs:unique name="DIM_DIVISIONES_CIUDADES_MOVIMIENTOS_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_DIVISIONES_CIUDADES_MOVIMIENTOS" />
+          <xs:field xpath="Clave_Dimension" />
+        </xs:unique>
+        <xs:unique name="DIM_PQR_CLIENTES_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_CLIENTES" />
+          <xs:field xpath="ID_CLIENTE" />
+        </xs:unique>
+        <xs:unique name="DIM_MODALIDAD_PAGO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MODALIDAD_PAGO" />
+          <xs:field xpath="ID_MODAL_PAGO" />
+        </xs:unique>
+        <xs:unique name="PQR_MOV_ESTADO_ID_PQR_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PQR_MOV_ESTADO_ID_PQR" />
+          <xs:field xpath="ID_PQR" />
+        </xs:unique>
+        <xs:unique name="PQR_MOV_ESTADO_CUN_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PQR_MOV_ESTADO_CUN" />
+          <xs:field xpath="CUN" />
+        </xs:unique>
+        <xs:unique name="PQR_COLABORADORES_ME_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PQR_COLABORADORES_ME" />
+          <xs:field xpath="ID_COLABORADOR_PROCESO" />
+        </xs:unique>
+        <xs:unique name="PQR_GEOGRAFIA_CREA_PQR_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PQR_GEOGRAFIA_CREA_PQR" />
+          <xs:field xpath="ID_PQR" />
+        </xs:unique>
+        <xs:unique name="DIM_PQR_PROCESO_COLABORADOR_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_PROCESO_COLABORADOR" />
+          <xs:field xpath="CLAVE_PROCESO" />
+        </xs:unique>
+        <xs:unique name="DIM_PQR_TIPO_RESPONSABLE_INDEM_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_TIPO_RESPONSABLE_INDEM" />
+          <xs:field xpath="ID_TIPO_RESPONSABLE_INDEM" />
+        </xs:unique>
+        <xs:unique name="DIM_PQR_DETALLE_RESPONSABLE_INDEM_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_DETALLE_RESPONSABLE_INDEM" />
+          <xs:field xpath="Clave_Detalle_Respons_Indem" />
+        </xs:unique>
+        <xs:unique name="PQR_RESP_INDEM_ID_PQR_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PQR_RESP_INDEM_ID_PQR" />
+          <xs:field xpath="ID_PQR" />
+        </xs:unique>
+        <xs:unique name="PQR_RESP_INDEM_CUN_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PQR_RESP_INDEM_CUN" />
+          <xs:field xpath="CUN" />
+        </xs:unique>
+        <xs:unique name="DIM_PQR_RESP_INDEM_NUMERO_GUIA_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_PQR_RESP_INDEM_NUMERO_GUIA" />
+          <xs:field xpath="NUMERO_GUIA" />
+        </xs:unique>
+        <xs:unique name="DIM_MOXP_CLIENTES_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MOXP_CLIENTES" />
+          <xs:field xpath="ID_CLIENTE" />
+        </xs:unique>
+      </xs:element>
+      <xs:annotation>
+        <xs:appinfo>
+          <msdata:Relationship name="PQR_COMPENSACIONES-ORIGEN_SERVICIO" msdata:parent="DIM_ORIGEN_SERVICIO" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="ID_ORIGEN_SERVICIO" msdata:childkey="ID_ORIGEN_SERVICIO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_TIPOS" msdata:parent="DIM_PQR_TIPOS" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="ID_TIPO_PQR" msdata:childkey="ID_TIPO_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_TIPOS_SOLICITUDES" msdata:parent="DIM_PQR_TIPOS_SOLICITUDES" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="ID_TIPO_SOLICITUD_PQR" msdata:childkey="ID_TIPO_SOLICITUD" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-TIEMPO" msdata:parent="DIM_TIEMPO" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="TIME_ID" msdata:childkey="TIME_ID" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_REGIMEN" msdata:parent="DIM_PQR_REGIMEN" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="ID_PQR_REGIMEN" msdata:childkey="ID_REGIMEN" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_HORA" msdata:parent="DIM_PQR_HORA" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="ID_PQR_HORA" msdata:childkey="HORA_REGISTRO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_HORA1" msdata:parent="DIM_PQR_HORA" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="ID_PQR_HORA" msdata:childkey="HORA_PROCESO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_ORIGEN" msdata:parent="DIM_PQR_ORIGEN" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="ID_ORIGEN_PQR" msdata:childkey="ID_TIPO_LOGISTICA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_PROCESO" msdata:parent="DIM_PQR_PROCESO" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="ID_PROCESO_PQR" msdata:childkey="ID_PROCESO_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-TIPO_IDP" msdata:parent="DIM_TIPO_IDP" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="ID_TIPO_IDP" msdata:childkey="ID_CAUSAL_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_EMPLEADOS_REGISTRO" msdata:parent="PQR_EMPLEADOS_REGISTRO" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="LOGIN_EMPLEADO_REGISTRO" msdata:childkey="LOGIN_EMPLEADO_REGISTRO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_EMPLEADOS_PROCESO" msdata:parent="PQR_EMPLEADOS_PROCESO" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="LOGIN_EMPLEADO_PROCESO" msdata:childkey="LOGIN_EMPLEADO_PROCESO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_GEOGRAFIA" msdata:parent="PQR_GEOGRAFIA" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="ID_CIUDAD ID_PAIS" msdata:childkey="ID_CIUDAD_CLIENTE ID_PAIS_CLIENTE" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_TIENE_GUIA" msdata:parent="DIM_PQR_TIENE_GUIA" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="ID_PQR_TIENE_GUIA" msdata:childkey="TIENE_GUIA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_COMPENSACIONES_NUMERO_GUIA" msdata:parent="PQR_COMPENSACIONES_NUMERO_GUIA" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="NUMERO_GUIA" msdata:childkey="NUMERO_GUIA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_COMPENSACIONES_ID_PQR" msdata:parent="PQR_COMPENSACIONES_ID_PQR" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="ID_PQR" msdata:childkey="ID_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_COMPENSACIONES-PQR_COMPENSACIONES_ID_CUN" msdata:parent="PQR_COMPENSACIONES_ID_CUN" msdata:child="FAC_PQR_COMPENSACIONES" msdata:parentkey="ID_CUN" msdata:childkey="ID_CUN" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_PROCESO" msdata:parent="DIM_PQR_PROCESO" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_PROCESO_PQR" msdata:childkey="ID_PROCESO_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_ESTADOS_INDEMNIZACION" msdata:parent="DIM_PQR_ESTADOS_INDEMNIZACION" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_ESTADO_INDEMNIZACION_PQR" msdata:childkey="ID_ESTADO_INDEMNIZACION_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-TIEMPO" msdata:parent="DIM_TIEMPO" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="TIME_ID" msdata:childkey="TIME_ID" msprop:IsLogical="True" msprop:Description="TIME_ID_PRINCIPAL" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-ORIGEN_SERVICIO" msdata:parent="DIM_ORIGEN_SERVICIO" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_ORIGEN_SERVICIO" msdata:childkey="ID_ORIGEN_SERVICIO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_TIPOS" msdata:parent="DIM_PQR_TIPOS" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_TIPO_PQR" msdata:childkey="ID_TIPO_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-TIPO_IDP" msdata:parent="DIM_TIPO_IDP" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_TIPO_IDP" msdata:childkey="ID_CAUSAL_PQR" msprop:IsLogical="True" msprop:Description="CAUSAL O TIPO IDP" />
+          <msdata:Relationship name="DIVISIONES-DIVISIONES_CIUDADES_MOVIMIENTOS" msdata:parent="DIM_DIVISIONES_CIUDADES_MOVIMIENTOS" msdata:child="DIM_DIVISIONES" msdata:parentkey="Clave_Dimension" msdata:childkey="Clave_Dimension" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_CLIENTES1" msdata:parent="DIM_PQR_CLIENTES" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_PQR ID_CLIENTE" msdata:childkey="ID_PQR ID_CLIENTE" msprop:IsLogical="True" msprop:Description="ID_PQR" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_ESTADO" msdata:parent="DIM_PQR_ESTADO" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_ESTADO_PQR" msdata:childkey="ID_ESTADO_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_MOV_ESTADO_ID_PQR" msdata:parent="PQR_MOV_ESTADO_ID_PQR" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_PQR" msdata:childkey="ID_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_MOV_ESTADO_CUN" msdata:parent="PQR_MOV_ESTADO_CUN" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="CUN" msdata:childkey="CUN" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_GEOGRAFIA" msdata:parent="PQR_GEOGRAFIA" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_CIUDAD" msdata:childkey="ID_CIUDAD_ORIGEN_GUIA" msprop:IsLogical="True" msprop:Description="GEOGRAFIA ORIGEN" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_GEOGRAFIA1" msdata:parent="PQR_GEOGRAFIA" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_CIUDAD" msdata:childkey="ID_CIUDAD_DESTINO_GUIA" msprop:IsLogical="True" msprop:Description="GEOGRAFIA DESTINO" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_TIPOS_SOLICITUDES" msdata:parent="DIM_PQR_TIPOS_SOLICITUDES" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_TIPO_SOLICITUD_PQR" msdata:childkey="ID_TIPO_SOLICITUD" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_TIENE_GUIA" msdata:parent="DIM_PQR_TIENE_GUIA" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_PQR_TIENE_GUIA" msdata:childkey="PQR_CON_GUIA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_REGIMEN" msdata:parent="DIM_PQR_REGIMEN" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_PQR_REGIMEN" msdata:childkey="ID_REGIMEN" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_ORIGEN" msdata:parent="DIM_PQR_ORIGEN" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_ORIGEN_PQR" msdata:childkey="ID_TIPO_LOGISTICA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-DIVISIONES" msdata:parent="DIM_DIVISIONES" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="Clave_Dimension" msdata:childkey="CLAVE_DIVISION_INVESTIGA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-MODALIDAD_PAGO" msdata:parent="DIM_MODALIDAD_PAGO" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_MODAL_PAGO" msdata:childkey="ID_MODALIDAD_PAGO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_COLABORADORES_ME" msdata:parent="PQR_COLABORADORES_ME" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_COLABORADOR_PROCESO" msdata:childkey="ID_COLABORADOR_PROCESO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_GEOGRAFIA2" msdata:parent="PQR_GEOGRAFIA" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_CIUDAD" msdata:childkey="ID_CIUDAD_PROCESO" msprop:IsLogical="True" msprop:Description="GEOGRAFIA PROCESO" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_GEOGRAFIA_CREA_PQR" msdata:parent="PQR_GEOGRAFIA_CREA_PQR" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_PQR ID_CIUDAD" msdata:childkey="ID_PQR ID_CIUDAD_PROCESO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_PROCESO_COLABORADOR" msdata:parent="DIM_PQR_PROCESO_COLABORADOR" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="CLAVE_PROCESO" msdata:childkey="CLAVE_PROCESO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-TIPO_IDP1" msdata:parent="DIM_TIPO_IDP" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_TIPO_PQR" msdata:childkey="ID_TIPO_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_TIPOS_SOLICITUDES1" msdata:parent="DIM_PQR_TIPOS_SOLICITUDES" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_TIPO_SOLICITUD_PQR" msdata:childkey="ID_TIPO_SOLICITUD_INICIAL_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_TIPOS_SOLICITUDES2" msdata:parent="DIM_PQR_TIPOS_SOLICITUDES" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_TIPO_SOLICITUD_PQR" msdata:childkey="ID_TIPO_SOLICITUD_FINAL_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_MOVIMIENTO_POR_ESTADO-PQR_GEOGRAFIA3" msdata:parent="PQR_GEOGRAFIA" msdata:child="FAC_PQR_MOVIMIENTO_POR_ESTADO" msdata:parentkey="ID_CIUDAD" msdata:childkey="ID_CIUDAD_RESPONSABILIAD" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_RESPONSABILIDAD_INDEM-TIEMPO" msdata:parent="DIM_TIEMPO" msdata:child="FAC_PQR_RESPONSABILIDAD_INDEM" msdata:parentkey="TIME_ID" msdata:childkey="TIME_ID_CREA_RESP" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_RESPONSABILIDAD_INDEM-PQR_TIPO_RESPONSABLE_INDEM" msdata:parent="DIM_PQR_TIPO_RESPONSABLE_INDEM" msdata:child="FAC_PQR_RESPONSABILIDAD_INDEM" msdata:parentkey="ID_TIPO_RESPONSABLE_INDEM" msdata:childkey="ID_TIPO_RESPONSABLE" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_RESPONSABILIDAD_INDEM-PQR_DETALLE_RESPONSABLE_INDEM" msdata:parent="DIM_PQR_DETALLE_RESPONSABLE_INDEM" msdata:child="FAC_PQR_RESPONSABILIDAD_INDEM" msdata:parentkey="Clave_Detalle_Respons_Indem" msdata:childkey="Clave_Detalle_Respons_Indem" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_RESPONSABILIDAD_INDEM-PQR_RESP_INDEM_ID_PQR" msdata:parent="PQR_RESP_INDEM_ID_PQR" msdata:child="FAC_PQR_RESPONSABILIDAD_INDEM" msdata:parentkey="ID_PQR" msdata:childkey="ID_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_RESPONSABILIDAD_INDEM-PQR_RESP_INDEM_CUN" msdata:parent="PQR_RESP_INDEM_CUN" msdata:child="FAC_PQR_RESPONSABILIDAD_INDEM" msdata:parentkey="CUN" msdata:childkey="CUN" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_RESPONSABILIDAD_INDEM-PQR_GEOGRAFIA" msdata:parent="PQR_GEOGRAFIA" msdata:child="FAC_PQR_RESPONSABILIDAD_INDEM" msdata:parentkey="ID_CIUDAD ID_PAIS" msdata:childkey="ID_CIUDAD_RESP ID_PAIS_RESP" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_RESPONSABILIDAD_INDEM-PQR_ESTADOS_INDEMNIZACION" msdata:parent="DIM_PQR_ESTADOS_INDEMNIZACION" msdata:child="FAC_PQR_RESPONSABILIDAD_INDEM" msdata:parentkey="ID_ESTADO_INDEMNIZACION_PQR" msdata:childkey="ID_ESTADO_INDEMNIZACION_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_RESPONSABILIDAD_INDEM-TIEMPO1" msdata:parent="DIM_TIEMPO" msdata:child="FAC_PQR_RESPONSABILIDAD_INDEM" msdata:parentkey="TIME_ID" msdata:childkey="TIME_ID_CREA_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_RESPONSABILIDAD_INDEM-TIEMPO2" msdata:parent="DIM_TIEMPO" msdata:child="FAC_PQR_RESPONSABILIDAD_INDEM" msdata:parentkey="TIME_ID" msdata:childkey="TIME_ID_FECHA_PROCESO_INDEM" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_RESPONSABILIDAD_INDEM-PQR_CLIENTES" msdata:parent="DIM_PQR_CLIENTES" msdata:child="FAC_PQR_RESPONSABILIDAD_INDEM" msdata:parentkey="ID_CLIENTE" msdata:childkey="ID_CLIENTE" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_RESPONSABILIDAD_INDEM-PQR_TIPOS_SOLICITUDES" msdata:parent="DIM_PQR_TIPOS_SOLICITUDES" msdata:child="FAC_PQR_RESPONSABILIDAD_INDEM" msdata:parentkey="ID_TIPO_SOLICITUD_PQR" msdata:childkey="ID_TIPO_SOLICITUD_FINAL_PQR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PQR_RESPONSABILIDAD_INDEM-PQR_RESP_INDEM_NUMERO_GUIA" msdata:parent="DIM_PQR_RESP_INDEM_NUMERO_GUIA" msdata:child="FAC_PQR_RESPONSABILIDAD_INDEM" msdata:parentkey="NUMERO_GUIA" msdata:childkey="NUMERO_GUIA" msprop:IsLogical="True" msprop:Description="" />
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:schema>
+    <SIG_PQR_LOGISTICA_DW xmlns="" />
+  </Schema>
+</DataSourceView>

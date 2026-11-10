@@ -1,0 +1,144 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="7185f301-f26f-4a1d-83b9-63c086ab950a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>PQR_COLABORADORES_ME</ID>
+  <Name>PQR_COLABORADORES_ME</Name>
+  <CreatedTimestamp>2013-03-18T21:12:26.096667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-03-19T17:04:32.45Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-11-03T09:49:39.763333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="02b2495c-f250-466c-a824-6deb09cf217a">
+    <DataSourceViewID>SIG_PQR_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="9b62c99f-11fb-4b70-8ef8-69ecbdd3b9b1">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="8f0e7e13-738f-4ff3-af9d-0480170e480e">
+      <ID>ID COLABORADOR PROCESO</ID>
+      <Name>Id_Colaborador</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="38f3bb8d-568e-4656-85d0-31442290758e">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d772f5c7-f882-4796-9536-8976b477d273">
+            <TableID>PQR_COLABORADORES_ME</TableID>
+            <ColumnID>ID_COLABORADOR_PROCESO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="3f5c1298-c84a-4648-a994-e110edc4610b">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="bcd35333-6b16-4fcf-8a41-51da0b1c97a0">
+          <TableID>PQR_COLABORADORES_ME</TableID>
+          <ColumnID>ID_COLABORADOR_PROCESO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="f701a1d4-0787-4a6f-95a0-c5d590e28a08">
+          <AttributeID>NOMBRE COLABORADOR</AttributeID>
+          <Name>Nombre_Colaborador</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="420a82d9-d93f-4a9e-8907-6675b52482ea">
+      <ID>NOMBRE COLABORADOR</ID>
+      <Name>Nombre_Colaborador</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0997783d-0dcd-415b-b84a-5194de0e9025">
+          <DataType>WChar</DataType>
+          <DataSize>81</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8e7d99e8-0a79-47e0-888a-325f16ee85e1">
+            <TableID>PQR_COLABORADORES_ME</TableID>
+            <ColumnID>NOMBRE_COLABORADOR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="78f030d7-0990-4cb4-8964-d4527b953a45">
+        <DataType>WChar</DataType>
+        <DataSize>81</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="58bc24ab-0d5c-4fb5-a1c5-bde97895dc9d">
+          <TableID>PQR_COLABORADORES_ME</TableID>
+          <ColumnID>NOMBRE_COLABORADOR</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="172390d0-e107-4403-8fb4-17282583a709">
+      <ID>Hierarchy</ID>
+      <Name>Colaborador</Name>
+      <Levels>
+        <Level dwd:design-time-name="61eb21d1-9da4-438e-a97b-216a5410e786">
+          <ID>Nombre_Colaborador</ID>
+          <Name>Nombre_Colaborador</Name>
+          <SourceAttributeID>NOMBRE COLABORADOR</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="906fb5b1-2d3b-4421-99a8-411b7ab5d3d3">
+          <ID>Id_Colaborador</ID>
+          <Name>Id_Colaborador</Name>
+          <SourceAttributeID>ID COLABORADOR PROCESO</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="b6041dd5-5a3a-4cd0-816a-5df00fde8779">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="a87c764a-3557-491b-ad87-ffed71cb937f" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

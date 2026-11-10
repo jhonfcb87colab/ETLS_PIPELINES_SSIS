@@ -1,0 +1,149 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="dc19b125-85bc-49f8-80d8-cf7e2c8da65a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DIM TIPO GUIA IMPRESION</ID>
+  <Name>DIM TIPO GUIA IMPRESION</Name>
+  <CreatedTimestamp>2024-02-17T21:46:19.103333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2024-02-17T21:49:27.533333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-10-06T13:21:48.736667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="4660a744-349b-4c28-a26e-ad6b51066a7b">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="e091dd39-f8d6-41ad-9299-e5dc1c8fc528">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="3d70aca2-b0b5-483e-bebe-3ac861ce8c04">
+      <ID>ID FORMATO</ID>
+      <Name>ID FORMATO</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d4b6d99f-530a-431d-a036-e827d02a5e38">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2216591d-99e8-4ceb-be89-8cfcad81710d">
+            <TableID>DIM_TIPO_GUIA_IMPRESION</TableID>
+            <ColumnID>ID_FORMATO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="09d8e1f4-ff54-499b-b47e-2f23bf7b2ce9">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5d659614-bd03-42dd-be6f-4dcefd55dfc8">
+          <TableID>DIM_TIPO_GUIA_IMPRESION</TableID>
+          <ColumnID>ID_FORMATO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="78b9f0ab-1f52-4a3b-a762-24642d2e8488">
+          <AttributeID>NOMBRE FORMATO</AttributeID>
+          <Name>NOMBRE FORMATO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a5aad4f4-4323-4414-bef1-299395be20d8">
+          <AttributeID>CADENA CANAL</AttributeID>
+          <Name>CADENA CANAL</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a0b17581-e677-421a-81f5-fc4eaf16a73c">
+      <ID>NOMBRE FORMATO</ID>
+      <Name>NOMBRE FORMATO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fd61f80f-55b3-4c23-bd6e-8234b8a5dc0b">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9c8a7a2a-088a-4d7b-aa44-4945228d1504">
+            <TableID>DIM_TIPO_GUIA_IMPRESION</TableID>
+            <ColumnID>NOMBRE_FORMATO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c955ad28-5a5d-4d5d-9413-e28ab53103ad">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="cf2edea8-0c78-4279-bd8d-728d61438b8e">
+          <TableID>DIM_TIPO_GUIA_IMPRESION</TableID>
+          <ColumnID>NOMBRE_FORMATO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="32d4a7b9-ef17-47db-a12c-a13362019a39">
+      <ID>CADENA CANAL</ID>
+      <Name>CADENA CANAL</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ee44e85e-b0b5-4215-ba4e-964b1dc6e1a0">
+          <DataType>WChar</DataType>
+          <DataSize>14</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7b681c7b-b57d-44e1-bb85-b156c0bffb3b">
+            <TableID>DIM_TIPO_GUIA_IMPRESION</TableID>
+            <ColumnID>CADENA_CANAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d221447e-51cd-48e1-84e6-d8a783525eb1">
+        <DataType>WChar</DataType>
+        <DataSize>14</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="eec25477-eb36-4697-b8e9-307ddafaf415">
+          <TableID>DIM_TIPO_GUIA_IMPRESION</TableID>
+          <ColumnID>CADENA_CANAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching dwd:design-time-name="dfd6ca32-3149-4ec9-8354-f8ff1c517428">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="288abf6e-0f1e-4c51-a96c-913739306cd3" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "MOV_PROC_LOG_VALIDAR_CATEGORIA_ZU", "MOV_PROC_LOG_VALIDAR_CATEGORIA_ZU\MOV_PROC_LOG_VALIDAR_CATEGORIA_ZU.dtproj", "{BDEE0AAB-DD21-48DF-AE92-76B06730BC9C}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "PARAMETROS", "PARAMETROS\PARAMETROS.dtproj", "{9A52A452-9763-46CA-A705-3F463CED2871}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "validacion_mov_x_proceso_log", "validacion_mov_x_proceso_log\validacion_mov_x_proceso_log.dtproj", "{E25819BD-7706-408F-B846-3198B431A30F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDEE0AAB-DD21-48DF-AE92-76B06730BC9C}.Development|Default.ActiveCfg = Development
+		{BDEE0AAB-DD21-48DF-AE92-76B06730BC9C}.Development|Default.Build.0 = Development
+		{9A52A452-9763-46CA-A705-3F463CED2871}.Development|Default.ActiveCfg = Development
+		{9A52A452-9763-46CA-A705-3F463CED2871}.Development|Default.Build.0 = Development
+		{E25819BD-7706-408F-B846-3198B431A30F}.Development|Default.ActiveCfg = Development
+		{E25819BD-7706-408F-B846-3198B431A30F}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EEDD66E-B2CE-440A-B6DA-6BFA25AADC36}
+	EndGlobalSection
+EndGlobal

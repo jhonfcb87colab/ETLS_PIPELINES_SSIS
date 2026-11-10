@@ -1,0 +1,263 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="009c4284-e52b-45b3-94d8-8e2eaaf964c8" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SDM ORDEN SERVICIO ESTADO ENVIO</ID>
+  <Name>SDM_ORDEN_SERVICIO_ESTADO_ENVIO</Name>
+  <CreatedTimestamp>2013-01-11T22:37:33.063333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-01-11T22:37:33.063333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-10-19T21:34:05.52Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="273f7d12-07ea-4c4e-9570-72867bf74f6a">
+    <DataSourceViewID>SIG_SDM_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="79a93784-8f7b-46cb-9045-866527456ee3">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="2f03a1ea-b468-464d-b6e7-1af98770500e">
+      <ID>NUMERO ORDEN</ID>
+      <Name>NUMERO ORDEN</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c381c44f-b8ae-49f3-8ef7-a258f7c9ff5b">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d911c254-947d-45ec-8a9e-8b9ade3d0978">
+            <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+            <ColumnID>NUMERO_ORDEN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="47b85c37-2b24-41cf-b4a6-efed51a3c3ca">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="7bf26a13-ec37-4ee2-8099-3fdd686618b8">
+          <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+          <ColumnID>NUMERO_ORDEN</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="59ed5b38-5279-4654-acc7-532c49d95ce6">
+          <AttributeID>ID ESTADO LOGISTICO</AttributeID>
+          <Name>ID ESTADO LOGISTICO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="71175684-aa11-40f3-85f5-426d49904da7">
+          <AttributeID>TIPO CLIENTE</AttributeID>
+          <Name>TIPO CLIENTE</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b27c9874-7760-41ab-bdab-503e8d9d4810">
+          <AttributeID>ID PRODUCTO SUBPRODUCTO</AttributeID>
+          <Name>ID PRODUCTO SUBPRODUCTO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9eb128dc-e321-480f-a1fd-881ce046c631">
+          <AttributeID>ID CIUDAD RECOLECCION</AttributeID>
+          <Name>ID CIUDAD RECOLECCION</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="db02b78e-57e5-47c1-97d6-55f86b762b48">
+          <AttributeID>ID CIUDAD PROCESO</AttributeID>
+          <Name>ID CIUDAD PROCESO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="2751abbc-e6ee-4469-8b68-7173980aa11b">
+          <AttributeID>TIME ID</AttributeID>
+          <Name>TIME ID</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d5f55380-247c-47a5-acb3-b392dc3c0fb3">
+      <ID>ID ESTADO LOGISTICO</ID>
+      <Name>ID ESTADO LOGISTICO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="07e435ab-48d7-4f54-9496-a1e61d5a9864">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="78c67736-32af-4879-ab1e-0e7104a1e17a">
+            <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+            <ColumnID>ID_ESTADO_LOGISTICO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="da20e9f4-eb35-4d3f-908a-17eaf8fcaf51">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="be10e0e0-ea30-408c-963a-30130f4be2b8">
+          <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+          <ColumnID>ID_ESTADO_LOGISTICO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="20010bf4-104f-4bcb-8b03-ca6e912f9189">
+      <ID>TIPO CLIENTE</ID>
+      <Name>TIPO CLIENTE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="10e6adbc-07b1-48d0-b095-3d6cb29ea82e">
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="de51fe6b-5437-4319-af06-f0a268316ca2">
+            <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+            <ColumnID>TIPO_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="5138f7b4-62a6-4be3-bb87-99e4adb82252">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8b5ac427-9fa7-427b-aec7-3bf03e3ee7ad">
+          <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+          <ColumnID>TIPO_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6704bdcc-81af-464b-824f-666ba848985c">
+      <ID>ID PRODUCTO SUBPRODUCTO</ID>
+      <Name>ID PRODUCTO SUBPRODUCTO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9e3f2f10-e834-4ab8-b08b-626d281253b2">
+          <DataType>WChar</DataType>
+          <DataSize>6</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fb9577c5-2661-4142-8bca-3b0ddb2594c9">
+            <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+            <ColumnID>ID_PRODUCTO_SUBPRODUCTO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f552d922-bd5b-433a-a4aa-d649e54f3128">
+        <DataType>WChar</DataType>
+        <DataSize>6</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a759e1da-31b8-4965-8e84-8f52571d0ee7">
+          <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+          <ColumnID>ID_PRODUCTO_SUBPRODUCTO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d7f06bfc-1acd-4b18-b82e-627873036be2">
+      <ID>ID CIUDAD RECOLECCION</ID>
+      <Name>ID CIUDAD RECOLECCION</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="39e04f0f-933d-4586-81fd-f1bac1be1220">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="25a82d54-6ca7-4dd6-87b3-29646ce3a134">
+            <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+            <ColumnID>ID_CIUDAD_RECOLECCION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f1406b45-66ff-4f81-8623-6f21c0e59b48">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6331c1d2-90dc-4140-8cb5-2e19f85f298a">
+          <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+          <ColumnID>ID_CIUDAD_RECOLECCION</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="40c32445-b0bc-4985-a385-2eb954d3e0cf">
+      <ID>ID CIUDAD PROCESO</ID>
+      <Name>ID CIUDAD PROCESO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b120aeaa-4785-4447-83df-5a7926abae87">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="71f00a1e-5ff6-448d-ab22-e8ef6ce3f579">
+            <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+            <ColumnID>ID_CIUDAD_PROCESO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ea5df7e2-3421-4849-bf4a-4abd1123bf6a">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="270aa13f-4d9c-449a-b3b7-e5742ebbe24a">
+          <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+          <ColumnID>ID_CIUDAD_PROCESO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2898246b-03bd-4c7b-b46d-c24bb02754da">
+      <ID>TIME ID</ID>
+      <Name>TIME ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e3e5f19a-87c9-4600-9d54-2f97790ded26">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9b668f21-6742-4c51-85f2-0fc461df382b">
+            <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+            <ColumnID>TIME_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="48d5522e-b21c-414d-bcce-d0f411cbe292">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4b542073-e765-49f8-b04e-6d9b56bc04ba">
+          <TableID>FAC_SDM_ORDEN_SERVICIO_ESTADO_ENVIO</TableID>
+          <ColumnID>TIME_ID</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching dwd:design-time-name="9c656ad6-4cb3-4389-932c-5a4d52e81436">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="9943c671-3dce-46ae-a5e0-3442a4306fb9" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

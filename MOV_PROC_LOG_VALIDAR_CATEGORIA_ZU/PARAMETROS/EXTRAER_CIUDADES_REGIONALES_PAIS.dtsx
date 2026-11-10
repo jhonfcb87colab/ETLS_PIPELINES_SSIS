@@ -1,0 +1,1403 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/6/2011 3:39:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="COBTADGR5976L"
+  DTS:CreatorName="SERVIENT\jhon.mora"
+  DTS:Description="DTS Ciudades_Regionales_Pais"
+  DTS:DTSID="{EF017AB8-9ECB-428F-B41B-E3E8FED6A2BA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="2058"
+  DTS:ObjectName="EXTRAER_CIUDADES_REGIONALES_PAIS"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{13B1B401-B6E8-4B73-94CC-2622FFAE7BD8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DS_PARAMETROS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{075EE010-89AE-45B1-89BE-BE9D46710C54}"
+      DTS:ObjectName="DS_PARAMETROS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LSTSSDGN;Initial Catalog=Parametros;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-EXTRAER_CIUDADES_REGIONALES_PAIS-{075EE010-89AE-45B1-89BE-BE9D46710C54}DS_PARAMETROS;Application Intent=READONLY;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{14CF29DD-6ED2-4367-A3F6-3639157ACE9E}"
+      DTS:ObjectName="DS_SIG_COL_LOGISTICA_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SERV-DBI01,9971;Initial Catalog=SIG_COL_LOGISTICA_DW;Provider=SQLNCLI11;Integrated Security=SSPI;Application Name=SSIS-EXTRAER_CIUDADES_REGIONALES_PAIS-{14CF29DD-6ED2-4367-A3F6-3639157ACE9E}DS_SIG_COL_LOGISTICA_DW;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Copy Data from CIUDADES to [Bodega de Datos].[dbo].[CIUDADES] Task"
+      DTS:DTSID="{F5E94A84-8D22-4DA7-A2B7-00A1AA6FDF70}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[DIM].[CIUDADES]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS,ROWS_PER_BATCH = 1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_PAIS]"
+                      cachedDataType="i2"
+                      cachedName="ID_PAIS"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CIUDAD]"
+                      cachedDataType="i4"
+                      cachedName="ID_CIUDAD"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NOMBRE_CIUDAD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="NOMBRE_CIUDAD"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_CIUDAD]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_CIUDAD]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INDIC_CIUDAD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="INDIC_CIUDAD"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INDIC_CIUDAD]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INDIC_CIUDAD]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CODIGO_DANE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="CODIGO_DANE"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CODIGO_DANE]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CODIGO_DANE]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CABE_REGIONAL]"
+                      cachedDataType="ui1"
+                      cachedName="ID_CABE_REGIONAL"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CABE_REGIONAL]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CABE_REGIONAL]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_RECOLECCION_INTERNET]"
+                      cachedDataType="ui1"
+                      cachedName="ID_RECOLECCION_INTERNET"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_RECOLECCION_INTERNET]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_RECOLECCION_INTERNET]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_REGIONAL]"
+                      cachedDataType="ui1"
+                      cachedName="ID_REGIONAL"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_REGIONAL]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_REGIONAL]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_DEPARTAMENTO]"
+                      cachedDataType="ui1"
+                      cachedName="ID_DEPARTAMENTO"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_DEPARTAMENTO]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_DEPARTAMENTO]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_GRUPOCOMIS]"
+                      cachedDataType="ui1"
+                      cachedName="ID_GRUPOCOMIS"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_GRUPOCOMIS]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_GRUPOCOMIS]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CATEGOPERA]"
+                      cachedDataType="i2"
+                      cachedName="ID_CATEGOPERA"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CATEGOPERA]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CATEGOPERA]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CATEGCOMERCIAL]"
+                      cachedDataType="i2"
+                      cachedName="ID_CATEGCOMERCIAL"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CATEGCOMERCIAL]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CATEGCOMERCIAL]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ABREV_CIUDAD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ABREV_CIUDAD"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ABREV_CIUDAD]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ABREV_CIUDAD]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_EST_CIUDAD]"
+                      cachedDataType="ui1"
+                      cachedName="ID_EST_CIUDAD"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_EST_CIUDAD]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_EST_CIUDAD]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LOGIN_EMPLEADO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="LOGIN_EMPLEADO"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_EMPLEADO]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_CREACION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FECHA_CREACION"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_MODIFICACION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FECHA_MODIFICACION"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]" />
+                    <inputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CLASIFDANE]"
+                      cachedDataType="i2"
+                      cachedName="ID_CLASIFDANE"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLASIF_DANE]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLASIFDANE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS]"
+                      dataType="i2"
+                      name="ID_PAIS" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD]"
+                      dataType="i4"
+                      name="ID_CIUDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_CIUDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="NOMBRE_CIUDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INDIC_CIUDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="INDIC_CIUDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CODIGO_DANE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="CODIGO_DANE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CABE_REGIONAL]"
+                      dataType="ui1"
+                      name="ID_CABE_REGIONAL" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_RECOLECCION_INTERNET]"
+                      dataType="ui1"
+                      name="ID_RECOLECCION_INTERNET" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_REGIONAL]"
+                      dataType="ui1"
+                      name="ID_REGIONAL" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_DEPARTAMENTO]"
+                      dataType="ui1"
+                      name="ID_DEPARTAMENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_GRUPOCOMIS]"
+                      dataType="ui1"
+                      name="ID_GRUPOCOMIS" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CATEGOPERA]"
+                      dataType="i2"
+                      name="ID_CATEGOPERA" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CATEGCOMERCIAL]"
+                      dataType="i2"
+                      name="ID_CATEGCOMERCIAL" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ABREV_CIUDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ABREV_CIUDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_EST_CIUDAD]"
+                      dataType="ui1"
+                      name="ID_EST_CIUDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="LOGIN_EMPLEADO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_CREACION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_MODIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLASIF_DANE]"
+                      dataType="i2"
+                      name="ID_CLASIF_DANE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT	[ID_PAIS],
+		[ID_CIUDAD],
+		[NOMBRE_CIUDAD],
+		[INDIC_CIUDAD],
+		[CODIGO_DANE],
+		[ID_CABE_REGIONAL],
+		[ID_RECOLECCION_INTERNET],
+		[ID_REGIONAL],
+		[ID_DEPARTAMENTO],
+		[ID_GRUPOCOMIS],
+		[ID_CATEGOPERA],
+		[ID_CATEGCOMERCIAL],
+		[ID_CLASIFDANE],
+		[ABREV_CIUDAD],
+		[ID_EST_CIUDAD],
+		[LOGIN_EMPLEADO],
+		[FECHA_CREACION],
+		[FECHA_MODIFICACION]
+FROM	[PARAMETROS].[DBO].[CIUDADES] WITH(NOLOCK)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DS_PARAMETROS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DS_PARAMETROS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS]"
+                      name="ID_PAIS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD]"
+                      name="ID_CIUDAD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_CIUDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_CIUDAD]"
+                      length="40"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_CIUDAD]"
+                      name="NOMBRE_CIUDAD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INDIC_CIUDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INDIC_CIUDAD]"
+                      length="7"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INDIC_CIUDAD]"
+                      name="INDIC_CIUDAD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CODIGO_DANE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CODIGO_DANE]"
+                      length="11"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CODIGO_DANE]"
+                      name="CODIGO_DANE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CABE_REGIONAL]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CABE_REGIONAL]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CABE_REGIONAL]"
+                      name="ID_CABE_REGIONAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_RECOLECCION_INTERNET]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_RECOLECCION_INTERNET]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_RECOLECCION_INTERNET]"
+                      name="ID_RECOLECCION_INTERNET"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_REGIONAL]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_REGIONAL]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_REGIONAL]"
+                      name="ID_REGIONAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_DEPARTAMENTO]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_DEPARTAMENTO]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_DEPARTAMENTO]"
+                      name="ID_DEPARTAMENTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_GRUPOCOMIS]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_GRUPOCOMIS]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_GRUPOCOMIS]"
+                      name="ID_GRUPOCOMIS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CATEGOPERA]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CATEGOPERA]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CATEGOPERA]"
+                      name="ID_CATEGOPERA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CATEGCOMERCIAL]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CATEGCOMERCIAL]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CATEGCOMERCIAL]"
+                      name="ID_CATEGCOMERCIAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLASIFDANE]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CLASIFDANE]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLASIFDANE]"
+                      name="ID_CLASIFDANE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ABREV_CIUDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ABREV_CIUDAD]"
+                      length="3"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ABREV_CIUDAD]"
+                      name="ABREV_CIUDAD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_EST_CIUDAD]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_EST_CIUDAD]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_EST_CIUDAD]"
+                      name="ID_EST_CIUDAD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_EMPLEADO]"
+                      length="15"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]"
+                      name="LOGIN_EMPLEADO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                      name="FECHA_CREACION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                      name="FECHA_MODIFICACION"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS]"
+                      dataType="i2"
+                      name="ID_PAIS" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD]"
+                      dataType="i4"
+                      name="ID_CIUDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_CIUDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="NOMBRE_CIUDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INDIC_CIUDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="INDIC_CIUDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CODIGO_DANE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="CODIGO_DANE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CABE_REGIONAL]"
+                      dataType="ui1"
+                      name="ID_CABE_REGIONAL" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_RECOLECCION_INTERNET]"
+                      dataType="ui1"
+                      name="ID_RECOLECCION_INTERNET" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_REGIONAL]"
+                      dataType="ui1"
+                      name="ID_REGIONAL" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_DEPARTAMENTO]"
+                      dataType="ui1"
+                      name="ID_DEPARTAMENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_GRUPOCOMIS]"
+                      dataType="ui1"
+                      name="ID_GRUPOCOMIS" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CATEGOPERA]"
+                      dataType="i2"
+                      name="ID_CATEGOPERA" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CATEGCOMERCIAL]"
+                      dataType="i2"
+                      name="ID_CATEGCOMERCIAL" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CLASIFDANE]"
+                      dataType="i2"
+                      name="ID_CLASIFDANE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ABREV_CIUDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ABREV_CIUDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_EST_CIUDAD]"
+                      dataType="ui1"
+                      name="ID_EST_CIUDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="LOGIN_EMPLEADO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_CREACION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_MODIFICACION" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PAIS]"
+                      dataType="i2"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PAIS]"
+                      name="ID_PAIS" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD]"
+                      name="ID_CIUDAD" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_CIUDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_CIUDAD]"
+                      name="NOMBRE_CIUDAD" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INDIC_CIUDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INDIC_CIUDAD]"
+                      name="INDIC_CIUDAD" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CODIGO_DANE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CODIGO_DANE]"
+                      name="CODIGO_DANE" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CABE_REGIONAL]"
+                      dataType="ui1"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CABE_REGIONAL]"
+                      name="ID_CABE_REGIONAL" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_RECOLECCION_INTERNET]"
+                      dataType="ui1"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_RECOLECCION_INTERNET]"
+                      name="ID_RECOLECCION_INTERNET" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_REGIONAL]"
+                      dataType="ui1"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_REGIONAL]"
+                      name="ID_REGIONAL" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_DEPARTAMENTO]"
+                      dataType="ui1"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_DEPARTAMENTO]"
+                      name="ID_DEPARTAMENTO" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_GRUPOCOMIS]"
+                      dataType="ui1"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_GRUPOCOMIS]"
+                      name="ID_GRUPOCOMIS" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CATEGOPERA]"
+                      dataType="i2"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CATEGOPERA]"
+                      name="ID_CATEGOPERA" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CATEGCOMERCIAL]"
+                      dataType="i2"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CATEGCOMERCIAL]"
+                      name="ID_CATEGCOMERCIAL" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CLASIFDANE]"
+                      dataType="i2"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CLASIFDANE]"
+                      name="ID_CLASIFDANE" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ABREV_CIUDAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ABREV_CIUDAD]"
+                      name="ABREV_CIUDAD" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_EST_CIUDAD]"
+                      dataType="ui1"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_EST_CIUDAD]"
+                      name="ID_EST_CIUDAD" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOGIN_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOGIN_EMPLEADO]"
+                      name="LOGIN_EMPLEADO" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                      name="FECHA_CREACION" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                      name="FECHA_MODIFICACION" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task.Paths[OLE DB Source Output]"
+              endId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Copy Data from REGIONALES_PAIS to [Bodega de Datos].[dbo].[REGIONALES_PAIS] Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{041939E4-347D-43FF-BBCF-C912DB897720}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[DIM].[REGIONALES_PAIS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS,ROWS_PER_BATCH = 1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_PAIS]"
+                      cachedDataType="i2"
+                      cachedName="ID_PAIS"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS]" />
+                    <inputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_REGIONAL]"
+                      cachedDataType="ui1"
+                      cachedName="ID_REGIONAL"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_REGIONAL]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_REGIONAL]" />
+                    <inputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NOMBRE_REGIONAL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="NOMBRE_REGIONAL"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_REGIONAL]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_REGIONAL]" />
+                    <inputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_EST_REGIONAL]"
+                      cachedDataType="ui1"
+                      cachedName="ID_EST_REGIONAL"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_EST_REGIONAL]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_EST_REGIONAL]" />
+                    <inputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LOGIN_EMPLEADO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="LOGIN_EMPLEADO"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_EMPLEADO]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]" />
+                    <inputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_CREACION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FECHA_CREACION"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]" />
+                    <inputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_MODIFICACION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FECHA_MODIFICACION"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]" />
+                    <inputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CATEGREGION]"
+                      cachedDataType="ui1"
+                      cachedName="ID_CATEGREGION"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CATEG_REGION]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CATEGREGION]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS]"
+                      dataType="i2"
+                      name="ID_PAIS" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_REGIONAL]"
+                      dataType="ui1"
+                      name="ID_REGIONAL" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_REGIONAL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="NOMBRE_REGIONAL" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_EST_REGIONAL]"
+                      dataType="ui1"
+                      name="ID_EST_REGIONAL" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="LOGIN_EMPLEADO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_CREACION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_MODIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_REGIONAL_PAIS]"
+                      dataType="i4"
+                      name="ID_REGIONAL_PAIS" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CATEG_REGION]"
+                      dataType="ui1"
+                      name="ID_CATEG_REGION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MSREPL_TRAN_VERSION]"
+                      dataType="guid"
+                      name="MSREPL_TRAN_VERSION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT	[ID_PAIS],
+		[ID_REGIONAL],
+		[ID_CATEGREGION],
+		[NOMBRE_REGIONAL],
+		[ID_EST_REGIONAL],
+		[LOGIN_EMPLEADO],
+		[FECHA_CREACION],
+		[FECHA_MODIFICACION]
+FROM	[PARAMETROS].[DBO].[REGIONALES_PAIS] WITH(NOLOCK)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DS_PARAMETROS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DS_PARAMETROS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS]"
+                      name="ID_PAIS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_REGIONAL]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_REGIONAL]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_REGIONAL]"
+                      name="ID_REGIONAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CATEGREGION]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CATEGREGION]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CATEGREGION]"
+                      name="ID_CATEGREGION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_REGIONAL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_REGIONAL]"
+                      length="40"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_REGIONAL]"
+                      name="NOMBRE_REGIONAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_EST_REGIONAL]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_EST_REGIONAL]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_EST_REGIONAL]"
+                      name="ID_EST_REGIONAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_EMPLEADO]"
+                      length="15"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]"
+                      name="LOGIN_EMPLEADO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                      name="FECHA_CREACION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                      name="FECHA_MODIFICACION"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS]"
+                      dataType="i2"
+                      name="ID_PAIS" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_REGIONAL]"
+                      dataType="ui1"
+                      name="ID_REGIONAL" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CATEGREGION]"
+                      dataType="ui1"
+                      name="ID_CATEGREGION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_REGIONAL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="NOMBRE_REGIONAL" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_EST_REGIONAL]"
+                      dataType="ui1"
+                      name="ID_EST_REGIONAL" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="LOGIN_EMPLEADO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_CREACION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_MODIFICACION" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PAIS]"
+                      dataType="i2"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PAIS]"
+                      name="ID_PAIS" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_REGIONAL]"
+                      dataType="ui1"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_REGIONAL]"
+                      name="ID_REGIONAL" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CATEGREGION]"
+                      dataType="ui1"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CATEGREGION]"
+                      name="ID_CATEGREGION" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_REGIONAL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_REGIONAL]"
+                      name="NOMBRE_REGIONAL" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_EST_REGIONAL]"
+                      dataType="ui1"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_EST_REGIONAL]"
+                      name="ID_EST_REGIONAL" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOGIN_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOGIN_EMPLEADO]"
+                      name="LOGIN_EMPLEADO" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                      name="FECHA_CREACION" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                      name="FECHA_MODIFICACION" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task.Paths[OLE DB Source Output]"
+              endId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task"
+          TopLeft="210.669811320755,6.82075471698114" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Copy Data from REGIONALES_PAIS to  Bodega de Datos   dbo   REGIONALES_PAIS  Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[DS_PARAMETROS]">
+    <DataSourceID>DS_PARAMETROS</DataSourceID>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]">
+    <DataSourceID>DS_SIG_COL LOGISTICA DW</DataSourceID>
+  </ConnectionManager>
+  <TaskHost
+    design-time-name="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source"
+          TopLeft="16,5.5" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination"
+          TopLeft="5.50000000000001,107.5" />
+        <EdgeLayout
+          Id="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task.Paths[OLE DB Source Output]"
+          TopLeft="91,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Copy Data from CIUDADES to  Bodega de Datos   dbo   CIUDADES  Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

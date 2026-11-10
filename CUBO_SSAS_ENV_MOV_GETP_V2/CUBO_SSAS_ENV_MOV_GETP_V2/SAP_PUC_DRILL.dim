@@ -1,0 +1,214 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="5e8df3dd-b48a-4226-91b0-f6b020ff9366" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SAP_PUC_DRILL</ID>
+  <Name>SAP_PUC_DRILL</Name>
+  <CreatedTimestamp>2015-10-01T21:24:59.15Z</CreatedTimestamp>
+  <LastSchemaUpdate>2015-10-01T21:24:59.15Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-10-19T21:33:50.62Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="7c066aae-8126-4526-ba45-7a9f2c6b027f">
+    <DataSourceViewID>SIG_COL_SAP_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="6e4f4286-2965-4516-9629-73586fe54bf7">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="8e754017-7213-48ec-8355-9783f15c5af2">
+      <ID>ID SUBCUENTA</ID>
+      <Name>ID SUBCUENTA</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e1c9273b-9607-49ad-af7b-a490512d38e2">
+          <DataType>WChar</DataType>
+          <DataSize>7</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6102b61c-5244-4a9d-a7af-27c91a9b1e02">
+            <TableID>DIM_SAP_PUC_DRILL</TableID>
+            <ColumnID>ID_SUBCUENTA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4278ebf2-4395-49ea-84bc-81470ddded34">
+        <DataType>WChar</DataType>
+        <DataSize>7</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="12f0c5db-63ac-4fa5-b96b-7e50911e22fc">
+          <TableID>DIM_SAP_PUC_DRILL</TableID>
+          <ColumnID>ID_SUBCUENTA</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="ad5656ef-2cdf-44e5-98f7-710d0e05b125">
+          <AttributeID>NOMBRE CLASE</AttributeID>
+          <Name>NOMBRE CLASE</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="2720ce8e-8dab-4e66-b682-763af9357242">
+          <AttributeID>NOMBRE GRUPO</AttributeID>
+          <Name>NOMBRE GRUPO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e074a013-9535-4627-9033-f58876f096e0">
+          <AttributeID>NOMBRE CUENTA</AttributeID>
+          <Name>NOMBRE CUENTA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e3b1c557-3f54-4353-8263-277dc3d9793a">
+          <AttributeID>NOMBRE SUBCUENTA</AttributeID>
+          <Name>NOMBRE SUBCUENTA</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="70ee42c2-b538-4167-80ee-39ccc22455a2">
+      <ID>NOMBRE CLASE</ID>
+      <Name>NOMBRE CLASE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5098b9c4-a785-462c-93c4-059ee4bb7355">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a90a9558-fbe0-4a4b-ac94-3341a1e010b7">
+            <TableID>DIM_SAP_PUC_DRILL</TableID>
+            <ColumnID>NOMBRE_CLASE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c2322b74-e6c1-4d58-8103-c157f7d580da">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="088346ae-95a5-4893-88d0-7767e3e5db7f">
+          <TableID>DIM_SAP_PUC_DRILL</TableID>
+          <ColumnID>NOMBRE_CLASE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b4c05c3e-28a0-45a6-bd8d-7cfb6d144e2e">
+      <ID>NOMBRE GRUPO</ID>
+      <Name>NOMBRE GRUPO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="92d992f5-236d-4b18-9c35-3cf994b58859">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b1ad5554-52a2-4686-b306-c7a8d4a65024">
+            <TableID>DIM_SAP_PUC_DRILL</TableID>
+            <ColumnID>NOMBRE_GRUPO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a7164d94-f1b3-41db-bf06-1b1052761a1e">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0803f779-edd8-434e-b0bd-5973bf9751e0">
+          <TableID>DIM_SAP_PUC_DRILL</TableID>
+          <ColumnID>NOMBRE_GRUPO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="21ba5295-56ab-4ce0-9a40-9ec3a210f5a4">
+      <ID>NOMBRE CUENTA</ID>
+      <Name>NOMBRE CUENTA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1201a56c-4b52-400c-9e10-f89813faa03c">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="68c71393-2cde-47ad-ba95-232a9ecb229b">
+            <TableID>DIM_SAP_PUC_DRILL</TableID>
+            <ColumnID>NOMBRE_CUENTA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="091e306a-cdd2-42da-a8be-d74014f78819">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="ca6baea8-5cb1-4380-88a0-6e601d048908">
+          <TableID>DIM_SAP_PUC_DRILL</TableID>
+          <ColumnID>NOMBRE_CUENTA</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d5ac943e-4bad-4fc8-a8c4-6b54f2c45cd3">
+      <ID>NOMBRE SUBCUENTA</ID>
+      <Name>NOMBRE SUBCUENTA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1a332222-1f1f-4f66-b9a7-56221047b6a7">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c5e4986f-2e74-4536-aaae-e6a03777eb46">
+            <TableID>DIM_SAP_PUC_DRILL</TableID>
+            <ColumnID>NOMBRE_SUBCUENTA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2127f772-a707-498b-bfe3-301b4f7abf08">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e04a97a4-f6d8-4f02-9f99-5e6f91d3a456">
+          <TableID>DIM_SAP_PUC_DRILL</TableID>
+          <ColumnID>NOMBRE_SUBCUENTA</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching dwd:design-time-name="89ab05fa-ebff-4d53-ad92-4b7383e37d3f">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="4f2d36f1-aca6-413a-aa5c-cb7ba19372a3" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

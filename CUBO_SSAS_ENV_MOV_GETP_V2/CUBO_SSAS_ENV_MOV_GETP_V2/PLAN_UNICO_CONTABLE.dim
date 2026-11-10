@@ -1,0 +1,328 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="52fec3bf-e0e6-4509-87f0-16bd939ff20b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>PLAN_UNICO_CONTABLE</ID>
+  <Name>PLAN_UNICO_CONTABLE</Name>
+  <CreatedTimestamp>2013-01-11T22:37:13.046667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-01-11T22:37:13.046667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1832" scrolltop="-4842" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9604" y="14102" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="PUC_DRILL" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="3387" height="4419" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000800003b0d000043110000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DIM_PUC_DRILL" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-1832</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-4842</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="112">
+            <Shape Id="ID SUBCUENTA" Expanded="false">
+              <Attributes>
+                <Attribute Id="ID SUBCUENTA" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="SUBCUENTA" Expanded="false">
+              <Attributes>
+                <Attribute Id="SUBCUENTA" />
+              </Attributes>
+              <Position x="165" y="20" />
+            </Shape>
+            <Shape Id="CUENTA" Expanded="false">
+              <Attributes>
+                <Attribute Id="CUENTA" />
+              </Attributes>
+              <Position x="310" y="20" />
+            </Shape>
+            <Shape Id="GRUPO" Expanded="false">
+              <Attributes>
+                <Attribute Id="GRUPO" />
+              </Attributes>
+              <Position x="455" y="20" />
+            </Shape>
+            <Shape Id="CLASE" Expanded="false">
+              <Attributes>
+                <Attribute Id="CLASE" />
+              </Attributes>
+              <Position x="600" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-10-19T21:34:47.873333Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="40540a77-e404-4348-936a-a58e73d1664d">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="d1009573-341b-4d09-8002-3ef0acd353d2">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="37f7cdf2-5800-4899-b641-da7af8553505">
+      <ID>ID SUBCUENTA</ID>
+      <Name>ID SUBCUENTA</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>593</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="dd349486-332d-40fb-a7b7-2951965de017">
+          <DataType>WChar</DataType>
+          <DataSize>6</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="aa1df00e-6ec4-4c3d-8e50-6099635753a9">
+            <TableID>DIM_PUC_DRILL</TableID>
+            <ColumnID>ID_SUBCUENTA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0e507c02-6084-4bd3-8d1c-c31c69c408cc">
+        <DataType>WChar</DataType>
+        <DataSize>6</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0fa9222a-bed4-4612-91ca-995b86f41dc0">
+          <TableID>DIM_PUC_DRILL</TableID>
+          <ColumnID>ID_SUBCUENTA</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="bc4c5a88-3e93-4676-aaa2-ef9008ece883">
+          <AttributeID>SUBCUENTA</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Subcuenta</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e36449be-4cec-4c96-860d-62022c76a546">
+      <ID>CLASE</ID>
+      <Name>Clase</Name>
+      <EstimatedCount>8</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3cac69fc-4c3a-4c4b-84af-a4145d120c4a">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a3ac4eb8-a12f-4f44-893a-680b8bdaf4f9">
+            <TableID>DIM_PUC_DRILL</TableID>
+            <ColumnID>CLASE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="410a5c33-5b08-40c0-b606-df0d3c7ae5b0">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f859e950-9d0f-46d8-9a0c-4678deb0cb21">
+          <TableID>DIM_PUC_DRILL</TableID>
+          <ColumnID>CLASE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="de936016-796f-4827-9b1a-732b740a464a">
+      <ID>GRUPO</ID>
+      <Name>Grupo</Name>
+      <EstimatedCount>44</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="346b8afa-acdd-472b-9f7a-0a2c424603d5">
+          <DataType>WChar</DataType>
+          <DataSize>2</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a99ff6d8-d204-4810-b4c9-1f9a5051e12e">
+            <TableID>DIM_PUC_DRILL</TableID>
+            <ColumnID>ID_GRUPO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0591588d-a16b-4ddd-9b76-81ca3cef793a">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="197f06df-46e0-4d32-8dcd-f76605d90346">
+          <TableID>DIM_PUC_DRILL</TableID>
+          <ColumnID>GRUPO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="4a4d4b70-1c47-4526-abb7-35812c3cdb15">
+          <AttributeID>CLASE</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Clase</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="75869e1a-26d0-4f53-8e63-8d49937cb877">
+      <ID>CUENTA</ID>
+      <Name>Cuenta</Name>
+      <EstimatedCount>140</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7f94caba-b970-4d5e-a009-71c94d5ab532">
+          <DataType>WChar</DataType>
+          <DataSize>4</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c971fb99-5b7c-491f-9e6f-f501923b603b">
+            <TableID>DIM_PUC_DRILL</TableID>
+            <ColumnID>ID_CUENTA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f77e8b85-4b94-4ec4-8551-242dddf1ad5b">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="521a7f7f-bcaa-48da-ac5e-5eff2902bf75">
+          <TableID>DIM_PUC_DRILL</TableID>
+          <ColumnID>CUENTA</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="f4ce3616-4759-4e98-9bac-ecd83f376505">
+          <AttributeID>GRUPO</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Grupo</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="eb97e035-9612-421c-a4c5-f0adfb80d3cd">
+      <ID>SUBCUENTA</ID>
+      <Name>Subcuenta</Name>
+      <EstimatedCount>450</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d1aee682-aa9a-4c8b-875d-dc0ddd93a67b">
+          <DataType>WChar</DataType>
+          <DataSize>6</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4ed5f181-2820-4a14-8dfb-b610441ede90">
+            <TableID>DIM_PUC_DRILL</TableID>
+            <ColumnID>ID_SUBCUENTA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c61dfe99-33e3-40df-a8f6-29d06ad560bd">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="89b2c6f3-6b8c-45a7-9037-17f16daddbbe">
+          <TableID>DIM_PUC_DRILL</TableID>
+          <ColumnID>SUBCUENTA</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="bdbea62b-3e30-48bf-a9af-a0ca43bf5545">
+          <AttributeID>CUENTA</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Cuenta</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Plan_Unico_Contable</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="60e8eda0-7056-4633-9ae5-47455daf28f1">
+      <ID>Hierarchy</ID>
+      <Name>PLAN_UNICO_CONTABLE</Name>
+      <Levels>
+        <Level dwd:design-time-name="50d3ba3d-c300-4e7a-baa7-0df6555dcd5d">
+          <ID>Clase</ID>
+          <Name>Clase</Name>
+          <SourceAttributeID>CLASE</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="59dab268-b48c-43d5-b2d0-dd3422653700">
+          <ID>Grupo</ID>
+          <Name>Grupo</Name>
+          <SourceAttributeID>GRUPO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="d2be66e4-69c8-4c77-8d55-2950f067a377">
+          <ID>Cuenta</ID>
+          <Name>Cuenta</Name>
+          <SourceAttributeID>CUENTA</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="356e917a-b8cf-441f-910f-eadd9e1fbbab">
+          <ID>Subcuenta</ID>
+          <Name>Subcuenta</Name>
+          <SourceAttributeID>SUBCUENTA</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="9c936514-5f1c-4615-9c99-43c7bb6ddfb8">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="d475c740-90e8-4eaa-8ec5-372bcf123de9" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

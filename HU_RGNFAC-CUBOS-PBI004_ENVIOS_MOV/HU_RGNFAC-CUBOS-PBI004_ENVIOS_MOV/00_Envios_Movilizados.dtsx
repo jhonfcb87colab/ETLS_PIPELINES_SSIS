@@ -1,0 +1,350 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/11/2026 2:22:52 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="T_SERV-DBI01"
+  DTS:CreatorName="SERVIENT\inteligencianegocios"
+  DTS:DTSID="{03F1A48C-B910-4F5C-A1DC-2E8544BC7831}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="00_Envios_Movilizados"
+  DTS:PackageType="5"
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{5AF9EB25-6ED4-4A31-8165-6A98403035FA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[prd_SIG_COL_LOGISTICA_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B3927356-D5B5-4FC7-AA49-13514B5DCB03}"
+      DTS:ObjectName="prd_SIG_COL_LOGISTICA_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SERV-DBI01;Initial Catalog=SIG_COL_LOGISTICA_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{331A8FCE-5C02-4395-83E8-447A2DD60E6C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&lt;Batch xmlns='http://schemas.microsoft.com/analysisservices/2003/engine'&gt;&#xA;  &lt;ErrorConfiguration xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;&#xA;    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;    &lt;KeyNotFound&gt;IgnoreError&lt;/KeyNotFound&gt;&#xA;    &lt;NullKeyNotAllowed&gt;IgnoreError&lt;/NullKeyNotAllowed&gt;&#xA;  &lt;/ErrorConfiguration&gt;&#xA;  &lt;Parallel&gt;&#xA;    &lt;Process xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;SIG_COL_LOGISTICA&lt;/DatabaseID&gt;&#xA;        &lt;CubeID&gt;ENVIOS_MOVILIZADOS&lt;/CubeID&gt;&#xA;        &lt;MeasureGroupID&gt;ENVIOS MOVILIZADOS&lt;/MeasureGroupID&gt;&#xA;        &lt;PartitionID&gt;ENVIOS MOVILIZADOS &quot;+ (DT_WSTR,50) YEAR( (DT_DBDATE)  @[$Project::FULL_FACH_FIN]  ) +&quot; &quot;+ RIGHT(&quot;0&quot;+ (DT_WSTR,50) MONTH( (DT_DBDATE)  @[$Project::FULL_FACH_FIN]  ),2) +&quot;&lt;/PartitionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&#xA; &quot;+ @[User::Val_Distinto_Mes] +&quot;&#xA; &lt;/Parallel&gt;&#xA;&lt;/Batch&gt;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PROCESS_PARTIC_CUBO">
+      <DTS:VariableValue
+        DTS:DataType="8">&lt;Batch xmlns='http://schemas.microsoft.com/analysisservices/2003/engine'&gt;
+  &lt;ErrorConfiguration xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;
+    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;
+    &lt;KeyNotFound&gt;IgnoreError&lt;/KeyNotFound&gt;
+    &lt;NullKeyNotAllowed&gt;IgnoreError&lt;/NullKeyNotAllowed&gt;
+  &lt;/ErrorConfiguration&gt;
+  &lt;Parallel&gt;
+    &lt;Process xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;
+      &lt;Object&gt;
+        &lt;DatabaseID&gt;SIG_COL_LOGISTICA&lt;/DatabaseID&gt;
+        &lt;CubeID&gt;ENVIOS_MOVILIZADOS&lt;/CubeID&gt;
+        &lt;MeasureGroupID&gt;ENVIOS MOVILIZADOS&lt;/MeasureGroupID&gt;
+        &lt;PartitionID&gt;ENVIOS MOVILIZADOS 1900 01&lt;/PartitionID&gt;
+      &lt;/Object&gt;
+      &lt;Type&gt;ProcessFull&lt;/Type&gt;
+      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;
+    &lt;/Process&gt;
+ 
+ &lt;/Parallel&gt;
+&lt;/Batch&gt;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{34DBDEAC-9D82-4760-9D7E-DD9483300163}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="YEAR((DT_DBDATE) @[$Project::FULL_FACH_INI]) == YEAR((DT_DBDATE) @[$Project::FULL_FACH_FIN] ) &amp;&amp;  MONTH((DT_DBDATE) @[$Project::FULL_FACH_INI])  == MONTH((DT_DBDATE) @[$Project::FULL_FACH_FIN])  ? (DT_WSTR,50) &quot;&quot;  : (DT_WSTR,1500)  &#xA;&quot;    &lt;Process xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:ddl2='http://schemas.microsoft.com/analysisservices/2003/engine/2' xmlns:ddl2_2='http://schemas.microsoft.com/analysisservices/2003/engine/2/2' xmlns:ddl100_100='http://schemas.microsoft.com/analysisservices/2008/engine/100/100' xmlns:ddl200='http://schemas.microsoft.com/analysisservices/2010/engine/200' xmlns:ddl200_200='http://schemas.microsoft.com/analysisservices/2010/engine/200/200' xmlns:ddl300='http://schemas.microsoft.com/analysisservices/2011/engine/300' xmlns:ddl300_300='http://schemas.microsoft.com/analysisservices/2011/engine/300/300' xmlns:ddl400='http://schemas.microsoft.com/analysisservices/2012/engine/400' xmlns:ddl400_400='http://schemas.microsoft.com/analysisservices/2012/engine/400/400' xmlns:ddl500='http://schemas.microsoft.com/analysisservices/2013/engine/500' xmlns:ddl500_500='http://schemas.microsoft.com/analysisservices/2013/engine/500/500'&gt;&#xA;      &lt;Object&gt;&#xA;        &lt;DatabaseID&gt;SIG_COL_LOGISTICA&lt;/DatabaseID&gt;&#xA;        &lt;CubeID&gt;ENVIOS_MOVILIZADOS&lt;/CubeID&gt;&#xA;        &lt;MeasureGroupID&gt;ENVIOS MOVILIZADOS&lt;/MeasureGroupID&gt;&#xA;        &lt;PartitionID&gt;ENVIOS MOVILIZADOS &quot;+ (DT_WSTR,50) YEAR( (DT_DBDATE)  @[$Project::FULL_FACH_INI]  ) +&quot; &quot;+ RIGHT(&quot;0&quot;+ (DT_WSTR,50) MONTH( (DT_DBDATE)  @[$Project::FULL_FACH_INI]  ),2) +&quot;&lt;/PartitionID&gt;&#xA;      &lt;/Object&gt;&#xA;      &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;      &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;    &lt;/Process&gt;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Val_Distinto_Mes">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Envios_Movilizados"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{42be42ec-3744-4591-aea1-dc678ba5ca70}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Envios_Movilizados">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Envios_Movilizados\EPT_P1"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{4b7e3f6d-717f-4dec-aa0a-af5323f231b3}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT_P1"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>P01_SISMILENIO_EXTRAER_ENVIOS_MOVILIZADOS_TMP.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Envios_Movilizados\EPT_P4"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{c91481d3-13a2-446a-98ce-b09f87d9d6e2}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT_P4"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>P04_SISMILENIO_EXTRAER_ENVIOS_MOVILIZADOS_SEGUIMIENTO_ENVIO.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Envios_Movilizados\EPT_P5"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{52f216f7-48da-452f-a489-98f1c792100d}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT_P5"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>P05_Borrar Tabla FAC_ENVIOS_MOVILIZADOS.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Envios_Movilizados\EPT_P6"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{6b04e309-32d8-4de0-acf6-881fce04fa9c}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT_P6"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>P06_SISMILENIO_EXTRAER_ENVIOS_MOVILIZADOS_FAC_SP.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Envios_Movilizados\Procesamiento Cubo"
+          DTS:CreationName="Microsoft.ASExecuteDDLTask"
+          DTS:Description="Analysis Services Execute DDL Task"
+          DTS:DTSID="{98e093c2-fe84-4986-82ac-8d9f6698b30a}"
+          DTS:ExecutableType="Microsoft.ASExecuteDDLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Procesamiento Cubo"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ASDdlData
+              ConnectionName="SERV-DBI01.SIG_COL_LOGISTICA"
+              SourceType="Variable"
+              Source="User::PROCESS_PARTIC_CUBO" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Envios_Movilizados.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{67265aa7-bac8-43ce-9c90-66d770b8e9e1}"
+          DTS:From="Package\Envios_Movilizados\EPT_P6"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Envios_Movilizados\Procesamiento Cubo" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Envios_Movilizados.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{b0b2f741-8708-42de-814d-652516fab7a9}"
+          DTS:From="Package\Envios_Movilizados\EPT_P1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Envios_Movilizados\EPT_P4" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Envios_Movilizados.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{0054e40b-e5ce-4fde-8f0e-489d3b9f54c8}"
+          DTS:From="Package\Envios_Movilizados\EPT_P4"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Envios_Movilizados\EPT_P5" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Envios_Movilizados.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{d01a10a3-32e3-4261-a1d4-3b37f5431ef7}"
+          DTS:From="Package\Envios_Movilizados\EPT_P5"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\Envios_Movilizados\EPT_P6" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Envios_Movilizados\EPT_P1"
+          TopLeft="38,5.5" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Envios_Movilizados\EPT_P4"
+          TopLeft="37,70.5" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Envios_Movilizados\EPT_P5"
+          TopLeft="36,139.5" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Envios_Movilizados\EPT_P6"
+          TopLeft="38,205.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Envios_Movilizados\Procesamiento Cubo"
+          TopLeft="16.5,273" />
+        <EdgeLayout
+          Id="Package\Envios_Movilizados.PrecedenceConstraints[Constraint]"
+          TopLeft="95.5,247.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.5,25.5"
+              Start="0,0"
+              End="8.5,18">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.75"
+                    Point2="0,12.75"
+                    Point3="4,12.75" />
+                  <mssgle:LineSegment
+                    End="4.5,12.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.5,12.75"
+                    Point2="8.5,12.75"
+                    Point3="8.5,16.75" />
+                  <mssgle:LineSegment
+                    End="8.5,18" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Envios_Movilizados.PrecedenceConstraints[Constraint 4]"
+          TopLeft="95,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23"
+              Start="0,0"
+              End="0,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Envios_Movilizados.PrecedenceConstraints[Constraint 5]"
+          TopLeft="94,112.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Envios_Movilizados.PrecedenceConstraints[Constraint 6]"
+          TopLeft="94.5,181.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="252,370"
+          Size="252,413"
+          Id="Package\Envios_Movilizados"
+          TopLeft="34,38.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

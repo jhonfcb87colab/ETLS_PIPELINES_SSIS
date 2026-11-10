@@ -1,0 +1,124 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="2efb0c7e-2aee-4474-ba03-96084159c6a9" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SAP_TIPO_MOVIMIENTO_FACTURACION</ID>
+  <Name>SAP_TIPO_MOVIMIENTO_FACTURACION</Name>
+  <CreatedTimestamp>2015-08-27T21:23:19.38Z</CreatedTimestamp>
+  <LastSchemaUpdate>2015-08-27T21:23:19.38Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-10-20T13:17:08.123333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="ac7a33bd-d420-41e1-b32f-7295ac480a85">
+    <DataSourceViewID>SIG_COL_SAP_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="ff035c9e-0762-403a-b41a-a6449f5564ee">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="316f6c1a-b615-437d-9977-a3f9b20c9859">
+      <ID>ID_TIPO_MOVIENTO_FACTURACION</ID>
+      <Name>ID_TIPO_MOVIENTO_FACTURACION</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8beb78b1-6e02-4203-a0c1-83916047a858">
+          <DataType>WChar</DataType>
+          <DataSize>4</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="82827f98-c07b-4133-b23f-bb7f01341654">
+            <TableID>DIM_SAP_TIPO_MOVIMIENTO_FACTURACION</TableID>
+            <ColumnID>ID_TIPO_MOVIENTO_FACTURACION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7c05c40e-f38c-4451-984b-a16556305b44">
+        <DataType>WChar</DataType>
+        <DataSize>4</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="54c643da-814a-48be-95ce-8195341f2bec">
+          <TableID>DIM_SAP_TIPO_MOVIMIENTO_FACTURACION</TableID>
+          <ColumnID>ID_TIPO_MOVIENTO_FACTURACION</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="5277782e-5248-4ff3-bad6-6336055e4889">
+          <AttributeID>TIPO_MOVIMIENTO_FACTURACION</AttributeID>
+          <Name>TIPO_MOVIMIENTO_FACTURACION</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="807c2deb-0dfb-41dc-b00d-6071787acc49">
+      <ID>TIPO_MOVIMIENTO_FACTURACION</ID>
+      <Name>TIPO_MOVIMIENTO_FACTURACION</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8cb5ec2f-d2b0-43f4-ada8-efe873426b93">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="29f65e36-2d97-4d2b-b3cf-79d145f42ad2">
+            <TableID>DIM_SAP_TIPO_MOVIMIENTO_FACTURACION</TableID>
+            <ColumnID>TIPO_MOVIMIENTO_FACTURACION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="9d917d1d-0776-4bd6-bbc1-61cce86dd1a5">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f4108c7e-0cf0-4a3e-ac27-3eb4a5b1c98d">
+          <TableID>DIM_SAP_TIPO_MOVIMIENTO_FACTURACION</TableID>
+          <ColumnID>TIPO_MOVIMIENTO_FACTURACION</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching dwd:design-time-name="22540e3a-1140-4c84-98e5-9f248e81ef6a">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="2f99ba04-063c-4442-853f-65ad54304594" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

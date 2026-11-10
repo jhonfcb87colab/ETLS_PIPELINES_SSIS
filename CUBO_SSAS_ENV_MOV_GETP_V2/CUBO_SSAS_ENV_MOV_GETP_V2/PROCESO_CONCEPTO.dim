@@ -1,0 +1,261 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="82efa4a8-83fd-4b76-8889-936c438a18f2" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>PROCESO_CONCEPTO</ID>
+  <Name>PROCESO_CONCEPTO</Name>
+  <CreatedTimestamp>2013-01-11T22:37:14.31Z</CreatedTimestamp>
+  <LastSchemaUpdate>2026-10-08T20:51:43.246667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-628" scrolltop="-5054" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9604" y="14102" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="PROCESO_CONCEPTO" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="5001" height="4419" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000800008913000043110000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DIM_PROCESO_CONCEPTO" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-628</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-5054</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="131">
+            <Shape Id="Clave Dimension" Expanded="false">
+              <Attributes>
+                <Attribute Id="Clave Dimension" />
+                <Attribute Id="REQUIERE CONFIRMACION" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="ID CONCEPTO" Expanded="false">
+              <Attributes>
+                <Attribute Id="ID CONCEPTO" />
+              </Attributes>
+              <Position x="188" y="20" />
+            </Shape>
+            <Shape Id="ID PROCESO" Expanded="false">
+              <Attributes>
+                <Attribute Id="ID PROCESO" />
+              </Attributes>
+              <Position x="357" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-10-08T20:52:59.74Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="8b69efd1-892f-40eb-b3a5-df2148d0be4b">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="05cc9896-387b-49b2-b7f3-27054ee9300e">
+    <KeyErrorLimit>-1</KeyErrorLimit>
+    <KeyNotFound>IgnoreError</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>NO DISPONIBLE</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="65a67659-4a41-48bc-9d89-beb9fb1eb3dd">
+      <ID>Clave Dimension</ID>
+      <Name>Clave Dimension</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>240</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2f90c1d7-f2d1-4a87-88d7-113da06edf4c">
+          <DataType>WChar</DataType>
+          <DataSize>5</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e8ece17e-d446-4b46-ab90-dea907a56d10">
+            <TableID>DIM_PROCESO_CONCEPTO</TableID>
+            <ColumnID>ClaveDimension</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="71b59456-b5c4-4d4b-8010-0185e1355b78">
+        <DataType>WChar</DataType>
+        <DataSize>5</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0ea6adea-fcd3-4ad6-bd58-ecec2722e51f">
+          <TableID>DIM_PROCESO_CONCEPTO</TableID>
+          <ColumnID>ClaveDimension</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="60149f57-ad30-4c86-85dd-ca0dd15a2e1c">
+          <AttributeID>ID CONCEPTO</AttributeID>
+          <Name>Nombre Concepto</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d5241d2e-be31-4168-bfa8-c737a79c1d6c">
+          <AttributeID>REQUIERE CONFIRMACION</AttributeID>
+          <Name>Requiere Confirmacion</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e4524442-ee86-46e1-91ad-232d51a86552">
+      <ID>ID CONCEPTO</ID>
+      <Name>Nombre Concepto</Name>
+      <EstimatedCount>109</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0e87efab-62cc-4924-b3c0-d790596b0e51">
+          <DataType>WChar</DataType>
+          <DataSize>42</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ecfb8fec-1630-46e4-aea5-96d72a79dc92">
+            <TableID>DIM_PROCESO_CONCEPTO</TableID>
+            <ColumnID>Clave_Concepto</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7e30de03-c50a-4604-aec0-9e820d4b4770">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="826004e2-ae43-4aa7-a703-a93ac27d6bed">
+          <TableID>DIM_PROCESO_CONCEPTO</TableID>
+          <ColumnID>NOMBRE_CONCEPTO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="0c8a3ac6-f330-4504-93dd-305105b34c55">
+          <AttributeID>ID PROCESO</AttributeID>
+          <Name>Nombre Proceso</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e9923dfe-9284-4c8f-86d4-8e1bb857f01b">
+      <ID>ID PROCESO</ID>
+      <Name>Nombre Proceso</Name>
+      <EstimatedCount>27</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="782d11d1-3272-4090-b705-845e79e3e656">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="beca2971-b904-4ce3-8170-ac17f73254a5">
+            <TableID>DIM_PROCESO_CONCEPTO</TableID>
+            <ColumnID>NOMBRE_PROCESO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="32bbee94-4351-483c-84f2-a3dcfe9c4b5a">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="542ac91a-6943-4821-bd15-dbd8b9a1d550">
+          <TableID>DIM_PROCESO_CONCEPTO</TableID>
+          <ColumnID>NOMBRE_PROCESO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0852f1a1-a464-4dac-9c53-792c7d1484fc">
+      <ID>REQUIERE CONFIRMACION</ID>
+      <Name>Requiere Confirmacion</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="793adf64-0f6e-4062-9310-52e63fe5d6d3">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="31265777-f6fc-4efc-b769-fceff0876799">
+            <TableID>DIM_PROCESO_CONCEPTO</TableID>
+            <ColumnID>ID_CONFIRMACION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a87470e2-6329-4f07-9766-a1e44bd046d4">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="dbbc07cc-be7d-47a8-8179-49798488749e">
+          <TableID>DIM_PROCESO_CONCEPTO</TableID>
+          <ColumnID>REQUIERE_CONFIRMACION</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Proceso_Concepto</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="5de55108-1db9-4566-bc67-ed02a7b2b4c5">
+      <ID>Hierarchy</ID>
+      <Name>PROCESO_CONCEPTO</Name>
+      <Levels>
+        <Level dwd:design-time-name="2a6ff512-7a68-4249-a08d-9918f6a7e4f9">
+          <ID>Nombre Proceso</ID>
+          <Name>Nombre Proceso</Name>
+          <SourceAttributeID>ID PROCESO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="67e899b2-c41a-4fb3-9b58-c544387c39e2">
+          <ID>Nombre Concepto</ID>
+          <Name>Nombre Concepto</Name>
+          <SourceAttributeID>ID CONCEPTO</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="8e604f6a-89c8-4386-a34f-536dd5a4b37a">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="55e8013c-ea30-4bfd-9fc0-21f06dd69ee1" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

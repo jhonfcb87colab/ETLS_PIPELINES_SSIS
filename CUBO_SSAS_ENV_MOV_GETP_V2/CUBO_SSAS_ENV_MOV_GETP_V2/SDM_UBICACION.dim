@@ -1,0 +1,293 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="112fd7a0-c2ea-415f-911c-b5667e4f6f6a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SDM UBICACION</ID>
+  <Name>SDM_UBICACION</Name>
+  <CreatedTimestamp>2013-01-11T22:37:34.386667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2014-05-07T19:55:28.276667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-10-19T21:34:39.36Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="4746fce6-94e0-4a81-860b-ac0931e5d7f6">
+    <DataSourceViewID>SIG_SDM_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="ae1759d5-470a-4216-ba6d-0e917a351341">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="d4c60d75-09a5-4201-ac04-fe4268ec33be">
+      <ID>ID UBICACION</ID>
+      <Name>ID UBICACION</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c46d6234-2530-48ef-8c2a-30de05775964">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bed1816b-62cb-4a2e-88d8-b8ba1cf2a2c6">
+            <TableID>DIM_SDM_UBICACION</TableID>
+            <ColumnID>ID_UBICACION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="de14182e-4ee3-44d9-b46e-fb20a080b7ab">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="7a7e4149-ecc0-4fe3-bc3c-6bbbff692e2d">
+          <TableID>DIM_SDM_UBICACION</TableID>
+          <ColumnID>ID_UBICACION</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="08700373-6382-41a4-91ef-f83dd73b7133">
+          <AttributeID>NOMBRE REGIONAL</AttributeID>
+          <Name>REGIONAL</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c691373d-ecdc-4b41-93e6-de0862a4caeb">
+          <AttributeID>NOMBRE CIUDAD</AttributeID>
+          <Name>CIUDAD</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="06ceb017-551b-4203-bdbf-c48935582f33">
+          <AttributeID>NOMBRE UBICACION</AttributeID>
+          <Name>UBICACION</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="cbd92d9d-0532-4dcf-a5b5-6cb52201ee6f">
+          <AttributeID>TIPO UBICACION</AttributeID>
+          <Name>TIPO_UBICACION</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a387fa4c-31aa-42cb-b437-a94ca5192473">
+          <AttributeID>NOMBRE UBICACION 1</AttributeID>
+          <Name>SUB_UBICACION</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="fa8d220e-d7c3-4f46-839b-7d26a4f228df">
+          <AttributeID>TIPO UBICACION 1</AttributeID>
+          <Name>TIPO_SUB_UBICACION</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c2276e52-83f8-464b-9f4d-3e69a50eb765">
+      <ID>NOMBRE REGIONAL</ID>
+      <Name>REGIONAL</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bc593bad-8adf-420b-b51b-d16cfd63ba5b">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="42aad51e-2839-47c4-ba47-954d0fcdccfe">
+            <TableID>DIM_SDM_UBICACION</TableID>
+            <ColumnID>ID_REGIONAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e7686f25-9027-4105-8635-bdd3913f2a8a">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0cf947d9-eb30-45ef-a0b8-82111dcd54cf">
+          <TableID>DIM_SDM_UBICACION</TableID>
+          <ColumnID>NOMBRE_REGIONAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f4adc72c-fab5-4ab8-ad92-7a94598479a8">
+      <ID>NOMBRE CIUDAD</ID>
+      <Name>CIUDAD</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="04290c4f-0c50-4821-9771-760364ea4b05">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="efdfcca4-4cfc-4e63-8d2a-69abe8d57310">
+            <TableID>DIM_SDM_UBICACION</TableID>
+            <ColumnID>ID_CIUDAD</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="afda1cb4-f58f-4658-b0d0-c31fcfaf5bf9">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1ace8dc6-5a85-4e3d-b98e-85e542cf0cc3">
+          <TableID>DIM_SDM_UBICACION</TableID>
+          <ColumnID>NOMBRE_CIUDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2c1bc3a3-0748-4552-aad6-aa5892044d87">
+      <ID>NOMBRE UBICACION</ID>
+      <Name>UBICACION</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d3a32ec9-69ab-43b9-94d5-0e4a0b739c01">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ab92e587-574b-4ba4-adf2-ecea6997faf1">
+            <TableID>DIM_SDM_UBICACION</TableID>
+            <ColumnID>ID_UBICACION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d3cc1097-0c4f-46cb-bdc5-a2a54e2ec858">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b0f9d6f7-940e-4ecd-9709-4f8b01ed267b">
+          <TableID>DIM_SDM_UBICACION</TableID>
+          <ColumnID>NOMBRE_NODO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f8f98098-dc6d-48e3-b075-e39320cbeeaf">
+      <ID>TIPO UBICACION</ID>
+      <Name>TIPO_UBICACION</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c6041c6b-d81e-4a53-a22a-ed967a7a92f4">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fed43bb5-3bbc-4169-b3a9-298548313c49">
+            <TableID>DIM_SDM_UBICACION</TableID>
+            <ColumnID>ID_TIPO_NODO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="226b5d30-5654-4c45-b1e7-f0cd440f1b16">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1af2f8bd-acf5-45fa-bcca-0c1c29a22e83">
+          <TableID>DIM_SDM_UBICACION</TableID>
+          <ColumnID>TIPO_NODO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a3b9c894-fffb-4b55-91b0-59e9aaba4be8">
+      <ID>NOMBRE UBICACION 1</ID>
+      <Name>SUB_UBICACION</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ddb89b09-f95b-4d1c-9208-0a8c1ab320b8">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0cd431ef-fbdc-417a-8227-a8c63f356abc">
+            <TableID>DIM_SDM_UBICACION</TableID>
+            <ColumnID>ID_UBICACION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c0f4ba00-3b74-4dce-9b13-b51686c2d5d8">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="7897815b-4067-455b-994f-d9193284ff0e">
+          <TableID>DIM_SDM_UBICACION</TableID>
+          <ColumnID>NOMBRE_UBICACION</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a93b39df-2fe6-45b9-82a8-18b1989a8435">
+      <ID>TIPO UBICACION 1</ID>
+      <Name>TIPO_SUB_UBICACION</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6deaa9c5-f165-45db-82b1-be5403fcd871">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="eb1733c0-5b5a-43e8-8fa4-faf6f3a056ab">
+            <TableID>DIM_SDM_UBICACION</TableID>
+            <ColumnID>ID_TIPO_UBICACION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="8e8a32af-83a3-4bbb-9af9-a7b04cc802f4">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e555446e-2867-4ce0-b861-260d15a6ad43">
+          <TableID>DIM_SDM_UBICACION</TableID>
+          <ColumnID>TIPO_UBICACION</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="b3fc9698-5db1-4084-9287-b337745b4261">
+      <ID>Hierarchy</ID>
+      <Name>GEOGRAFIA_UBICACION_ORIGEN</Name>
+      <Levels>
+        <Level dwd:design-time-name="eab5677d-3756-4a07-aad6-3f7c1eb00cda">
+          <ID>REGIONAL</ID>
+          <Name>REGIONAL</Name>
+          <SourceAttributeID>NOMBRE REGIONAL</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="d2db530d-f02a-4aa1-a7d6-10cd102886da">
+          <ID>CIUDAD</ID>
+          <Name>CIUDAD</Name>
+          <SourceAttributeID>NOMBRE CIUDAD</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="a21598ac-8ad7-4e45-9b6b-0aaa467d8ada">
+          <ID>UBICACION</ID>
+          <Name>UBICACION</Name>
+          <SourceAttributeID>NOMBRE UBICACION</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="91d3b343-17ec-46d7-b25f-e0f683ae7da9">
+          <ID>TIPO_UBICACION</ID>
+          <Name>TIPO_UBICACION</Name>
+          <SourceAttributeID>TIPO UBICACION</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="6bcd3447-0980-4404-8fc7-e984f2246c9a">
+          <ID>SUB_UBICACION</ID>
+          <Name>SUB_UBICACION</Name>
+          <SourceAttributeID>NOMBRE UBICACION 1</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="aac34796-a232-4d1c-aca0-43f8efc4d630">
+          <ID>TIPO_SUB_UBICACION</ID>
+          <Name>TIPO_SUB_UBICACION</Name>
+          <SourceAttributeID>TIPO UBICACION 1</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="0ba453bb-7998-4ea6-9edb-0d717870aa13">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="93d2b8b0-bc22-49bf-87ed-cdae05047f91" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -1,0 +1,221 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="10d3c86d-5903-45bd-8c50-3715604457cd" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>NOVEDADES_OPERATIVAS</ID>
+  <Name>NOVEDADES_OPERATIVAS</Name>
+  <CreatedTimestamp>2021-02-09T16:05:13.516667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2021-02-09T16:05:13.516667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2784" scrolltop="-5027" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7197" y="12779" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="NOVEDADES_OPERATIVAS" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="4604" height="2725" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000c0000fc110000a50a0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DIM_NOVEDADES_OPERATIVAS" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-2784</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-5027</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="169">
+            <Shape Id="ID NOVEDAD" Expanded="true">
+              <Attributes>
+                <Attribute Id="ID NOVEDAD" />
+                <Attribute Id="FECHA EXTRACION DW" />
+                <Attribute Id="NOVEDAD" />
+                <Attribute Id="TIPO NOVEDAD" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-09-27T12:03:56.95Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="7695b37c-c706-46ef-935c-50efbba37983">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>NO DISPONIBLE</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="a4fffa59-26d8-459d-99eb-1f6aba305ac9">
+      <ID>ID NOVEDAD</ID>
+      <Name>ID NOVEDAD</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>31</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b199c9a7-4dfb-4e74-9ee3-2e5e94e29a6f">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2c59feef-65d7-4632-a8ed-9bde5d2cddd1">
+            <TableID>DIM_NOVEDADES_OPERATIVAS</TableID>
+            <ColumnID>ID_NOVEDAD</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="6a13cb7e-9892-48a4-bcd0-1596c26cea15">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="9070ebf0-a87c-4332-b313-8a3e52a8bf5b">
+          <TableID>DIM_NOVEDADES_OPERATIVAS</TableID>
+          <ColumnID>ID_NOVEDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="f7805b35-bae5-4dac-984e-40a3fa430cdd">
+          <AttributeID>NOVEDAD</AttributeID>
+          <Name>NOVEDAD</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f45e1e60-931d-47b1-979e-aabfe4b5b5f1">
+          <AttributeID>TIPO NOVEDAD</AttributeID>
+          <Name>TIPO NOVEDAD</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="87fb0328-4816-4f1a-bfd0-3423e5723747">
+          <AttributeID>FECHA EXTRACION DW</AttributeID>
+          <Name>FECHA EXTRACION DW</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ed4e5392-568e-459a-b9b9-db5ab06b52a4">
+      <ID>NOVEDAD</ID>
+      <Name>NOVEDAD</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5f2b40dc-8249-4177-9b02-c4b0f995e163">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="35c5355c-cc1a-40ca-b615-8a83ed16129c">
+            <TableID>DIM_NOVEDADES_OPERATIVAS</TableID>
+            <ColumnID>NOVEDAD</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0e20943c-d90c-44b4-807a-c21b01ddb654">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="87ccc657-39be-4b29-ad54-f874a55ad011">
+          <TableID>DIM_NOVEDADES_OPERATIVAS</TableID>
+          <ColumnID>NOVEDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="724590e5-c575-48b4-8a41-43c76c715559">
+      <ID>TIPO NOVEDAD</ID>
+      <Name>TIPO NOVEDAD</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="05d0bda3-3330-42af-8907-66bbc8565334">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6285b50e-1621-4484-bd31-97109e17d5f6">
+            <TableID>DIM_NOVEDADES_OPERATIVAS</TableID>
+            <ColumnID>TIPO_NOVEDAD</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="42183319-9f2e-4626-89a1-d31710cf8b84">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5d7f3e3d-9e99-4944-bb9e-9d13c0d134e4">
+          <TableID>DIM_NOVEDADES_OPERATIVAS</TableID>
+          <ColumnID>TIPO_NOVEDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b142c237-96f7-42ba-ac2c-6d5877d3b780">
+      <ID>FECHA EXTRACION DW</ID>
+      <Name>FECHA EXTRACION DW</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="82a9ff54-9efa-4a18-b7bc-53e9c747ff19">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a525ef4c-253f-4d0b-9d0c-ccaa63f53be8">
+            <TableID>DIM_NOVEDADES_OPERATIVAS</TableID>
+            <ColumnID>FECHA_EXTRACION_DW</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ae6483ce-801d-40b4-9a4e-0ddd6bc9d556">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="42b9c064-9625-4b83-9be5-e7871dde3cb2">
+          <TableID>DIM_NOVEDADES_OPERATIVAS</TableID>
+          <ColumnID>FECHA_EXTRACION_DW</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>TODOS</AttributeAllMemberName>
+  <ProactiveCaching dwd:design-time-name="8bb14e7c-186c-4e40-a99a-72d0e3ad3f5b">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="d18d0cba-7211-4629-bdc3-64951ba5a272" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

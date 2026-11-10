@@ -1,0 +1,172 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="cadb6bcf-f056-4c89-b9fe-74286ff46714" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SDM PRODUCTOS</ID>
+  <Name>SDM_PRODUCTOS</Name>
+  <CreatedTimestamp>2013-01-11T22:37:33.796667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-01-11T22:37:33.796667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-10-19T21:34:11.1Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="1ba023ed-1ad5-4d49-9e17-e07acf7cc41d">
+    <DataSourceViewID>SIG_SDM_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="bf5b5c74-e048-487e-b74b-fcd9b61e7acf">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="ef82f416-1b40-4e1a-81a8-3057cad8b754">
+      <ID>ID PRODUCTO SUBPRODUCTO</ID>
+      <Name>ID PRODUCTO SUBPRODUCTO</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>421</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0b2d3a93-a322-4081-9a15-400b7cd100cb">
+          <DataType>WChar</DataType>
+          <DataSize>6</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1404f08e-e017-40c8-b6be-a34f4362d2cb">
+            <TableID>DIM_SDM_PRODUCTOS</TableID>
+            <ColumnID>ID_PRODUCTO_SUBPRODUCTO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f3aed5dd-4b60-41f0-bffd-99039fc75902">
+        <DataType>WChar</DataType>
+        <DataSize>6</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="9626abb4-d4b9-4c3b-8149-e4dd9a76599f">
+          <TableID>DIM_SDM_PRODUCTOS</TableID>
+          <ColumnID>ID_PRODUCTO_SUBPRODUCTO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="38fc2d3e-480d-42c6-a40e-d3cc3a51f897">
+          <AttributeID>ID PRODUCTO</AttributeID>
+          <Name>PRODUCTO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="fa3a0441-8911-4e97-adf9-244860368e6b">
+          <AttributeID>ID SUBPRODUCTO</AttributeID>
+          <Name>SUBPRODUCTO</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="af5a204c-8e74-4edd-83d8-f31ad48121c4">
+      <ID>ID PRODUCTO</ID>
+      <Name>PRODUCTO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6f744787-fd3f-4582-a01e-f8312da38d04">
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6aa6bc40-e7ec-498f-b672-6f1b7ad6bf48">
+            <TableID>DIM_SDM_PRODUCTOS</TableID>
+            <ColumnID>ID_PRODUCTO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="00a881f6-d951-4ac6-b2ad-279a869f577e">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2025dd20-8098-4d2c-849d-a3b0de566bc9">
+          <TableID>DIM_SDM_PRODUCTOS</TableID>
+          <ColumnID>NOMBRE_PRODUCTO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d74afc99-bae3-4198-8341-14c9f4b3cf71">
+      <ID>ID SUBPRODUCTO</ID>
+      <Name>SUBPRODUCTO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fb5a073e-0e5c-4fbe-b6fd-8a36b286f5cc">
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3dfcaf2a-93d4-4499-8e4c-5cf4cb7c8a81">
+            <TableID>DIM_SDM_PRODUCTOS</TableID>
+            <ColumnID>ID_SUBPRODUCTO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="74656a5c-f884-4058-b0f8-43563006784b">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1308f2c4-9bdd-4080-9c68-c6a238192f8e">
+          <TableID>DIM_SDM_PRODUCTOS</TableID>
+          <ColumnID>NOMBRE_SUBPRODUCTO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="ad631545-5ceb-49b8-bd27-ac70ea3a9618">
+      <ID>Hierarchy</ID>
+      <Name>PRODUCTO SUBPRODUCTO</Name>
+      <Levels>
+        <Level dwd:design-time-name="a6a78e69-1cbe-43b4-86bb-2fcee4dd4cdf">
+          <ID>PRODUCTO</ID>
+          <Name>PRODUCTO</Name>
+          <SourceAttributeID>ID PRODUCTO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="608a930d-1c67-4c01-85b3-7280c0656284">
+          <ID>SUBPRODUCTO</ID>
+          <Name>SUBPRODUCTO</Name>
+          <SourceAttributeID>ID SUBPRODUCTO</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="fceb655f-7af5-4df9-954d-f1d059e17640">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="c08cda3c-a5d4-4885-8eeb-4a0c073b3fee" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

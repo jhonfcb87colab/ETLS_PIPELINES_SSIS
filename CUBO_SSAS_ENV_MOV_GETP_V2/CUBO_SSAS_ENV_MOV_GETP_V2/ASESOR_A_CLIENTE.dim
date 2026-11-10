@@ -1,0 +1,238 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="552c317a-8ad3-4860-bdd8-0d638209c2d5" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>ASESOR_A_CLIENTE</ID>
+  <Name>ASESOR_A_CLIENTE</Name>
+  <CreatedTimestamp>2013-01-11T22:32:01.743333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-01-11T22:32:01.743333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="11" scrolltop="-3541" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="83" x="9604" y="14526" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="EMPLEADOS_ATENCION_CLIENTE" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="8493" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000800002d21000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DIM_EMPLEADOS_ATENCION_CLIENTE" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>11</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-3541</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>83</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-09-27T12:04:35.396667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="5e494aa9-93e4-4014-8374-10bcd6fd1828">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="b4afd005-2cee-483f-a390-23e6d0dcf3bd">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="12451708-26c0-4ce7-a490-e5c762071c79">
+      <ID>ID EMPLEADO</ID>
+      <Name>Id_Empleado</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>1546</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="44283eac-e98b-4b50-b464-b3a44c895e35">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6e59dfac-4f73-4911-a19c-3010451f7c92">
+            <TableID>DIM_EMPLEADOS_ATENCION_CLIENTE</TableID>
+            <ColumnID>ID_EMPLEADO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="bd903b6a-d67c-445a-8297-05ea30eee13b">
+        <DataType>WChar</DataType>
+        <DataSize>255</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="94b5e230-7134-4254-907d-6aa906cff9d6">
+          <TableID>DIM_EMPLEADOS_ATENCION_CLIENTE</TableID>
+          <ColumnID>NOM_APE_EMPLEADO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="1c531a66-e53f-432d-a425-a07645a0d6cb">
+          <AttributeID>NOM APE EMPLEADO</AttributeID>
+          <Name>Nom Ape Empleado</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3019213f-ac34-4797-89de-ae2bf4a56a6a">
+          <AttributeID>ID CARGO SERV</AttributeID>
+          <Name>ID CARGO SERV</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c3ec1760-33f0-462e-bd67-e869782d0b3f">
+          <AttributeID>ID Divisiones</AttributeID>
+          <Name>ID Divisiones</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="906bdb89-8216-4f7b-9c77-650975ab52f9">
+          <AttributeID>ID Ciudades Movimientos</AttributeID>
+          <Name>ID Ciudades Movimientos</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="46b0e2f7-2af2-4e34-ad2c-2f7fe1d95c2d">
+      <ID>NOM APE EMPLEADO</ID>
+      <Name>Nom Ape Empleado</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="60a46d68-6f40-41e3-9435-6d6b01482ac5">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="11bc8a99-1be5-42e9-b0c4-de33e9e5a2d3">
+            <TableID>DIM_EMPLEADOS_ATENCION_CLIENTE</TableID>
+            <ColumnID>NOM_APE_EMPLEADO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="86f62933-f262-4a93-a324-dfd27deaac3b">
+        <DataType>WChar</DataType>
+        <DataSize>255</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1f70c3e8-d42a-4001-9781-7b7e4b3b9838">
+          <TableID>DIM_EMPLEADOS_ATENCION_CLIENTE</TableID>
+          <ColumnID>NOM_APE_EMPLEADO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e9c1ad4e-b08a-4c5a-9226-fa8cc1d82255">
+      <ID>ID CARGO SERV</ID>
+      <Name>ID CARGO SERV</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="060605db-f1c1-4e70-a05f-18870fcbb2c0">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2de6d382-5afb-425e-b8af-bcf767ae1d9c">
+            <TableID>DIM_EMPLEADOS_ATENCION_CLIENTE</TableID>
+            <ColumnID>ID_CARGO_SERV</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="cdcd11fe-c1e7-4b5c-b67c-d61e5ad0acdd">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="61ede4a7-82f2-43cb-83ac-aa4ef26e7f6b">
+          <TableID>DIM_EMPLEADOS_ATENCION_CLIENTE</TableID>
+          <ColumnID>ID_CARGO_SERV</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="af129254-664f-4c8c-892e-4a921e47a1db">
+      <ID>ID Divisiones</ID>
+      <Name>ID Divisiones</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d54f7d25-e7cf-4651-aced-83c1bc33c38f">
+          <DataType>WChar</DataType>
+          <DataSize>39</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="43227be0-9cbf-4c08-83bf-9a9ef1842212">
+            <TableID>DIM_EMPLEADOS_ATENCION_CLIENTE</TableID>
+            <ColumnID>ID_Divisiones</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="65a52d74-3e60-4461-966c-5742bfdc1282">
+        <DataType>WChar</DataType>
+        <DataSize>39</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1e2cca24-f883-4628-aa10-f539c7f17e6a">
+          <TableID>DIM_EMPLEADOS_ATENCION_CLIENTE</TableID>
+          <ColumnID>ID_Divisiones</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6a9f2972-550d-4b65-8ace-5bf79e777fcf">
+      <ID>ID Ciudades Movimientos</ID>
+      <Name>ID Ciudades Movimientos</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c9f1c1ee-6b5c-467d-a547-f563f01927d4">
+          <DataType>WChar</DataType>
+          <DataSize>34</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f5e7f195-ad90-40ef-a68c-2f20e02caaa8">
+            <TableID>DIM_EMPLEADOS_ATENCION_CLIENTE</TableID>
+            <ColumnID>ID_Ciudades_Movimientos</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b211ded6-7e06-47b3-a358-a1f5c6f2cc69">
+        <DataType>WChar</DataType>
+        <DataSize>34</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d2d15fe6-4bd3-4f09-ac77-8456ca3c3d7d">
+          <TableID>DIM_EMPLEADOS_ATENCION_CLIENTE</TableID>
+          <ColumnID>ID_Ciudades_Movimientos</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Asesor A</AttributeAllMemberName>
+  <ProactiveCaching dwd:design-time-name="bc373052-72bd-4550-a413-f90cf9b94fef">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="02b5346b-f524-4bcf-b270-58f23af047a1" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

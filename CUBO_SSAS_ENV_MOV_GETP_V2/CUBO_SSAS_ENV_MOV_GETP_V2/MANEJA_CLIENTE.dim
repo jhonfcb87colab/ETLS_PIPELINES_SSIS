@@ -1,0 +1,153 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e4eabfd2-1a79-4503-b96c-69fc5f06c9ce" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>MANEJA_CLIENTE</ID>
+  <Name>MANEJA_CLIENTE</Name>
+  <CreatedTimestamp>2013-01-11T22:36:20.21Z</CreatedTimestamp>
+  <LastSchemaUpdate>2014-01-29T22:30:26.736667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-11-03T04:38:09.813333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="22b658b7-7666-47fa-b1b9-5b65a6b1ec50">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="ece57fc7-e77f-4640-9167-6dd51b76b148">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="244f47df-df7e-4657-9946-bfe7351229d8">
+      <ID>ID TIPO GUIA</ID>
+      <Name>ID TIPO GUIA</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>50</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="547a6e39-15ba-492c-86c5-72f992df506a">
+          <DataType>UnsignedTinyInt</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4ef0cb33-0464-48c5-aa92-ebd027ecd3fc">
+            <TableID>DIM_TIPO_GUIA</TableID>
+            <ColumnID>ID_TIPO_GUIA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a1e4534c-78c0-4cf1-bd40-2a6a240ecb22">
+        <DataType>WChar</DataType>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="85f356b4-a149-4d9f-8aae-28cc7f2837f1">
+          <TableID>DIM_TIPO_GUIA</TableID>
+          <ColumnID>ID_TIPO_GUIA</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="dc75603c-5661-4bff-96cf-e28363a77ba6">
+          <AttributeID>ID MANEJA CLIENTE</AttributeID>
+          <Name>ID MANEJA CLIENTE</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="022563de-bc70-4002-bb12-4c37f6dd5251">
+          <AttributeID>NOM MANEJA CLIENTE</AttributeID>
+          <Name>NOM MANEJA CLIENTE</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7fe16b7e-cf6a-46dc-9d0d-95c00424d5b1">
+      <ID>ID MANEJA CLIENTE</ID>
+      <Name>MANEJA CLIENTE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f807308b-4375-4641-87e0-581c35318d68">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f415ffd4-f256-48bd-8b11-ae5ff36c6b60">
+            <TableID>DIM_TIPO_GUIA</TableID>
+            <ColumnID>ID_MANEJA_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2c061b2c-7ca4-45a2-b7c9-ca994d318c4b">
+        <DataType>WChar</DataType>
+        <DataSize>11</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c7137e2e-4f06-4d24-b43a-6f25615fefc7">
+          <TableID>DIM_TIPO_GUIA</TableID>
+          <ColumnID>NOMBRE_MANEJA_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="282d4867-248e-47e0-a381-a5aebc5ea84f">
+      <ID>NOM MANEJA CLIENTE</ID>
+      <Name>NOM MANEJA CLIENTE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4db1c1d1-52e5-4544-bf53-9dbbeca6d1b2">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="72cfa93d-de45-4fd6-af33-23dc82afa9ed">
+            <TableID>DIM_TIPO_GUIA</TableID>
+            <ColumnID>NOM_MANEJA_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b3faaa2c-53b9-46ec-8944-8d9730767184">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c156e97b-8fcb-4fe9-b412-14f2c59804c2">
+          <TableID>DIM_TIPO_GUIA</TableID>
+          <ColumnID>NOM_MANEJA_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching dwd:design-time-name="49446c65-2cd0-4efb-88d4-5f422462d1dd">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="9a0dfc5f-9c10-492a-992a-3c23bb5ad43e" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

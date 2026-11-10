@@ -1,0 +1,1541 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/1/2011 3:31:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="COBTADGR5976L"
+  DTS:CreatorName="SERVIENT\jhon.mora"
+  DTS:Description="DTS Clientes_Movimiento"
+  DTS:DTSID="{9947BA5B-B872-4F8C-AC57-55BF77FBB83B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="2058"
+  DTS:ObjectName="EXTRAER_CLIENTES_MOVIMIENTO"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{E297DBFA-C50B-4CCA-AD68-7426157DB8A4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{43CA04C0-86EB-4860-A416-26F4E70BDAF0}"
+      DTS:ObjectName="DS_SIG_COL_LOGISTICA_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SERV-DBI01;Initial Catalog=SIG_COL_LOGISTICA_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SERV-MDM\MASTER.PARAMETROS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{886C36B4-FB8E-4859-A104-7C8C867BA711}"
+      DTS:ObjectName="SERV-MDM\MASTER.PARAMETROS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SERV-MDM\MASTER;Initial Catalog=PARAMETROS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Copy Data from Results to [Bodega de Datos].[dbo].[CLIENTES_Movimiento] Task"
+      DTS:DTSID="{6A1C797B-C8B0-4DDB-838F-E9A6D2983C05}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[DIM].[CLIENTES_MOVIMIENTO]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS,ROWS_PER_BATCH = 1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CLIENTE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="ID_CLIENTE"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]" />
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NOMBRE_CLIENTE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="NOMBRE_CLIENTE"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_CLIENTE]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_CLIENTE]" />
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SECTOR_ECON]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="SECTOR_ECON"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SECTOR_ECON]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SECTOR_ECON]" />
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_ACTIV_ECON]"
+                      cachedDataType="i4"
+                      cachedName="ID_ACTIV_ECON"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ACTIV_ECON]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ACTIV_ECON]" />
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ACTIV_ECON]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="ACTIV_ECON"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ACTIV_ECON]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ACTIV_ECON]" />
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CIIU]"
+                      cachedDataType="i4"
+                      cachedName="ID_CIIU"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIIU]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIIU]" />
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CIIU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="CIIU"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CIIU]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CIIU]" />
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RANGO_PERMANENCIA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="RANGO_PERMANENCIA"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RANGO_PERMANENCIA]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[RANGO_PERMANENCIA]" />
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_SEC_ECON]"
+                      cachedDataType="i4"
+                      cachedName="ID_SEC_ECON"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_SECTOR_ECON]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_SEC_ECON]" />
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_ACTUALIZACION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FECHA_ACTUALIZACION"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_ULTIMA_ACTUALIZACION]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_ACTUALIZACION]" />
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DIVISION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="227"
+                      cachedName="DIVISION"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DIVISION]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DIVISION]" />
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GRUPO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="227"
+                      cachedName="GRUPO"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRUPO]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRUPO]" />
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CLASE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="227"
+                      cachedName="CLASE"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CLASE]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CLASE]" />
+                    <inputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SECCION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="232"
+                      cachedName="SECCION"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SECCION]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SECCION]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ID_CLIENTE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_CLIENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="NOMBRE_CLIENTE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_SECTOR_ECON]"
+                      dataType="i4"
+                      name="ID_SECTOR_ECON" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SECTOR_ECON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="SECTOR_ECON" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ACTIV_ECON]"
+                      dataType="i4"
+                      name="ID_ACTIV_ECON" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ACTIV_ECON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="ACTIV_ECON" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIIU]"
+                      dataType="i4"
+                      name="ID_CIIU" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CIIU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="CIIU" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RANGO_PERMANENCIA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="RANGO_PERMANENCIA" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_ULTIMA_ACTUALIZACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_ULTIMA_ACTUALIZACION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DIVISION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="227"
+                      name="DIVISION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRUPO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="227"
+                      name="GRUPO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CLASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="227"
+                      name="CLASE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SECCION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="232"
+                      name="SECCION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">--------------------------------------------------------------------------------
+-- DESARROLLADO POR WALTON HUGO RAMÍREZ                                       --
+-- NOVIEMBRE 20 DE 2006                                                       --
+-- APLICACION : ENVIOS MOVILIZADOS ( DIMENSION CLIENTE MOVIMIENTO )           --
+--------------------------------------------------------------------------------	
+
+SELECT	ISNULL(C.ID_CLIENTE,'0') AS ID_CLIENTE,
+		ISNULL(C.NOMBRE_CLIENTE, 'NO DISPONIBLE') AS NOMBRE_CLIENTE,
+		ISNULL(C.ID_SECTOR_ECON,0) AS ID_SEC_ECON,
+		ISNULL(C.SECTOR_ECON, 'NO DISPONIBLE') AS SECTOR_ECON,
+		ISNULL(C.ID_ACTIV_ECON, 0) AS ID_ACTIV_ECON,
+		ISNULL(C.ACTIV_ECON, 'NO DISPONIBLE') AS ACTIV_ECON,
+		ISNULL(C.ID_CIIU, 0) AS ID_CIIU,
+		ISNULL(C.CIIU, 'NO DISPONIBLE') AS CIIU,
+		ISNULL(C.RANGO_PERMANENCIA, 'NO DISPONIBLE') AS RANGO_PERMANENCIA,
+		C.FECHA_ACTUALIZACION AS FECHA_ACTUALIZACION,
+		ISNULL(P.DIVISION,'NO DISPONIBLE') AS DIVISION,
+		ISNULL(P.GRUPO,'NO DISPONIBLE') AS GRUPO,
+		ISNULL(P.CLASE,'NO DISPONIBLE') AS CLASE,
+        ISNULL(P.SECCION,'NO DISPONIBLE') AS SECCION	
+		
+		
+FROM	DIM.CLIENTES_SECTOR AS C WITH(NOLOCK)
+		INNER JOIN FAC.ENVIOS_MOVILIZADOS AS F WITH(NOLOCK) ON C.ID_CLIENTE = F.ID_CLIENTE
+		INNER JOIN TMP.CLIENTEPOTENCIAL AS P WITH(NOLOCK) ON C.ID_CLIENTE = P.ID_CLIENTE
+/*WHERE	C.ID_CLIENTE IN (	SELECT	TOP 1 F.ID_CLIENTE 
+							FROM	FAC.ENVIOS_MOVILIZADOS AS F WITH(NOLOCK) 
+							WHERE	C.ID_CLIENTE = F.ID_CLIENTE
+						)*/
+GROUP	BY ISNULL(C.ID_CLIENTE,'0'),
+		ISNULL(C.NOMBRE_CLIENTE, 'NO DISPONIBLE'),
+		ISNULL(C.ID_SECTOR_ECON,0),
+		ISNULL(C.SECTOR_ECON, 'NO DISPONIBLE'),
+		ISNULL(C.ID_ACTIV_ECON, 0),
+		ISNULL(C.ACTIV_ECON, 'NO DISPONIBLE'),
+		ISNULL(C.ID_CIIU, 0),
+		ISNULL(C.CIIU, 'NO DISPONIBLE'),
+		ISNULL(C.RANGO_PERMANENCIA, 'NO DISPONIBLE'),
+		C.FECHA_ACTUALIZACION,	
+		ISNULL(P.DIVISION,'NO DISPONIBLE'),
+		ISNULL(P.GRUPO,'NO DISPONIBLE'),
+		ISNULL(P.CLASE,'NO DISPONIBLE'),
+        ISNULL(P.SECCION,'NO DISPONIBLE')</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                      length="20"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                      name="ID_CLIENTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_CLIENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_CLIENTE]"
+                      length="60"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_CLIENTE]"
+                      name="NOMBRE_CLIENTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_SEC_ECON]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_SEC_ECON]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_SEC_ECON]"
+                      name="ID_SEC_ECON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SECTOR_ECON]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SECTOR_ECON]"
+                      length="25"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SECTOR_ECON]"
+                      name="SECTOR_ECON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ACTIV_ECON]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ACTIV_ECON]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ACTIV_ECON]"
+                      name="ID_ACTIV_ECON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ACTIV_ECON]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ACTIV_ECON]"
+                      length="25"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ACTIV_ECON]"
+                      name="ACTIV_ECON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIIU]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CIIU]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIIU]"
+                      name="ID_CIIU"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CIIU]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CIIU]"
+                      length="25"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CIIU]"
+                      name="CIIU"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[RANGO_PERMANENCIA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RANGO_PERMANENCIA]"
+                      length="20"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[RANGO_PERMANENCIA]"
+                      name="RANGO_PERMANENCIA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_ACTUALIZACION]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_ACTUALIZACION]"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_ACTUALIZACION]"
+                      name="FECHA_ACTUALIZACION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DIVISION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DIVISION]"
+                      length="227"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DIVISION]"
+                      name="DIVISION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRUPO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GRUPO]"
+                      length="227"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRUPO]"
+                      name="GRUPO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CLASE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CLASE]"
+                      length="227"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CLASE]"
+                      name="CLASE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SECCION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SECCION]"
+                      length="232"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SECCION]"
+                      name="SECCION"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ID_CLIENTE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_CLIENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="NOMBRE_CLIENTE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_SEC_ECON]"
+                      dataType="i4"
+                      name="ID_SEC_ECON" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SECTOR_ECON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="SECTOR_ECON" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ACTIV_ECON]"
+                      dataType="i4"
+                      name="ID_ACTIV_ECON" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ACTIV_ECON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="ACTIV_ECON" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CIIU]"
+                      dataType="i4"
+                      name="ID_CIIU" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CIIU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="CIIU" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RANGO_PERMANENCIA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="RANGO_PERMANENCIA" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_ACTUALIZACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_ACTUALIZACION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DIVISION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="227"
+                      name="DIVISION" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GRUPO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="227"
+                      name="GRUPO" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CLASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="227"
+                      name="CLASE" />
+                    <externalMetadataColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SECCION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="232"
+                      name="SECCION" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                      name="ID_CLIENTE" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_CLIENTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_CLIENTE]"
+                      name="NOMBRE_CLIENTE" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_SEC_ECON]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_SEC_ECON]"
+                      name="ID_SEC_ECON" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SECTOR_ECON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SECTOR_ECON]"
+                      name="SECTOR_ECON" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ACTIV_ECON]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ACTIV_ECON]"
+                      name="ID_ACTIV_ECON" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ACTIV_ECON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ACTIV_ECON]"
+                      name="ACTIV_ECON" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CIIU]"
+                      dataType="i4"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CIIU]"
+                      name="ID_CIIU" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CIIU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CIIU]"
+                      name="CIIU" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RANGO_PERMANENCIA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RANGO_PERMANENCIA]"
+                      name="RANGO_PERMANENCIA" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_ACTUALIZACION]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_ACTUALIZACION]"
+                      name="FECHA_ACTUALIZACION" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DIVISION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="227"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DIVISION]"
+                      name="DIVISION" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GRUPO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="227"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GRUPO]"
+                      name="GRUPO" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CLASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="227"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CLASE]"
+                      name="CLASE" />
+                    <outputColumn
+                      refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SECCION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="232"
+                      lineageId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SECCION]"
+                      name="SECCION" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task.Paths[OLE DB Source Output]"
+              endId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\POBLAMIENTO TMP"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{A721554B-8658-491B-83C2-5A11A599B047}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="POBLAMIENTO TMP">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{B617680C-5518-4AA0-98D4-7F4C2BEB3AD7}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DT_CLIENTE_POTENCIAL"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[TMP].[CLIENTEPOTENCIAL]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">8000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]"
+                      connectionManagerRefId="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CLIENTE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="ID_CLIENTE"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]" />
+                        <inputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NOMBRE_CLIENTE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NOMBRE_CLIENTE"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_CLIENTE]"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_CLIENTE]" />
+                        <inputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_ACTIVIDAD_ECONOMICA]"
+                          cachedDataType="i4"
+                          cachedName="ID_ACTIVIDAD_ECONOMICA"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ACTIVIDAD_ECONOMICA]"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ACTIVIDAD_ECONOMICA]" />
+                        <inputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SECCION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="232"
+                          cachedName="SECCION"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SECCION]"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[SECCION]" />
+                        <inputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DIVISION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="227"
+                          cachedName="DIVISION"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DIVISION]"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[DIVISION]" />
+                        <inputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GRUPO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="227"
+                          cachedName="GRUPO"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRUPO]"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRUPO]" />
+                        <inputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CLASE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="227"
+                          cachedName="CLASE"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CLASE]"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[CLASE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ID_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NOMBRE_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ACTIVIDAD_ECONOMICA]"
+                          dataType="i4"
+                          name="ID_ACTIVIDAD_ECONOMICA" />
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SECCION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="232"
+                          name="SECCION" />
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DIVISION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="227"
+                          name="DIVISION" />
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRUPO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="227"
+                          name="GRUPO" />
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CLASE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="227"
+                          name="CLASE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+CLIENTEPOTENCIAL.ID_CLIENTE,
+CLIENTEPOTENCIAL.NOMBRE_CLIENTE,
+CLIENTEPOTENCIAL.ID_ACTIVIDAD_ECONOMICA,
+S.CODIGO_SECCION + '-' + S.DESCRIPCION_SECCION AS SECCION,
+D.CODIGO_DIVISION + '-' + D.DESCRIPCION_DIVISION AS DIVISION,
+G.CODIGO_GRUPO + '-' +G.DESCRIPCION_GRUPO AS GRUPO,
+C.CODIGO_CLASE + '-' + C.DESCRIPCION_CLASE AS CLASE
+FROM CLIENTEPOTENCIAL WITH(NOLOCK)
+INNER JOIN CIIU_CLASES C WITH (NOLOCK) ON C.ID_CLASE = CLIENTEPOTENCIAL.ID_ACTIVIDAD_ECONOMICA
+INNER JOIN CIIU_GRUPOS G WITH (NOLOCK) ON C.ID_GRUPO= G.ID_GRUPO
+INNER JOIN CIIU_DIVISIONES D WITH (NOLOCK) ON G.ID_DIVISION = D.ID_DIVISION
+INNER JOIN CIIU_SECCIONES S WITH (NOLOCK) ON D.ID_SECCION = S.ID_SECCION</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SERV-MDM\MASTER.PARAMETROS]"
+                      connectionManagerRefId="Package.ConnectionManagers[SERV-MDM\MASTER.PARAMETROS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                          length="20"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                          name="ID_CLIENTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_CLIENTE]"
+                          length="100"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_CLIENTE]"
+                          name="NOMBRE_CLIENTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ACTIVIDAD_ECONOMICA]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ACTIVIDAD_ECONOMICA]"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ACTIVIDAD_ECONOMICA]"
+                          name="ID_ACTIVIDAD_ECONOMICA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[SECCION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SECCION]"
+                          length="232"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[SECCION]"
+                          name="SECCION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[DIVISION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DIVISION]"
+                          length="227"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[DIVISION]"
+                          name="DIVISION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRUPO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GRUPO]"
+                          length="227"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRUPO]"
+                          name="GRUPO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[CLASE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CLASE]"
+                          length="227"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].Columns[CLASE]"
+                          name="CLASE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ID_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NOMBRE_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ACTIVIDAD_ECONOMICA]"
+                          dataType="i4"
+                          name="ID_ACTIVIDAD_ECONOMICA" />
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SECCION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="231"
+                          name="SECCION" />
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DIVISION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="226"
+                          name="DIVISION" />
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GRUPO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="226"
+                          name="GRUPO" />
+                        <externalMetadataColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CLASE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="226"
+                          name="CLASE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                          name="ID_CLIENTE" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_CLIENTE]"
+                          name="NOMBRE_CLIENTE" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ACTIVIDAD_ECONOMICA]"
+                          dataType="i4"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ACTIVIDAD_ECONOMICA]"
+                          name="ID_ACTIVIDAD_ECONOMICA" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SECCION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="231"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SECCION]"
+                          name="SECCION" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DIVISION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="226"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DIVISION]"
+                          name="DIVISION" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GRUPO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="226"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GRUPO]"
+                          name="GRUPO" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CLASE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="226"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CLASE]"
+                          name="CLASE" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL.Paths[OLE DB Source Output]"
+                  endId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\POBLAMIENTO TMP\TRUNCAR TABLA"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{25B8CB26-CC89-464D-A07F-3947EDE66786}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCAR TABLA"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{43CA04C0-86EB-4860-A416-26F4E70BDAF0}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE TMP.CLIENTEPOTENCIAL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\POBLAMIENTO TMP.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{C7918A0F-A275-424A-9AA5-7C76F3D26EC9}"
+          DTS:From="Package\POBLAMIENTO TMP\TRUNCAR TABLA"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{904752CF-716E-4692-91E9-72812210CD02}"
+      DTS:From="Package\POBLAMIENTO TMP"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="463,42"
+          Id="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task"
+          TopLeft="23.5,285.5" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL"
+          TopLeft="26,88" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\POBLAMIENTO TMP\TRUNCAR TABLA"
+          TopLeft="47,18" />
+        <EdgeLayout
+          Id="Package\POBLAMIENTO TMP.PrecedenceConstraints[Constraint]"
+          TopLeft="126.25,60">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="247,184"
+          Size="247,227"
+          Id="Package\POBLAMIENTO TMP"
+          TopLeft="105.5,26" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="229,253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26,32.5"
+              Start="0,0"
+              End="26,25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.25"
+                    Point2="0,16.25"
+                    Point3="4,16.25" />
+                  <mssgle:LineSegment
+                    End="22,16.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22,16.25"
+                    Point2="26,16.25"
+                    Point3="26,20.25" />
+                  <mssgle:LineSegment
+                    End="26,25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[DS_SIG_COL_LOGISTICA_DW]">
+    <DataSourceID>DS_SIG_COL LOGISTICA DW</DataSourceID>
+  </ConnectionManager>
+  <TaskHost
+    design-time-name="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source"
+          TopLeft="16,5.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination"
+          TopLeft="5.50000000000001,107.5" />
+        <EdgeLayout
+          Id="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task.Paths[OLE DB Source Output]"
+          TopLeft="91,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Copy Data from Results to  Bodega de Datos   dbo   CLIENTES_Movimiento  Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source"
+          TopLeft="319,55" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination"
+          TopLeft="313,135" />
+        <EdgeLayout
+          Id="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL.Paths[OLE DB Source Output]"
+          TopLeft="396.25,97">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\POBLAMIENTO TMP\DT_CLIENTE_POTENCIAL\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

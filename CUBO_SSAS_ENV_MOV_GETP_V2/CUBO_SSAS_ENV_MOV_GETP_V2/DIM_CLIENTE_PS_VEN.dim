@@ -1,0 +1,272 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="0ed73ca4-4623-447e-825c-d7d1ace83630" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DIM_CLENTE_PS_VEN</ID>
+  <Name>DIM_CLIENTE_PS_VEN</Name>
+  <CreatedTimestamp>2013-10-09T20:05:12.473333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2016-03-14T15:08:38.393333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-09-27T12:03:25.216667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="13c8f079-8f4a-41bc-b217-9e9a1758783a">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="034b191e-1fb2-47c4-a00b-7e17fbcf389e">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="8d0c716a-c0cf-420f-9a48-a760f944c186">
+      <ID>ID CLIENTE PS</ID>
+      <Name>ID CLIENTE PS</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="877d2475-ca47-4759-b4e2-98b3d2ae9208">
+          <DataType>WChar</DataType>
+          <DataSize>15</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b241015f-fb50-4acc-a654-ed3875c20eb6">
+            <TableID>DIM_CLIENTE_VENDEDOR</TableID>
+            <ColumnID>ID_CLIENTE_PS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="20f5ee72-ee43-4fdf-9157-feca670ecb68">
+        <DataType>WChar</DataType>
+        <DataSize>15</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d50e4d87-b875-4e8f-a46f-0ed7cf6e5e9d">
+          <TableID>DIM_CLIENTE_VENDEDOR</TableID>
+          <ColumnID>ID_CLIENTE_PS</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="cb463021-1ffa-46d8-bfef-6aebcd412057">
+          <AttributeID>Nombre Dependencia</AttributeID>
+          <Name>Nombre Dependencia</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5c06cc2b-04fa-405c-b624-5bd4344470cc">
+      <ID>Nombre Cliente</ID>
+      <Name>Nombre Cliente</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="632d3383-96a7-440d-8d0e-9a4e9dffd929">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d11d2316-e531-44bb-9677-92754744559d">
+            <TableID>DIM_CLIENTE_VENDEDOR</TableID>
+            <ColumnID>ID_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="8e41c780-d40a-4513-9320-1f4386fb03fd">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="52912634-fa55-4981-b8ab-ebb34a484ce1">
+          <TableID>DIM_CLIENTE_VENDEDOR</TableID>
+          <ColumnID>NOMBRE_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="7c0564ed-aef7-4950-98ac-c7dce7230e9b">
+          <AttributeID>Nombre Clasific Cliente</AttributeID>
+          <Name>Nombre Clasific Cliente</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="22795fb0-5eea-4aa0-998c-d4c9463ad08a">
+      <ID>Nombre Sucursal</ID>
+      <Name>Nombre Sucursal</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bd06a19b-9daf-4d18-bb35-887cef826191">
+          <DataType>WChar</DataType>
+          <DataSize>43</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="748a0c02-a9d4-40d3-96c8-602ab121d239">
+            <TableID>DIM_CLIENTE_VENDEDOR</TableID>
+            <ColumnID>Clasific_Cliente_Sucursal</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2a13221f-337f-491b-94b3-ab586aa2df5d">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a078925f-cdf2-4d82-944a-4c6ff9afca5c">
+          <TableID>DIM_CLIENTE_VENDEDOR</TableID>
+          <ColumnID>NOMBRE_SUCURSAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="3514848c-a06c-43f5-a9a2-9f74b0b6444f">
+          <AttributeID>Nombre Cliente</AttributeID>
+          <Name>Nombre Cliente</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3109d83e-8c0b-4785-8f3e-eeecb29156ec">
+      <ID>Nombre Clasific Cliente</ID>
+      <Name>Nombre Clasific Cliente</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ebd184d1-9d65-4cfe-9226-02466fc75a5a">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c54ca3d0-8bb4-490a-84c4-8a72ecbb0ffd">
+            <TableID>DIM_CLIENTE_VENDEDOR</TableID>
+            <ColumnID>ID_CLASIFIC_CLIE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="cdb4a07f-c993-4526-b590-f2cc628d009f">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="ec42c3dd-3ade-4c54-aa2f-aba9576ed4a5">
+          <TableID>DIM_CLIENTE_VENDEDOR</TableID>
+          <ColumnID>NOMBRE_CLASIFIC_CLIE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="22efa473-c8c0-4f13-b2db-e34b33cb36f8">
+      <ID>Nombre Dependencia</ID>
+      <Name>Nombre Dependencia</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a0e8dbdb-d46c-456f-a82d-a454894fcb8f">
+          <DataType>WChar</DataType>
+          <DataSize>15</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6d58f7d1-b0d9-4125-b486-3569fe3b88f5">
+            <TableID>DIM_CLIENTE_VENDEDOR</TableID>
+            <ColumnID>ID_CLIENTE_PS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a94eac2a-02e0-435e-8e9f-64b9c8d34c83">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="608e34b2-b6b8-4744-a4d9-b45b1935420a">
+          <TableID>DIM_CLIENTE_VENDEDOR</TableID>
+          <ColumnID>NOMBRE_DEPENDEN</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="282434d2-e6c2-4ddb-b86f-dfaa879cf272">
+          <AttributeID>Nombre Sucursal</AttributeID>
+          <Name>Nombre Sucursal</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="974eb9a5-e3e5-4312-b1af-ffb34bd6eb87">
+      <ID>Hierarchy</ID>
+      <Name>DIM_CLIENTE_PS_VENDEDOR</Name>
+      <Levels>
+        <Level dwd:design-time-name="dc904baf-dbf4-480c-8e71-311151ad097c">
+          <ID>Nombre Cliente</ID>
+          <Name>Nombre Cliente</Name>
+          <SourceAttributeID>Nombre Cliente</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="bde5e9ec-7957-4de0-ae37-f83b46ea1e14">
+          <ID>Nombre Sucursal</ID>
+          <Name>Nombre Sucursal</Name>
+          <SourceAttributeID>Nombre Sucursal</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="9487933d-5c64-4d70-8b39-6928319c5ec6">
+          <ID>Nombre Dependencia</ID>
+          <Name>Nombre Dependencia</Name>
+          <SourceAttributeID>Nombre Dependencia</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="b5968d4f-d4ac-457d-bef7-f358b4db0aed">
+      <ID>Hierarchy 1</ID>
+      <Name>CLIENTE_SUC_DEPEN</Name>
+      <Levels>
+        <Level dwd:design-time-name="dd52d805-4517-433b-be47-982a3799f898">
+          <ID>Nombre Clasific Cliente</ID>
+          <Name>Nombre Clasific Cliente</Name>
+          <SourceAttributeID>Nombre Clasific Cliente</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="05b2a1b4-ac58-47fc-90f0-4a43ec6df5dd">
+          <ID>Nombre Cliente</ID>
+          <Name>Nombre Cliente</Name>
+          <SourceAttributeID>Nombre Cliente</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="d544c5c2-51fa-4e31-974e-01efe6688a62">
+          <ID>Nombre Sucursal</ID>
+          <Name>Nombre Sucursal</Name>
+          <SourceAttributeID>Nombre Sucursal</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="7f0f5c2b-a77b-4f1f-9ea7-7f3b732ea43e">
+          <ID>Nombre Dependencia</ID>
+          <Name>Nombre Dependencia</Name>
+          <SourceAttributeID>Nombre Dependencia</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="3040b44a-4387-42eb-806e-cb516914aaa7">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="d1761fe5-8db0-445e-a93a-f166c74202fe" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

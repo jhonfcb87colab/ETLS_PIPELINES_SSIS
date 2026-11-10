@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:DelayValidation="True"
+  DTS:ObjectName="SERV-BTADBC001"
+  DTS:DTSID="{21C7983A-6460-454B-B7CD-D8C0C156672C}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=BOPVSVWSSDGN02\DBDG001;Initial Catalog=Mece_Logistico;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Intent=READWRITE;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

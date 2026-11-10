@@ -1,0 +1,2889 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/12/2025 3:19:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="T_SERV-DBI01"
+  DTS:CreatorName="SERVIENT\inteligencianegocios"
+  DTS:DTSID="{02D4B0E5-FBB8-4100-B387-3F7ECC314AD2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="02_TRANSFORMACION"
+  DTS:PackageType="5"
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{83038678-23AF-46C7-8DA4-EB12D1BA2E4E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{d1469fd8-7327-488a-899b-6c04a162473d}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DEPURAR GUIAS TABLA DE HECHOS">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS\DEPURACION GUIAS TABLA INVETARIOS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{C0893AAB-0ADD-4228-A665-A420AB2814AD}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DEPURACION GUIAS TABLA INVETARIOS"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0A780CA5-176D-4393-A0A7-F578C6D072B0}"
+              SQLTask:SqlStatementSource="&#xA;DELETE FAC&#xA;FROM [FAC].[MPCCO_VJ_VEJEZ_BODEGA_CIERRE_OPERATIVO] FAC WITH(NOLOCK)&#xA;INNER JOIN [TMP].[MPCCO_VJ_VEJEZ_BODEGA_GUIAS_DEPURACION] DELL&#xA;ON DELL.G_NUMERO_GUIA=FAC.G_NUMERO_GUIA&#xA;&#xA;DELETE FAC&#xA;FROM [SIG_LOGISTICA_DM].[FAC].[MPCCO_VJ_VEJEZ_BODEGA_CIERRE_OPERATIVO_INVENTARIO_BODEGA] FAC WITH(NOLOCK)&#xA;INNER JOIN [TMP].[MPCCO_VJ_VEJEZ_BODEGA_GUIAS_DEPURACION] DELL&#xA;ON DELL.G_NUMERO_GUIA=FAC.G_NUMERO_GUIA&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{dc8ab60b-6d49-44e6-99fe-dd3cdd0734ca}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ENVIAR GUIAS A VALIDAR PARA DEPUERAR"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="GUIAS DG"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DBO].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">1000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG.Connections[OleDbConnection]"
+                      connectionManagerID="{5B2BDE35-0E5F-4DE2-A25A-19DB68B50268}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MEPVSVWSSDGN01_DBDG001.tmp_borrar_local]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG.Inputs[OLE DB Destination Input].Columns[G_NUMERO_GUIA]"
+                          cachedDataType="numeric"
+                          cachedName="G_NUMERO_GUIA"
+                          cachedPrecision="20"
+                          externalMetadataColumnId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG.Inputs[OLE DB Destination Input].ExternalColumns[G_NUMERO_GUIA]"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG.Inputs[OLE DB Destination Input].ExternalColumns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="GUIAS VEJEZ BODEGA"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT G_NUMERO_GUIA
+FROM [SIG_LOGISTICA_DM].[FAC].[MPCCO_VJ_VEJEZ_BODEGA_CIERRE_OPERATIVO_INVENTARIO_BODEGA] WITH(NOLOCK)
+GROUP BY 
+G_NUMERO_GUIA</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Connections[OleDbConnection]"
+                      connectionManagerID="{0A780CA5-176D-4393-A0A7-F578C6D072B0}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[D_SERV-DBI01.SIG_LOGISTICA_DM]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Output].ExternalColumns[G_NUMERO_GUIA]"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]"
+                          name="G_NUMERO_GUIA"
+                          precision="20"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Output].ExternalColumns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Error Output].Columns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Error Output].Columns[G_NUMERO_GUIA]"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR.Paths[OLE DB Source Output]"
+                  endId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{7774725C-992E-45B0-B92C-F00332F36674}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LISTAR GUIAS A DEPURAR"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="GUIA A DEPUERAR"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[TMP].[MPCCO_VJ_VEJEZ_BODEGA_GUIAS_DEPURACION]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,ROWS_PER_BATCH = 100000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">1000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR.Connections[OleDbConnection]"
+                      connectionManagerID="{0A780CA5-176D-4393-A0A7-F578C6D072B0}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[D_SERV-DBI01.SIG_LOGISTICA_DM]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR.Inputs[OLE DB Destination Input].Columns[G_NUMERO_GUIA]"
+                          cachedDataType="numeric"
+                          cachedName="G_NUMERO_GUIA"
+                          cachedPrecision="20"
+                          externalMetadataColumnId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR.Inputs[OLE DB Destination Input].ExternalColumns[G_NUMERO_GUIA]"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Outputs[Union All Output 1].Columns[G_NUMERO_GUIA]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR.Inputs[OLE DB Destination Input].ExternalColumns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LISTAR GUIAS A DEPUERAR PARTE 1"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT TMP.[G_NUMERO_GUIA]
+  FROM [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION] TMP WITH(NOLOCK INDEX=IX_NUMERO_GUIA_VEJEZ)
+  INNER JOIN Mece_Logistico.DBO.SEGUIMIENTO_ENVIO SE WITH(NOLOCK INDEX=[REL_GUIAS_SEGUIMIENTOENVIO_FK])
+  ON SE.NUMERO_GUIA=TMP.G_NUMERO_GUIA
+WHERE ID_PROCESO=11
+GROUP BY TMP.[G_NUMERO_GUIA]
+OPTION(RECOMPILE)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Connections[OleDbConnection]"
+                      connectionManagerID="{5B2BDE35-0E5F-4DE2-A25A-19DB68B50268}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MEPVSVWSSDGN01_DBDG001.tmp_borrar_local]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Output].ExternalColumns[G_NUMERO_GUIA]"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]"
+                          name="G_NUMERO_GUIA"
+                          precision="20"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Output].ExternalColumns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Error Output].Columns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Error Output].Columns[G_NUMERO_GUIA]"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LISTAR GUIAS A DEPUERAR PARTE 2"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT TMP.[G_NUMERO_GUIA]
+  FROM [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION] TMP WITH(NOLOCK INDEX=IX_NUMERO_GUIA_VEJEZ)
+  INNER JOIN Mece_Logistico.DBO.GUIAS G WITH(NOLOCK INDEX=[UK_GUIA])
+  ON G.NUMERO_GUIA=TMP.G_NUMERO_GUIA
+WHERE G.ID_ESTADOENVIO IN(3,4,5,10)
+GROUP BY TMP.[G_NUMERO_GUIA]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Connections[OleDbConnection]"
+                      connectionManagerID="{5B2BDE35-0E5F-4DE2-A25A-19DB68B50268}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MEPVSVWSSDGN01_DBDG001.tmp_borrar_local]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Output].ExternalColumns[G_NUMERO_GUIA]"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]"
+                          name="G_NUMERO_GUIA"
+                          precision="20"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Output].ExternalColumns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Error Output].Columns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Error Output].Columns[G_NUMERO_GUIA]"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LISTAR GUIAS A DEPUERAR PARTE 3"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT TMP.[G_NUMERO_GUIA]
+  FROM [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION] TMP WITH(NOLOCK INDEX=IX_NUMERO_GUIA_VEJEZ)
+  INNER JOIN Mece_Logistico.DBO.GUIAS G WITH(NOLOCK INDEX=[UK_GUIA])
+  ON G.NUMERO_GUIA=TMP.G_NUMERO_GUIA
+WHERE G.ID_ESTADOGUIA IN( 4,12)
+GROUP BY TMP.[G_NUMERO_GUIA]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Connections[OleDbConnection]"
+                      connectionManagerID="{5B2BDE35-0E5F-4DE2-A25A-19DB68B50268}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MEPVSVWSSDGN01_DBDG001.tmp_borrar_local]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Output].ExternalColumns[G_NUMERO_GUIA]"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]"
+                          name="G_NUMERO_GUIA"
+                          precision="20"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Output].ExternalColumns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Error Output].Columns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Error Output].Columns[G_NUMERO_GUIA]"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LISTAR GUIAS A DEPUERAR PARTE 4"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT GRPL.[NUME_GUIA_ORIGINAL]
+      --,GRPL.[NUME_GUIA_REEMPLAZO]
+  FROM [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION] TMP WITH(NOLOCK) ----&gt;TU TABLA 
+  INNER JOIN [Mece_Logistico].[dbo].[REEMPLAZO_GUIAS] GRPL WITH (NOLOCK)
+  ON TMP.[G_NUMERO_GUIA] = GRPL.[NUME_GUIA_REEMPLAZO]
+  INNER JOIN [Mece_Logistico].[DBO].[SEGUIMIENTO_ENVIO] SEG WITH(NOLOCK)
+  ON GRPL.[NUMERO_GUIA_REEMPLAZADA]=SEG.NUMERO_GUIA
+  ---WHERE GRPL.[NUME_GUIA_ORIGINAL] IN ( 9183609181 )
+ WHERE SEG.ID_PROCESO = 11
+UNION ALL  
+SELECT GRPL.[NUME_GUIA_ORIGINAL]
+      --,GRPL.[NUME_GUIA_REEMPLAZO]
+  FROM [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION] TMP WITH(NOLOCK) ----&gt;TU TABLA 
+  INNER JOIN [Mece_Logistico].[dbo].[REEMPLAZO_GUIAS] GRPL WITH (NOLOCK)
+  ON TMP.[G_NUMERO_GUIA] = GRPL.[NUME_GUIA_REEMPLAZO]
+  INNER JOIN [Mece_Logistico].[DBO].[GUIAS] GUI WITH(NOLOCK)
+  ON GRPL.[NUMERO_GUIA_REEMPLAZADA]=GUI.NUMERO_GUIA
+  ---WHERE GRPL.[NUME_GUIA_ORIGINAL] IN ( 9183609181 )
+ WHERE ID_ESTADOENVIO IN(3,4,10,5)
+ UNION ALL  
+SELECT GRPL.[NUME_GUIA_ORIGINAL]
+      --,GRPL.[NUME_GUIA_REEMPLAZO]
+  FROM [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION] TMP WITH(NOLOCK) ----&gt;TU TABLA 
+  INNER JOIN [Mece_Logistico].[dbo].[REEMPLAZO_GUIAS] GRPL WITH (NOLOCK)
+  ON TMP.[G_NUMERO_GUIA] = GRPL.[NUME_GUIA_REEMPLAZO]
+  INNER JOIN [Mece_Logistico].[DBO].[GUIAS] GUI WITH(NOLOCK)
+  ON GRPL.[NUMERO_GUIA_REEMPLAZADA]=GUI.NUMERO_GUIA
+  ---WHERE GRPL.[NUME_GUIA_ORIGINAL] IN ( 9183609181 )
+ WHERE ID_ESTADOGUIA IN(4,12)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Connections[OleDbConnection]"
+                      connectionManagerID="{5B2BDE35-0E5F-4DE2-A25A-19DB68B50268}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MEPVSVWSSDGN01_DBDG001.tmp_borrar_local]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Output].Columns[NUME_GUIA_ORIGINAL]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Output].ExternalColumns[NUME_GUIA_ORIGINAL]"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Output].Columns[NUME_GUIA_ORIGINAL]"
+                          name="NUME_GUIA_ORIGINAL"
+                          precision="20"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Output].ExternalColumns[NUME_GUIA_ORIGINAL]"
+                          dataType="numeric"
+                          name="NUME_GUIA_ORIGINAL"
+                          precision="20" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Error Output].Columns[NUME_GUIA_ORIGINAL]"
+                          dataType="numeric"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Error Output].Columns[NUME_GUIA_ORIGINAL]"
+                          name="NUME_GUIA_ORIGINAL"
+                          precision="20" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Inputs[Union All Input 1].Columns[G_NUMERO_GUIA]"
+                          cachedDataType="numeric"
+                          cachedName="G_NUMERO_GUIA"
+                          cachedPrecision="20"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Outputs[Union All Output 1].Columns[G_NUMERO_GUIA]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Inputs[Union All Input 2].Columns[G_NUMERO_GUIA]"
+                          cachedDataType="numeric"
+                          cachedName="G_NUMERO_GUIA"
+                          cachedPrecision="20"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Outputs[Union All Output 1].Columns[G_NUMERO_GUIA]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Inputs[Union All Input 3]"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Inputs[Union All Input 3].Columns[G_NUMERO_GUIA]"
+                          cachedDataType="numeric"
+                          cachedName="G_NUMERO_GUIA"
+                          cachedPrecision="20"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Outputs[Union All Output 1].Columns[G_NUMERO_GUIA]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Inputs[Union All Input 4]"
+                      hasSideEffects="true"
+                      name="Union All Input 4">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Inputs[Union All Input 4].Columns[NUME_GUIA_ORIGINAL]"
+                          cachedDataType="numeric"
+                          cachedName="NUME_GUIA_ORIGINAL"
+                          cachedPrecision="20"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Output].Columns[NUME_GUIA_ORIGINAL]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Outputs[Union All Output 1].Columns[G_NUMERO_GUIA]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Inputs[Union All Input 5]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 5">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Outputs[Union All Output 1].Columns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Outputs[Union All Output 1].Columns[G_NUMERO_GUIA]"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR.Paths[OLE DB Source Output]"
+                  endId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Inputs[Union All Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR.Paths[OLE DB Source Output1]"
+                  endId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Inputs[Union All Input 2]"
+                  name="OLE DB Source Output"
+                  startId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR.Paths[OLE DB Source Output2]"
+                  endId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Inputs[Union All Input 3]"
+                  name="OLE DB Source Output"
+                  startId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR.Paths[OLE DB Source Output3]"
+                  endId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Inputs[Union All Input 4]"
+                  name="OLE DB Source Output"
+                  startId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR.Paths[Union All Output 1]"
+                  endId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR.Inputs[OLE DB Destination Input]"
+                  name="Union All Output 1"
+                  startId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A ELIMINAR"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{AA8441F8-4FA5-41A6-9764-5193B992EE77}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LISTAR GUIAS A ELIMINAR"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5B2BDE35-0E5F-4DE2-A25A-19DB68B50268}"
+              SQLTask:SqlStatementSource="SET NOCOUNT ON;&#xA;&#xA;TRUNCATE TABLE [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION_02];&#xA;&#xA;---------------------------------------------------------------&#xA;-- 1. Guías numeradas, con CLUSTERED sobre ROIDCT (el lote = seek de rango)&#xA;---------------------------------------------------------------&#xA;DROP TABLE IF EXISTS #GUIAS;&#xA;SELECT ROIDCT = ROW_NUMBER() OVER (ORDER BY G_NUMERO_GUIA),&#xA;       G_NUMERO_GUIA&#xA;INTO #GUIAS&#xA;FROM [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION] WITH (NOLOCK);&#xA;&#xA;CREATE UNIQUE CLUSTERED INDEX CIX_GUIAS ON #GUIAS (ROIDCT);&#xA;&#xA;---------------------------------------------------------------&#xA;-- 2. Tabla de trabajo por lote: guía a evaluar + guía a reportar&#xA;--    ES_RPL = 0 -&gt; la propia guía (T01/T02/T03)&#xA;--    ES_RPL = 1 -&gt; guía reemplazada (T041/T042/T043)&#xA;--    Tipos copiados de GUIAS para evitar conversiones implícitas&#xA;---------------------------------------------------------------&#xA;DROP TABLE IF EXISTS #EVAL;&#xA;SELECT TOP (0)&#xA;       G_EVAL = G.NUMERO_GUIA,&#xA;       G_ORIG = G.NUMERO_GUIA,&#xA;       ES_RPL = CAST(0 AS BIT)&#xA;INTO #EVAL&#xA;FROM Mece_Logistico.dbo.GUIAS G;&#xA;&#xA;CREATE CLUSTERED INDEX CIX_EVAL ON #EVAL (G_EVAL);&#xA;&#xA;---------------------------------------------------------------&#xA;-- 3. Bucle&#xA;---------------------------------------------------------------&#xA;DECLARE @LOTE      INT = 5000;&#xA;DECLARE @MIN_ID    INT = 1;&#xA;DECLARE @MAX_ID    INT;&#xA;DECLARE @MAX_TOTAL INT = (SELECT ISNULL(MAX(ROIDCT), 0) FROM #GUIAS);&#xA;&#xA;WHILE @MIN_ID &lt;= @MAX_TOTAL&#xA;BEGIN&#xA;    SET @MAX_ID = @MIN_ID + @LOTE - 1;&#xA;&#xA;    TRUNCATE TABLE #EVAL;&#xA;&#xA;    -- Guías del lote + sus reemplazadas (REEMPLAZO_GUIAS se lee 1 vez)&#xA;    INSERT INTO #EVAL (G_EVAL, G_ORIG, ES_RPL)&#xA;    SELECT T.G_NUMERO_GUIA, T.G_NUMERO_GUIA, 0&#xA;    FROM #GUIAS T&#xA;    WHERE T.ROIDCT BETWEEN @MIN_ID AND @MAX_ID&#xA;    UNION&#xA;    SELECT R.NUMERO_GUIA_REEMPLAZADA, R.NUME_GUIA_ORIGINAL, 1&#xA;    FROM #GUIAS T&#xA;    INNER JOIN [Mece_Logistico].[dbo].[REEMPLAZO_GUIAS] R WITH (NOLOCK)&#xA;            ON R.NUME_GUIA_REEMPLAZO = T.G_NUMERO_GUIA&#xA;    WHERE T.ROIDCT BETWEEN @MIN_ID AND @MAX_ID&#xA;    OPTION (LOOP JOIN);&#xA;&#xA;    -- T01 / T041 : SEGUIMIENTO_ENVIO con proceso 11 (1 lectura)&#xA;    INSERT INTO [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION_02]&#xA;    SELECT DISTINCT E.G_ORIG, IIF(E.ES_RPL = 0, 'T01', 'T041')&#xA;    FROM #EVAL E&#xA;    WHERE EXISTS (SELECT 1&#xA;                  FROM Mece_Logistico.dbo.SEGUIMIENTO_ENVIO SE&#xA;                       WITH (NOLOCK, INDEX([REL_GUIAS_SEGUIMIENTOENVIO_FK]), FORCESEEK)&#xA;                  WHERE SE.NUMERO_GUIA = E.G_EVAL&#xA;                    AND SE.ID_PROCESO = 11)&#xA;    OPTION (LOOP JOIN);&#xA;&#xA;    -- T02 / T03 / T042 / T043 : GUIAS (1 lectura en vez de 4)&#xA;    INSERT INTO [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION_02]  &#xA;&#x9;SELECT DISTINCT E.G_ORIG, X.TIPO&#xA;    FROM #EVAL E&#xA;    INNER JOIN Mece_Logistico.dbo.GUIAS G&#xA;               WITH (NOLOCK, INDEX([UK_GUIA]), FORCESEEK)&#xA;            ON G.NUMERO_GUIA = E.G_EVAL&#xA;    CROSS APPLY (VALUES&#xA;        (CASE WHEN G.ID_ESTADOENVIO IN (3,4,5,10) THEN IIF(E.ES_RPL = 0, 'T02', 'T042') END),&#xA;        (CASE WHEN G.ID_ESTADOGUIA  IN (4,12)     THEN IIF(E.ES_RPL = 0, 'T03', 'T043') END)&#xA;    ) X(TIPO)&#xA;    WHERE X.TIPO IS NOT NULL&#xA;    OPTION (LOOP JOIN);&#xA;&#x9;PRINT(CONCAT('INSERTION DONE!! BETWEEN - ',@MIN_ID,' / TO - ',@MAX_ID))&#xA;    &#xA;    SET @MIN_ID = @MAX_ID + 1;&#xA;END;&#xA;&#xA;DROP TABLE IF EXISTS #GUIAS, #EVAL;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;/*&#xA;TRUNCATE TABLE [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION_02]&#xA;&#xA;DROP TABLE IF EXISTS #BI_MPCCO_GUIAS_VEJEZ_DEPURACION&#xA;SELECT &#xA;ROIDCT = ROW_NUMBER() OVER(ORDER BY G_NUMERO_GUIA),&#xA;G_NUMERO_GUIA&#xA;INTO #BI_MPCCO_GUIAS_VEJEZ_DEPURACION&#xA;FROM [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION] TMP WITH(NOLOCK)&#xA;&#xA;CREATE NONCLUSTERED INDEX [IX_G_NUMERO_GUIA_MPCCO] ON #BI_MPCCO_GUIAS_VEJEZ_DEPURACION(G_NUMERO_GUIA ASC)&#xA;WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, &#xA;ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80)&#xA;&#xA;&#xA;-- 3. Bucle de inserción por Lotes basado en ID numérico (Evita borrar/volver a hacer JOINs)&#xA;DECLARE @LOTE INT = 2000; -- Incrementado a 50k para mejor rendimiento E/S&#xA;DECLARE @MIN_ID INT = 1;&#xA;DECLARE @MAX_ID_LOTE INT;&#xA;DECLARE @MAX_ID_TOTAL INT = (SELECT ISNULL(MAX(IDS.ROIDCT), 0) FROM #BI_MPCCO_GUIAS_VEJEZ_DEPURACION IDS WITH(NOLOCK));&#xA;&#xA;WHILE @MIN_ID &lt;= @MAX_ID_TOTAL&#xA;BEGIN&#xA;    SET @MAX_ID_LOTE = @MIN_ID + @LOTE - 1;&#xA;&#x9;&#x9;&#x9;&#x9;-----LISTAR GUIAS A DEPUERAR PARTE 1&#xA;&#x9;&#x9;&#x9;&#x9;INSERT INTO [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION_02]&#xA;&#x9;&#x9;&#x9;&#x9;SELECT TMP.[G_NUMERO_GUIA], 'T01' AS TIPO&#xA;&#x9;&#x9;&#x9;&#x9;  FROM #BI_MPCCO_GUIAS_VEJEZ_DEPURACION TMP WITH(NOLOCK INDEX=[IX_G_NUMERO_GUIA_MPCCO])&#xA;&#x9;&#x9;&#x9;&#x9;  INNER JOIN Mece_Logistico.DBO.SEGUIMIENTO_ENVIO SE WITH(NOLOCK INDEX=[REL_GUIAS_SEGUIMIENTOENVIO_FK])&#xA;&#x9;&#x9;&#x9;&#x9;  ON SE.NUMERO_GUIA=TMP.G_NUMERO_GUIA&#xA;&#x9;&#x9;&#x9;&#x9;WHERE ID_PROCESO=11&#xA;&#x9;&#x9;&#x9;&#x9;AND TMP.ROIDCT BETWEEN @MIN_ID AND @MAX_ID_LOTE&#xA;&#x9;&#x9;&#x9;&#x9;GROUP BY TMP.[G_NUMERO_GUIA]&#xA;&#x9;&#x9;&#x9;&#x9;OPTION(RECOMPILE)&#xA;&#x9;&#x9;&#x9;&#x9;----LISTAR GUIAS A DEPUERAR PARTE 2&#xA;&#x9;&#x9;&#x9;&#x9;INSERT INTO [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION_02]&#xA;&#x9;&#x9;&#x9;&#x9;SELECT TMP.[G_NUMERO_GUIA], 'T02' AS TIPO&#xA;&#x9;&#x9;&#x9;&#x9;  FROM #BI_MPCCO_GUIAS_VEJEZ_DEPURACION TMP WITH(NOLOCK INDEX=[IX_G_NUMERO_GUIA_MPCCO])&#xA;&#x9;&#x9;&#x9;&#x9;  INNER JOIN Mece_Logistico.DBO.GUIAS G WITH(NOLOCK INDEX=[UK_GUIA])&#xA;&#x9;&#x9;&#x9;&#x9;  ON G.NUMERO_GUIA=TMP.G_NUMERO_GUIA&#xA;&#x9;&#x9;&#x9;&#x9;WHERE G.ID_ESTADOENVIO IN(3,4,5,10)&#xA;&#x9;&#x9;&#x9;&#x9;AND TMP.ROIDCT BETWEEN @MIN_ID AND @MAX_ID_LOTE&#xA;&#x9;&#x9;&#x9;&#x9;GROUP BY TMP.[G_NUMERO_GUIA]&#xA;&#x9;&#x9;&#x9;&#x9;----LISTAR GUIAS A DEPUERAR PARTE 3&#xA;&#x9;&#x9;&#x9;&#x9;INSERT INTO [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION_02]&#xA;&#x9;&#x9;&#x9;&#x9;SELECT TMP.[G_NUMERO_GUIA], 'T03' AS TIPO&#xA;&#x9;&#x9;&#x9;&#x9;FROM #BI_MPCCO_GUIAS_VEJEZ_DEPURACION TMP WITH(NOLOCK INDEX=[IX_G_NUMERO_GUIA_MPCCO])&#xA;&#x9;&#x9;&#x9;&#x9;INNER JOIN Mece_Logistico.DBO.GUIAS G WITH(NOLOCK INDEX=[UK_GUIA])&#xA;&#x9;&#x9;&#x9;&#x9;ON G.NUMERO_GUIA=TMP.G_NUMERO_GUIA&#xA;&#x9;&#x9;&#x9;&#x9;WHERE G.ID_ESTADOGUIA IN( 4,12)&#xA;&#x9;&#x9;&#x9;&#x9;AND TMP.ROIDCT BETWEEN @MIN_ID AND @MAX_ID_LOTE&#xA;&#x9;&#x9;&#x9;&#x9;GROUP BY TMP.[G_NUMERO_GUIA]&#xA;&#x9;&#x9;&#x9;&#x9;---LISTAR GUIAS A DEPUERAR PARTE 4&#xA;&#x9;&#x9;&#x9;&#x9;INSERT INTO [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION_02]&#xA;&#x9;&#x9;&#x9;&#x9;SELECT GRPL.[NUME_GUIA_ORIGINAL] AS [G_NUMERO_GUIA], 'T041' AS TIPO&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  --,GRPL.[NUME_GUIA_REEMPLAZO]&#xA;&#x9;&#x9;&#x9;&#x9;  FROM #BI_MPCCO_GUIAS_VEJEZ_DEPURACION TMP WITH(NOLOCK INDEX=[IX_G_NUMERO_GUIA_MPCCO])&#xA;&#x9;&#x9;&#x9;&#x9;  INNER JOIN [Mece_Logistico].[dbo].[REEMPLAZO_GUIAS] GRPL WITH (NOLOCK)&#xA;&#x9;&#x9;&#x9;&#x9;  ON TMP.[G_NUMERO_GUIA] = GRPL.[NUME_GUIA_REEMPLAZO]&#xA;&#x9;&#x9;&#x9;&#x9;  INNER JOIN [Mece_Logistico].[DBO].[SEGUIMIENTO_ENVIO] SEG WITH(NOLOCK)&#xA;&#x9;&#x9;&#x9;&#x9;  ON GRPL.[NUMERO_GUIA_REEMPLAZADA]=SEG.NUMERO_GUIA&#xA;&#x9;&#x9;&#x9;&#x9;  ---WHERE GRPL.[NUME_GUIA_ORIGINAL] IN ( 9183609181 )&#xA;&#x9;&#x9;&#x9;&#x9; WHERE SEG.ID_PROCESO = 11&#xA;&#x9;&#x9;&#x9;&#x9; AND TMP.ROIDCT BETWEEN @MIN_ID AND @MAX_ID_LOTE&#xA;&#x9;&#x9;&#x9;&#x9;INSERT INTO [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION_02]&#xA;&#x9;&#x9;&#x9;&#x9;SELECT GRPL.[NUME_GUIA_ORIGINAL] AS [G_NUMERO_GUIA], 'T042' AS TIPO&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  --,GRPL.[NUME_GUIA_REEMPLAZO]&#xA;&#x9;&#x9;&#x9;&#x9;  FROM #BI_MPCCO_GUIAS_VEJEZ_DEPURACION TMP WITH(NOLOCK INDEX=[IX_G_NUMERO_GUIA_MPCCO])&#xA;&#x9;&#x9;&#x9;&#x9;  INNER JOIN [Mece_Logistico].[dbo].[REEMPLAZO_GUIAS] GRPL WITH (NOLOCK)&#xA;&#x9;&#x9;&#x9;&#x9;  ON TMP.[G_NUMERO_GUIA] = GRPL.[NUME_GUIA_REEMPLAZO]&#xA;&#x9;&#x9;&#x9;&#x9;  INNER JOIN [Mece_Logistico].[DBO].[GUIAS] GUI WITH(NOLOCK)&#xA;&#x9;&#x9;&#x9;&#x9;  ON GRPL.[NUMERO_GUIA_REEMPLAZADA]=GUI.NUMERO_GUIA&#xA;&#x9;&#x9;&#x9;&#x9;  ---WHERE GRPL.[NUME_GUIA_ORIGINAL] IN ( 9183609181 )&#xA;&#x9;&#x9;&#x9;&#x9; WHERE ID_ESTADOENVIO IN(3,4,10,5)&#xA;&#x9;&#x9;&#x9;&#x9; AND TMP.ROIDCT BETWEEN @MIN_ID AND @MAX_ID_LOTE&#xA;&#x9;&#x9;&#x9;&#x9; INSERT INTO [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION_02]&#xA;&#x9;&#x9;&#x9;&#x9;SELECT GRPL.[NUME_GUIA_ORIGINAL] AS [G_NUMERO_GUIA], 'T043' AS TIPO&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  --,GRPL.[NUME_GUIA_REEMPLAZO]&#xA;&#x9;&#x9;&#x9;&#x9;  FROM #BI_MPCCO_GUIAS_VEJEZ_DEPURACION TMP WITH(NOLOCK INDEX=[IX_G_NUMERO_GUIA_MPCCO])&#xA;&#x9;&#x9;&#x9;&#x9;  INNER JOIN [Mece_Logistico].[dbo].[REEMPLAZO_GUIAS] GRPL WITH (NOLOCK)&#xA;&#x9;&#x9;&#x9;&#x9;  ON TMP.[G_NUMERO_GUIA] = GRPL.[NUME_GUIA_REEMPLAZO]&#xA;&#x9;&#x9;&#x9;&#x9;  INNER JOIN [Mece_Logistico].[DBO].[GUIAS] GUI WITH(NOLOCK)&#xA;&#x9;&#x9;&#x9;&#x9;  ON GRPL.[NUMERO_GUIA_REEMPLAZADA]=GUI.NUMERO_GUIA&#xA;&#x9;&#x9;&#x9;&#x9;  ---WHERE GRPL.[NUME_GUIA_ORIGINAL] IN ( 9183609181 )&#xA;&#x9;&#x9;&#x9;&#x9; WHERE ID_ESTADOGUIA IN(4,12)&#xA;&#x9;&#x9;&#x9;&#x9; AND TMP.ROIDCT BETWEEN @MIN_ID AND @MAX_ID_LOTE&#xA;&#x9;PRINT(CONCAT('INSERTION DONE BETWEEN - ',@MIN_ID,' / TO - ',@MAX_ID_LOTE))&#xA;    SET @MIN_ID = @MAX_ID_LOTE + 1;&#xA;END;&#xA;&#xA;&#xA;*/&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS\QUITAR DUPLICADOS GUIAS DE DEPURACION"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B96472E8-73FC-4DB9-8768-68D2469505CC}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="QUITAR DUPLICADOS GUIAS DE DEPURACION"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0A780CA5-176D-4393-A0A7-F578C6D072B0}"
+              SQLTask:SqlStatementSource="USE SIG_LOGISTICA_DM;&#xA;&#xA;;WITH CTE AS (&#xA;SELECT &#xA;G_NUMERO_GUIA,&#xA;ROW_NUMBER() OVER(PARTITION BY G_NUMERO_GUIA ORDER BY G_NUMERO_GUIA DESC) ROWDELL&#xA;FROM [TMP].[MPCCO_VJ_VEJEZ_BODEGA_GUIAS_DEPURACION]&#xA;)---SELECT * FROM CTE WHERE ROWDELL&gt;1&#xA;DELETE CTE WHERE ROWDELL&gt;1&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A2A6DAF0-3CAA-4CE3-84C2-D217D6A08F02}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRANSLADO GUIAS A DEPURAR"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="GUIA A DEPUERAR"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[TMP].[MPCCO_VJ_VEJEZ_BODEGA_GUIAS_DEPURACION]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,ROWS_PER_BATCH = 100000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">1000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR.Connections[OleDbConnection]"
+                      connectionManagerID="{0A780CA5-176D-4393-A0A7-F578C6D072B0}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[D_SERV-DBI01.SIG_LOGISTICA_DM]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR.Inputs[OLE DB Destination Input].Columns[G_NUMERO_GUIA]"
+                          cachedDataType="numeric"
+                          cachedName="G_NUMERO_GUIA"
+                          cachedPrecision="20"
+                          externalMetadataColumnId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR.Inputs[OLE DB Destination Input].ExternalColumns[G_NUMERO_GUIA]"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR.Inputs[OLE DB Destination Input].ExternalColumns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LISTADO DE GUAIS A DEPURAR"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT G_NUMERO_GUIA FROM [tmp_borrar_local].[dbo].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION_02] WITH(NOLOCK)
+GROUP BY G_NUMERO_GUIA</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Connections[OleDbConnection]"
+                      connectionManagerID="{5B2BDE35-0E5F-4DE2-A25A-19DB68B50268}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MEPVSVWSSDGN01_DBDG001.tmp_borrar_local]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Output].ExternalColumns[G_NUMERO_GUIA]"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Output].Columns[G_NUMERO_GUIA]"
+                          name="G_NUMERO_GUIA"
+                          precision="20"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Output].ExternalColumns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Error Output].Columns[G_NUMERO_GUIA]"
+                          dataType="numeric"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Error Output].Columns[G_NUMERO_GUIA]"
+                          name="G_NUMERO_GUIA"
+                          precision="20" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR.Paths[OLE DB Source Output]"
+                  endId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRUCAR TABLA GUIAS DEPURACION SIG LOGISTICA"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7c1679f5-c0fe-4359-b058-7d3032d84963}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUCAR TABLA GUIAS DEPURACION SIG LOGISTICA"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0A780CA5-176D-4393-A0A7-F578C6D072B0}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [TMP].[MPCCO_VJ_VEJEZ_BODEGA_GUIAS_DEPURACION]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS\TRUNCATE TABLE GUIAS DG"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{34db0b23-a362-487e-8d34-bf783fbf4a20}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE TABLE GUIAS DG"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5B2BDE35-0E5F-4DE2-A25A-19DB68B50268}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [DBO].[BI_MPCCO_GUIAS_VEJEZ_DEPURACION]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4c5aac1d-03a0-4939-9616-8c24decdcfcf}"
+          DTS:From="Package\DEPURAR GUIAS TABLA DE HECHOS\TRUNCATE TABLE GUIAS DG"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{774d7101-85e6-4592-ac0f-c023dd95d37f}"
+          DTS:From="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\DEPURAR GUIAS TABLA DE HECHOS\TRUCAR TABLA GUIAS DEPURACION SIG LOGISTICA" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{D35C0B8B-FD61-457F-884C-9CADD802723E}"
+          DTS:From="Package\DEPURAR GUIAS TABLA DE HECHOS\TRUCAR TABLA GUIAS DEPURACION SIG LOGISTICA"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A ELIMINAR" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{896FCD5E-4537-40F5-81DF-4045BB619091}"
+          DTS:From="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\DEPURAR GUIAS TABLA DE HECHOS\QUITAR DUPLICADOS GUIAS DE DEPURACION" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{57E4A490-8AE4-4EA1-B7E8-B5469E47E654}"
+          DTS:From="Package\DEPURAR GUIAS TABLA DE HECHOS\QUITAR DUPLICADOS GUIAS DE DEPURACION"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\DEPURAR GUIAS TABLA DE HECHOS\DEPURACION GUIAS TABLA INVETARIOS" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{F83331CF-0F6A-4713-81DD-D0E4817BE82C}"
+          DTS:From="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A ELIMINAR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{E7F57BC3-D45E-4DC3-AD77-C1454FBD96FE}"
+          DTS:From="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ps01 Eliminar repetidos"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1E13AFA2-AA06-4CDD-BD9A-E58639AE8E9C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ps01 Eliminar repetidos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="USE SIG_COLOMBIA_DW;&#xA;&#xA;TRUNCATE TABLE [TMP].[MPCCO_VJ_PS01]&#xA;&#xA;;WITH CTE AS(&#xA;SELECT &#xA;ROW_ID = ROW_NUMBER() OVER(PARTITION BY G_NUMERO_GUIA ORDER BY SEG_FECHA_HORA_MOVIMIENTO DESC)&#xA;,G_NUMERO_GUIA&#xA;,G_ID_TIPOGUIA&#xA;,G_ID_CLIENTE&#xA;,G_ID_CANAL&#xA;,G_ID_DIVISION_PROV&#xA;,G_ID_PAIS_ORIGEN&#xA;,G_ID_CIUDAD_ORIGEN&#xA;,G_ID_PAIS_DESTINO&#xA;,G_ID_CIUDAD_DESTINO&#xA;,G_ID_TIPO_ZONA_URBA&#xA;,G_ID_PAIS_ZONA_URB_ENTR&#xA;,G_ID_CIUDAD_ZONA_URB_ENTR&#xA;,G_ID_ZONA_URBA&#xA;,G_ID_ESTADOENVIO&#xA;,G_ID_ESTADOGUIA&#xA;,G_ID_CARACT_ENVIO&#xA;,G_ID_TIEMPO&#xA;,G_ID_MEDTRANS&#xA;,G_ID_PRODUCTO&#xA;,G_ID_SUBPRODUCTO&#xA;,G_FECHA_ENVIO&#xA;,G_ID_REMITE&#xA;,G_ID_DESTINA&#xA;,G_NOMBRE_REMITE_GUIA&#xA;,G_APELLIDO_REMITE_GUIA&#xA;,G_NOMBRE_DESTINA_GUIA&#xA;,G_APELLIDO_DESTINA_GUIA&#xA;,G_TELEFONO_REMITE_GUIA&#xA;,G_TELEFONO_DESTINA_GUIA&#xA;,G_DIRECCION_REMITE_GUIA&#xA;,G_DIRECCION_DESTINA_GUIA&#xA;,G_CONTENIDO&#xA;,G_LARGO_ENVIO&#xA;,G_ALTO_ENVIO&#xA;,G_ANCHO_ENVIO&#xA;,G_LARGO_ENV_OPERA&#xA;,G_ALTO_ENV_OPERA&#xA;,G_ANCHO_ENV_OPERA&#xA;,G_PESO_GUIA&#xA;,G_PESO_FISICO_GUIA&#xA;,G_PESO_VOLU_GUIA&#xA;,G_PESO_FISICO_OPERA&#xA;,G_PESO_VOLU_OPERA&#xA;,G_PESO_FACTURADO&#xA;,G_FECHA_ENTREGA&#xA;,G_NUMERO_PIEZAS&#xA;,G_VALOR_DECLARADO_GUIA&#xA;,G_VALOR_SEG_MAN_GUIAS&#xA;,G_VALOR_FLETES_GUIAS&#xA;,G_VALOR_DESCUENTO_GUIAS&#xA;,G_VALOR_PEDIDO_GUIAS&#xA;,G_VALOR_SEG_MAN_GUIAS_FACT&#xA;,G_VALOR_FLETES_GUIAS_FACT&#xA;,G_FECHA_CREACION&#xA;,G_FECHA_MODIFICACION_DG&#xA;,SEG_ID_PROCESO&#xA;,SEG_NUMERO_MOVIMI&#xA;,SEG_CONSECUT_MOVIMI&#xA;,SEG_ID_CONCEPTO&#xA;,SEG_ID_TIPOENVIO&#xA;,SEG_ID_ENVIO_CRUZADO&#xA;,SEG_PESO_ENVIO&#xA;,SEG_LARGO_ENVIO&#xA;,SEG_ANCHO_ENVIO&#xA;,SEG_ALTO_ENVIO&#xA;,SEG_FECHA_HORA_MOVIMIENTO&#xA;,SEG_NUMERO_PIEZAS&#xA;,SEG_FECHA_CREACION&#xA;,SEG_FECHA_MODIFICACION&#xA;,SEG_FECHA_EXTRACCION&#xA;,DOC_ID_TIPO_ZONA_URBA&#xA;,DOC_ID_PAIS_ZONA_URBA&#xA;,DOC_ID_CIUDAD_ZONA_URBA&#xA;,DOC_ID_ZONA_URBA&#xA;,DOC_ID_PAIS_DIVISION_ORIGEN&#xA;,DOC_ID_CIUDAD_DIVISION_ORIGEN&#xA;,DOC_ID_DIVISION_ORIGEN&#xA;,DOC_ID_PAIS_DESTINO&#xA;,DOC_ID_CIUDAD_DESTINO&#xA;,DOC_ID_DIVISION_DESTINO&#xA;,DOC_ID_COURIER_CONDUCTOR&#xA;,DOC_ID_PAIS_OPERATIVO&#xA;,DOC_ID_CIUDAD_OPERATIVO&#xA;,DOC_ID_OPERATIVO&#xA;,DOC_ID_RUTA&#xA;,DOC_ID_PAIS_CANAL&#xA;,DOC_ID_CIUDAD_CANAL&#xA;,DOC_ID_CANAL&#xA;,DOC_ID_TIPO_LOGISTICA&#xA;,DOC_FECHA_HORA_MOVIMI&#xA;,DOC_TOTAL_ENVIOS&#xA;,DOC_PESO_TOTAL&#xA;,DOC_PLACA_VEHICULO_DOCU&#xA;,DOC_ESTADO_MOVIMI&#xA;,DOC_NUME_SELLO_SEGURIDAD&#xA;,DOC_ID_TIPO_MOVIMIENTO&#xA;,DOC_ID_ESTADO_TRANS_ZONA&#xA;,DOC_ID_AUXILIAR2_VEHICULO&#xA;,DOC_FECHA_CREACION&#xA;,DOC_FECHA_MODIFICACION&#xA;,PE_TIPO_PRUEBA_ENTREGA&#xA;,PE_GENERACION_PE&#xA;,PE_FECHA_DIGITALIZACION&#xA;,PE_FECHA_CREACION&#xA;FROM [TMP].[MPCCO_VJ_ULTIMO_PROCESO_LOG] TMP WITH(NOLOCK)&#xA;)&#xA;INSERT INTO [TMP].[MPCCO_VJ_PS01]&#xA;(&#xA; G_NUMERO_GUIA&#xA;,G_ID_TIPOGUIA&#xA;,G_ID_CLIENTE&#xA;,G_ID_CANAL&#xA;,G_ID_DIVISION_PROV&#xA;,G_ID_PAIS_ORIGEN&#xA;,G_ID_CIUDAD_ORIGEN&#xA;,G_ID_PAIS_DESTINO&#xA;,G_ID_CIUDAD_DESTINO&#xA;,G_ID_TIPO_ZONA_URBA&#xA;,G_ID_PAIS_ZONA_URB_ENTR&#xA;,G_ID_CIUDAD_ZONA_URB_ENTR&#xA;,G_ID_ZONA_URBA&#xA;,G_ID_ESTADOENVIO&#xA;,G_ID_ESTADOGUIA&#xA;,G_ID_CARACT_ENVIO&#xA;,G_ID_TIEMPO&#xA;,G_ID_MEDTRANS&#xA;,G_ID_PRODUCTO&#xA;,G_ID_SUBPRODUCTO&#xA;,G_FECHA_ENVIO&#xA;,G_ID_REMITE&#xA;,G_ID_DESTINA&#xA;,G_NOMBRE_REMITE_GUIA&#xA;,G_APELLIDO_REMITE_GUIA&#xA;,G_NOMBRE_DESTINA_GUIA&#xA;,G_APELLIDO_DESTINA_GUIA&#xA;,G_TELEFONO_REMITE_GUIA&#xA;,G_TELEFONO_DESTINA_GUIA&#xA;,G_DIRECCION_REMITE_GUIA&#xA;,G_DIRECCION_DESTINA_GUIA&#xA;,G_CONTENIDO&#xA;,G_LARGO_ENVIO&#xA;,G_ALTO_ENVIO&#xA;,G_ANCHO_ENVIO&#xA;,G_LARGO_ENV_OPERA&#xA;,G_ALTO_ENV_OPERA&#xA;,G_ANCHO_ENV_OPERA&#xA;,G_PESO_GUIA&#xA;,G_PESO_FISICO_GUIA&#xA;,G_PESO_VOLU_GUIA&#xA;,G_PESO_FISICO_OPERA&#xA;,G_PESO_VOLU_OPERA&#xA;,G_PESO_FACTURADO&#xA;,G_FECHA_ENTREGA&#xA;,G_NUMERO_PIEZAS&#xA;,G_VALOR_DECLARADO_GUIA&#xA;,G_VALOR_SEG_MAN_GUIAS&#xA;,G_VALOR_FLETES_GUIAS&#xA;,G_VALOR_DESCUENTO_GUIAS&#xA;,G_VALOR_PEDIDO_GUIAS&#xA;,G_VALOR_SEG_MAN_GUIAS_FACT&#xA;,G_VALOR_FLETES_GUIAS_FACT&#xA;,G_FECHA_CREACION&#xA;,G_FECHA_MODIFICACION_DG&#xA;,SEG_ID_PROCESO&#xA;,SEG_NUMERO_MOVIMI&#xA;,SEG_CONSECUT_MOVIMI&#xA;,SEG_ID_CONCEPTO&#xA;,SEG_ID_TIPOENVIO&#xA;,SEG_ID_ENVIO_CRUZADO&#xA;,SEG_PESO_ENVIO&#xA;,SEG_LARGO_ENVIO&#xA;,SEG_ANCHO_ENVIO&#xA;,SEG_ALTO_ENVIO&#xA;,SEG_FECHA_HORA_MOVIMIENTO&#xA;,SEG_NUMERO_PIEZAS&#xA;,SEG_FECHA_CREACION&#xA;,SEG_FECHA_MODIFICACION&#xA;,SEG_FECHA_EXTRACCION&#xA;,DOC_ID_TIPO_ZONA_URBA&#xA;,DOC_ID_PAIS_ZONA_URBA&#xA;,DOC_ID_CIUDAD_ZONA_URBA&#xA;,DOC_ID_ZONA_URBA&#xA;,DOC_ID_PAIS_DIVISION_ORIGEN&#xA;,DOC_ID_CIUDAD_DIVISION_ORIGEN&#xA;,DOC_ID_DIVISION_ORIGEN&#xA;,DOC_ID_PAIS_DESTINO&#xA;,DOC_ID_CIUDAD_DESTINO&#xA;,DOC_ID_DIVISION_DESTINO&#xA;,DOC_ID_COURIER_CONDUCTOR&#xA;,DOC_ID_PAIS_OPERATIVO&#xA;,DOC_ID_CIUDAD_OPERATIVO&#xA;,DOC_ID_OPERATIVO&#xA;,DOC_ID_RUTA&#xA;,DOC_ID_PAIS_CANAL&#xA;,DOC_ID_CIUDAD_CANAL&#xA;,DOC_ID_CANAL&#xA;,DOC_ID_TIPO_LOGISTICA&#xA;,DOC_FECHA_HORA_MOVIMI&#xA;,DOC_TOTAL_ENVIOS&#xA;,DOC_PESO_TOTAL&#xA;,DOC_PLACA_VEHICULO_DOCU&#xA;,DOC_ESTADO_MOVIMI&#xA;,DOC_NUME_SELLO_SEGURIDAD&#xA;,DOC_ID_TIPO_MOVIMIENTO&#xA;,DOC_ID_ESTADO_TRANS_ZONA&#xA;,DOC_ID_AUXILIAR2_VEHICULO&#xA;,DOC_FECHA_CREACION&#xA;,DOC_FECHA_MODIFICACION&#xA;,PE_TIPO_PRUEBA_ENTREGA&#xA;,PE_GENERACION_PE&#xA;,PE_FECHA_DIGITALIZACION&#xA;,PE_FECHA_CREACION&#xA;)&#xA;SELECT&#xA;G_NUMERO_GUIA&#xA;,G_ID_TIPOGUIA&#xA;,G_ID_CLIENTE&#xA;,G_ID_CANAL&#xA;,G_ID_DIVISION_PROV&#xA;,G_ID_PAIS_ORIGEN&#xA;,G_ID_CIUDAD_ORIGEN&#xA;,G_ID_PAIS_DESTINO&#xA;,G_ID_CIUDAD_DESTINO&#xA;,G_ID_TIPO_ZONA_URBA&#xA;,G_ID_PAIS_ZONA_URB_ENTR&#xA;,G_ID_CIUDAD_ZONA_URB_ENTR&#xA;,G_ID_ZONA_URBA&#xA;,G_ID_ESTADOENVIO&#xA;,G_ID_ESTADOGUIA&#xA;,G_ID_CARACT_ENVIO&#xA;,G_ID_TIEMPO&#xA;,G_ID_MEDTRANS&#xA;,G_ID_PRODUCTO&#xA;,G_ID_SUBPRODUCTO&#xA;,G_FECHA_ENVIO&#xA;,G_ID_REMITE&#xA;,G_ID_DESTINA&#xA;,G_NOMBRE_REMITE_GUIA&#xA;,G_APELLIDO_REMITE_GUIA&#xA;,G_NOMBRE_DESTINA_GUIA&#xA;,G_APELLIDO_DESTINA_GUIA&#xA;,G_TELEFONO_REMITE_GUIA&#xA;,G_TELEFONO_DESTINA_GUIA&#xA;,G_DIRECCION_REMITE_GUIA&#xA;,G_DIRECCION_DESTINA_GUIA&#xA;,G_CONTENIDO&#xA;,G_LARGO_ENVIO&#xA;,G_ALTO_ENVIO&#xA;,G_ANCHO_ENVIO&#xA;,G_LARGO_ENV_OPERA&#xA;,G_ALTO_ENV_OPERA&#xA;,G_ANCHO_ENV_OPERA&#xA;,G_PESO_GUIA&#xA;,G_PESO_FISICO_GUIA&#xA;,G_PESO_VOLU_GUIA&#xA;,G_PESO_FISICO_OPERA&#xA;,G_PESO_VOLU_OPERA&#xA;,G_PESO_FACTURADO&#xA;,G_FECHA_ENTREGA&#xA;,G_NUMERO_PIEZAS&#xA;,G_VALOR_DECLARADO_GUIA&#xA;,G_VALOR_SEG_MAN_GUIAS&#xA;,G_VALOR_FLETES_GUIAS&#xA;,G_VALOR_DESCUENTO_GUIAS&#xA;,G_VALOR_PEDIDO_GUIAS&#xA;,G_VALOR_SEG_MAN_GUIAS_FACT&#xA;,G_VALOR_FLETES_GUIAS_FACT&#xA;,G_FECHA_CREACION&#xA;,G_FECHA_MODIFICACION_DG&#xA;,SEG_ID_PROCESO&#xA;,SEG_NUMERO_MOVIMI&#xA;,SEG_CONSECUT_MOVIMI&#xA;,SEG_ID_CONCEPTO&#xA;,SEG_ID_TIPOENVIO&#xA;,SEG_ID_ENVIO_CRUZADO&#xA;,SEG_PESO_ENVIO&#xA;,SEG_LARGO_ENVIO&#xA;,SEG_ANCHO_ENVIO&#xA;,SEG_ALTO_ENVIO&#xA;,SEG_FECHA_HORA_MOVIMIENTO&#xA;,SEG_NUMERO_PIEZAS&#xA;,SEG_FECHA_CREACION&#xA;,SEG_FECHA_MODIFICACION&#xA;,SEG_FECHA_EXTRACCION&#xA;,DOC_ID_TIPO_ZONA_URBA&#xA;,DOC_ID_PAIS_ZONA_URBA&#xA;,DOC_ID_CIUDAD_ZONA_URBA&#xA;,DOC_ID_ZONA_URBA&#xA;,DOC_ID_PAIS_DIVISION_ORIGEN&#xA;,DOC_ID_CIUDAD_DIVISION_ORIGEN&#xA;,DOC_ID_DIVISION_ORIGEN&#xA;,DOC_ID_PAIS_DESTINO&#xA;,DOC_ID_CIUDAD_DESTINO&#xA;,DOC_ID_DIVISION_DESTINO&#xA;,DOC_ID_COURIER_CONDUCTOR&#xA;,DOC_ID_PAIS_OPERATIVO&#xA;,DOC_ID_CIUDAD_OPERATIVO&#xA;,DOC_ID_OPERATIVO&#xA;,DOC_ID_RUTA&#xA;,DOC_ID_PAIS_CANAL&#xA;,DOC_ID_CIUDAD_CANAL&#xA;,DOC_ID_CANAL&#xA;,DOC_ID_TIPO_LOGISTICA&#xA;,DOC_FECHA_HORA_MOVIMI&#xA;,DOC_TOTAL_ENVIOS&#xA;,DOC_PESO_TOTAL&#xA;,DOC_PLACA_VEHICULO_DOCU&#xA;,DOC_ESTADO_MOVIMI&#xA;,DOC_NUME_SELLO_SEGURIDAD&#xA;,DOC_ID_TIPO_MOVIMIENTO&#xA;,DOC_ID_ESTADO_TRANS_ZONA&#xA;,DOC_ID_AUXILIAR2_VEHICULO&#xA;,DOC_FECHA_CREACION&#xA;,DOC_FECHA_MODIFICACION&#xA;,PE_TIPO_PRUEBA_ENTREGA&#xA;,PE_GENERACION_PE&#xA;,PE_FECHA_DIGITALIZACION&#xA;,PE_FECHA_CREACION&#xA;FROM CTE WHERE ROW_ID = 1&#xA;&#xA;&#xA;--alter table [TMP].[MPCCO_VJ_PS01] alter column G_NOMBRE_ESTADOENVIO VARCHAR(40) NULL&#xA;--alter table [TMP].[MPCCO_VJ_PS01] alter column G_NOMBRE_ESTADOGUIA  VARCHAR(40) NULL&#xA;--alter table [TMP].[MPCCO_VJ_PS01] alter column DOC_NOMBRE_ZONA_URBANA VARCHAR(40) NULL&#xA;&#xA;--SELECT COUNT(1) FROM [TMP].[MPCCO_VJ_PS01]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS02 ASIGNAR BODEGA ORIGEN DESTINO"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E7B578A5-610C-4FD4-ACCE-E12400D2D351}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS02 ASIGNAR BODEGA ORIGEN DESTINO"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="&#xA;/*&#x9;&#x9;ASIGNAR BODEGA ORIGEN DESTINO&#x9;&#x9;&#x9;&#x9;*/&#xA;&#xA;&#xA;&#xA;&#xA;USE SIG_COLOMBIA_DW;&#xA;&#xA;UPDATE TMP SET&#xA;    TMP.DOC_NOMBRE_DIVISION_ORG    = BOG_ORG.NOMBRE_DIVISION,&#xA;    TMP.DOC_NOMBRE_TIPO_BODEGA_ORG = BOG_ORG.TIPO_BODEGA,&#xA;    TMP.DOC_NOMBRE_DIVISION_DEST   = BOG_DEST.NOMBRE_DIVISION,&#xA;    TMP.DOC_NOMBRE_TIPO_BODEGA_DEST = BOG_DEST.TIPO_BODEGA&#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP&#xA;LEFT JOIN [TMP].[MPCCO_VJ_DIVISIONES_BODEGAS] BOG_ORG&#xA;    ON BOG_ORG.ID_DIVISION = TMP.DOC_ID_DIVISION_ORIGEN&#xA;   AND BOG_ORG.ID_CIUDAD   = TMP.DOC_ID_CIUDAD_DIVISION_ORIGEN&#xA;   AND BOG_ORG.ID_PAIS     = TMP.DOC_ID_PAIS_DIVISION_ORIGEN&#xA;LEFT JOIN [TMP].[MPCCO_VJ_DIVISIONES_BODEGAS] BOG_DEST&#xA;    ON BOG_DEST.ID_DIVISION = TMP.DOC_ID_DIVISION_DESTINO&#xA;   AND BOG_DEST.ID_CIUDAD   = TMP.DOC_ID_CIUDAD_DESTINO&#xA;   AND BOG_DEST.ID_PAIS     = TMP.DOC_ID_PAIS_DESTINO&#xA;WHERE BOG_ORG.ID_DIVISION IS NOT NULL&#xA;   OR BOG_DEST.ID_DIVISION IS NOT NULL;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;/*&#xA;UPDATE TMP SET&#xA;TMP.DOC_NOMBRE_DIVISION_ORG&#x9;   = BOG_ORG.NOMBRE_DIVISION,&#xA;TMP.DOC_NOMBRE_TIPO_BODEGA_ORG = BOG_ORG.TIPO_BODEGA&#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP WITH(NOLOCK)&#xA;INNER JOIN [TMP].[MPCCO_VJ_DIVISIONES_BODEGAS] BOG_ORG WITH(NOLOCK)&#xA;ON BOG_ORG.ID_DIVISION=TMP.DOC_ID_DIVISION_ORIGEN&#xA;AND BOG_ORG.ID_CIUDAD=TMP.DOC_ID_CIUDAD_DIVISION_ORIGEN&#xA;AND BOG_ORG.ID_PAIS=TMP.DOC_ID_PAIS_DIVISION_ORIGEN&#xA;&#xA;&#xA;&#xA;UPDATE TMP SET&#xA;TMP.DOC_NOMBRE_DIVISION_DEST&#x9;&#x9;= BOG_DEST.NOMBRE_DIVISION,&#xA;TMP.DOC_NOMBRE_TIPO_BODEGA_DEST&#x9;&#x9;= BOG_DEST.TIPO_BODEGA&#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP WITH(NOLOCK)&#xA;INNER JOIN [TMP].[MPCCO_VJ_DIVISIONES_BODEGAS] BOG_DEST WITH(NOLOCK)&#xA; ON BOG_DEST.ID_DIVISION=TMP.DOC_ID_DIVISION_DESTINO&#xA;AND BOG_DEST.ID_CIUDAD=TMP.DOC_ID_CIUDAD_DESTINO&#xA;AND BOG_DEST.ID_PAIS=TMP.DOC_ID_PAIS_DESTINO&#xA;/**/&#xA;&#xA;&#xA;&#xA;*/" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS03 ASIGNAR CPL ORIGEN DESTINO"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5A344CF2-7551-4EF6-A4C5-A2432FAE387E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS03 ASIGNAR CPL ORIGEN DESTINO"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="/*&#x9;&#x9;ASIGNAR CPL ORIGEN DESTINO&#x9;&#x9;&#x9;&#x9;*/&#xA;&#xA;&#xA;UPDATE TMP SET&#xA;    TMP.CPL_ORG = CPL_ORG.CPL,&#xA;    TMP.CPL_DES = CPL_DS.CPL&#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP&#xA;LEFT JOIN [TMP].[MPCCO_VJ_CPL] CPL_ORG&#xA;    ON TMP.DOC_ID_CIUDAD_DIVISION_ORIGEN = CPL_ORG.ID_CIUDAD_ANEXA&#xA;   AND TMP.DOC_ID_PAIS_DIVISION_ORIGEN   = CPL_ORG.ID_PAIS&#xA;LEFT JOIN [TMP].[MPCCO_VJ_CPL] CPL_DS&#xA;    ON TMP.DOC_ID_CIUDAD_DESTINO = CPL_DS.ID_CIUDAD_ANEXA&#xA;   AND TMP.DOC_ID_PAIS_DESTINO   = CPL_DS.ID_PAIS&#xA;WHERE CPL_ORG.ID_CIUDAD_ANEXA IS NOT NULL&#xA;   OR CPL_DS.ID_CIUDAD_ANEXA IS NOT NULL;&#xA;&#xA;&#xA;&#xA;/*&#xA;UPDATE TMP SET &#xA;TMP.CPL_ORG = CPL_ORG.CPL&#xA;----SELECT CPL_ORG CPL_ORG.CPL &#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP WITH(NOLOCK)&#xA;INNER JOIN [TMP].[MPCCO_VJ_CPL] CPL_ORG WITH(NOLOCK)&#xA;ON TMP.DOC_ID_CIUDAD_DIVISION_ORIGEN=CPL_ORG.ID_CIUDAD_ANEXA &#xA;AND TMP.DOC_ID_PAIS_DIVISION_ORIGEN=CPL_ORG.ID_PAIS&#xA;&#xA;UPDATE TMP SET &#xA;TMP.CPL_DES = CPL_DS.CPL &#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP WITH(NOLOCK)&#xA;INNER JOIN [TMP].[MPCCO_VJ_CPL] CPL_DS WITH(NOLOCK)&#xA;ON TMP.DOC_ID_CIUDAD_DESTINO=CPL_DS.ID_CIUDAD_ANEXA &#xA;AND TMP.DOC_ID_PAIS_DESTINO=CPL_DS.ID_PAIS&#xA;*/&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS04 ASIGNAR CIUDADREGIONAL ORIGEN_INICIAL DESTINO_FINAL DEL ENVIO"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{210253D2-E496-4639-AECD-4444A9067AF1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS04 ASIGNAR CIUDADREGIONAL ORIGEN_INICIAL DESTINO_FINAL DEL ENVIO"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="&#xA;&#xA;DROP TABLE IF EXISTS #PAR_CIUDADES_REGIONAL;&#xA;SELECT &#xA;CD.ID_PAIS,&#xA;CD.ID_CIUDAD, &#xA;CD.NOMBRE_CIUDAD,&#xA;RG.ID_REGIONAL,&#xA;RG.NOMBRE_REGIONAL&#xA;INTO #PAR_CIUDADES_REGIONAL&#xA;FROM PAR.CIUDADES CD WITH(NOLOCK)&#xA;INNER JOIN PAR.REGIONALES_PAIS RG WITH(NOLOCK)&#xA;ON RG.ID_REGIONAL=CD.ID_REGIONAL&#xA;WHERE CD.ID_PAIS=1 AND RG.ID_EST_REGIONAL=1&#xA;&#xA;&#xA;UPDATE TMP SET &#xA;TMP.G_NOMBRE_CIUDAD_INICIAL_ORIGEN = CD_ORG.NOMBRE_CIUDAD&#xA;,TMP.G_NOMBRE_REGIONAL_INICIAL_ORIGEN = CD_ORG.NOMBRE_REGIONAL&#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP ------WITH(NOLOCK)&#xA;INNER JOIN #PAR_CIUDADES_REGIONAL CD_ORG WITH(NOLOCK)&#xA; ON  CD_ORG.ID_CIUDAD=TMP.G_ID_CIUDAD_ORIGEN&#xA;AND CD_ORG.ID_PAIS=TMP.G_ID_PAIS_ORIGEN&#xA;&#xA;&#xA;UPDATE TMP SET &#xA;TMP.G_NOMBRE_CIUDAD_FINAL_DESTINO = CD_DEST.NOMBRE_CIUDAD &#xA;,TMP.G_NOMBRE_REGIONAL_FINAL_DESTINO = CD_DEST.NOMBRE_REGIONAL&#xA;FROM [TMP].[MPCCO_VJ_PS01]  TMP --------------WITH(NOLOCK)&#xA;INNER JOIN #PAR_CIUDADES_REGIONAL CD_DEST WITH(NOLOCK)&#xA; ON  CD_DEST.ID_CIUDAD=TMP.G_ID_CIUDAD_DESTINO&#xA;AND  CD_DEST.ID_PAIS=TMP.G_ID_PAIS_DESTINO&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS05  ASIGNAR CIUDAD-REGIONAL ORIGEN DESTINO DEL MANIFIESTO"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2806F82F-B5BF-4CFA-8C17-4E07C23FE76B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS05  ASIGNAR CIUDAD-REGIONAL ORIGEN DESTINO DEL MANIFIESTO"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="/*&#x9;&#x9;ASIGNAR CIUDAD-REGIONAL ORIGEN DESTINO DEL MANIFIESTO&#x9;&#x9;&#x9;&#x9;&#x9;*/&#xA;&#xA;DROP TABLE IF EXISTS #PAR_CIUDADES_REGIONAL;&#xA;SELECT &#xA;CD.ID_PAIS,&#xA;CD.ID_CIUDAD, &#xA;CD.NOMBRE_CIUDAD,&#xA;RG.ID_REGIONAL,&#xA;RG.NOMBRE_REGIONAL&#xA;INTO #PAR_CIUDADES_REGIONAL&#xA;FROM PAR.CIUDADES CD WITH(NOLOCK)&#xA;INNER JOIN PAR.REGIONALES_PAIS RG WITH(NOLOCK)&#xA;ON RG.ID_REGIONAL=CD.ID_REGIONAL&#xA;WHERE CD.ID_PAIS=1 AND RG.ID_EST_REGIONAL=1&#xA;&#xA;&#xA;UPDATE TMP SET &#xA;TMP.DOC_NOMBRE_CIUDAD_ORIGEN = DOC_ORG.NOMBRE_CIUDAD &#xA;,TMP.DOC_NOMBRE_REGIONAL_ORIGEN = DOC_ORG.NOMBRE_REGIONAL&#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP ----------------WITH(NOLOCK)&#xA;INNER JOIN #PAR_CIUDADES_REGIONAL DOC_ORG WITH(NOLOCK)&#xA; ON  DOC_ORG.ID_CIUDAD=TMP.DOC_ID_CIUDAD_DIVISION_ORIGEN&#xA;AND  DOC_ORG.ID_PAIS=TMP.DOC_ID_PAIS_DIVISION_ORIGEN&#xA;&#xA;UPDATE TMP SET &#xA;TMP.DOC_NOMBRE_CIUDAD_DESTINO = DOC_DEST.NOMBRE_CIUDAD&#xA;,TMP.DOC_NOMBRE_REGIONAL_DESTRINO = DOC_DEST.NOMBRE_REGIONAL&#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP -----------------WITH(NOLOCK)&#xA;INNER JOIN #PAR_CIUDADES_REGIONAL DOC_DEST WITH(NOLOCK)&#xA; ON  DOC_DEST.ID_CIUDAD=TMP.DOC_ID_CIUDAD_DESTINO&#xA;AND  DOC_DEST.ID_PAIS=TMP.DOC_ID_PAIS_DESTINO&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS06 ASIGNAR NOMBRE PRODUCTO SUB PRODUCTO UEN"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7D7068B2-8D85-4FFC-9A07-FAC4FC40FF25}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS06 ASIGNAR NOMBRE PRODUCTO SUB PRODUCTO UEN"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="&#xA;/*&#x9;&#x9;ASIGNAR NOMBRE PRODUCTO SUB PRODUCTO UEN &#x9;&#x9;&#x9;&#x9;&#x9;*/&#xA;&#xA;UPDATE TMP SET &#xA; TMP.NOMBRE_SUBPRODUCTO = UEN.NOMBRE_SUBPRODUCTO&#xA;,TMP.NOMBRE_PRODUCTO = UEN.NOMBRE_PRODUCTO&#xA;,TMP.NOMBRE_UEN = UEN.NOMBRE_UEN&#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP -----------WITH(NOLOCK)&#xA;INNER JOIN [TMP].[MPCCO_VJ_UEN] UEN WITH(NOLOCK)&#xA; ON  UEN.ID_PRODUCTO=TMP.G_ID_PRODUCTO&#xA; AND UEN.ID_SUBPRODUCTO=TMP.G_ID_SUBPRODUCTO &#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS07 ASIGNAR NOMBRE DE CLIENTES"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{16430071-2D0C-4A16-B2D1-EEABD279B675}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS07 ASIGNAR NOMBRE DE CLIENTES"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource=" /*&#x9;&#x9;&#x9;ASIGNAR NOMBRE DE CLIENTES&#x9;&#x9;&#x9;&#x9;&#x9;*/ &#xA;&#xA;DROP TABLE IF EXISTS #CLIENTES_TEMP&#xA;SELECT ID_CLIENTE,NOMBRE_CLIENTE,RAZON_SOCIAL_CORTA &#xA;INTO #CLIENTES_TEMP&#xA;FROM PAR.CLIENTES WITH(NOLOCK)&#xA;&#xA;UPDATE TMP SET &#xA;TMP.NOMBRE_CLIENTE =  CL.NOMBRE_CLIENTE&#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP ----------WITH(NOLOCK)&#xA; INNER JOIN #CLIENTES_TEMP CL WITH(NOLOCK)&#xA; ON  CL.ID_CLIENTE=TMP.G_ID_CLIENTE&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS08 ASIGNAR NOMBRE DE ZONA URBANA Y CATEGORIA ZONA URBANA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E8EC36E9-C950-466E-859B-2390623EC0FD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS08 ASIGNAR NOMBRE DE ZONA URBANA Y CATEGORIA ZONA URBANA"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="&#xA;  /*&#x9;&#x9;&#x9;ASIGNAR NOMBRE DE ZONA URBANA Y CATEGORIA ZONA URBANA&#x9;&#x9;&#x9;&#x9;*/ &#xA;&#xA; DROP TABLE IF EXISTS #ZONA_URBA_TEMP&#xA;SELECT &#xA;ID_PAIS&#x9;&#xA;,ID_CIUDAD&#x9;&#xA;,ID_TIPO_ZONA_URBA&#x9;&#xA;,ID_ZONA_URBA&#x9;&#xA;,NOMBRE_ZONA_URBA&#x9;&#xA;,CATEGORIA_ZONA_URBA AS ID_CATEGORIA_ZONA_URBA&#xA;,CTZU.Nombre_Categoria AS NOMBRE_CATEGORIA_ZONA_URBA&#xA;INTO #ZONA_URBA_TEMP&#xA;FROM PAR.ZONASURBANAS Z WITH(NOLOCK)  &#xA;LEFT JOIN [PAR].[CATEGORIAZONAURBANA] CTZU WITH(NOLOCK)  &#xA;ON Z.CATEGORIA_ZONA_URBA=CTZU.Id_Categoria&#xA;&#xA;UPDATE TMP SET &#xA; TMP.DOC_NOMBRE_ZONA_URBANA = ZU.NOMBRE_ZONA_URBA&#xA;,TMP.DOC_NOMBRE_CATEGORIA_ZONA_URBANA = ZU.NOMBRE_CATEGORIA_ZONA_URBA &#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP ----------WITH(NOLOCK)&#xA; INNER JOIN #ZONA_URBA_TEMP ZU WITH(NOLOCK)&#xA; ON  ZU.ID_PAIS=DOC_ID_PAIS_ZONA_URBA&#xA; AND ZU.ID_CIUDAD=DOC_ID_CIUDAD_ZONA_URBA&#xA; AND ZU.ID_TIPO_ZONA_URBA=DOC_ID_TIPO_ZONA_URBA&#xA; AND ZU.ID_ZONA_URBA=DOC_ID_ZONA_URBA&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS09 ASIGNAR ESTADO DEL ENVIO  Y ESTADO DE LA GUIA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E276BCF2-22AA-4942-956D-88F7FE95E53B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS09 ASIGNAR ESTADO DEL ENVIO  Y ESTADO DE LA GUIA"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="&#xA;/*&#x9;&#x9;&#x9;ASIGNAR ESTADO DEL ENVIO  Y ESTADO DE LA GUIA&#x9;&#x9;&#x9;&#x9;*/  &#xA;&#xA;&#xA;SET NOCOUNT ON;&#xA;&#xA;DROP TABLE IF EXISTS #PAR_ESTADOSENVIO_TEMP;&#xA;SELECT ID_ESTADOENVIO, NOMBRE_ESTADOENVIO&#xA;INTO #PAR_ESTADOSENVIO_TEMP&#xA;FROM PAR.ESTADOSENVIO WITH(NOLOCK);&#xA;&#xA;CREATE UNIQUE NONCLUSTERED INDEX IX_ESTENVIO ON #PAR_ESTADOSENVIO_TEMP (ID_ESTADOENVIO) INCLUDE (NOMBRE_ESTADOENVIO);&#xA;&#xA;DROP TABLE IF EXISTS #PAR_ESTADOSGUIA_TEMP;&#xA;SELECT ID_ESTADOGUIA, NOMBRE_ESTADOGUIA&#xA;INTO #PAR_ESTADOSGUIA_TEMP&#xA;FROM PAR.ESTADOSGUIA WITH(NOLOCK);&#xA;&#xA;CREATE UNIQUE NONCLUSTERED INDEX IX_ESTGUIA ON #PAR_ESTADOSGUIA_TEMP (ID_ESTADOGUIA) INCLUDE (NOMBRE_ESTADOGUIA);&#xA;&#xA;UPDATE TMP SET &#xA;    TMP.G_NOMBRE_ESTADOENVIO = EV.NOMBRE_ESTADOENVIO,&#xA;    TMP.G_NOMBRE_ESTADOGUIA  = EG.NOMBRE_ESTADOGUIA&#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP&#xA;LEFT JOIN #PAR_ESTADOSENVIO_TEMP EV ON EV.ID_ESTADOENVIO = TMP.G_ID_ESTADOENVIO&#xA;LEFT JOIN #PAR_ESTADOSGUIA_TEMP  EG ON EG.ID_ESTADOGUIA  = TMP.G_ID_ESTADOGUIA&#xA;WHERE EV.ID_ESTADOENVIO IS NOT NULL&#xA;   OR EG.ID_ESTADOGUIA  IS NOT NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS10  ASIGNAR FECHA Y PRIMERE PROCESO"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9E3811AE-AAB6-4EEC-851B-0EA4DFF5CCD8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS10  ASIGNAR FECHA Y PRIMERE PROCESO"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="/*                  PS10  ASIGNAR FECHA Y PRIMERE PROCESO               */&#xA;&#xA;UPDATE T01 SET&#xA;T01.PRIM_EZU_EPS_ER_SEG_FECHA_HORA_MOVIMIENTO = T02.FECHA_HORA_MOVIMIENTO,&#xA;T01.PRIM_EZU_EPS_ER_SEG_PROCESO = T02.ID_PROCESO&#xA;FROM [TMP].[MPCCO_VJ_PS01] T01 -------------WITH(NOLOCK)&#xA;INNER JOIN [TMP].[MPCCO_VJ_PRIMERA_ENTRADA_BODEGA] T02 WITH(NOLOCK)&#xA;ON T01.G_NUMERO_GUIA=T02.NUMERO_GUIA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS11 ASIGNAR CALCULO TIEMPO PROMESA RED OPERATIVA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FF4BFF6E-BC3B-4A06-A4E5-39E18665D4C1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS11 ASIGNAR CALCULO TIEMPO PROMESA RED OPERATIVA"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="/*&#x9;&#x9;PS11 ASIGNAR CALCULO TIEMPO PROMESA RED OPERATIVA&#x9;&#x9;&#x9;&#x9;&#x9;*/&#x9;&#xA;&#xA;WITH CTE_RA AS(&#xA;SELECT&#xA;&#x9;RA.TIEMPO_ENTREGA_COMERCIAL_HOR,&#xA;&#x9;RA.TIEMPO_ENTREGA_COMERCIAL_DIA,&#xA;&#x9;RA.ID_CIUDAD_ORIGEN,&#xA;&#x9;RA.ID_CIUDAD_DESTINO,&#xA;&#x9;RA.ID_TIEMPO,&#xA;&#x9;RA.ID_MEDTRANS,&#xA;&#x9;MAX(RA.ID_RUTA) AS ID_RUTA&#xA;FROM [TMP].[MPCCO_VJ_PARAMETROS_RED_OPERATIVA] RA WITH(NOLOCK)&#xA; GROUP BY &#xA; RA.TIEMPO_ENTREGA_COMERCIAL_HOR,&#xA; RA.TIEMPO_ENTREGA_COMERCIAL_DIA,&#xA; RA.ID_CIUDAD_ORIGEN,&#xA; RA.ID_CIUDAD_DESTINO,&#xA; RA.ID_MEDTRANS,&#xA; RA.ID_TIEMPO&#xA;)&#xA;UPDATE TMP SET&#xA;TMP.TIMEPO_PROMESA_OPERATIVA_H  =  RA.TIEMPO_ENTREGA_COMERCIAL_HOR, &#xA;TMP.TIMEPO_PROMESA_OPERATIVA_D&#x9;=  RA.TIEMPO_ENTREGA_COMERCIAL_DIA&#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP ---------------WITH(NOLOCK)&#xA;INNER JOIN CTE_RA RA WITH(NOLOCK)&#xA;ON&#x9;TMP.G_ID_CIUDAD_ORIGEN = RA.ID_CIUDAD_ORIGEN&#xA;AND&#x9;TMP.G_ID_CIUDAD_DESTINO = RA.ID_CIUDAD_DESTINO&#xA;AND&#x9;CASE WHEN ISNULL(TMP.G_ID_TIEMPO,0) &lt;&gt; 0 THEN TMP.G_ID_TIEMPO ELSE 1 END = RA.ID_TIEMPO&#xA;AND&#x9;CASE WHEN ISNULL(TMP.G_ID_MEDTRANS,0) &lt;&gt; 0 THEN TMP.G_ID_MEDTRANS ELSE 1 END = RA.ID_MEDTRANS&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS12 SET FECHA_ACTUAL_DEL_SISTEMA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6A025F81-F154-455D-9153-75CF42FD2C49}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS12 SET FECHA_ACTUAL_DEL_SISTEMA"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="UPDATE  [SIG_COLOMBIA_DW].[TMP].[MPCCO_VJ_PS01] SET&#xA;FECHA_ACTUAL_DEL_SISTEMA = CASE WHEN SEG_ID_PROCESO IN(11) OR PE_TIPO_PRUEBA_ENTREGA &gt;=1 THEN  SEG_FECHA_HORA_MOVIMIENTO&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE GETDATE()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;END&#xA;,NUMERO_DE_FESTIVOS_Y_DOMINICALES = CONVERT(INT,0)&#xA;,NUMERO_DE_ORDINARIOS = CONVERT(INT,0)&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS13 Calculo dias fectivos TEMP"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{630ccf80-cc0b-4254-b8c5-fc7fdfacd058}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS13 Calculo dias fectivos TEMP"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="UPDATE T01 SET&#xA; T01.NUMERO_DE_FESTIVOS_Y_DOMINICALES = T02.DIAS_FESTIVOS_DOMINICALES_TO_HOY&#xA;,T01.NUMERO_DE_ORDINARIOS = T02.GENERAL_DIAS&#xA;FROM [TMP].[MPCCO_VJ_PS01] T01 ---------------WITH(NOLOCK)&#xA;INNER JOIN [SIG_COLOMBIA_DW].[TMP].[MPCCO_VJ_FESTIVOS_DOMINICALES_HABILES] T02 WITH(NOLOCK)&#xA;ON (CASE WHEN T01.PRIM_EZU_EPS_ER_SEG_FECHA_HORA_MOVIMIENTO IS NULL THEN CONVERT(DATE,T01.G_FECHA_ENVIO)&#xA;ELSE CONVERT(DATE,T01.PRIM_EZU_EPS_ER_SEG_FECHA_HORA_MOVIMIENTO) END)=CONVERT(DATE,T02.[DATE])&#xA;&#xA;/*&#xA;ON CONVERT(DATE,T01.PRIM_EZU_EPS_ER_SEG_FECHA_HORA_MOVIMIENTO)=CONVERT(DATE,T02.[DATE])&#xA;*/&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS14 Calculo fecha promesa TEMP"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DBBA9FD4-D8DF-4256-A37E-52241BAA74F1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS14 Calculo fecha promesa TEMP"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="&#xA;USE SIG_COLOMBIA_DW;&#xA;--FECHA_PROMESA_ENTREGA&#xA;UPDATE  T01 SET&#xA;/*SELECT &#xA; G_NUMERO_GUIA&#xA;,G_FECHA_ENVIO&#xA;,PRIM_EZU_EPS_ER_SEG_FECHA_HORA_MOVIMIENTO&#xA;,FECHA_ACTUAL_DEL_SISTEMA&#xA;,TIMEPO_PROMESA_OPERATIVA_D&#xA;,NUMERO_DE_FESTIVOS_Y_DOMINICALES&#xA;,NUMERO_DE_ORDINARIOS&#xA;,*/&#xA;T01.FECHA_PROMESA_ENTREGA = CASE WHEN DATEPART(HOUR, &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;DATEADD(DAY,NUMERO_DE_FESTIVOS_Y_DOMINICALES,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;DATEADD(DAY,TIMEPO_PROMESA_OPERATIVA_D,ISNULL(PRIM_EZU_EPS_ER_SEG_FECHA_HORA_MOVIMIENTO,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;DATEADD(DAY,1,G_FECHA_ENVIO)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&lt;7&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;THEN DATEADD(HOUR,8,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;DATEADD(DAY,NUMERO_DE_FESTIVOS_Y_DOMINICALES,DATEADD(DAY,TIMEPO_PROMESA_OPERATIVA_D,ISNULL(PRIM_EZU_EPS_ER_SEG_FECHA_HORA_MOVIMIENTO,DATEADD(DAY,1,G_FECHA_ENVIO))))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE DATEADD(DAY,NUMERO_DE_FESTIVOS_Y_DOMINICALES,DATEADD(DAY,TIMEPO_PROMESA_OPERATIVA_D,ISNULL(PRIM_EZU_EPS_ER_SEG_FECHA_HORA_MOVIMIENTO,DATEADD(DAY,1,G_FECHA_ENVIO))))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;END&#xA;FROM [TMP].[MPCCO_VJ_PS01] T01 ------------------------WITH(NOLOCK)&#xA;WHERE &#xA;TIMEPO_PROMESA_OPERATIVA_D IS NOT NULL&#xA;AND (SEG_ID_PROCESO &lt;&gt; 11 OR PE_FECHA_DIGITALIZACION IS NULL)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS15 Genero entrega verificada TEMP"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D0E90527-A495-4DBF-BA41-6B9C4A5D4057}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS15 Genero entrega verificada TEMP"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="UPDATE TMP SET&#xA; TMP.ID_GENERO_EV     = 1&#xA;,TMP.FECHA_GENERO_EV&#x9; = EV.FECHA_HORA_MOVIMIENTO&#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP ----------------WITH(NOLOCK)&#xA;INNER JOIN [TMP].[MPCCO_VJ_ENTREGA_VERIFICADA] EV WITH(NOLOCK)&#xA;ON EV.NUMERO_GUIA=TMP.G_NUMERO_GUIA&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS16 Caculo vejez Bodega 02 TEMP"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{98169DB0-2A8B-4E95-B62D-632A361C850C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS16 Caculo vejez Bodega 02 TEMP"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="UPDATE TMP SET&#xA;TMP.ID_DIAS_VEJEZ_BODEGA_02 = CASE WHEN FECHA_PROMESA_ENTREGA IS NULL  THEN -99&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN DATEDIFF(DAY,FECHA_PROMESA_ENTREGA,FECHA_ACTUAL_DEL_SISTEMA) &gt;= 31 THEN 31&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN DATEDIFF(DAY,FECHA_PROMESA_ENTREGA,FECHA_ACTUAL_DEL_SISTEMA) &lt;= 0 THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE DATEDIFF(DAY,FECHA_PROMESA_ENTREGA,FECHA_ACTUAL_DEL_SISTEMA)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;END&#xA;,TMP.DIAS_VEJEZ_BODEGA_02 = CASE WHEN FECHA_PROMESA_ENTREGA IS NULL  THEN NULL&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE DATEDIFF(DAY,FECHA_PROMESA_ENTREGA,FECHA_ACTUAL_DEL_SISTEMA)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;END&#xA;FROM [TMP].[MPCCO_VJ_PS01] TMP -----------------------WITH(NOLOCK)&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;    &#xA;WHERE (ID_GENERO_EV IS NULL AND PE_FECHA_DIGITALIZACION IS NULL AND SEG_ID_PROCESO &lt;&gt; 11)&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;/*&#xA;SELECT &#xA;G_NUMERO_GUIA&#xA;,FECHA_PROMESA_ENTREGA&#xA;,FECHA_ACTUAL_DEL_SISTEMA&#xA;,SEG_ID_PROCESO&#xA;,PE_FECHA_DIGITALIZACION&#xA;,ID_GENERO_EV&#xA;,*/" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PS17 Guia con recaudo"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{65210CED-6762-4FA1-B182-8C95B7EA9CA1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PS17 Guia con recaudo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9270DAF5-1074-4D39-8815-87044D378AC9}"
+          SQLTask:SqlStatementSource="&#xA;USE SIG_COLOMBIA_DW;&#xA;&#xA;UPDATE TMP SET&#xA; TMP.FORMA_PAGO = T01.FORMA_PAGO&#xA;,TMP.VALOR_A_RECAUDAR = T01.VALOR_A_RECAUDAR&#xA;,TMP.VALOR_RECAUDADO = T01.VALOR_RECAUDADO&#xA;,TMP.NUMERO_ORDEN_SERVICIO = T01.NUMERO_ORDEN_SERVICIO&#xA;,TMP.ESTA_RECAUDADO = T01.ESTA_RECAUDADO&#xA;FROM [TMP].[MPCCO_VJ_GUIAS_RECAUDO] T01 WITH(NOLOCK)&#xA;INNER JOIN [TMP].[MPCCO_VJ_PS01] TMP ---------------WITH(NOLOCK)&#xA;ON TMP.G_NUMERO_GUIA=T01.NUMERO_GUIA&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4F47603B-ACCD-40E3-9758-186BFCB25395}"
+      DTS:From="Package\Ps01 Eliminar repetidos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\PS02 ASIGNAR BODEGA ORIGEN DESTINO" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6836C122-7B80-45B6-BE67-59461E160ED4}"
+      DTS:From="Package\PS02 ASIGNAR BODEGA ORIGEN DESTINO"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\PS03 ASIGNAR CPL ORIGEN DESTINO" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{EEDE5AEC-4C93-4A61-863A-D7452FF2249E}"
+      DTS:From="Package\PS11 ASIGNAR CALCULO TIEMPO PROMESA RED OPERATIVA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\PS12 SET FECHA_ACTUAL_DEL_SISTEMA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{299F9856-C17F-41F0-BBDF-BC13F876FBC9}"
+      DTS:From="Package\PS12 SET FECHA_ACTUAL_DEL_SISTEMA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\PS13 Calculo dias fectivos TEMP" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{FC5D2F56-561C-4527-A0EB-4E5ABFCBF700}"
+      DTS:From="Package\PS13 Calculo dias fectivos TEMP"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12"
+      DTS:To="Package\PS14 Calculo fecha promesa TEMP" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 13]"
+      DTS:CreationName=""
+      DTS:DTSID="{8AB661BB-BE84-4C75-8407-D7BC9CB21A53}"
+      DTS:From="Package\PS14 Calculo fecha promesa TEMP"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 13"
+      DTS:To="Package\PS15 Genero entrega verificada TEMP" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 14]"
+      DTS:CreationName=""
+      DTS:DTSID="{2FDB8318-9AFC-49AD-ADFD-C7B70A8F891A}"
+      DTS:From="Package\PS15 Genero entrega verificada TEMP"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 14"
+      DTS:To="Package\PS16 Caculo vejez Bodega 02 TEMP" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 15]"
+      DTS:CreationName=""
+      DTS:DTSID="{B789A77B-EEEE-483C-A825-1029251E4E6E}"
+      DTS:From="Package\PS16 Caculo vejez Bodega 02 TEMP"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 15"
+      DTS:To="Package\PS17 Guia con recaudo" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{A9E53D48-8F62-4597-8E7B-002AEE0F0CAF}"
+      DTS:From="Package\PS03 ASIGNAR CPL ORIGEN DESTINO"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\PS04 ASIGNAR CIUDADREGIONAL ORIGEN_INICIAL DESTINO_FINAL DEL ENVIO" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{78829F5C-130B-4FE4-B353-1C5CCE227D4E}"
+      DTS:From="Package\PS04 ASIGNAR CIUDADREGIONAL ORIGEN_INICIAL DESTINO_FINAL DEL ENVIO"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\PS05  ASIGNAR CIUDAD-REGIONAL ORIGEN DESTINO DEL MANIFIESTO" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{2859F5CA-1D1C-45ED-A846-F3B2F3F80527}"
+      DTS:From="Package\PS05  ASIGNAR CIUDAD-REGIONAL ORIGEN DESTINO DEL MANIFIESTO"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\PS06 ASIGNAR NOMBRE PRODUCTO SUB PRODUCTO UEN" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{5D904941-2746-4C32-9A75-FA278CED59B4}"
+      DTS:From="Package\PS06 ASIGNAR NOMBRE PRODUCTO SUB PRODUCTO UEN"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\PS07 ASIGNAR NOMBRE DE CLIENTES" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{ED497B6D-68A8-421D-ABBA-DA9B6C54AF44}"
+      DTS:From="Package\PS07 ASIGNAR NOMBRE DE CLIENTES"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\PS08 ASIGNAR NOMBRE DE ZONA URBANA Y CATEGORIA ZONA URBANA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{19FF76E8-E011-4176-9738-A010013788F1}"
+      DTS:From="Package\PS08 ASIGNAR NOMBRE DE ZONA URBANA Y CATEGORIA ZONA URBANA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\PS09 ASIGNAR ESTADO DEL ENVIO  Y ESTADO DE LA GUIA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{2B53EC86-4159-4207-A9E2-5FDC5C0732D8}"
+      DTS:From="Package\PS09 ASIGNAR ESTADO DEL ENVIO  Y ESTADO DE LA GUIA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\PS10  ASIGNAR FECHA Y PRIMERE PROCESO" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{8B55DD94-8D24-4A25-90B0-8678203F43BE}"
+      DTS:From="Package\PS10  ASIGNAR FECHA Y PRIMERE PROCESO"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\PS11 ASIGNAR CALCULO TIEMPO PROMESA RED OPERATIVA" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,70"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\DEPURACION GUIAS TABLA INVETARIOS"
+          TopLeft="53,467" />
+        <NodeLayout
+          Size="162,60"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR"
+          TopLeft="41,82" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR"
+          TopLeft="49,346" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A ELIMINAR"
+          TopLeft="50,238" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\QUITAR DUPLICADOS GUIAS DE DEPURACION"
+          TopLeft="50,407" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR"
+          TopLeft="45,295" />
+        <NodeLayout
+          Size="184,63"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\TRUCAR TABLA GUIAS DEPURACION SIG LOGISTICA"
+          TopLeft="28,161" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\TRUNCATE TABLE GUIAS DG"
+          TopLeft="29,12" />
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint]"
+          TopLeft="122.25,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint 1]"
+          TopLeft="203,112">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,80.5"
+              Start="0,0"
+              End="16.5,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.5,0"
+                    Point2="31.5,0"
+                    Point3="31.5,4" />
+                  <mssgle:LineSegment
+                    End="31.5,76.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.5,76.5"
+                    Point2="31.5,80.5"
+                    Point3="27.5,80.5" />
+                  <mssgle:LineSegment
+                    End="16.5,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint 2]"
+          TopLeft="28,192.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22,66.5"
+              Start="0,0"
+              End="14.5,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,62.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,62.5"
+                    Point2="-22.5,66.5"
+                    Point3="-18.5,66.5" />
+                  <mssgle:LineSegment
+                    End="14.5,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint 3]"
+          TopLeft="49,367">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="1,61"
+              Start="0,0"
+              End="-6.5,61">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,57" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,57"
+                    Point2="-22.5,61"
+                    Point3="-18.5,61" />
+                  <mssgle:LineSegment
+                    End="-6.5,61" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint 4]"
+          TopLeft="50,433.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="3,68.3333333333333"
+              Start="0,0"
+              End="-4.5,68.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,64.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,64.3333333333333"
+                    Point2="-22.5,68.3333333333333"
+                    Point3="-18.5,68.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-4.5,68.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint 5]"
+          TopLeft="50,264.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-5,51.3333333333333"
+              Start="0,0"
+              End="-12.5,51.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-23.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23.5,0"
+                    Point2="-27.5,0"
+                    Point3="-27.5,4" />
+                  <mssgle:LineSegment
+                    End="-27.5,47.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.5,47.3333333333333"
+                    Point2="-27.5,51.3333333333333"
+                    Point3="-23.5,51.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-12.5,51.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS.PrecedenceConstraints[Constraint 6]"
+          TopLeft="213,316">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8,51"
+              Start="0,0"
+              End="-0.5,51">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,47"
+                    Point2="22.5,51"
+                    Point3="18.5,51" />
+                  <mssgle:LineSegment
+                    End="-0.5,51" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="245,551"
+          Size="245,594"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS"
+          TopLeft="904,181" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Ps01 Eliminar repetidos"
+          TopLeft="276,43" />
+        <NodeLayout
+          Size="282,42"
+          Id="Package\PS02 ASIGNAR BODEGA ORIGEN DESTINO"
+          TopLeft="232,113" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\PS03 ASIGNAR CPL ORIGEN DESTINO"
+          TopLeft="243,207" />
+        <NodeLayout
+          Size="463,42"
+          Id="Package\PS04 ASIGNAR CIUDADREGIONAL ORIGEN_INICIAL DESTINO_FINAL DEL ENVIO"
+          TopLeft="146,301" />
+        <NodeLayout
+          Size="423,42"
+          Id="Package\PS05  ASIGNAR CIUDAD-REGIONAL ORIGEN DESTINO DEL MANIFIESTO"
+          TopLeft="160,409" />
+        <NodeLayout
+          Size="356,42"
+          Id="Package\PS06 ASIGNAR NOMBRE PRODUCTO SUB PRODUCTO UEN"
+          TopLeft="199,494" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\PS07 ASIGNAR NOMBRE DE CLIENTES"
+          TopLeft="251,584" />
+        <NodeLayout
+          Size="428,42"
+          Id="Package\PS08 ASIGNAR NOMBRE DE ZONA URBANA Y CATEGORIA ZONA URBANA"
+          TopLeft="165,671" />
+        <NodeLayout
+          Size="363,42"
+          Id="Package\PS09 ASIGNAR ESTADO DEL ENVIO  Y ESTADO DE LA GUIA"
+          TopLeft="195.183673455486,758.126050407911" />
+        <NodeLayout
+          Size="293,42"
+          Id="Package\PS10  ASIGNAR FECHA Y PRIMERE PROCESO"
+          TopLeft="228,856" />
+        <NodeLayout
+          Size="370,42"
+          Id="Package\PS11 ASIGNAR CALCULO TIEMPO PROMESA RED OPERATIVA"
+          TopLeft="187,963" />
+        <NodeLayout
+          Size="275,42"
+          Id="Package\PS12 SET FECHA_ACTUAL_DEL_SISTEMA"
+          TopLeft="239,1045" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\PS13 Calculo dias fectivos TEMP"
+          TopLeft="264,1143" />
+        <NodeLayout
+          Size="242,42"
+          Id="Package\PS14 Calculo fecha promesa TEMP"
+          TopLeft="253,1236" />
+        <NodeLayout
+          Size="257,42"
+          Id="Package\PS15 Genero entrega verificada TEMP"
+          TopLeft="253,1332" />
+        <NodeLayout
+          Size="248,42"
+          Id="Package\PS16 Caculo vejez Bodega 02 TEMP"
+          TopLeft="251,1445" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\PS17 Guia con recaudo"
+          TopLeft="279,1530" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="371.75,85">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="372.75,155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="374.25,1005">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="377.75,1087">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="376.5,1185">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 13]"
+          TopLeft="377.75,1278">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 14]"
+          TopLeft="378.25,1374">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 15]"
+          TopLeft="374,1487">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="375,249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="374.5,343">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="374.25,451">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="379.25,536">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="380.25,626">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="377.891836727743,712.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.5260504079114"
+              Start="0,0"
+              End="0,38.0260504079114">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.0260504079114" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="375.591836727743,799.726050407911">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.2739495920886"
+              Start="0,0"
+              End="0,48.7739495920886">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.7739495920886" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="373.25,898">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="SELECT &#xA;COUNT(1)&#xA;--*&#xA;--INTO [TMP_BORRAR].[DBO].[FAC_MPCCO_VJ_VEJEZ_BODEGA_CIERRE_OPERATIVO]&#xA;FROM [FAC].[MPCCO_VJ_VEJEZ_BODEGA_CIERRE_OPERATIVO] FAC WITH(NOLOCK)&#xA;---------&gt;(421612 rows affected)&#xA;SELECT &#xA;COUNT(1)&#xA;--*&#xA;--INTO [TMP_BORRAR].[DBO].[FAC_MPCCO_VJ_VEJEZ_BODEGA_CIERRE_OPERATIVO_INVENTARIO_BODEGA]&#xA;FROM [FAC].[MPCCO_VJ_VEJEZ_BODEGA_CIERRE_OPERATIVO_INVENTARIO_BODEGA] FAC WITH(NOLOCK)&#xA;-----------&gt;(176622 rows affected)&#xA;---------&gt;Completion time: 2026-10-29T15:22:22.8130656-05:00&#xA;&#xA;"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="596,263"
+          Id="9ecbf417-1e7c-489a-81cf-de7a540f560b"
+          TopLeft="1208,365" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="127,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS DG"
+          TopLeft="131,212" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR\GUIAS VEJEZ BODEGA"
+          TopLeft="108,66" />
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\ENVIAR GUIAS A VALIDAR PARA DEPUERAR.Paths[OLE DB Source Output]"
+          TopLeft="197.5,108">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,104"
+              Start="0,0"
+              End="0,96.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,96.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="121,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\Union All"
+          TopLeft="463,309" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3"
+          TopLeft="553,161" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2"
+          TopLeft="290,162" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1"
+          TopLeft="135,231" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR"
+          TopLeft="445,486" />
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR.Paths[OLE DB Source Output2]"
+          TopLeft="681,203">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-146.2,106"
+              Start="0,0"
+              End="-146.2,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.4594348222425" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.4594348222425"
+                    Point2="0,58.4594348222425"
+                    Point3="-4,58.4594348222425" />
+                  <mssgle:LineSegment
+                    End="-142.2,58.4594348222425" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-142.2,58.4594348222425"
+                    Point2="-146.2,58.4594348222425"
+                    Point3="-146.2,62.4594348222425" />
+                  <mssgle:LineSegment
+                    End="-146.2,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR.Paths[OLE DB Source Output1]"
+          TopLeft="418,204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="94.2,105"
+              Start="0,0"
+              End="94.2,97.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.9079307201458" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.9079307201458"
+                    Point2="0,57.9079307201458"
+                    Point3="4,57.9079307201458" />
+                  <mssgle:LineSegment
+                    End="90.2,57.9079307201458" />
+                  <mssgle:CubicBezierSegment
+                    Point1="90.2,57.9079307201458"
+                    Point2="94.2,57.9079307201458"
+                    Point3="94.2,61.9079307201458" />
+                  <mssgle:LineSegment
+                    End="94.2,97.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR.Paths[OLE DB Source Output]"
+          TopLeft="263,273">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="226.6,36"
+              Start="0,0"
+              End="226.6,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0057405281286" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0057405281286"
+                    Point2="0,25.0057405281286"
+                    Point3="4,25.0057405281286" />
+                  <mssgle:LineSegment
+                    End="222.6,25.0057405281286" />
+                  <mssgle:CubicBezierSegment
+                    Point1="222.6,25.0057405281286"
+                    Point2="226.6,25.0057405281286"
+                    Point3="226.6,29.0057405281286" />
+                  <mssgle:LineSegment
+                    End="226.6,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR.Paths[Union All Output 1]"
+          TopLeft="526.25,351">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,135"
+              Start="0,0"
+              End="0,127.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,127.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="256,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4"
+          TopLeft="702,227" />
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR.Paths[OLE DB Source Output3]"
+          TopLeft="830,269">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-272.6,40"
+              Start="0,0"
+              End="-272.6,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7841561423651" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.7841561423651"
+                    Point2="0,27.7841561423651"
+                    Point3="-4,27.7841561423651" />
+                  <mssgle:LineSegment
+                    End="-268.6,27.7841561423651" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-268.6,27.7841561423651"
+                    Point2="-272.6,27.7841561423651"
+                    Point3="-272.6,31.7841561423651" />
+                  <mssgle:LineSegment
+                    End="-272.6,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 4">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 3">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\LISTAR GUIAS A DEPUERAR PARTE 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DEPURAR GUIAS TABLA DE HECHOS\LISTAR GUIAS A DEPURAR\GUIA A DEPUERAR">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\GUIA A DEPUERAR"
+          TopLeft="65,191" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR"
+          TopLeft="26,50" />
+        <EdgeLayout
+          Id="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR.Paths[OLE DB Source Output]"
+          TopLeft="145.25,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,99"
+              Start="0,0"
+              End="0,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DEPURAR GUIAS TABLA DE HECHOS\TRANSLADO GUIAS A DEPURAR\LISTADO DE GUAIS A DEPURAR">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

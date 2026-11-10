@@ -1,0 +1,693 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/22/2025 12:53:37 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="T_SERV-DBI01"
+  DTS:CreatorName="SERVIENT\inteligencianegocios"
+  DTS:DTSID="{FBD6CFAB-2C1D-4FB3-A60C-F1593FDBB9FC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="00_llamar_pasos"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{1FC52686-9F01-4176-A989-C571CF855B94}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PRODUCCION SERV-DBI01.SIG_LOGISTICA_DM]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E93DBD84-3DA3-4828-9437-FB4B143BCF5F}"
+      DTS:ObjectName="PRODUCCION SERV-DBI01.SIG_LOGISTICA_DM">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SERV-DBI01;Initial Catalog=SIG_LOGISTICA_DM;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8EF05911-710C-4FCF-B506-1176B490F2F4}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;--desde &quot;+ @[User::STR_FechaIni] +&quot; --hasta &quot;+ @[User::STR_FechaFin] +&quot; &quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ARGS_EXE">
+      <DTS:VariableValue
+        DTS:DataType="8">--desde 20251103 --hasta 20261104 </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D9669CB0-F716-4E5B-AAEF-A987AEDBC9A5}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DATE) @[$Project::FULL_FACH_FIN] == (DT_DATE) &quot;1900-01-01&quot;?&#xA;(DT_DATE)((DT_WSTR,4)YEAR(DATEADD(&quot;DD&quot;, 1 ,GETDATE()))+&quot;-&quot;+RIGHT(&quot;0&quot;+(DT_WSTR,2)MONTH(DATEADD(&quot;DD&quot;,1,GETDATE())),2)+&quot;-&quot;+RIGHT(&quot;0&quot;+(DT_WSTR,2)DAY(DATEADD(&quot;DD&quot;,1,GETDATE())),2))&#xA;: (DT_DATE) @[$Project::FULL_FACH_FIN]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FechaFin">
+      <DTS:VariableValue
+        DTS:DataType="7">11/4/2026</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{76AD22BF-2FFD-4A93-A998-7E496CDD3C1D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DATE)   @[$Project::FULL_FACH_INI]    == (DT_DATE) &quot;1900-01-01&quot;? &#xA;(DT_DATE)((DT_WSTR,4)YEAR(DATEADD(&quot;DD&quot;, -@[$Project::DiaIni], GETDATE()))+&quot;-&quot;&#xA;+RIGHT(&quot;0&quot;+(DT_WSTR,2)MONTH(DATEADD(&quot;DD&quot;,-@[$Project::DiaIni],GETDATE() )),2)+&quot;-&quot;&#xA;+RIGHT(&quot;0&quot;+(DT_WSTR,2)DAY(DATEADD(&quot;DD&quot;, -@[$Project::DiaIni],GETDATE() )),2))&#xA;: (DT_DATE) @[$Project::FULL_FACH_INI]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FechaIni">
+      <DTS:VariableValue
+        DTS:DataType="7">11/3/2025</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A125A916-2BF7-4926-8FF0-C3BCC251D89C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_WSTR, 10)&#xA;( &#xA;&#x9;(&#xA;&#x9;&#x9;(&#xA;&#x9;&#x9;&#x9;(  YEAR( @[User::FechaFin] )*100 )   &#xA;&#x9;&#x9;&#x9;+&#xA;&#x9;&#x9;&#x9;(  MONTH( @[User::FechaFin] )  )&#xA;&#x9;&#x9;)*100&#xA;&#x9;)+ DAY( @[User::FechaFin] )&#xA;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="STR_FechaFin">
+      <DTS:VariableValue
+        DTS:DataType="8">20261104</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FAB20A82-D285-4309-981E-AB927CE76B67}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_WSTR, 10)&#xA;( &#xA;&#x9;(&#xA;&#x9;&#x9;(&#xA;&#x9;&#x9;&#x9;(  YEAR( @[User::FechaIni]  )*100 )   &#xA;&#x9;&#x9;&#x9;+&#xA;&#x9;&#x9;&#x9;(  MONTH( @[User::FechaIni] )  )&#xA;&#x9;&#x9;)*100&#xA;&#x9;)+ DAY( @[User::FechaIni] )&#xA;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="STR_FechaIni">
+      <DTS:VariableValue
+        DTS:DataType="8">20251103</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ACTUALIZAR TABLAS DE DESARROLLO"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{53C6523F-1EBA-45B9-BD46-AB041C0C474E}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ACTUALIZAR TABLAS DE DESARROLLO">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{13952C9B-FFD0-42F7-A751-96FAA2D4F0E4}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ACTUALIZAR DIM CLIENTES">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{450A3D04-3964-4050-ABF9-61A7BD5732F6}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EXTRACCION CLIENTES PRD"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="SIG_COLOMBIA PARAMETRICA CLIENTES"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">with cte as(
+SELECT
+ROWID = ROW_NUMBER() OVER(PARTITION by ID_CLIENTE order by FECHA_MODIFICACION desc )
+,ID_CLIENTE
+,RAZON_SOCIAL_CORTA
+,ID_TIPO_CLIENTE
+,TIPO_CLIENTE = 0
+,FECHA_CREACION_DW = GETDATE()
+FROM [SIG_COLOMBIA_DW].PAR.CLIENTES WITH(NOLOCK)
+)
+select 
+ ID_CLIENTE
+,RAZON_SOCIAL_CORTA
+,ID_TIPO_CLIENTE
+,TIPO_CLIENTE = 0
+,FECHA_CREACION_DW
+from cte where ROWID=1</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">2</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[PRODUCCION SERV-DBI01.SIG_LOGISTICA_DM]"
+                          connectionManagerRefId="Package.ConnectionManagers[PRODUCCION SERV-DBI01.SIG_LOGISTICA_DM]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                              length="20"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                              name="ID_CLIENTE"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[RAZON_SOCIAL_CORTA]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[RAZON_SOCIAL_CORTA]"
+                              length="100"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[RAZON_SOCIAL_CORTA]"
+                              name="RAZON_SOCIAL_CORTA"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[ID_TIPO_CLIENTE]"
+                              dataType="ui1"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPO_CLIENTE]"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[ID_TIPO_CLIENTE]"
+                              name="ID_TIPO_CLIENTE"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[TIPO_CLIENTE]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[TIPO_CLIENTE]"
+                              length="40"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[TIPO_CLIENTE]"
+                              name="TIPO_CLIENTE"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[FECHA_CREACION_DW]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION_DW]"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[FECHA_CREACION_DW]"
+                              name="FECHA_CREACION_DW"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="ID_CLIENTE" />
+                            <externalMetadataColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[RAZON_SOCIAL_CORTA]"
+                              codePage="1252"
+                              dataType="str"
+                              length="100"
+                              name="RAZON_SOCIAL_CORTA" />
+                            <externalMetadataColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPO_CLIENTE]"
+                              dataType="ui1"
+                              name="ID_TIPO_CLIENTE" />
+                            <externalMetadataColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[TIPO_CLIENTE]"
+                              dataType="i4"
+                              name="TIPO_CLIENTE" />
+                            <externalMetadataColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION_DW]"
+                              dataType="dbTimeStamp"
+                              name="FECHA_CREACION_DW" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                              name="ID_CLIENTE" />
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[RAZON_SOCIAL_CORTA]"
+                              codePage="1252"
+                              dataType="str"
+                              length="100"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[RAZON_SOCIAL_CORTA]"
+                              name="RAZON_SOCIAL_CORTA" />
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[ID_TIPO_CLIENTE]"
+                              dataType="ui1"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[ID_TIPO_CLIENTE]"
+                              name="ID_TIPO_CLIENTE" />
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[TIPO_CLIENTE]"
+                              dataType="i4"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[TIPO_CLIENTE]"
+                              name="TIPO_CLIENTE" />
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION_DW]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION_DW]"
+                              name="FECHA_CREACION_DW" />
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="SIG_LOGISTICA_DM_DIM_CLIENTES"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[DIM].[CLIENTES]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">ROWS_PER_BATCH = 1000</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">100000</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Connections[OleDbConnection]"
+                          connectionManagerID="{5C0C1DAF-D2DA-497C-987A-001823FDFDAE}:invalid"
+                          connectionManagerRefId="{5C0C1DAF-D2DA-497C-987A-001823FDFDAE}:invalid"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].Columns[ID_CLIENTE]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="20"
+                              cachedName="ID_CLIENTE"
+                              externalMetadataColumnId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]" />
+                            <inputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].Columns[RAZON_SOCIAL_CORTA]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="100"
+                              cachedName="RAZON_SOCIAL_CORTA"
+                              externalMetadataColumnId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].ExternalColumns[RAZON_SOCIAL_CORTA]"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[RAZON_SOCIAL_CORTA]" />
+                            <inputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].Columns[ID_TIPO_CLIENTE]"
+                              cachedDataType="ui1"
+                              cachedName="ID_TIPO_CLIENTE"
+                              externalMetadataColumnId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPO_CLIENTE]"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[ID_TIPO_CLIENTE]" />
+                            <inputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].Columns[TIPO_CLIENTE]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="40"
+                              cachedName="TIPO_CLIENTE"
+                              externalMetadataColumnId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].ExternalColumns[TIPO_CLIENTE]"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[TIPO_CLIENTE]" />
+                            <inputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].Columns[FECHA_CREACION_DW]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="FECHA_CREACION_DW"
+                              externalMetadataColumnId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION_DW]"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output].Columns[FECHA_CREACION_DW]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="ID_CLIENTE" />
+                            <externalMetadataColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].ExternalColumns[RAZON_SOCIAL_CORTA]"
+                              codePage="1252"
+                              dataType="str"
+                              length="100"
+                              name="RAZON_SOCIAL_CORTA" />
+                            <externalMetadataColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPO_CLIENTE]"
+                              dataType="ui1"
+                              name="ID_TIPO_CLIENTE" />
+                            <externalMetadataColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].ExternalColumns[TIPO_CLIENTE]"
+                              codePage="1252"
+                              dataType="str"
+                              length="40"
+                              name="TIPO_CLIENTE" />
+                            <externalMetadataColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION_DW]"
+                              dataType="dbTimeStamp"
+                              name="FECHA_CREACION_DW" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD.Paths[OLE DB Source Output]"
+                      endId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES.Inputs[OLE DB Destination Input]"
+                      name="OLE DB Source Output"
+                      startId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES.Outputs[OLE DB Source Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\TRUNCATE TABLE"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{0126AA0D-99AE-4478-98C5-A0BD206E9682}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="TRUNCATE TABLE"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{5C0C1DAF-D2DA-497C-987A-001823FDFDAE}"
+                  SQLTask:SqlStatementSource="TRUNCATE TABLE [DIM].[CLIENTES]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{3A46CF71-8696-4065-A1BF-93C1360DC873}"
+              DTS:From="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\TRUNCATE TABLE"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute Process Task"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{906F5F26-6C85-404D-AE4E-B770CC353729}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Process Task"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Arguments">@[User::ARGS_EXE]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="\\T_serv-dbi01\T\Api_Sap_Facturacion\EJECUTABLE2026\ConsultaSAP.exe"
+          Arguments="--desde 20251103 --hasta 20261104 " />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="215,42"
+          Id="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD"
+          TopLeft="31,83" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\TRUNCATE TABLE"
+          TopLeft="25,1" />
+        <EdgeLayout
+          Id="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES.PrecedenceConstraints[Constraint]"
+          TopLeft="107.5,43">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31,40"
+              Start="0,0"
+              End="31,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="27,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27,20"
+                    Point2="31,20"
+                    Point3="31,24" />
+                  <mssgle:LineSegment
+                    End="31,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="259,180"
+          Size="259,223"
+          Id="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES"
+          TopLeft="10,29" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="426,317"
+          Size="426,360"
+          Id="Package\ACTUALIZAR TABLAS DE DESARROLLO"
+          TopLeft="56,65" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Execute Process Task"
+          TopLeft="720,188" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="254,42"
+          Id="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES"
+          TopLeft="87,178" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES"
+          TopLeft="81,59" />
+        <EdgeLayout
+          Id="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD.Paths[OLE DB Source Output]"
+          TopLeft="216.5,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77"
+              Start="0,0"
+              End="0,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_COLOMBIA PARAMETRICA CLIENTES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ACTUALIZAR TABLAS DE DESARROLLO\ACTUALIZAR DIM CLIENTES\EXTRACCION CLIENTES PRD\SIG_LOGISTICA_DM_DIM_CLIENTES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

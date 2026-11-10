@@ -1,0 +1,148 @@
+﻿<MiningStructure xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="6c0c1e5c-c1ba-461d-a53e-78b9ce5b4e3b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Tabla1 Estructura</ID>
+  <Name>Tabla1 Estructura</Name>
+  <CreatedTimestamp>2016-08-29T16:58:31.723333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2016-08-29T16:58:31.723333Z</LastSchemaUpdate>
+  <Description>Estructura de la tabla Tabla1 de la hoja Hoja1 del libro Libro1</Description>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-10-19T21:34:05.596667Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <Columns>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="ee0f7e7c-af5e-4824-a969-5b9a40c74f15">
+      <ID>ID_Macroproceso</ID>
+      <Name>ID_Macroproceso</Name>
+      <IsKey>true</IsKey>
+      <Type>Long</Type>
+      <Content>Key</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="37a8b919-29ca-4d82-8bc3-2c53126f7a18">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Trimming>Left</Trimming>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="TableMiningStructureColumn" dwd:design-time-name="f8cb174b-e5a3-4ba2-8975-484f94d17531">
+      <Annotations>
+        <Annotation>
+          <Name>MDXFilterComponent</Name>
+        </Annotation>
+      </Annotations>
+      <ID>Nombre_Proceso_Table</ID>
+      <Name>Nombre_Proceso_Table</Name>
+      <ForeignKeyColumns>
+        <ForeignKeyColumn dwd:design-time-name="449af7d1-915f-4d4b-96d2-e59975a38921">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+        </ForeignKeyColumn>
+      </ForeignKeyColumns>
+      <Columns>
+        <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="add9b02d-012d-4054-92f5-a8773ce2ca67">
+          <ID>Nombre_Proceso</ID>
+          <Name>Nombre_Proceso</Name>
+          <IsKey>true</IsKey>
+          <Type>Text</Type>
+          <Content>Key</Content>
+          <KeyColumns>
+            <KeyColumn dwd:design-time-name="b918f886-9564-4c33-aa54-89cf2df5c471">
+              <DataType>WChar</DataType>
+              <DataSize>-1</DataSize>
+              <Trimming>Left</Trimming>
+            </KeyColumn>
+          </KeyColumns>
+        </Column>
+      </Columns>
+    </Column>
+  </Columns>
+  <MiningModels>
+    <MiningModel dwd:design-time-name="34afb375-15b3-4ef7-85dd-08da6306004e">
+      <ID>Asociar Nombre_Proceso</ID>
+      <Name>Asociar Nombre_Proceso</Name>
+      <CreatedTimestamp>2016-08-29T16:58:31.793333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2016-08-29T16:58:31.793333Z</LastSchemaUpdate>
+      <Description>Modelo Microsoft_Association_Rules generado en la tabla Tabla1</Description>
+      <LastProcessed>2021-10-19T21:34:05.583333Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Association_Rules</Algorithm>
+      <AlgorithmParameters>
+        <AlgorithmParameter>
+          <Name>MINIMUM_SUPPORT</Name>
+          <Value xsi:type="xsd:double">10</Value>
+        </AlgorithmParameter>
+        <AlgorithmParameter>
+          <Name>MINIMUM_PROBABILITY</Name>
+          <Value xsi:type="xsd:double">0.4</Value>
+        </AlgorithmParameter>
+      </AlgorithmParameters>
+      <Columns>
+        <Column dwd:design-time-name="e93c262e-9bd0-4cb2-b5e9-613fea79d7b4">
+          <ID>ID_Macroproceso</ID>
+          <Name>ID_Macroproceso</Name>
+          <SourceColumnID>ID_Macroproceso</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="77b50b31-1030-4a81-813e-9c4dcd3fd248">
+          <ID>Nombre_Proceso_Table</ID>
+          <Name>Nombre_Proceso_Table</Name>
+          <SourceColumnID>Nombre_Proceso_Table</SourceColumnID>
+          <Usage>Predict</Usage>
+          <Columns>
+            <Column dwd:design-time-name="78243249-9431-456d-b147-0d87a2f7871b">
+              <ID>Nombre_Proceso</ID>
+              <Name>Nombre_Proceso</Name>
+              <SourceColumnID>Nombre_Proceso</SourceColumnID>
+              <Usage>Key</Usage>
+            </Column>
+          </Columns>
+        </Column>
+      </Columns>
+      <AllowDrillThrough>true</AllowDrillThrough>
+      <Language>1033</Language>
+      <Collation>Latin1_General_CI_AS</Collation>
+    </MiningModel>
+  </MiningModels>
+  <ErrorConfiguration dwd:design-time-name="f098d530-430b-4389-b523-365788bcb6f0">
+    <KeyErrorLimit>-1</KeyErrorLimit>
+    <KeyErrorAction>DiscardRecord</KeyErrorAction>
+    <KeyNotFound>IgnoreError</KeyNotFound>
+  </ErrorConfiguration>
+  <ddl100_100:HoldoutMaxPercent>30</ddl100_100:HoldoutMaxPercent>
+</MiningStructure>

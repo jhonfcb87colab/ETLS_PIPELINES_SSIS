@@ -1,0 +1,22 @@
+﻿<DataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" xsi:type="RelationalDataSource" dwd:design-time-name="908e6151-6a4f-4c77-8a7f-4d182b79053d" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SIG_COL_SDM_DW</ID>
+  <Name>SIG_COL_SDM_DW</Name>
+  <CreatedTimestamp>2015-11-04T21:56:09.133333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2017-09-26T17:05:01.583333Z</LastSchemaUpdate>
+  <ConnectionString>Provider=SQLNCLI11.1;Data Source=SERV-DBI01;Integrated Security=SSPI;Initial Catalog=SIG_COL_SDM_DW</ConnectionString>
+  <ConnectionStringSecurity>Unchanged</ConnectionStringSecurity>
+  <ImpersonationInfo>
+    <ImpersonationMode>ImpersonateServiceAccount</ImpersonationMode>
+    <ImpersonationInfoSecurity>Unchanged</ImpersonationInfoSecurity>
+  </ImpersonationInfo>
+  <Timeout>PT0S</Timeout>
+  <DataSourcePermissions>
+    <DataSourcePermission dwd:design-time-name="e38556e7-8196-4eab-92b7-e949f0cb0be6">
+      <ID>DataSourcePermission 48</ID>
+      <Name>DataSourcePermission 48</Name>
+      <CreatedTimestamp>2021-02-12T22:19:16.026667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2021-02-12T22:19:16.026667Z</LastSchemaUpdate>
+      <RoleID>Role 14</RoleID>
+    </DataSourcePermission>
+  </DataSourcePermissions>
+</DataSource>

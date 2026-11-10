@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DW_ACTUALIZACION_TABLAS_LOG", "DW_ACTUALIZACION_TABLAS_LOG\DW_ACTUALIZACION_TABLAS_LOG.dtproj", "{AEDD513D-69E2-4A86-BEA7-DF9D74FA7C5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEDD513D-69E2-4A86-BEA7-DF9D74FA7C5E}.Development|Default.ActiveCfg = Development
+		{AEDD513D-69E2-4A86-BEA7-DF9D74FA7C5E}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1E6D4E3-4A6F-4BD2-A8C0-E933241E3379}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,263 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="2fc9aae8-6ca2-4360-9310-ba3e4f284892" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>CLIENTE_MOV_SECTOR_ECON</ID>
+  <Name>CLIENTE_MOV_SECTOR_ECON</Name>
+  <CreatedTimestamp>2013-01-11T22:32:59.463333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-07-09T20:58:28.376667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2520" scrolltop="-3679" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="4789" y="14102" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="CLIENTES_SECTOR" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="4524" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000ac11000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DIM_CLIENTES_SECTOR" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-2520</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-3679</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-12-20T02:50:45.99Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="dbd834ec-8a4c-45fb-aedf-5499620a401b">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="d86b7071-cced-481f-8bfe-11a30b4837ca">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="89f8e0b8-3963-46ee-9ed3-ec55f20ddf0d">
+      <ID>ID CLIENTE</ID>
+      <Name>ID CLIENTE</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>19654</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d3374b2d-3692-4d3f-bb64-02fe6a2fa22f">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d44ada7c-2056-4c1c-ae2d-5f3e87a72f3c">
+            <TableID>DIM_CLIENTES_SECTOR</TableID>
+            <ColumnID>ID_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b32802fb-7748-4298-bccf-fccb2097af38">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c39ac025-92bc-4f06-8e25-3f47bd3375d8">
+          <TableID>DIM_CLIENTES_SECTOR</TableID>
+          <ColumnID>ID_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="7a97a2bb-eb20-47cb-9088-ab2b4014eded">
+          <AttributeID>NOMBRE CLIENTE</AttributeID>
+          <Name>Nombre Cliente</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="2092ad38-5c28-44dc-87a3-ebf2377b831c">
+          <AttributeID>CIIU</AttributeID>
+          <Name>Ciiu</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="94be725f-88fb-47bc-b5f5-b1f16c0a8b40">
+          <AttributeID>SECTOR ECON</AttributeID>
+          <Name>SECTOR ECON</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8a8c7347-78fa-4862-9052-d9d00a0b34d0">
+          <AttributeID>ACTIV ECON</AttributeID>
+          <Name>ACTIVIDAD ECON</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9dc9b326-240c-4470-999f-657a8691a9f3">
+      <ID>NOMBRE CLIENTE</ID>
+      <Name>NOMBRE CLIENTE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a825b0e2-cc2a-429b-85b2-28b28075d213">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5049fa8f-a18f-40df-9ec3-e0b23835e526">
+            <TableID>DIM_CLIENTES_SECTOR</TableID>
+            <ColumnID>NOMBRE_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="83d6923c-f874-4141-82ca-68328166d434">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b43de323-99ab-4afe-bc39-0c710cee6be1">
+          <TableID>DIM_CLIENTES_SECTOR</TableID>
+          <ColumnID>NOMBRE_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="aba57c66-47d8-41a4-9639-86443afe1715">
+      <ID>CIIU</ID>
+      <Name>CIIU</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4cfd3660-0133-4984-a91b-fa29af14151f">
+          <DataType>WChar</DataType>
+          <DataSize>25</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c99e7bb2-0d92-4ee3-970d-88687b4d3500">
+            <TableID>DIM_CLIENTES_SECTOR</TableID>
+            <ColumnID>CIIU</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="de844eb5-3f1f-4d6b-ba60-e00ac01f4faf">
+        <DataType>WChar</DataType>
+        <DataSize>25</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4580e491-2282-469c-9425-ab13f499b7d4">
+          <TableID>DIM_CLIENTES_SECTOR</TableID>
+          <ColumnID>CIIU</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="addb99c0-7c50-4f7f-97f6-d8f26d446c27">
+      <ID>SECTOR ECON</ID>
+      <Name>SECTOR ECON</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3dcfdaad-a135-450c-a2eb-bb63d86d9a9d">
+          <DataType>WChar</DataType>
+          <DataSize>25</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9ca83f6c-3f1e-4667-a4fb-1d205126de7a">
+            <TableID>DIM_CLIENTES_SECTOR</TableID>
+            <ColumnID>SECTOR_ECON</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ba5f7184-2874-4263-8491-02f2d9b9f0e0">
+        <DataType>WChar</DataType>
+        <DataSize>25</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4e7a5c08-41f4-47f0-97c6-b2f824e79f57">
+          <TableID>DIM_CLIENTES_SECTOR</TableID>
+          <ColumnID>SECTOR_ECON</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="87db3850-ae53-4a45-a324-89fdd5ddf275">
+      <ID>ACTIV ECON</ID>
+      <Name>ACTIVIDAD ECON</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3690e4e8-3e82-46f8-92da-b6f558822e61">
+          <DataType>WChar</DataType>
+          <DataSize>25</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4a646977-5981-4626-a95c-26a658c8e03f">
+            <TableID>DIM_CLIENTES_SECTOR</TableID>
+            <ColumnID>ACTIV_ECON</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="84e25e4e-0977-4f37-a1b6-544b9e308cc4">
+        <DataType>WChar</DataType>
+        <DataSize>25</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c45af095-79c8-4594-a44b-92bf1489bb5a">
+          <TableID>DIM_CLIENTES_SECTOR</TableID>
+          <ColumnID>ACTIV_ECON</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Cliente_Mov_Sector_Econ</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="ed760e34-0bae-436e-a4e2-c8196be3affd">
+      <ID>Hierarchy</ID>
+      <Name>SECTOR_ECONOMICO</Name>
+      <Levels>
+        <Level dwd:design-time-name="1442f6ca-4047-412c-bf51-b6bb0fe001b5">
+          <ID>SECTOR ECON</ID>
+          <Name>SECTOR ECON</Name>
+          <SourceAttributeID>SECTOR ECON</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="ff48ac5d-2b37-4821-907a-361fe66bba5c">
+          <ID>ACTIVIDAD ECON</ID>
+          <Name>ACTIVIDAD ECON</Name>
+          <SourceAttributeID>ACTIV ECON</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="d7321415-8879-4aba-812b-d33ea2288d2b">
+          <ID>CIIU</ID>
+          <Name>CIIU</Name>
+          <SourceAttributeID>CIIU</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="7821ef8e-562e-4303-8fc2-2f1bcf0b24aa">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="b56ded1b-32dd-4329-af1d-2ef072399d54" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

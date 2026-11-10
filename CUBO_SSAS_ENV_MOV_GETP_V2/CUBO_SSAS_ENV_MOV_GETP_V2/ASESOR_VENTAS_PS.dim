@@ -1,0 +1,204 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="8f4d077a-96d4-4e43-8c38-ea4ea40556dd" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>ASESOR_VENTAS_PS</ID>
+  <Name>ASESOR_VENTAS_PS</Name>
+  <CreatedTimestamp>2013-01-11T22:32:06.33Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-01-11T22:32:06.33Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-10-20T14:02:40.646667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="59d9cf00-5630-489c-89c9-dc3906250b78">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="6db1629b-a231-413c-89e4-3a929dae3586">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="04157be9-a44a-4419-903e-10222fb38311">
+      <ID>ID ASESOR VENTA</ID>
+      <Name>Vendedor</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4b687c53-bf87-4741-bd63-eaa609f4b782">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f44f1d80-c42e-4d89-8d66-bf8574b477f1">
+            <TableID>DIM_ASESOR_VENTA_PS_CARGO</TableID>
+            <ColumnID>ID_ASESOR_VENTA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="6611b08d-30db-491f-82bd-77fdae122221">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="47ef1432-a0c8-43c1-8430-6e4e2a364147">
+          <TableID>DIM_ASESOR_VENTA_PS_CARGO</TableID>
+          <ColumnID>VENDEDOR</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="2d2f136c-92e3-406b-a8a4-98867c645579">
+          <AttributeID>ESTADO VENDEDOR</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Estado Vendedor</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0b308abb-0dbd-4498-9b28-b27e939e0384">
+          <AttributeID>NOMBRE CARGO SERV</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Cargo Vendedor</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="07a56f2c-f07f-4571-97bc-8f1dce57f43f">
+      <ID>ESTADO VENDEDOR</ID>
+      <Name>Estado Vendedor</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d1ae0a1a-6aad-4483-9ded-bb43bce3f57a">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f0c4cc1a-a5c6-4d1c-a727-c52acff3b0f5">
+            <TableID>DIM_ASESOR_VENTA_PS_CARGO</TableID>
+            <ColumnID>ESTADO_VENDEDOR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="355a4c20-2134-41f5-8cf1-71a95cca284d">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="771f0ae1-6ccb-4dba-a0e1-f1d93f77e672">
+          <TableID>DIM_ASESOR_VENTA_PS_CARGO</TableID>
+          <ColumnID>ESTADO_VENDEDOR</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ee415966-e2a7-4b20-9a0b-3c1b247dc4e8">
+      <ID>NOMBRE CARGO SERV</ID>
+      <Name>Cargo Vendedor</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ee3d497c-5a66-4be7-890b-b74fa08cc4fa">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2ca67801-b60c-4745-a009-8845c94e759b">
+            <TableID>DIM_ASESOR_VENTA_PS_CARGO</TableID>
+            <ColumnID>NOMBRE_CARGO_SERV</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="15dae766-ec34-42aa-bfb0-11033b5db771">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1aa03025-3ee4-4976-9b8c-7659b77e2515">
+          <TableID>DIM_ASESOR_VENTA_PS_CARGO</TableID>
+          <ColumnID>NOMBRE_CARGO_SERV</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="0738750f-0347-4a46-9ccb-6ffe862d8889">
+      <ID>Hierarchy</ID>
+      <Name>Cargos Vendedores</Name>
+      <Levels>
+        <Level dwd:design-time-name="0a922df9-76da-41a2-9285-17f74cbd1aa5">
+          <ID>Cargo Vendedor</ID>
+          <Name>Cargo Vendedor</Name>
+          <SourceAttributeID>NOMBRE CARGO SERV</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="06381ead-5021-44bd-b101-05ea632d1d89">
+          <ID>Vendedor</ID>
+          <Name>Vendedor</Name>
+          <SourceAttributeID>ID ASESOR VENTA</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="17ca6ad5-a9ab-4ba4-a499-e0118bbd746f">
+      <ID>Hierarchy 1</ID>
+      <Name>Vendedores</Name>
+      <Levels>
+        <Level dwd:design-time-name="d44ee549-fb68-4dcd-bfcc-e7319f07bb93">
+          <ID>Vendedor</ID>
+          <Name>Vendedor</Name>
+          <SourceAttributeID>ID ASESOR VENTA</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="ed2d6d89-4a11-4cba-adc8-ff88ab582a0f">
+      <ID>Hierarchy 2</ID>
+      <Name>Estados Vendedores</Name>
+      <Levels>
+        <Level dwd:design-time-name="5b57c68a-9b74-4491-a4ea-7dd9a6b38bad">
+          <ID>Estado Vendedor</ID>
+          <Name>Estado Vendedor</Name>
+          <SourceAttributeID>ESTADO VENDEDOR</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="48dedac0-d8ff-4b77-8089-32f7a523aef4">
+          <ID>Vendedor</ID>
+          <Name>Vendedor</Name>
+          <SourceAttributeID>ID ASESOR VENTA</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="00255f4d-db1d-4967-b11f-37091ef37364">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="584750fd-fcce-4839-89cd-6eaabf61f20b" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

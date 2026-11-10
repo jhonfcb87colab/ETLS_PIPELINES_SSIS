@@ -1,0 +1,1338 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/17/2026 2:47:20 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="T_SERV-DBI01"
+  DTS:CreatorName="SERVIENT\inteligencianegocios"
+  DTS:DTSID="{2CB7BBEB-B0B4-492E-8BE4-AAB37345D68E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="01_SEGUIMIENTO_ENVIO"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{DD8EC82D-4F43-4493-BBB2-C55679973AB6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\INSERT NO EXISTENTES PROCESOS MIGRADOS RECIENTEMENTE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ECE666FB-985F-4A4B-8B43-3B20323BFF1A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="INSERT NO EXISTENTES PROCESOS MIGRADOS RECIENTEMENTE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DDF86F6D-DE13-491B-A614-ED50EAF66859}"
+          SQLTask:SqlStatementSource="DELETE [TMP].[SEGUIEMINTO_ENVIO_ACTUALIZADOS_RECIENTEMENTE] WHERE LEN(NUMERO_GUIA)&lt;9&#xA;&#xA;DROP TABLE IF EXISTS #GUIAS_PROCESAR&#xA;DROP TABLE IF EXISTS #TBL_G_SEGUIMIENTO_ENVIO&#xA;CREATE TABLE #GUIAS_PROCESAR (ID INT IDENTITY(1,1), NUMERO_GUIA NUMERIC(20,0))&#xA;&#xA;CREATE NONCLUSTERED INDEX IDX_TMP_GUIAS_SE_ACTUA ON  #GUIAS_PROCESAR&#xA;(&#xA;&#x9;[NUMERO_GUIA] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]&#xA;&#xA;&#xA;&#xA;INSERT INTO #GUIAS_PROCESAR&#xA;SELECT &#xA;NUMERO_GUIA &#xA;FROM [TMP].[SEGUIEMINTO_ENVIO_ACTUALIZADOS_RECIENTEMENTE] RSEG WITH(NOLOCK)&#xA;GROUP BY NUMERO_GUIA&#xA;&#xA;--SELECT TOP 0 RSEG.* &#xA;--INTO #TBL_G_SEGUIMIENTO_ENVIO&#xA;--FROM  [TMP].[SEGUIEMINTO_ENVIO_ACTUALIZADOS_RECIENTEMENTE] RSEG WITH(NOLOCK)&#xA;--LEFT JOIN LOG.SEGUIMIENTO_ENVIO LSEG WITH(NOLOCK)&#xA;--ON LSEG.NUMERO_GUIA = RSEG.NUMERO_GUIA&#xA;--AND  LSEG.ID_PROCESO&#x9;= RSEG.ID_PROCESO&#xA;--AND  LSEG.NUMERO_MOVIMI = RSEG.NUMERO_MOVIMI&#x9;&#xA;--AND  LSEG.CONSECUT_MOVIMI = RSEG.CONSECUT_MOVIMI&#x9;&#xA;--WHERE LSEG.NUMERO_GUIA IS NULL&#xA;--OPTION(RECOMPILE) &#xA;&#xA;&#xA;-- 3. Bucle de inserción por Lotes basado en ID numérico (Evita borrar/volver a hacer JOINs)&#xA;DECLARE @LOTE INT = 2000; -- Incrementado a 50k para mejor rendimiento E/S&#xA;DECLARE @MIN_ID INT = 1;&#xA;DECLARE @MAX_ID_LOTE INT;&#xA;DECLARE @MAX_ID_TOTAL INT = (SELECT ISNULL(MAX(ID), 0) FROM #GUIAS_PROCESAR);&#xA;PRINT(CONCAT('NUMERO DE BATCHES = ',@MAX_ID_TOTAL/@LOTE))&#xA;&#xA;&#xA;WHILE @MIN_ID &lt;= @MAX_ID_TOTAL&#xA;BEGIN&#xA;    SET @MAX_ID_LOTE = @MIN_ID + @LOTE - 1;&#xA;&#xA;&#x9;&#x9;----&gt;INSERT INTO #TBL_G_SEGUIMIENTO_ENVIO&#xA;&#x9;&#x9;INSERT INTO  LOG.SEGUIMIENTO_ENVIO -------&gt;tabla degradada &#xA;&#x9;&#x9;SELECT RSEG.* &#xA;&#x9;&#x9;FROM  [TMP].[SEGUIEMINTO_ENVIO_ACTUALIZADOS_RECIENTEMENTE] RSEG WITH(NOLOCK)&#xA;&#x9;&#x9;LEFT JOIN LOG.SEGUIMIENTO_ENVIO LSEG WITH(NOLOCK)&#xA;&#x9;&#x9;ON LSEG.NUMERO_GUIA = RSEG.NUMERO_GUIA&#xA;&#x9;&#x9;AND  LSEG.ID_PROCESO&#x9;= RSEG.ID_PROCESO&#xA;&#x9;&#x9;AND  LSEG.NUMERO_MOVIMI = RSEG.NUMERO_MOVIMI&#x9;&#xA;&#x9;&#x9;AND  LSEG.CONSECUT_MOVIMI = RSEG.CONSECUT_MOVIMI&#x9;&#xA;&#x9;&#x9;WHERE LSEG.NUMERO_GUIA IS NULL&#xA;&#x9;&#x9;AND RSEG.NUMERO_GUIA IN(SELECT NUMERO_GUIA FROM #GUIAS_PROCESAR WHERE ID BETWEEN @MIN_ID AND @MAX_ID_LOTE)&#xA;&#x9;&#x9;OPTION(RECOMPILE) &#xA;&#x9;PRINT(CONCAT('INSERTCION REALIZADA DESDE - ',@MIN_ID,' / HASTA - ',@MAX_ID_LOTE))&#xA;    SET @MIN_ID = @MAX_ID_LOTE + 1;&#xA;END;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F0839912-D413-4C9E-9E44-38984885460A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRANSPORTE PROCEOS ACTUALIZADOS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DECLARE @FECHA_INICIAL DATETIME = DATEADD(DAY,-1,CONVERT(DATETIME,CONVERT(DATE,GETDATE() )));
+----SELECT (@FECHA_INICIAL)
+
+;WITH CTE AS( 
+SELECT 
+CONTROL = DATEDIFF(HOUR,FECHA_HORA_MOVIMIENTO, FECHA_CREACION), 
+*
+FROM Mece_Logistico.DBO.SEGUIMIENTO_ENVIO WITH(NOLOCK)
+WHERE FECHA_CREACION &gt; @FECHA_INICIAL
+)
+SELECT 
+ ID_PROCESO
+,NUMERO_MOVIMI
+,CONSECUT_MOVIMI
+,NUMERO_GUIA
+,ID_CONCEPTO
+,ID_EMPLEADO
+,ID_ESTA_FISICO
+,ID_PRODUCTO
+,ID_SUBPRODUCTO
+,ID_TIPOENVIO
+,ID_CONSECUTIVO_SEGUIMIENTO
+,ID_ENVIO_CRUZADO
+,PESO_ENVIO
+,LARGO_ENVIO
+,ANCHO_ENVIO
+,ALTO_ENVIO
+,HORA_INICIAL_ENTREGA
+,HORA_FINAL_ENTREGA
+,FECHA_HORA_MOVIMIENTO
+,ID_MODO_REGISTRO
+,NUMERO_PIEZAS
+,ID_EST_EMBALAJE
+,ID_TIPOENVIO_PRODUCTIVIDAD
+,DEVOLUCION_REGIONAL
+,LOGIN_EMPLEADO
+,FECHA_CREACION
+,FECHA_MODIFICACION
+,ID_REPLICADO
+,FECHA_EXTRACCION_DW = GETDATE()
+FROM CTE
+WHERE CONTROL&gt;3</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Connections[OleDbConnection]"
+                  connectionManagerID="{F87B3B39-6D46-4DA3-B7BD-52E0A6428B65}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MEPVSVWSSDGN01_DBDG001.Mece_Logistico]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_PROCESO]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_PROCESO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_PROCESO]"
+                      name="ID_PROCESO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[NUMERO_MOVIMI]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_MOVIMI]"
+                      length="30"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[NUMERO_MOVIMI]"
+                      name="NUMERO_MOVIMI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[CONSECUT_MOVIMI]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[CONSECUT_MOVIMI]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[CONSECUT_MOVIMI]"
+                      name="CONSECUT_MOVIMI"
+                      precision="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[NUMERO_GUIA]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_GUIA]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[NUMERO_GUIA]"
+                      name="NUMERO_GUIA"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_CONCEPTO]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_CONCEPTO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_CONCEPTO]"
+                      name="ID_CONCEPTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_EMPLEADO]"
+                      length="20"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_EMPLEADO]"
+                      name="ID_EMPLEADO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_ESTA_FISICO]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTA_FISICO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_ESTA_FISICO]"
+                      name="ID_ESTA_FISICO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_PRODUCTO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]"
+                      name="ID_PRODUCTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_SUBPRODUCTO]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_SUBPRODUCTO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_SUBPRODUCTO]"
+                      name="ID_SUBPRODUCTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_TIPOENVIO]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPOENVIO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_TIPOENVIO]"
+                      name="ID_TIPOENVIO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_CONSECUTIVO_SEGUIMIENTO]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_CONSECUTIVO_SEGUIMIENTO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_CONSECUTIVO_SEGUIMIENTO]"
+                      name="ID_CONSECUTIVO_SEGUIMIENTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_ENVIO_CRUZADO]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_ENVIO_CRUZADO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_ENVIO_CRUZADO]"
+                      name="ID_ENVIO_CRUZADO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[PESO_ENVIO]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[PESO_ENVIO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[PESO_ENVIO]"
+                      name="PESO_ENVIO"
+                      precision="8"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[LARGO_ENVIO]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[LARGO_ENVIO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[LARGO_ENVIO]"
+                      name="LARGO_ENVIO"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ANCHO_ENVIO]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ANCHO_ENVIO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ANCHO_ENVIO]"
+                      name="ANCHO_ENVIO"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ALTO_ENVIO]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ALTO_ENVIO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ALTO_ENVIO]"
+                      name="ALTO_ENVIO"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[HORA_INICIAL_ENTREGA]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[HORA_INICIAL_ENTREGA]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[HORA_INICIAL_ENTREGA]"
+                      name="HORA_INICIAL_ENTREGA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[HORA_FINAL_ENTREGA]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[HORA_FINAL_ENTREGA]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[HORA_FINAL_ENTREGA]"
+                      name="HORA_FINAL_ENTREGA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[FECHA_HORA_MOVIMIENTO]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[FECHA_HORA_MOVIMIENTO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[FECHA_HORA_MOVIMIENTO]"
+                      name="FECHA_HORA_MOVIMIENTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_MODO_REGISTRO]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_MODO_REGISTRO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_MODO_REGISTRO]"
+                      name="ID_MODO_REGISTRO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[NUMERO_PIEZAS]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_PIEZAS]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[NUMERO_PIEZAS]"
+                      name="NUMERO_PIEZAS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_EST_EMBALAJE]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_EST_EMBALAJE]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_EST_EMBALAJE]"
+                      name="ID_EST_EMBALAJE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_TIPOENVIO_PRODUCTIVIDAD]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPOENVIO_PRODUCTIVIDAD]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_TIPOENVIO_PRODUCTIVIDAD]"
+                      name="ID_TIPOENVIO_PRODUCTIVIDAD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[DEVOLUCION_REGIONAL]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[DEVOLUCION_REGIONAL]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[DEVOLUCION_REGIONAL]"
+                      name="DEVOLUCION_REGIONAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_EMPLEADO]"
+                      length="15"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]"
+                      name="LOGIN_EMPLEADO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                      name="FECHA_CREACION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                      name="FECHA_MODIFICACION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_REPLICADO]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_REPLICADO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_REPLICADO]"
+                      name="ID_REPLICADO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[FECHA_EXTRACCION_DW]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[FECHA_EXTRACCION_DW]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[FECHA_EXTRACCION_DW]"
+                      name="FECHA_EXTRACCION_DW"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_PROCESO]"
+                      dataType="i2"
+                      name="ID_PROCESO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_MOVIMI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="NUMERO_MOVIMI" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[CONSECUT_MOVIMI]"
+                      dataType="numeric"
+                      name="CONSECUT_MOVIMI"
+                      precision="7" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_GUIA]"
+                      dataType="numeric"
+                      name="NUMERO_GUIA"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_CONCEPTO]"
+                      dataType="ui1"
+                      name="ID_CONCEPTO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ID_EMPLEADO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTA_FISICO]"
+                      dataType="ui1"
+                      name="ID_ESTA_FISICO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_PRODUCTO]"
+                      dataType="i2"
+                      name="ID_PRODUCTO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_SUBPRODUCTO]"
+                      dataType="i2"
+                      name="ID_SUBPRODUCTO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPOENVIO]"
+                      dataType="ui1"
+                      name="ID_TIPOENVIO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_CONSECUTIVO_SEGUIMIENTO]"
+                      dataType="i2"
+                      name="ID_CONSECUTIVO_SEGUIMIENTO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_ENVIO_CRUZADO]"
+                      dataType="ui1"
+                      name="ID_ENVIO_CRUZADO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[PESO_ENVIO]"
+                      dataType="numeric"
+                      name="PESO_ENVIO"
+                      precision="8"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[LARGO_ENVIO]"
+                      dataType="numeric"
+                      name="LARGO_ENVIO"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ANCHO_ENVIO]"
+                      dataType="numeric"
+                      name="ANCHO_ENVIO"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ALTO_ENVIO]"
+                      dataType="numeric"
+                      name="ALTO_ENVIO"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[HORA_INICIAL_ENTREGA]"
+                      dataType="dbTimeStamp"
+                      name="HORA_INICIAL_ENTREGA" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[HORA_FINAL_ENTREGA]"
+                      dataType="dbTimeStamp"
+                      name="HORA_FINAL_ENTREGA" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[FECHA_HORA_MOVIMIENTO]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_HORA_MOVIMIENTO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_MODO_REGISTRO]"
+                      dataType="ui1"
+                      name="ID_MODO_REGISTRO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_PIEZAS]"
+                      dataType="i2"
+                      name="NUMERO_PIEZAS" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_EST_EMBALAJE]"
+                      dataType="ui1"
+                      name="ID_EST_EMBALAJE" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPOENVIO_PRODUCTIVIDAD]"
+                      dataType="ui1"
+                      name="ID_TIPOENVIO_PRODUCTIVIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[DEVOLUCION_REGIONAL]"
+                      dataType="ui1"
+                      name="DEVOLUCION_REGIONAL" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="LOGIN_EMPLEADO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_CREACION" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_MODIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[ID_REPLICADO]"
+                      dataType="ui1"
+                      name="ID_REPLICADO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].ExternalColumns[FECHA_EXTRACCION_DW]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_EXTRACCION_DW" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_PROCESO]"
+                      dataType="i2"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_PROCESO]"
+                      name="ID_PROCESO" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[NUMERO_MOVIMI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[NUMERO_MOVIMI]"
+                      name="NUMERO_MOVIMI" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[CONSECUT_MOVIMI]"
+                      dataType="numeric"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[CONSECUT_MOVIMI]"
+                      name="CONSECUT_MOVIMI"
+                      precision="7" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[NUMERO_GUIA]"
+                      dataType="numeric"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[NUMERO_GUIA]"
+                      name="NUMERO_GUIA"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_CONCEPTO]"
+                      dataType="ui1"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_CONCEPTO]"
+                      name="ID_CONCEPTO" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_EMPLEADO]"
+                      name="ID_EMPLEADO" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_ESTA_FISICO]"
+                      dataType="ui1"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_ESTA_FISICO]"
+                      name="ID_ESTA_FISICO" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_PRODUCTO]"
+                      dataType="i2"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_PRODUCTO]"
+                      name="ID_PRODUCTO" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_SUBPRODUCTO]"
+                      dataType="i2"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_SUBPRODUCTO]"
+                      name="ID_SUBPRODUCTO" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_TIPOENVIO]"
+                      dataType="ui1"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_TIPOENVIO]"
+                      name="ID_TIPOENVIO" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_CONSECUTIVO_SEGUIMIENTO]"
+                      dataType="i2"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_CONSECUTIVO_SEGUIMIENTO]"
+                      name="ID_CONSECUTIVO_SEGUIMIENTO" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_ENVIO_CRUZADO]"
+                      dataType="ui1"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_ENVIO_CRUZADO]"
+                      name="ID_ENVIO_CRUZADO" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[PESO_ENVIO]"
+                      dataType="numeric"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[PESO_ENVIO]"
+                      name="PESO_ENVIO"
+                      precision="8"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[LARGO_ENVIO]"
+                      dataType="numeric"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[LARGO_ENVIO]"
+                      name="LARGO_ENVIO"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ANCHO_ENVIO]"
+                      dataType="numeric"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ANCHO_ENVIO]"
+                      name="ANCHO_ENVIO"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ALTO_ENVIO]"
+                      dataType="numeric"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ALTO_ENVIO]"
+                      name="ALTO_ENVIO"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[HORA_INICIAL_ENTREGA]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[HORA_INICIAL_ENTREGA]"
+                      name="HORA_INICIAL_ENTREGA" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[HORA_FINAL_ENTREGA]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[HORA_FINAL_ENTREGA]"
+                      name="HORA_FINAL_ENTREGA" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[FECHA_HORA_MOVIMIENTO]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[FECHA_HORA_MOVIMIENTO]"
+                      name="FECHA_HORA_MOVIMIENTO" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_MODO_REGISTRO]"
+                      dataType="ui1"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_MODO_REGISTRO]"
+                      name="ID_MODO_REGISTRO" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[NUMERO_PIEZAS]"
+                      dataType="i2"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[NUMERO_PIEZAS]"
+                      name="NUMERO_PIEZAS" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_EST_EMBALAJE]"
+                      dataType="ui1"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_EST_EMBALAJE]"
+                      name="ID_EST_EMBALAJE" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_TIPOENVIO_PRODUCTIVIDAD]"
+                      dataType="ui1"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_TIPOENVIO_PRODUCTIVIDAD]"
+                      name="ID_TIPOENVIO_PRODUCTIVIDAD" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[DEVOLUCION_REGIONAL]"
+                      dataType="ui1"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[DEVOLUCION_REGIONAL]"
+                      name="DEVOLUCION_REGIONAL" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[LOGIN_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[LOGIN_EMPLEADO]"
+                      name="LOGIN_EMPLEADO" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                      name="FECHA_CREACION" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                      name="FECHA_MODIFICACION" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_REPLICADO]"
+                      dataType="ui1"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ID_REPLICADO]"
+                      name="ID_REPLICADO" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[FECHA_EXTRACCION_DW]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[FECHA_EXTRACCION_DW]"
+                      name="FECHA_EXTRACCION_DW" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[TMP].[SEGUIEMINTO_ENVIO_ACTUALIZADOS_RECIENTEMENTE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,ROWS_PER_BATCH = 100000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">1000000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Connections[OleDbConnection]"
+                  connectionManagerID="{DDF86F6D-DE13-491B-A614-ED50EAF66859}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SERV-DBI01.SIG_COLOMBIA_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ID_PROCESO]"
+                      cachedDataType="i2"
+                      cachedName="ID_PROCESO"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_PROCESO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_PROCESO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[NUMERO_MOVIMI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="NUMERO_MOVIMI"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_MOVIMI]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[NUMERO_MOVIMI]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[CONSECUT_MOVIMI]"
+                      cachedDataType="numeric"
+                      cachedName="CONSECUT_MOVIMI"
+                      cachedPrecision="7"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[CONSECUT_MOVIMI]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[CONSECUT_MOVIMI]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[NUMERO_GUIA]"
+                      cachedDataType="numeric"
+                      cachedName="NUMERO_GUIA"
+                      cachedPrecision="20"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_GUIA]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[NUMERO_GUIA]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ID_CONCEPTO]"
+                      cachedDataType="ui1"
+                      cachedName="ID_CONCEPTO"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_CONCEPTO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_CONCEPTO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ID_EMPLEADO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="ID_EMPLEADO"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_EMPLEADO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_EMPLEADO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ID_ESTA_FISICO]"
+                      cachedDataType="ui1"
+                      cachedName="ID_ESTA_FISICO"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTA_FISICO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_ESTA_FISICO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ID_PRODUCTO]"
+                      cachedDataType="i2"
+                      cachedName="ID_PRODUCTO"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUCTO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ID_SUBPRODUCTO]"
+                      cachedDataType="i2"
+                      cachedName="ID_SUBPRODUCTO"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_SUBPRODUCTO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_SUBPRODUCTO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ID_TIPOENVIO]"
+                      cachedDataType="ui1"
+                      cachedName="ID_TIPOENVIO"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPOENVIO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_TIPOENVIO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ID_CONSECUTIVO_SEGUIMIENTO]"
+                      cachedDataType="i2"
+                      cachedName="ID_CONSECUTIVO_SEGUIMIENTO"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_CONSECUTIVO_SEGUIMIENTO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_CONSECUTIVO_SEGUIMIENTO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ID_ENVIO_CRUZADO]"
+                      cachedDataType="ui1"
+                      cachedName="ID_ENVIO_CRUZADO"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_ENVIO_CRUZADO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_ENVIO_CRUZADO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[PESO_ENVIO]"
+                      cachedDataType="numeric"
+                      cachedName="PESO_ENVIO"
+                      cachedPrecision="8"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[PESO_ENVIO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[PESO_ENVIO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[LARGO_ENVIO]"
+                      cachedDataType="numeric"
+                      cachedName="LARGO_ENVIO"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[LARGO_ENVIO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[LARGO_ENVIO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ANCHO_ENVIO]"
+                      cachedDataType="numeric"
+                      cachedName="ANCHO_ENVIO"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ANCHO_ENVIO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ANCHO_ENVIO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ALTO_ENVIO]"
+                      cachedDataType="numeric"
+                      cachedName="ALTO_ENVIO"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ALTO_ENVIO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ALTO_ENVIO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[HORA_INICIAL_ENTREGA]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="HORA_INICIAL_ENTREGA"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[HORA_INICIAL_ENTREGA]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[HORA_INICIAL_ENTREGA]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[HORA_FINAL_ENTREGA]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="HORA_FINAL_ENTREGA"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[HORA_FINAL_ENTREGA]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[HORA_FINAL_ENTREGA]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[FECHA_HORA_MOVIMIENTO]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FECHA_HORA_MOVIMIENTO"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_HORA_MOVIMIENTO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[FECHA_HORA_MOVIMIENTO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ID_MODO_REGISTRO]"
+                      cachedDataType="ui1"
+                      cachedName="ID_MODO_REGISTRO"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_MODO_REGISTRO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_MODO_REGISTRO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[NUMERO_PIEZAS]"
+                      cachedDataType="i2"
+                      cachedName="NUMERO_PIEZAS"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_PIEZAS]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[NUMERO_PIEZAS]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ID_EST_EMBALAJE]"
+                      cachedDataType="ui1"
+                      cachedName="ID_EST_EMBALAJE"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_EST_EMBALAJE]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_EST_EMBALAJE]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ID_TIPOENVIO_PRODUCTIVIDAD]"
+                      cachedDataType="ui1"
+                      cachedName="ID_TIPOENVIO_PRODUCTIVIDAD"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPOENVIO_PRODUCTIVIDAD]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_TIPOENVIO_PRODUCTIVIDAD]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[DEVOLUCION_REGIONAL]"
+                      cachedDataType="ui1"
+                      cachedName="DEVOLUCION_REGIONAL"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[DEVOLUCION_REGIONAL]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[DEVOLUCION_REGIONAL]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[LOGIN_EMPLEADO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="LOGIN_EMPLEADO"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_EMPLEADO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[FECHA_CREACION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FECHA_CREACION"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[FECHA_MODIFICACION]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FECHA_MODIFICACION"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[ID_REPLICADO]"
+                      cachedDataType="ui1"
+                      cachedName="ID_REPLICADO"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_REPLICADO]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[ID_REPLICADO]" />
+                    <inputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].Columns[FECHA_EXTRACCION_DW]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FECHA_EXTRACCION_DW"
+                      externalMetadataColumnId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output].Columns[FECHA_EXTRACCION_DW]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_PROCESO]"
+                      dataType="i2"
+                      name="ID_PROCESO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_MOVIMI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="NUMERO_MOVIMI" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[CONSECUT_MOVIMI]"
+                      dataType="numeric"
+                      name="CONSECUT_MOVIMI"
+                      precision="7" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_GUIA]"
+                      dataType="numeric"
+                      name="NUMERO_GUIA"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_CONCEPTO]"
+                      dataType="ui1"
+                      name="ID_CONCEPTO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ID_EMPLEADO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTA_FISICO]"
+                      dataType="ui1"
+                      name="ID_ESTA_FISICO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUCTO]"
+                      dataType="i2"
+                      name="ID_PRODUCTO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_SUBPRODUCTO]"
+                      dataType="i2"
+                      name="ID_SUBPRODUCTO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPOENVIO]"
+                      dataType="ui1"
+                      name="ID_TIPOENVIO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_CONSECUTIVO_SEGUIMIENTO]"
+                      dataType="i2"
+                      name="ID_CONSECUTIVO_SEGUIMIENTO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_ENVIO_CRUZADO]"
+                      dataType="ui1"
+                      name="ID_ENVIO_CRUZADO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[PESO_ENVIO]"
+                      dataType="numeric"
+                      name="PESO_ENVIO"
+                      precision="8"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[LARGO_ENVIO]"
+                      dataType="numeric"
+                      name="LARGO_ENVIO"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ANCHO_ENVIO]"
+                      dataType="numeric"
+                      name="ANCHO_ENVIO"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ALTO_ENVIO]"
+                      dataType="numeric"
+                      name="ALTO_ENVIO"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[HORA_INICIAL_ENTREGA]"
+                      dataType="dbTimeStamp"
+                      name="HORA_INICIAL_ENTREGA" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[HORA_FINAL_ENTREGA]"
+                      dataType="dbTimeStamp"
+                      name="HORA_FINAL_ENTREGA" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_HORA_MOVIMIENTO]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_HORA_MOVIMIENTO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_MODO_REGISTRO]"
+                      dataType="ui1"
+                      name="ID_MODO_REGISTRO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_PIEZAS]"
+                      dataType="i2"
+                      name="NUMERO_PIEZAS" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_EST_EMBALAJE]"
+                      dataType="ui1"
+                      name="ID_EST_EMBALAJE" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPOENVIO_PRODUCTIVIDAD]"
+                      dataType="ui1"
+                      name="ID_TIPOENVIO_PRODUCTIVIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[DEVOLUCION_REGIONAL]"
+                      dataType="ui1"
+                      name="DEVOLUCION_REGIONAL" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_EMPLEADO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="LOGIN_EMPLEADO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_CREACION" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_MODIFICACION" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[ID_REPLICADO]"
+                      dataType="ui1"
+                      name="ID_REPLICADO" />
+                    <externalMetadataColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_EXTRACCION_DW" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\TRANSPORTE PROCEOS ACTUALIZADOS.Paths[OLE DB Source Output]"
+              endId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE TABLE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{65125057-32BA-4CB2-AC02-46B7DD822B8D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE TABLE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DDF86F6D-DE13-491B-A614-ED50EAF66859}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [TMP].[SEGUIEMINTO_ENVIO_ACTUALIZADOS_RECIENTEMENTE]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B8B9AB63-B72F-43A9-8D1B-E005EC8D5573}"
+      DTS:From="Package\TRUNCATE TABLE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\TRANSPORTE PROCEOS ACTUALIZADOS" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{DE8B16DC-783F-4CCE-9A35-00CE8FF67ACE}"
+      DTS:From="Package\TRANSPORTE PROCEOS ACTUALIZADOS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\INSERT NO EXISTENTES PROCESOS MIGRADOS RECIENTEMENTE" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="271,42"
+          Id="Package\TRANSPORTE PROCEOS ACTUALIZADOS"
+          TopLeft="370,162" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\TRUNCATE TABLE"
+          TopLeft="417,35" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="502.5,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,85"
+              Start="0,0"
+              End="0,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="393,42"
+          Id="Package\INSERT NO EXISTENTES PROCESOS MIGRADOS RECIENTEMENTE"
+          TopLeft="303,318" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="502.5,204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,114"
+              Start="0,0"
+              End="0,106.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,106.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\TRANSPORTE PROCEOS ACTUALIZADOS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="433,42"
+          Id="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO"
+          TopLeft="241,45" />
+        <NodeLayout
+          Size="456,42"
+          Id="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE"
+          TopLeft="224,291" />
+        <EdgeLayout
+          Id="Package\TRANSPORTE PROCEOS ACTUALIZADOS.Paths[OLE DB Source Output]"
+          TopLeft="454.75,87">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,204"
+              Start="0,0"
+              End="0,196.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,196.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TRANSPORTE PROCEOS ACTUALIZADOS\EXTRACCION ULTIMAS ACTUALIZACION PROCESOS SEGUIMIENTO ENVIO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\TRANSPORTE PROCEOS ACTUALIZADOS\TEMPORAL PROCESOS SEGUIEMINTO ENVIO ACTUALIZADOS RECIENTEMENTE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

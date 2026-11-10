@@ -1,0 +1,179 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="cf601d6d-6497-4754-869e-101e40628db8" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>AUDIT USUARIOS 1</ID>
+  <Name>AUDIT USUARIOS</Name>
+  <CreatedTimestamp>2014-03-26T17:56:22.23Z</CreatedTimestamp>
+  <LastSchemaUpdate>2014-03-26T19:33:37.51Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-10-30T23:24:58.21Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="188bd7ad-6210-4d24-ab82-efbb068ab7b6">
+    <DataSourceViewID>SIG_PS_MECI_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="f2c36a1f-29e2-42ff-bd49-6cf57ec5f27b">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="8e9dec52-615e-4138-b000-6a4cdf2778d1">
+      <ID>USUARIO</ID>
+      <Name>USUARIO</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8c7057f0-8678-4bc8-b475-3eb676e828dc">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fa781072-e96e-46f8-8535-8d0290f98325">
+            <TableID>DIM_AUDIT_USUARIOS</TableID>
+            <ColumnID>USUARIO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="28442fbb-e6b0-43c2-adfb-27c8b9e3e03c">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4fced06f-ae6e-4333-9121-d3d2c9926b3c">
+          <TableID>DIM_AUDIT_USUARIOS</TableID>
+          <ColumnID>USUARIO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="5b8e0799-fde2-4eee-be1a-390f796dc981">
+          <AttributeID>CEDULA</AttributeID>
+          <Name>CEDULA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="aa5b64b1-5e52-4848-b2f6-3ca05f1fd01e">
+          <AttributeID>NOMBRE USUARIO</AttributeID>
+          <Name>NOMBRE USUARIO</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8eb4a099-24a2-415e-ab6e-2bd2949a97fe">
+      <ID>CEDULA</ID>
+      <Name>CEDULA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f9663a09-a0c0-46c2-b663-16e6a202e376">
+          <DataType>WChar</DataType>
+          <DataSize>11</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6ead61d1-9aee-44db-b9e7-80e16e778c59">
+            <TableID>DIM_AUDIT_USUARIOS</TableID>
+            <ColumnID>CEDULA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="04e5e7e6-4631-473a-a852-6e0f62f0ff9d">
+        <DataType>WChar</DataType>
+        <DataSize>11</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e2ee1f0b-08b1-49bb-990c-2f6ec939cd1a">
+          <TableID>DIM_AUDIT_USUARIOS</TableID>
+          <ColumnID>CEDULA</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0faa7917-d26a-4a15-ae85-bc05fdac177c">
+      <ID>NOMBRE USUARIO</ID>
+      <Name>NOMBRE USUARIO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9cd16175-475f-48b1-8d35-b7392fe98c68">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ab760e02-1d2f-4d89-b056-6504f625ff91">
+            <TableID>DIM_AUDIT_USUARIOS</TableID>
+            <ColumnID>NOMBRE_USUARIO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d5658674-aef8-44b9-82aa-66beec1203ae">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d80f7343-4c81-46d2-9296-39dacb82cfb3">
+          <TableID>DIM_AUDIT_USUARIOS</TableID>
+          <ColumnID>NOMBRE_USUARIO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="c73632cd-5b37-4224-b652-4a508944a758">
+      <ID>Hierarchy</ID>
+      <Name>USUARIOS</Name>
+      <Levels>
+        <Level dwd:design-time-name="767b3c25-d0d5-4318-bbb3-49f741965b21">
+          <ID>NOMBRE USUARIO</ID>
+          <Name>NOMBRE USUARIO</Name>
+          <SourceAttributeID>NOMBRE USUARIO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="5a555638-86cd-4a81-b909-92a5b9cb20e0">
+          <ID>USUARIO</ID>
+          <Name>USUARIO</Name>
+          <SourceAttributeID>USUARIO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="5743cb99-332f-44c2-9838-e748c1ab4701">
+          <ID>CEDULA</ID>
+          <Name>CEDULA</Name>
+          <SourceAttributeID>CEDULA</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="5dd71f97-38c8-4193-b78f-da58bfe00478">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="f6ff7817-5672-4f60-b5f5-aa82d570aa02" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

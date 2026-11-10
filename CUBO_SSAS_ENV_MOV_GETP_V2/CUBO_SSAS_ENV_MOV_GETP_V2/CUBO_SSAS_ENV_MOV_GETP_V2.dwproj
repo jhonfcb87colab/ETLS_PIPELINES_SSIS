@@ -1,0 +1,1732 @@
+﻿<Project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <ProductVersion>15.0.1814.0</ProductVersion>
+  <SchemaVersion>9.0.2.10</SchemaVersion>
+  <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkZGw0MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAiIHhtbG5zOmRkbDQwMF80MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAvNDAwIiB4bWxuczpkZGw1MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAiIHhtbG5zOmRkbDUwMF81MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAvNTAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD5mYWxzZTwvRW5hYmxlZD4NCiAgPFByb2plY3ROYW1lPjwvUHJvamVjdE5hbWU+DQogIDxBdXhQYXRoPjwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD48L0xvY2FsUGF0aD4NCiAgPFByb3ZpZGVyPjwvUHJvdmlkZXI+DQo8L1NvdXJjZUNvbnRyb2xJbmZvPg==</State>
+  <Database>
+    <Name>CUBO_SSAS_ENV_MOV_GETP_V2.database</Name>
+    <FullPath>CUBO_SSAS_ENV_MOV_GETP_V2.database</FullPath>
+  </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>ENVIOS_MOVILIZADOS.cube</Name>
+      <FullPath>ENVIOS_MOVILIZADOS.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>ENVIOS_MOVILIZADOS.partitions</Name>
+          <FullPath>ENVIOS_MOVILIZADOS.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>ASESOR_A_CLIENTE.dim</Name>
+      <FullPath>ASESOR_A_CLIENTE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ASESOR_A_CLIENTE_TAREAS.dim</Name>
+      <FullPath>ASESOR_A_CLIENTE_TAREAS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ASESOR_VENTAS_PS.dim</Name>
+      <FullPath>ASESOR_VENTAS_PS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>AUDIT BASE DATOS SIG.dim</Name>
+      <FullPath>AUDIT BASE DATOS SIG.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>AUDIT CUBOS.dim</Name>
+      <FullPath>AUDIT CUBOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>AUDIT ROL.dim</Name>
+      <FullPath>AUDIT ROL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>AUDIT USUARIOS.dim</Name>
+      <FullPath>AUDIT USUARIOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>AUXILIARES_DATA_MOVIL.dim</Name>
+      <FullPath>AUXILIARES_DATA_MOVIL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>AÑO_CAUSACION.dim</Name>
+      <FullPath>AÑO_CAUSACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CANTIDAD_VEHICULOS.dim</Name>
+      <FullPath>CANTIDAD_VEHICULOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CARGOS_COM_CONTADOS.dim</Name>
+      <FullPath>CARGOS_COM_CONTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CARGO_A_CLIENTE.dim</Name>
+      <FullPath>CARGO_A_CLIENTE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CARGO_EMPL_ESTADO_TAREAS.dim</Name>
+      <FullPath>CARGO_EMPL_ESTADO_TAREAS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CATEGORIA ZONA URBANA.dim</Name>
+      <FullPath>CATEGORIA ZONA URBANA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CEDULA_CONDUCTOR.dim</Name>
+      <FullPath>CEDULA_CONDUCTOR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CIUDADES MOVIMIENTO DESTINO.dim</Name>
+      <FullPath>CIUDADES MOVIMIENTO DESTINO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CIUDADES MOVIMIENTO ORIGEN.dim</Name>
+      <FullPath>CIUDADES MOVIMIENTO ORIGEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CIUDAD_DESTINO.dim</Name>
+      <FullPath>CIUDAD_DESTINO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CIUDAD_ORIGEN.dim</Name>
+      <FullPath>CIUDAD_ORIGEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CIUDAD_QUE_REPORTA.dim</Name>
+      <FullPath>CIUDAD_QUE_REPORTA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CIUDAD_REPORTADA.dim</Name>
+      <FullPath>CIUDAD_REPORTADA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLASE_SISTEMA.dim</Name>
+      <FullPath>CLASE_SISTEMA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLASE_VEHICULO.dim</Name>
+      <FullPath>CLASE_VEHICULO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTES_CODSER_SM.dim</Name>
+      <FullPath>CLIENTES_CODSER_SM.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTES_NIT_SM.dim</Name>
+      <FullPath>CLIENTES_NIT_SM.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTES_SUCURSALES_DEPENDENCIA.dim</Name>
+      <FullPath>CLIENTES_SUCURSALES_DEPENDENCIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTES_SUCURSALES_DEPENDEN_SM.dim</Name>
+      <FullPath>CLIENTES_SUCURSALES_DEPENDEN_SM.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTES_SUCURS_DEPEND.dim</Name>
+      <FullPath>CLIENTES_SUCURS_DEPEND.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTES_SUCURS_DEPEND_SDM_FDO.dim</Name>
+      <FullPath>CLIENTES_SUCURS_DEPEND_SDM_FDO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTE_A_CLIENTE.dim</Name>
+      <FullPath>CLIENTE_A_CLIENTE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTE_CARTERA_PS.dim</Name>
+      <FullPath>CLIENTE_CARTERA_PS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTE_CON_MOVIMIENTO.dim</Name>
+      <FullPath>CLIENTE_CON_MOVIMIENTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTE_MOV_SECTOR_ECON.dim</Name>
+      <FullPath>CLIENTE_MOV_SECTOR_ECON.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTE_PS.dim</Name>
+      <FullPath>CLIENTE_PS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTE_PS_REINCORPORADO.dim</Name>
+      <FullPath>CLIENTE_PS_REINCORPORADO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTE_PS_SUC_DEP.dim</Name>
+      <FullPath>CLIENTE_PS_SUC_DEP.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CLIENTE_PS_SUC_DEPEN.dim</Name>
+      <FullPath>CLIENTE_PS_SUC_DEPEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CONDUCTORES_DATA_MOVIL.dim</Name>
+      <FullPath>CONDUCTORES_DATA_MOVIL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CUMPLE TIEMPO PROMESA.dim</Name>
+      <FullPath>CUMPLE TIEMPO PROMESA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CV_SEDES_DESTINO.dim</Name>
+      <FullPath>CV_SEDES_DESTINO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CV_SEDES_ORIGEN.dim</Name>
+      <FullPath>CV_SEDES_ORIGEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CV_SISTEMA_HORARIO.dim</Name>
+      <FullPath>CV_SISTEMA_HORARIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CV_TIEMPO.dim</Name>
+      <FullPath>CV_TIEMPO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CV_TIPOS_ MOVIMIENTO.dim</Name>
+      <FullPath>CV_TIPOS_ MOVIMIENTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DEVUELTO REMITENTE.dim</Name>
+      <FullPath>DEVUELTO REMITENTE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIA_DEL_MES_FACTURACION.dim</Name>
+      <FullPath>DIA_DEL_MES_FACTURACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM CARACTERISTICAS ENTREGA.dim</Name>
+      <FullPath>DIM CARACTERISTICAS ENTREGA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM CPL RECOLECCION.dim</Name>
+      <FullPath>DIM CPL RECOLECCION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM ESTADO LEGALIZADO.dim</Name>
+      <FullPath>DIM ESTADO LEGALIZADO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM ESTADO RECAUDO.dim</Name>
+      <FullPath>DIM ESTADO RECAUDO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM TIPO GUIA IMPRESION.dim</Name>
+      <FullPath>DIM TIPO GUIA IMPRESION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM VEHICULO TIPO CONTRATACION.dim</Name>
+      <FullPath>DIM VEHICULO TIPO CONTRATACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_CFS_FORMA_PAGO.dim</Name>
+      <FullPath>DIM_CFS_FORMA_PAGO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_CLIENTE_PS_COMISIONES.dim</Name>
+      <FullPath>DIM_CLIENTE_PS_COMISIONES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_CLIENTE_PS_VEN.dim</Name>
+      <FullPath>DIM_CLIENTE_PS_VEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_CLIENTE_PS_VENDEDOR.dim</Name>
+      <FullPath>DIM_CLIENTE_PS_VENDEDOR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_CLIENTE_RECAUDO.dim</Name>
+      <FullPath>DIM_CLIENTE_RECAUDO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_COMP_TIPO_ACCION.dim</Name>
+      <FullPath>DIM_COMP_TIPO_ACCION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_CONT_MEDIOS_DE_PAGO.dim</Name>
+      <FullPath>DIM_CONT_MEDIOS_DE_PAGO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_GEOGRAFIA_CONCEPTO.dim</Name>
+      <FullPath>DIM_GEOGRAFIA_CONCEPTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_GEOGRAFIA_DESTINO.dim</Name>
+      <FullPath>DIM_GEOGRAFIA_DESTINO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_GEOGRAFIA_DESTINO_ZONA_GEO.dim</Name>
+      <FullPath>DIM_GEOGRAFIA_DESTINO_ZONA_GEO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_GEOGRAFIA_ORIGEN.dim</Name>
+      <FullPath>DIM_GEOGRAFIA_ORIGEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_GEOGRAFIA_ORIGEN_ZONA_GEO.dim</Name>
+      <FullPath>DIM_GEOGRAFIA_ORIGEN_ZONA_GEO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_GEOGRAFIA_PE.dim</Name>
+      <FullPath>DIM_GEOGRAFIA_PE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_GEOGRAFIA_PE_ZONA_GEO.dim</Name>
+      <FullPath>DIM_GEOGRAFIA_PE_ZONA_GEO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_ORIGEN TAREA.dim</Name>
+      <FullPath>DIM_ORIGEN TAREA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_PFR_ESTADO_RESPUESTA.dim</Name>
+      <FullPath>DIM_PFR_ESTADO_RESPUESTA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_PFR_ESTADO_SOLICITUD.dim</Name>
+      <FullPath>DIM_PFR_ESTADO_SOLICITUD.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_PREFIJO_NUMERO_GUIA.dim</Name>
+      <FullPath>DIM_PREFIJO_NUMERO_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_SPP_SUBSERVICIO.dim</Name>
+      <FullPath>DIM_SPP_SUBSERVICIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_SPP_TIPO_SERVICIO.dim</Name>
+      <FullPath>DIM_SPP_TIPO_SERVICIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_SPP_UBICACION.dim</Name>
+      <FullPath>DIM_SPP_UBICACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_TIPO_NOVEDAD_FRANQ.dim</Name>
+      <FullPath>DIM_TIPO_NOVEDAD_FRANQ.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM_TIP_SUBSER.dim</Name>
+      <FullPath>DIM_TIP_SUBSER.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DISCONFORMIDAD.dim</Name>
+      <FullPath>DISCONFORMIDAD.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DISPOSITIVO DATA MOVIL.dim</Name>
+      <FullPath>DISPOSITIVO DATA MOVIL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIVISIONES.dim</Name>
+      <FullPath>DIVISIONES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIVISIONES_CONFIRMACIONES.dim</Name>
+      <FullPath>DIVISIONES_CONFIRMACIONES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIV_BODEGAS_ENTRADA.dim</Name>
+      <FullPath>DIV_BODEGAS_ENTRADA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIV_BODEGAS_SALIDA.dim</Name>
+      <FullPath>DIV_BODEGAS_SALIDA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>EMPLEADOS.dim</Name>
+      <FullPath>EMPLEADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>EMPLEADOS_CONFIRMACIONES.dim</Name>
+      <FullPath>EMPLEADOS_CONFIRMACIONES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>EMPLEADO_COM_CONTADOS.dim</Name>
+      <FullPath>EMPLEADO_COM_CONTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>EMPRESA_TRANSPORTADORA.dim</Name>
+      <FullPath>EMPRESA_TRANSPORTADORA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO CARGA.dim</Name>
+      <FullPath>ESTADO CARGA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO CONCEPTO LOGISTICO.dim</Name>
+      <FullPath>ESTADO CONCEPTO LOGISTICO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO FISICO.dim</Name>
+      <FullPath>ESTADO FISICO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO NOVEDADES.dim</Name>
+      <FullPath>ESTADO NOVEDADES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO PROCESO LOGISTICO.dim</Name>
+      <FullPath>ESTADO PROCESO LOGISTICO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_CLIENTE_CARTERA.dim</Name>
+      <FullPath>ESTADO_CLIENTE_CARTERA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_COD.dim</Name>
+      <FullPath>ESTADO_COD.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_EMPL.dim</Name>
+      <FullPath>ESTADO_EMPL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_ENVIO.dim</Name>
+      <FullPath>ESTADO_ENVIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_FACTURACION.dim</Name>
+      <FullPath>ESTADO_FACTURACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_GUIA.dim</Name>
+      <FullPath>ESTADO_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_GUIA_FACTURACION.dim</Name>
+      <FullPath>ESTADO_GUIA_FACTURACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_GUIA_PROVISIONADA.dim</Name>
+      <FullPath>ESTADO_GUIA_PROVISIONADA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_M_AYUDA.dim</Name>
+      <FullPath>ESTADO_M_AYUDA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_RESPUESTA_A_CLIE.dim</Name>
+      <FullPath>ESTADO_RESPUESTA_A_CLIE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_SOLICITUD.dim</Name>
+      <FullPath>ESTADO_SOLICITUD.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_TAREA_A_CLIENTE.dim</Name>
+      <FullPath>ESTADO_TAREA_A_CLIENTE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_TIPO_VEHICULO.dim</Name>
+      <FullPath>ESTADO_TIPO_VEHICULO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ESTADO_VEHICULO.dim</Name>
+      <FullPath>ESTADO_VEHICULO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>EVIDENCIA FOTOGRAFICA.dim</Name>
+      <FullPath>EVIDENCIA FOTOGRAFICA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>FACTURADO.dim</Name>
+      <FullPath>FACTURADO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>FECHA.dim</Name>
+      <FullPath>FECHA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>FORMA_PAGOS_CONTADOS.dim</Name>
+      <FullPath>FORMA_PAGOS_CONTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA SDM FDO.dim</Name>
+      <FullPath>GEOGRAFIA SDM FDO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA TIEMPO PROCESO.dim</Name>
+      <FullPath>GEOGRAFIA TIEMPO PROCESO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_CONFIRMACION.dim</Name>
+      <FullPath>GEOGRAFIA_CONFIRMACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_CONTADOS.dim</Name>
+      <FullPath>GEOGRAFIA_CONTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_CONTADOS_N.dim</Name>
+      <FullPath>GEOGRAFIA_CONTADOS_N.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_CONTADOS_PPTO_CDS.dim</Name>
+      <FullPath>GEOGRAFIA_CONTADOS_PPTO_CDS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_DESTINO_GUIA.dim</Name>
+      <FullPath>GEOGRAFIA_DESTINO_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_DESTINO_GUIA_DANE.dim</Name>
+      <FullPath>GEOGRAFIA_DESTINO_GUIA_DANE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_DESTINO_TAREA.dim</Name>
+      <FullPath>GEOGRAFIA_DESTINO_TAREA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_EMPL CONFIR.dim</Name>
+      <FullPath>GEOGRAFIA_EMPL CONFIR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_ORIGEN CONFIR.dim</Name>
+      <FullPath>GEOGRAFIA_ORIGEN CONFIR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_ORIGEN_GUIA.dim</Name>
+      <FullPath>GEOGRAFIA_ORIGEN_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_ORIGEN_GUIA_DANE.dim</Name>
+      <FullPath>GEOGRAFIA_ORIGEN_GUIA_DANE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_ORIGEN_TAREA.dim</Name>
+      <FullPath>GEOGRAFIA_ORIGEN_TAREA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_PERTENECE.dim</Name>
+      <FullPath>GEOGRAFIA_PERTENECE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_P_E.dim</Name>
+      <FullPath>GEOGRAFIA_P_E.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_RESPONSABLE.dim</Name>
+      <FullPath>GEOGRAFIA_RESPONSABLE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GEOGRAFIA_VENDEDOR.dim</Name>
+      <FullPath>GEOGRAFIA_VENDEDOR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GM RECOLECCION CDS.dim</Name>
+      <FullPath>GM RECOLECCION CDS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GM RECOLECCION ESTADOS.dim</Name>
+      <FullPath>GM RECOLECCION ESTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GM RECOLECCION MARCA.dim</Name>
+      <FullPath>GM RECOLECCION MARCA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GM RECOLECCION RECHAZOS.dim</Name>
+      <FullPath>GM RECOLECCION RECHAZOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GM RECOLECCION TIPO.dim</Name>
+      <FullPath>GM RECOLECCION TIPO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GM RECOLECCION VEJEZ.dim</Name>
+      <FullPath>GM RECOLECCION VEJEZ.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GM_HORA_DISTRIBUCION.dim</Name>
+      <FullPath>GM_HORA_DISTRIBUCION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GM_ZONA_URBANA.dim</Name>
+      <FullPath>GM_ZONA_URBANA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GUIA_REMISORIA.dim</Name>
+      <FullPath>GUIA_REMISORIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GUIA_SCN_SM.dim</Name>
+      <FullPath>GUIA_SCN_SM.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>HORA_ATENCION_CLIENTE_LLAMADAS.dim</Name>
+      <FullPath>HORA_ATENCION_CLIENTE_LLAMADAS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>HORA_DATA_MOVIL.dim</Name>
+      <FullPath>HORA_DATA_MOVIL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>HORA_MOV_POR_PROCESO_PRODUCTO_PRODUCTIVIDAD.dim</Name>
+      <FullPath>HORA_MOV_POR_PROCESO_PRODUCTO_PRODUCTIVIDAD.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>H_ENTRADA.dim</Name>
+      <FullPath>H_ENTRADA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>H_SALIDA.dim</Name>
+      <FullPath>H_SALIDA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ID_CAJA.dim</Name>
+      <FullPath>ID_CAJA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ID_FACTURA.dim</Name>
+      <FullPath>ID_FACTURA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ID_PLACA.dim</Name>
+      <FullPath>ID_PLACA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>LOGIN_EMPLEADO.dim</Name>
+      <FullPath>LOGIN_EMPLEADO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MAK_EMPL.dim</Name>
+      <FullPath>MAK_EMPL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MANEJA_CLI.dim</Name>
+      <FullPath>MANEJA_CLI.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MANEJA_CLIENTE.dim</Name>
+      <FullPath>MANEJA_CLIENTE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MANIFIESTO.dim</Name>
+      <FullPath>MANIFIESTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MECI_PS_CARGO.dim</Name>
+      <FullPath>MECI_PS_CARGO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MECI_PS_ESTRUCTURA_ORGANIZACIONAL.dim</Name>
+      <FullPath>MECI_PS_ESTRUCTURA_ORGANIZACIONAL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MECI_PS_LOCALIZACION.dim</Name>
+      <FullPath>MECI_PS_LOCALIZACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MEDIO_TRANSPORTE_CONTADOS.dim</Name>
+      <FullPath>MEDIO_TRANSPORTE_CONTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MODALIDAD_PAGO.dim</Name>
+      <FullPath>MODALIDAD_PAGO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MODELO_VEHICULO.dim</Name>
+      <FullPath>MODELO_VEHICULO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MODO_TRANSPORTE.dim</Name>
+      <FullPath>MODO_TRANSPORTE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MOTIVO_RECHAZO_RECOLECC.dim</Name>
+      <FullPath>MOTIVO_RECHAZO_RECOLECC.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MOV POR PROCESO VEHICULO.dim</Name>
+      <FullPath>MOV POR PROCESO VEHICULO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MOXP BODEGAS.dim</Name>
+      <FullPath>MOXP BODEGAS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MOXP CLIENTES.dim</Name>
+      <FullPath>MOXP CLIENTES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MOXP HORAS.dim</Name>
+      <FullPath>MOXP HORAS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MOXP MANIFIESTOS.dim</Name>
+      <FullPath>MOXP MANIFIESTOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MOXP MODO PAGO.dim</Name>
+      <FullPath>MOXP MODO PAGO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MOXP TIPO TRAYECTO.dim</Name>
+      <FullPath>MOXP TIPO TRAYECTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MOXP VEHICULOS.dim</Name>
+      <FullPath>MOXP VEHICULOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MOXP VEJEZ.dim</Name>
+      <FullPath>MOXP VEJEZ.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOMBRE_CARGO.dim</Name>
+      <FullPath>NOMBRE_CARGO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOMBRE_CARGO_VAL.dim</Name>
+      <FullPath>NOMBRE_CARGO_VAL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOMBRE_CLIENTE.dim</Name>
+      <FullPath>NOMBRE_CLIENTE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOMBRE_CLIENTE_VAL.dim</Name>
+      <FullPath>NOMBRE_CLIENTE_VAL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOMBRE_CONDUCTOR_OPERAT.dim</Name>
+      <FullPath>NOMBRE_CONDUCTOR_OPERAT.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOMBRE_EMPLEADO_VAL.dim</Name>
+      <FullPath>NOMBRE_EMPLEADO_VAL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOMBRE_EMÇLEADO.dim</Name>
+      <FullPath>NOMBRE_EMÇLEADO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOMBRE_SECTOR.dim</Name>
+      <FullPath>NOMBRE_SECTOR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOMBRE_SECTOR_VAL.dim</Name>
+      <FullPath>NOMBRE_SECTOR_VAL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOMBRE_UEN.dim</Name>
+      <FullPath>NOMBRE_UEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOVEDAD.dim</Name>
+      <FullPath>NOVEDAD.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOVEDADES_OPERATIVAS.dim</Name>
+      <FullPath>NOVEDADES_OPERATIVAS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOVEDAD_IDO.dim</Name>
+      <FullPath>NOVEDAD_IDO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NUMERO_DOC_PROBLEMA.dim</Name>
+      <FullPath>NUMERO_DOC_PROBLEMA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NUMERO_FACTURA_COD.dim</Name>
+      <FullPath>NUMERO_FACTURA_COD.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NUMERO_GUIA.dim</Name>
+      <FullPath>NUMERO_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NUMERO_GUIA_CONFIRM_SALIDA.dim</Name>
+      <FullPath>NUMERO_GUIA_CONFIRM_SALIDA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NUMERO_GUIA_DEV_ZONA_URB.dim</Name>
+      <FullPath>NUMERO_GUIA_DEV_ZONA_URB.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NUMERO_GUIA_DEV_ZONA_URB_CONT.dim</Name>
+      <FullPath>NUMERO_GUIA_DEV_ZONA_URB_CONT.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NUMERO_GUIA_MOV_VS_FAC.dim</Name>
+      <FullPath>NUMERO_GUIA_MOV_VS_FAC.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NUMERO_GUIA_PRUEBA_ENTREGA.dim</Name>
+      <FullPath>NUMERO_GUIA_PRUEBA_ENTREGA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NUMERO_GUIA_SOL_NOV_FRANQ.dim</Name>
+      <FullPath>NUMERO_GUIA_SOL_NOV_FRANQ.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NUMERO_GUIA_TIEMPO_PROCESO_ENV.dim</Name>
+      <FullPath>NUMERO_GUIA_TIEMPO_PROCESO_ENV.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NUM_FACTURA_COD_ENV_MOV.dim</Name>
+      <FullPath>NUM_FACTURA_COD_ENV_MOV.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NUM_SOLICITUD_PROV_GUIAS.dim</Name>
+      <FullPath>NUM_SOLICITUD_PROV_GUIAS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>OPERATIVO.dim</Name>
+      <FullPath>OPERATIVO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>OPERATIVOS_NOVEDADES.dim</Name>
+      <FullPath>OPERATIVOS_NOVEDADES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ORIGEN_SERVICIO.dim</Name>
+      <FullPath>ORIGEN_SERVICIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PERIODO_CONTABLE.dim</Name>
+      <FullPath>PERIODO_CONTABLE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PERIODO_CONTABLE_CONTADOS.dim</Name>
+      <FullPath>PERIODO_CONTABLE_CONTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PLAN_UNICO_CONTABLE.dim</Name>
+      <FullPath>PLAN_UNICO_CONTABLE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_CLIENTES.dim</Name>
+      <FullPath>PQR_CLIENTES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_COLABORADORES_ME.dim</Name>
+      <FullPath>PQR_COLABORADORES_ME.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_COMPENSACIONES_ID_CUN.dim</Name>
+      <FullPath>PQR_COMPENSACIONES_ID_CUN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_COMPENSACIONES_ID_PQR.dim</Name>
+      <FullPath>PQR_COMPENSACIONES_ID_PQR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_COMPENSACIONES_NUMERO_GUIA.dim</Name>
+      <FullPath>PQR_COMPENSACIONES_NUMERO_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_DETALLE_RESPONSABLE_INDEM.dim</Name>
+      <FullPath>PQR_DETALLE_RESPONSABLE_INDEM.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_EMPLEADOS_PROCESO.dim</Name>
+      <FullPath>PQR_EMPLEADOS_PROCESO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_EMPLEADOS_REGISTRO.dim</Name>
+      <FullPath>PQR_EMPLEADOS_REGISTRO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_ESTADO.dim</Name>
+      <FullPath>PQR_ESTADO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_ESTADOS_INDEMNIZACION.dim</Name>
+      <FullPath>PQR_ESTADOS_INDEMNIZACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_GEOGRAFIA.dim</Name>
+      <FullPath>PQR_GEOGRAFIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_GEOGRAFIA_PQR_INDEM_X_ORIG.dim</Name>
+      <FullPath>PQR_GEOGRAFIA_PQR_INDEM_X_ORIG.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_HORA.dim</Name>
+      <FullPath>PQR_HORA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_MOV_ESTADO_CUN.dim</Name>
+      <FullPath>PQR_MOV_ESTADO_CUN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_MOV_ESTADO_ID_PQR.dim</Name>
+      <FullPath>PQR_MOV_ESTADO_ID_PQR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_ORIGEN.dim</Name>
+      <FullPath>PQR_ORIGEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_PROCESO.dim</Name>
+      <FullPath>PQR_PROCESO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_PROCESO_COLABORADOR.dim</Name>
+      <FullPath>PQR_PROCESO_COLABORADOR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_REGIMEN.dim</Name>
+      <FullPath>PQR_REGIMEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_RESP_INDEM_CUN.dim</Name>
+      <FullPath>PQR_RESP_INDEM_CUN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_RESP_INDEM_ID_PQR.dim</Name>
+      <FullPath>PQR_RESP_INDEM_ID_PQR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_RESP_INDEM_NUMERO_GUIA.dim</Name>
+      <FullPath>PQR_RESP_INDEM_NUMERO_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_TIENE_GUIA.dim</Name>
+      <FullPath>PQR_TIENE_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_TIPOS.dim</Name>
+      <FullPath>PQR_TIPOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_TIPOS_SOLICITUDES.dim</Name>
+      <FullPath>PQR_TIPOS_SOLICITUDES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PQR_TIPO_RESPONSABLE_INDEM.dim</Name>
+      <FullPath>PQR_TIPO_RESPONSABLE_INDEM.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PROCESOS.dim</Name>
+      <FullPath>PROCESOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PROCESOS_TPE.dim</Name>
+      <FullPath>PROCESOS_TPE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PROCESO_CONCEPTO.dim</Name>
+      <FullPath>PROCESO_CONCEPTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PROCESO_CONCEPTO_2.dim</Name>
+      <FullPath>PROCESO_CONCEPTO_2.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PROCESO_LOGISTICO.dim</Name>
+      <FullPath>PROCESO_LOGISTICO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PRODUCTIV TH AUXILIAR.dim</Name>
+      <FullPath>PRODUCTIV TH AUXILIAR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PRODUCTIV TH CLIENTE MOV.dim</Name>
+      <FullPath>PRODUCTIV TH CLIENTE MOV.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PRODUCTIV TH CONDUCTOR.dim</Name>
+      <FullPath>PRODUCTIV TH CONDUCTOR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PRODUCTIV TH HORA PROC LOGISTICO.dim</Name>
+      <FullPath>PRODUCTIV TH HORA PROC LOGISTICO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PRODUCTIV TH PLACA.dim</Name>
+      <FullPath>PRODUCTIV TH PLACA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PRODUCTO CONTADOS FALTANTES.dim</Name>
+      <FullPath>PRODUCTO CONTADOS FALTANTES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PRODUCTO.dim</Name>
+      <FullPath>PRODUCTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PRODUCTOS_CONTADOS.dim</Name>
+      <FullPath>PRODUCTOS_CONTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PRODUCTO_CONT_FALTANTES.dim</Name>
+      <FullPath>PRODUCTO_CONT_FALTANTES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PRODUCTO_PROMOCION.dim</Name>
+      <FullPath>PRODUCTO_PROMOCION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PROMOCION_MICRO_MERCADEO.dim</Name>
+      <FullPath>PROMOCION_MICRO_MERCADEO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PROYECTO_COMISIONES_CONT.dim</Name>
+      <FullPath>PROYECTO_COMISIONES_CONT.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PRUEBA_CIUDADES_MOV_ORIGEN.dim</Name>
+      <FullPath>PRUEBA_CIUDADES_MOV_ORIGEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PRUEBA_ENTREGA_ESTADOS.dim</Name>
+      <FullPath>PRUEBA_ENTREGA_ESTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUNTO_SERVICIO_ORIGEN.dim</Name>
+      <FullPath>PUNTO_SERVICIO_ORIGEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>RANGO_PESO_KILOS.dim</Name>
+      <FullPath>RANGO_PESO_KILOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>RED_OPERATIVA.dim</Name>
+      <FullPath>RED_OPERATIVA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>REGIONAL.dim</Name>
+      <FullPath>REGIONAL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>REGIONAL_FACTURACION.dim</Name>
+      <FullPath>REGIONAL_FACTURACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>REGIONAL_REPORTADA.dim</Name>
+      <FullPath>REGIONAL_REPORTADA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>REG_EMPL.dim</Name>
+      <FullPath>REG_EMPL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>REQUIERE_EMPAQUE.dim</Name>
+      <FullPath>REQUIERE_EMPAQUE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>RESPONSABLE.dim</Name>
+      <FullPath>RESPONSABLE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>RESPUESTA_CONFIRMACION.dim</Name>
+      <FullPath>RESPUESTA_CONFIRMACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP CEBE GEOGRAFIA.dim</Name>
+      <FullPath>SAP CEBE GEOGRAFIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP CIIU.dim</Name>
+      <FullPath>SAP CIIU.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP FACILITADOR CODSER.dim</Name>
+      <FullPath>SAP FACILITADOR CODSER.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP FACILITADOR NIT.dim</Name>
+      <FullPath>SAP FACILITADOR NIT.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP REP CLIENTES FACTURAC.dim</Name>
+      <FullPath>SAP REP CLIENTES FACTURAC.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP REP CUENTA CONTABLE.dim</Name>
+      <FullPath>SAP REP CUENTA CONTABLE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP REP DET CARGO VENDEDOR.dim</Name>
+      <FullPath>SAP REP DET CARGO VENDEDOR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP REP DET CLIENTES FATURAC.dim</Name>
+      <FullPath>SAP REP DET CLIENTES FATURAC.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP REP DET ESFACTURADOR.dim</Name>
+      <FullPath>SAP REP DET ESFACTURADOR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP REP DET FACT UNICAS.dim</Name>
+      <FullPath>SAP REP DET FACT UNICAS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP REP DET GEOGRAFIA.dim</Name>
+      <FullPath>SAP REP DET GEOGRAFIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP REP DET NOMBRE VENDEDOR.dim</Name>
+      <FullPath>SAP REP DET NOMBRE VENDEDOR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP REP DET PRODUCTO.dim</Name>
+      <FullPath>SAP REP DET PRODUCTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP REP HOMOLOG PRODUCTOS MAT.dim</Name>
+      <FullPath>SAP REP HOMOLOG PRODUCTOS MAT.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP REP MOTIVO ANULACION.dim</Name>
+      <FullPath>SAP REP MOTIVO ANULACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP REP NUMERO FACTURA.dim</Name>
+      <FullPath>SAP REP NUMERO FACTURA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP_ASESOR_VENTA.dim</Name>
+      <FullPath>SAP_ASESOR_VENTA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP_CENTROS_BENEFICIO.dim</Name>
+      <FullPath>SAP_CENTROS_BENEFICIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP_CLIENTES.dim</Name>
+      <FullPath>SAP_CLIENTES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP_CLIENTES_PF.dim</Name>
+      <FullPath>SAP_CLIENTES_PF.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP_GEOGRAFIA.dim</Name>
+      <FullPath>SAP_GEOGRAFIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP_GEOGRAFIA_SM.dim</Name>
+      <FullPath>SAP_GEOGRAFIA_SM.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP_MINISTERIO.dim</Name>
+      <FullPath>SAP_MINISTERIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP_NUMERO_CUENTA.dim</Name>
+      <FullPath>SAP_NUMERO_CUENTA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP_PRODUCTOS.dim</Name>
+      <FullPath>SAP_PRODUCTOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP_PUC_DRILL.dim</Name>
+      <FullPath>SAP_PUC_DRILL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP_TIEMPO.dim</Name>
+      <FullPath>SAP_TIEMPO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP_TIPO_DOCUMENTO_COMERCIAL.dim</Name>
+      <FullPath>SAP_TIPO_DOCUMENTO_COMERCIAL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SAP_TIPO_MOVIMIENTO_FACTURACION.dim</Name>
+      <FullPath>SAP_TIPO_MOVIMIENTO_FACTURACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM ESTADOS ENVIO.dim</Name>
+      <FullPath>SDM ESTADOS ENVIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM ESTADOS GUIA.dim</Name>
+      <FullPath>SDM ESTADOS GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM GEOGRAFIA CIUDADES.dim</Name>
+      <FullPath>SDM GEOGRAFIA CIUDADES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM GEOGRAFIA PUNTOS.dim</Name>
+      <FullPath>SDM GEOGRAFIA PUNTOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM MOV POR PROCESO.dim</Name>
+      <FullPath>SDM MOV POR PROCESO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM MOVILIZADO.dim</Name>
+      <FullPath>SDM MOVILIZADO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM ORDEN SERVICIO TIPO TRAYECTO.dim</Name>
+      <FullPath>SDM ORDEN SERVICIO TIPO TRAYECTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM PROCESO CONCEPTO.dim</Name>
+      <FullPath>SDM PROCESO CONCEPTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM TIPO CLIENTES.dim</Name>
+      <FullPath>SDM TIPO CLIENTES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM TIPO ENVIO.dim</Name>
+      <FullPath>SDM TIPO ENVIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM TIPO GUIA.dim</Name>
+      <FullPath>SDM TIPO GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM UBICACION DESTINO.dim</Name>
+      <FullPath>SDM UBICACION DESTINO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM UBICACION.dim</Name>
+      <FullPath>SDM UBICACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_CAUSAL_INCONSISTENCIA.dim</Name>
+      <FullPath>SDM_CAUSAL_INCONSISTENCIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_CLIENTES.dim</Name>
+      <FullPath>SDM_CLIENTES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_CLIENTES_CREDITO.dim</Name>
+      <FullPath>SDM_CLIENTES_CREDITO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_ESTADOS_ENVIO.dim</Name>
+      <FullPath>SDM_ESTADOS_ENVIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_ESTADOS_FISICO.dim</Name>
+      <FullPath>SDM_ESTADOS_FISICO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_ESTADOS_GUIA.dim</Name>
+      <FullPath>SDM_ESTADOS_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_ESTADOS_INCONSISTENCIA.dim</Name>
+      <FullPath>SDM_ESTADOS_INCONSISTENCIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_ESTADOS_ORDEN SERVICIO.dim</Name>
+      <FullPath>SDM_ESTADOS_ORDEN SERVICIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_GEOGRAFIA_CIUDADES.dim</Name>
+      <FullPath>SDM_GEOGRAFIA_CIUDADES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_GEOGRAFIA_PUNTOS.dim</Name>
+      <FullPath>SDM_GEOGRAFIA_PUNTOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_GEOGRAFIA_UBICACION_DESTINO.dim</Name>
+      <FullPath>SDM_GEOGRAFIA_UBICACION_DESTINO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_GEOGRAFIA_UBICACION_ORIGEN.dim</Name>
+      <FullPath>SDM_GEOGRAFIA_UBICACION_ORIGEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_GUIAS_MASIVOS_PE.dim</Name>
+      <FullPath>SDM_GUIAS_MASIVOS_PE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_GUIAS_UTILIZADAS.dim</Name>
+      <FullPath>SDM_GUIAS_UTILIZADAS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_INCONSISTENCIAS.dim</Name>
+      <FullPath>SDM_INCONSISTENCIAS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_MOVILIZADO.dim</Name>
+      <FullPath>SDM_MOVILIZADO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_MOV_POR_PROCESO.dim</Name>
+      <FullPath>SDM_MOV_POR_PROCESO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_NOVEDADES.dim</Name>
+      <FullPath>SDM_NOVEDADES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_NUMERO_ORDEN.dim</Name>
+      <FullPath>SDM_NUMERO_ORDEN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_ORDEN_SERVICIO.dim</Name>
+      <FullPath>SDM_ORDEN_SERVICIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_ORDEN_SERVICIO_ESTADO_ENVIO.dim</Name>
+      <FullPath>SDM_ORDEN_SERVICIO_ESTADO_ENVIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_ORDEN_SERVICIO_SERVICIOS.dim</Name>
+      <FullPath>SDM_ORDEN_SERVICIO_SERVICIOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_ORDEN_SERVICIO_TIPO_EMPAQUE.dim</Name>
+      <FullPath>SDM_ORDEN_SERVICIO_TIPO_EMPAQUE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_PROCESO.dim</Name>
+      <FullPath>SDM_PROCESO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_PROCESO_CONCEPTO.dim</Name>
+      <FullPath>SDM_PROCESO_CONCEPTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_PRODUCTOS.dim</Name>
+      <FullPath>SDM_PRODUCTOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_SERVICIOS_SUBPROD.dim</Name>
+      <FullPath>SDM_SERVICIOS_SUBPROD.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_TIPO_CLIENTES.dim</Name>
+      <FullPath>SDM_TIPO_CLIENTES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_TIPO_CONTIENE.dim</Name>
+      <FullPath>SDM_TIPO_CONTIENE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_TIPO_EMPAQUE.dim</Name>
+      <FullPath>SDM_TIPO_EMPAQUE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_TIPO_ENVIO.dim</Name>
+      <FullPath>SDM_TIPO_ENVIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_TIPO_GUIA.dim</Name>
+      <FullPath>SDM_TIPO_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_TIPO_NOVEDAD.dim</Name>
+      <FullPath>SDM_TIPO_NOVEDAD.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_TIPO_TRAYECTO.dim</Name>
+      <FullPath>SDM_TIPO_TRAYECTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_UBICACION.dim</Name>
+      <FullPath>SDM_UBICACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SDM_UBICACION_DESTINO.dim</Name>
+      <FullPath>SDM_UBICACION_DESTINO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SERVICIO_A_CLIENTE.dim</Name>
+      <FullPath>SERVICIO_A_CLIENTE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL ESTADO REIMPRESION.dim</Name>
+      <FullPath>SISCL ESTADO REIMPRESION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL TIENE MANIFIESTO.dim</Name>
+      <FullPath>SISCL TIENE MANIFIESTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL TIENE SOBREPORTE.dim</Name>
+      <FullPath>SISCL TIENE SOBREPORTE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL TIPO TRAYECTO.dim</Name>
+      <FullPath>SISCL TIPO TRAYECTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL TRANSMITIDO.dim</Name>
+      <FullPath>SISCL TRANSMITIDO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_CLIENTE_CODSER.dim</Name>
+      <FullPath>SISCL_CLIENTE_CODSER.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_CLIENTE_CODSER_SCN.dim</Name>
+      <FullPath>SISCL_CLIENTE_CODSER_SCN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_CLIENTE_CODSER_SCN_GUIA.dim</Name>
+      <FullPath>SISCL_CLIENTE_CODSER_SCN_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_CLIENTE_CODSER_SM.dim</Name>
+      <FullPath>SISCL_CLIENTE_CODSER_SM.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_CLIENTE_CODSER_SM_GUIA.dim</Name>
+      <FullPath>SISCL_CLIENTE_CODSER_SM_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_CLIENTE_NIT_SCN.dim</Name>
+      <FullPath>SISCL_CLIENTE_NIT_SCN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_CLIENTE_NIT_SCN_GUIA.dim</Name>
+      <FullPath>SISCL_CLIENTE_NIT_SCN_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_CLIENTE_NIT_SM.dim</Name>
+      <FullPath>SISCL_CLIENTE_NIT_SM.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_CLIENTE_NIT_SM_GUIA.dim</Name>
+      <FullPath>SISCL_CLIENTE_NIT_SM_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_ESTADO_GUIA_CANCELADO.dim</Name>
+      <FullPath>SISCL_ESTADO_GUIA_CANCELADO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_FACILITADOR_COMERCIAL.dim</Name>
+      <FullPath>SISCL_FACILITADOR_COMERCIAL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_FACILITADOR_COMERCIAL_GUIA.dim</Name>
+      <FullPath>SISCL_FACILITADOR_COMERCIAL_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_NUMERO_GUIA_SM_SCN.dim</Name>
+      <FullPath>SISCL_NUMERO_GUIA_SM_SCN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISCL_TIPO_GUIA.dim</Name>
+      <FullPath>SISCL_TIPO_GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SISTEMA_EXTRACCION.dim</Name>
+      <FullPath>SISTEMA_EXTRACCION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SOLUCION_CONFIRMACION.dim</Name>
+      <FullPath>SOLUCION_CONFIRMACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SUBPROCESO_EMPL_ESTADO_TAREAS.dim</Name>
+      <FullPath>SUBPROCESO_EMPL_ESTADO_TAREAS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SUB_NOVEDADES_OPERATIVAS.dim</Name>
+      <FullPath>SUB_NOVEDADES_OPERATIVAS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO 1.dim</Name>
+      <FullPath>TIEMPO 1.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO 2.dim</Name>
+      <FullPath>TIEMPO 2.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO 3.dim</Name>
+      <FullPath>TIEMPO 3.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO REINCORP CLIENTE NIT.dim</Name>
+      <FullPath>TIEMPO REINCORP CLIENTE NIT.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO.dim</Name>
+      <FullPath>TIEMPO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO_CONTABILIDAD.dim</Name>
+      <FullPath>TIEMPO_CONTABILIDAD.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO_ENTREGA_CONTADOS.dim</Name>
+      <FullPath>TIEMPO_ENTREGA_CONTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO_ENTREGA_ENVIO.dim</Name>
+      <FullPath>TIEMPO_ENTREGA_ENVIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO_ENTREGA_NOVEDADES.dim</Name>
+      <FullPath>TIEMPO_ENTREGA_NOVEDADES.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO_ENVIO.dim</Name>
+      <FullPath>TIEMPO_ENVIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO_PROMESA_CUMPLE.dim</Name>
+      <FullPath>TIEMPO_PROMESA_CUMPLE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO_PRO_PLACA_CONDUCTOR.dim</Name>
+      <FullPath>TIEMPO_PRO_PLACA_CONDUCTOR.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO_REINCORP_CLIENTE_NIT.dim</Name>
+      <FullPath>TIEMPO_REINCORP_CLIENTE_NIT.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIEMPO_VCTO_CARTERA.dim</Name>
+      <FullPath>TIEMPO_VCTO_CARTERA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO GUIA.dim</Name>
+      <FullPath>TIPO GUIA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO_DIVISION_CONTADOS.dim</Name>
+      <FullPath>TIPO_DIVISION_CONTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO_DOCUMENTO_CONTADOS.dim</Name>
+      <FullPath>TIPO_DOCUMENTO_CONTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO_ENVIO.dim</Name>
+      <FullPath>TIPO_ENVIO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO_FACTURACION.dim</Name>
+      <FullPath>TIPO_FACTURACION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO_FACTURA_CONTADOS.dim</Name>
+      <FullPath>TIPO_FACTURA_CONTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO_IDP.dim</Name>
+      <FullPath>TIPO_IDP.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO_RESPONSABLE_TAREA.dim</Name>
+      <FullPath>TIPO_RESPONSABLE_TAREA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO_SOLICITANTE.dim</Name>
+      <FullPath>TIPO_SOLICITANTE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO_SOLICITUD_RECOLECC.dim</Name>
+      <FullPath>TIPO_SOLICITUD_RECOLECC.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO_TAREA.dim</Name>
+      <FullPath>TIPO_TAREA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO_VEHICULO.dim</Name>
+      <FullPath>TIPO_VEHICULO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO_VEHICULO_OPERATIVO.dim</Name>
+      <FullPath>TIPO_VEHICULO_OPERATIVO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TIPO_VINCULACION_ESTADO_TAREAS.dim</Name>
+      <FullPath>TIPO_VINCULACION_ESTADO_TAREAS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TRANSM_RETAIL_W_ESTADO_TRANSMISION.dim</Name>
+      <FullPath>TRANSM_RETAIL_W_ESTADO_TRANSMISION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>TRANSM_RETAIL_W_HORA.dim</Name>
+      <FullPath>TRANSM_RETAIL_W_HORA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>T_SOLICITUD_M_AYUDA.dim</Name>
+      <FullPath>T_SOLICITUD_M_AYUDA.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>UBICACION CONTADOS.dim</Name>
+      <FullPath>UBICACION CONTADOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>UEN PROD SUBP 1.dim</Name>
+      <FullPath>UEN PROD SUBP 1.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>UEN PROD SUBP.dim</Name>
+      <FullPath>UEN PROD SUBP.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>UEN_PRODUCTO_SUBPRODUCTO.dim</Name>
+      <FullPath>UEN_PRODUCTO_SUBPRODUCTO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>UEN_PROD_SUBP.dim</Name>
+      <FullPath>UEN_PROD_SUBP.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>USO_VEHICULO.dim</Name>
+      <FullPath>USO_VEHICULO.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>VEHICULOS.dim</Name>
+      <FullPath>VEHICULOS.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>VEHICULOS_DATA_MOVIL.dim</Name>
+      <FullPath>VEHICULOS_DATA_MOVIL.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>V_PORC_DESC.dim</Name>
+      <FullPath>V_PORC_DESC.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ZONA_URBANA_DISTRIBUCION.dim</Name>
+      <FullPath>ZONA_URBANA_DISTRIBUCION.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>SIG_COL_LOGISTICA_DW.ds</Name>
+      <FullPath>SIG_COL_LOGISTICA_DW.ds</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SIG_COL_SAP_DW.ds</Name>
+      <FullPath>SIG_COL_SAP_DW.ds</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SIG_COL_SDM_DW.ds</Name>
+      <FullPath>SIG_COL_SDM_DW.ds</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SIG_LOGISTICA_DM.ds</Name>
+      <FullPath>SIG_LOGISTICA_DM.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>SIG_COL_LOGISTICA_DW.dsv</Name>
+      <FullPath>SIG_COL_LOGISTICA_DW.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SIG_COL_LOGISTICA_SDM_DW.dsv</Name>
+      <FullPath>SIG_COL_LOGISTICA_SDM_DW.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SIG_COL_SAP_DW.dsv</Name>
+      <FullPath>SIG_COL_SAP_DW.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SIG_LOGISTICA_DM.dsv</Name>
+      <FullPath>SIG_LOGISTICA_DM.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SIG_MECI_LOGISTICA_DW.dsv</Name>
+      <FullPath>SIG_MECI_LOGISTICA_DW.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SIG_PQR_LOGISTICA_DW.dsv</Name>
+      <FullPath>SIG_PQR_LOGISTICA_DW.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SIG_PS_MECI_LOGISTICA_DW.dsv</Name>
+      <FullPath>SIG_PS_MECI_LOGISTICA_DW.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SIG_SDM_LOGISTICA_DW.dsv</Name>
+      <FullPath>SIG_SDM_LOGISTICA_DW.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
+  <MiningModels>
+    <ProjectItem>
+      <Name>Intervalo Estructura.dmm</Name>
+      <FullPath>Intervalo Estructura.dmm</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Tabla1 Estructura.dmm</Name>
+      <FullPath>Tabla1 Estructura.dmm</FullPath>
+    </ProjectItem>
+  </MiningModels>
+  <Roles>
+    <ProjectItem>
+      <Name>ALL.role</Name>
+      <FullPath>ALL.role</FullPath>
+    </ProjectItem>
+  </Roles>
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>SIG_COL_LOGISTICA_DW</Id>
+            <Name>SIG_COL_LOGISTICA_DW</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SERV-DBI01;Integrated Security=SSPI;Initial Catalog=SIG_COL_LOGISTICA_DW</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>SIG_LOGISTICA_DM</Id>
+            <Name>SIG_LOGISTICA_DM</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SERV-DBI01;Integrated Security=SSPI;Initial Catalog=SIG_LOGISTICA_DM</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>SIG_COL_SDM_DW</Id>
+            <Name>SIG_COL_SDM_DW</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SERV-DBI01;Integrated Security=SSPI;Initial Catalog=SIG_COL_SDM_DW</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>SIG_COL_SAP_DW</Id>
+            <Name>SIG_COL_SAP_DW</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=SERV-DBI01;Integrated Security=SSPI;Initial Catalog=SIG_COL_SAP_DW</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>SIG_COL_LOGISTICA_DW</Id>
+            <Name>SIG_COL_LOGISTICA_DW</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>SIG_LOGISTICA_DM</Id>
+            <Name>SIG_LOGISTICA_DM</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>SIG_COL_SDM_DW</Id>
+            <Name>SIG_COL_SDM_DW</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>SIG_COL_SAP_DW</Id>
+            <Name>SIG_COL_SAP_DW</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+        <DeploymentServerEdition>EnterpriseCore</DeploymentServerEdition>
+      </Options>
+    </Configuration>
+  </Configurations>
+  <References>
+    <ReferenceItem>
+      <ID>ASSP</ID>
+      <Name>ASSP</Name>
+      <FullPath>assemblies\assp\ASSP.dll</FullPath>
+      <Description>Analysis Services Stored Procedures sample project http://www.codeplex.com/ASStoredProcedures</Description>
+      <PermissionSet>Unrestricted</PermissionSet>
+    </ReferenceItem>
+  </References>
+</Project>

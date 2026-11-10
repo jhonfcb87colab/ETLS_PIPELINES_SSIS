@@ -1,0 +1,179 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="448fe881-0ae7-4b80-8cbc-dc1fde07ed3d" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>GM_HORA_DISTRIBUCION</ID>
+  <Name>GM_HORA_DISTRIBUCION</Name>
+  <CreatedTimestamp>2018-06-22T14:33:13.793333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2021-12-15T15:41:48.753333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-09-27T12:05:24.053333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="6dba5695-4263-4762-87ad-4fd4152cd36e">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="607f0864-f266-4778-bf8a-d3c89eec5c95">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>NO DISPONIBLE</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="526f1377-3223-4371-b444-18277c8199b6">
+      <ID>HORA REPORTE</ID>
+      <Name>HORA REPORTE</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1a7fc2ac-ba5c-4558-b83d-fb32ac2b30cc">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5de6b854-d05e-4736-9379-9987740caaf5">
+            <TableID>DIM_GM_HORA_DISTRIBUCION</TableID>
+            <ColumnID>ID_HORA_REPR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="54ef3464-6f37-40c3-9d5b-7089e9cda647">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f12a347e-2389-425d-b800-83a41841dc07">
+          <TableID>DIM_GM_HORA_DISTRIBUCION</TableID>
+          <ColumnID>HORA_REPR</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="c6f21d42-bc97-4632-b64a-97e31c5e919c">
+          <AttributeID>GRUPO GESTION EN LINEA</AttributeID>
+          <Name>GRUPO GESTION EN LINEA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c1aca3af-cb38-4a56-9868-bee718ff3cda">
+          <AttributeID>GRUPO EFECTIVIDAD</AttributeID>
+          <Name>GRUPO EFECTIVIDAD</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="55a5b2b2-8677-46ad-9c04-18b684005835">
+          <AttributeID>OPERATIVO</AttributeID>
+          <Name>OPERATIVO</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8c993454-8499-42d6-b9be-024ab5b3fcd3">
+      <ID>GRUPO GESTION EN LINEA</ID>
+      <Name>GRUPO GESTION EN LINEA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d75a0b10-6a38-4e0a-a68e-2454cd38bb8f">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="49231b6e-2197-4af9-92b8-60db34b36778">
+            <TableID>DIM_GM_HORA_DISTRIBUCION</TableID>
+            <ColumnID>ID_GRUPO_HDOS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ef36dad5-6dbf-4180-8666-b290764622ac">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="330f2408-f943-49ad-83ed-278e5bd7bc64">
+          <TableID>DIM_GM_HORA_DISTRIBUCION</TableID>
+          <ColumnID>GRUPO_HDOS</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="272662fe-c66f-4f2f-9d01-d8c104aad510">
+      <ID>GRUPO EFECTIVIDAD</ID>
+      <Name>GRUPO EFECTIVIDAD</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9cbf3c69-2464-4168-93ac-f2712a8a19f5">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7a79574e-ce96-4359-a72b-4c257ad48df8">
+            <TableID>DIM_GM_HORA_DISTRIBUCION</TableID>
+            <ColumnID>ID_GRUPO_HDIST</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a3338dd9-f071-4f0a-a125-382e14ed3642">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6df00a3e-3faa-4409-8eec-bc97e1f4cb2c">
+          <TableID>DIM_GM_HORA_DISTRIBUCION</TableID>
+          <ColumnID>GRUPO_HDIST</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="339a7b7c-208a-47d7-94e6-c76178ece4ae">
+      <ID>OPERATIVO</ID>
+      <Name>OPERATIVO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="02d5f60c-3354-471d-98d6-cfb7fdeaaf3f">
+          <DataType>WChar</DataType>
+          <DataSize>12</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7dca6a1f-b14b-4fef-8102-f14bb70533f5">
+            <TableID>DIM_GM_HORA_DISTRIBUCION</TableID>
+            <ColumnID>OPERATIVO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a8799778-f63e-413b-aee7-ee73f386ed3d">
+        <DataType>WChar</DataType>
+        <DataSize>12</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="7facbe70-c97f-4c5d-8b97-d0e9b54a4de3">
+          <TableID>DIM_GM_HORA_DISTRIBUCION</TableID>
+          <ColumnID>OPERATIVO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching dwd:design-time-name="f8a41abb-1c3b-43f3-8bb3-30ec3f5e4a84">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="bfef891e-9ea4-45c4-bebe-6cf6b22da4c8" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

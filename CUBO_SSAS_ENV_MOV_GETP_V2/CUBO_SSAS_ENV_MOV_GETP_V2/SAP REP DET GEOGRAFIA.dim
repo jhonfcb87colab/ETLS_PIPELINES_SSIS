@@ -1,0 +1,198 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="77f9e060-d9c9-47e6-ae0c-05f89830a130" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SAP REP DET GEOGRAFIA</ID>
+  <Name>SAP REP DET GEOGRAFIA</Name>
+  <CreatedTimestamp>2018-09-07T16:37:28.353333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2018-09-07T17:14:45.13Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-11-03T12:01:50.82Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="cc5a291b-88ec-418b-b895-185fb7a5b64d">
+    <DataSourceViewID>SIG_COL_SAP_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="cdd5e564-2181-4c7f-b751-da0b50557159">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>NO DISPONIBLE</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="40ccac7b-46ff-4664-b82f-1b285bc835a6">
+      <ID>CIUDAD</ID>
+      <Name>CIUDAD</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="728bba6c-1707-439f-bbf6-c8e370176789">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f6bdbcaf-8a76-4d8c-8570-539b62f4d768">
+            <TableID>DIM_SAP_REP_DET_GEOGRAFIA</TableID>
+            <ColumnID>ID_CIUDAD</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="1711b912-fda9-4e84-b65e-11901fbee378">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="961c7352-5824-4f8a-976c-35af7b9d9f8e">
+          <TableID>DIM_SAP_REP_DET_GEOGRAFIA</TableID>
+          <ColumnID>NOMBRE_CIUDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="c4336166-508b-48c4-9333-8346f72a20f5">
+          <AttributeID>REGIONAL</AttributeID>
+          <Name>REGIONAL</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8cbbcf55-e46f-4fdd-8055-989f3c851a8f">
+          <AttributeID>ID CIUDAD</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>CC CIUDAD</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2c6d4c8c-467b-465f-9651-ca53d895dd1f">
+      <ID>REGIONAL</ID>
+      <Name>REGIONAL</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ad0242bf-1c62-48da-abda-f92032166cfa">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0803d95b-ec51-4568-b8e5-4024b12f5dd9">
+            <TableID>DIM_SAP_REP_DET_GEOGRAFIA</TableID>
+            <ColumnID>ID_REGIONAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d1b4ea1f-718c-4896-8f49-50821fd42b11">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d6fa5ad3-2955-4758-868f-66f57da54957">
+          <TableID>DIM_SAP_REP_DET_GEOGRAFIA</TableID>
+          <ColumnID>NOMBRE_REGIONAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ddaceb96-212b-44e5-abb8-0289e004679c">
+      <ID>ID CIUDAD</ID>
+      <Name>CC CIUDAD</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b8d6d688-b806-4d08-ab1a-ba7b86044309">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e645ae18-60e3-48e0-9986-901d2288f286">
+            <TableID>DIM_SAP_REP_DET_GEOGRAFIA</TableID>
+            <ColumnID>ID_CIUDAD</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0c158c29-06de-4cea-a577-1977c3cd7057">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="916e5537-a9eb-46d3-822f-e9a70a35e337">
+          <TableID>DIM_SAP_REP_DET_GEOGRAFIA</TableID>
+          <ColumnID>NOMBRE_CIUDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="664ab3b1-8f97-4e7d-8463-d0d82fa0ea08">
+          <AttributeID>ID REGIONAL</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>CC REGIONAL</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4022ab1e-9b9e-406a-8a84-422ced580226">
+      <ID>ID REGIONAL</ID>
+      <Name>CC REGIONAL</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4903cfc0-f117-49cd-9ef8-0bc670af01ca">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5f09735a-edc4-4741-af35-6c426440ffa0">
+            <TableID>DIM_SAP_REP_DET_GEOGRAFIA</TableID>
+            <ColumnID>ID_REGIONAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b2026b49-d8f5-4384-a10d-f43de947e81e">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="75093b09-2760-437c-a7eb-7ca4d2768cd9">
+          <TableID>DIM_SAP_REP_DET_GEOGRAFIA</TableID>
+          <ColumnID>NOMBRE_REGIONAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="972cebdb-56c1-41fb-9d52-324d674dcd34">
+      <ID>Hierarchy</ID>
+      <Name>REGIONAL - CIUDAD</Name>
+      <Levels>
+        <Level dwd:design-time-name="11948743-5ba3-468d-9d89-99dc7818bcf5">
+          <ID>CC REGIONAL</ID>
+          <Name>REGIONAL</Name>
+          <SourceAttributeID>ID REGIONAL</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="82b0f752-77d3-491b-a24c-b0e4aa8e7877">
+          <ID>CC CIUDAD</ID>
+          <Name>CIUDAD</Name>
+          <SourceAttributeID>ID CIUDAD</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="556b99a1-7b13-4656-9f3c-15fcffb69617">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="e3ce95d6-e3c4-46e7-b5d1-710d5e316d7b" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

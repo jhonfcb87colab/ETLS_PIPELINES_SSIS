@@ -1,0 +1,149 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="99ecea57-47db-4b46-9155-20aed5c14ed7" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>OPERATIVOS_NOVEDADES</ID>
+  <Name>OPERATIVOS_NOVEDADES</Name>
+  <CreatedTimestamp>2021-02-09T16:07:04.54Z</CreatedTimestamp>
+  <LastSchemaUpdate>2021-12-02T14:23:54.16Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-10-06T16:34:03.32Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="2b3d0731-88e9-4715-b1b2-7589b32b2029">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>NO DISPONIBLE</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="33b0102b-6e15-4a98-9b97-1109fb6a9874">
+      <ID>OPERATIVO</ID>
+      <Name>Nombre Operativo</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>407</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8aa3c36e-bbd0-46f5-83c2-d6b11cf0cc6a">
+          <DataType>WChar</DataType>
+          <DataSize>36</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d4cdf8e2-2a5f-4720-a6ec-5e86edfbb9ed">
+            <TableID>DIM_OPERATIVOS</TableID>
+            <ColumnID>Clave_Operativo_Novedad</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="1ef7f4ca-4162-4922-acc8-87f9d8c0ab0e">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5cdfbede-2658-4c17-aea9-1a73a11a62f7">
+          <TableID>DIM_OPERATIVOS</TableID>
+          <ColumnID>NOMBRE_OPERATIVO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="d2f8026b-8070-44e4-9cf4-fa87f7cbf183">
+          <AttributeID>MEDIO TRANSPORTE</AttributeID>
+          <Name>Medio Transporte</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="54ba7eb0-cca6-45ff-bd4a-045a3398cc03">
+          <AttributeID>TIPO OPERATIVO</AttributeID>
+          <Name>Tipo Operativo</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ea523e31-d89b-4b9f-b585-7abc838d3373">
+      <ID>MEDIO TRANSPORTE</ID>
+      <Name>Medio Transporte</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e575c055-0482-47e4-938e-f19375d03284">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a2296ead-bde0-4bfc-80d6-21c145907f19">
+            <TableID>DIM_OPERATIVOS</TableID>
+            <ColumnID>MEDIO_TRANSPORTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d2e36789-e278-46bc-8ac7-1ec49ce4a4b1">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="286b2070-2066-49ad-a6cd-9d580839714d">
+          <TableID>DIM_OPERATIVOS</TableID>
+          <ColumnID>MEDIO_TRANSPORTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0cf2ce8d-2ef7-4af7-8f05-bcd8ac96e854">
+      <ID>TIPO OPERATIVO</ID>
+      <Name>Tipo Operativo</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="43f0eadb-1c6f-412e-9d2e-050a6ba0896b">
+          <DataType>WChar</DataType>
+          <DataSize>7</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1958f823-bd6d-4543-bc64-df41afbaeb05">
+            <TableID>DIM_OPERATIVOS</TableID>
+            <ColumnID>TIPO_OPERATIVO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="3a5d8d7e-94d6-4b64-86c2-760eee849617">
+        <DataType>WChar</DataType>
+        <DataSize>7</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2eaa2e39-2846-483b-abed-777e007d97d3">
+          <TableID>DIM_OPERATIVOS</TableID>
+          <ColumnID>TIPO_OPERATIVO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>TODOS</AttributeAllMemberName>
+  <ProactiveCaching dwd:design-time-name="269a799d-0f6e-446a-9d8d-5d2872a7b7a1">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="bf45e5c0-96c9-4fc5-88d7-74a42d610b6d" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

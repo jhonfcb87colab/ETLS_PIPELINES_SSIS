@@ -1,0 +1,445 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="5d0285a9-cf1a-429e-8a53-6739b26b861f" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Cliente con Movimiento</ID>
+  <Name>CLIENTE_CON_MOVIMIENTO</Name>
+  <CreatedTimestamp>2013-01-11T22:32:57.42Z</CreatedTimestamp>
+  <LastSchemaUpdate>2022-06-10T14:43:50.06Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-247" scrolltop="-4763" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7726" y="14208" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="CLIENTES_MOVIMIENTO" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="5741" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000800006d16000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DIM_CLIENTES_MOVIMIENTO" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-247</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-4763</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="141">
+            <Shape Id="ID CLIENTE" Expanded="true">
+              <Attributes>
+                <Attribute Id="ID CLIENTE" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="RANGO PERMANENCIA" Expanded="false">
+              <Attributes>
+                <Attribute Id="RANGO PERMANENCIA" />
+              </Attributes>
+              <Position x="201" y="20" />
+            </Shape>
+            <Shape Id="SECTOR ECON" Expanded="false">
+              <Attributes>
+                <Attribute Id="SECTOR ECON" />
+              </Attributes>
+              <Position x="201" y="68" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-10-06T13:22:04.2Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="d6e3262e-58d3-4b26-b7ec-1430427f766f">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="e3fa0d66-4979-40f1-9487-5828d84b47d1">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="72a30cf8-8e7c-4bd0-b65b-5d2556d97e83">
+      <ID>ID CLIENTE</ID>
+      <Name>Nombre Cliente</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>10727</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bba93f7e-4e78-4b07-acd3-deea5c730499">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="58cdd8e3-05d8-40aa-a0b2-2841bfa1ea4a">
+            <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+            <ColumnID>ID_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="934788ed-d712-4523-91a8-deb4cf4b8538">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="42adf1d6-d5f7-415b-b0f5-becaa8f3be07">
+          <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+          <ColumnID>NOMBRE_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="05433625-c8db-442e-8234-9cbb1228d16b">
+          <AttributeID>SECTOR ECON</AttributeID>
+          <Name>Sector Econ</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="949e2a3a-3f15-4aa8-a593-ae06a5d582d4">
+          <AttributeID>RANGO PERMANENCIA</AttributeID>
+          <Name>Rango Permanencia</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="45f65719-5cd8-4f53-99cd-1bbe0751c513">
+          <AttributeID>CIIU</AttributeID>
+          <Name>CIIU</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d5a0d248-9946-4073-a4f7-f01fc4e610b8">
+          <AttributeID>ACTIV ECON</AttributeID>
+          <Name>Actividad Econ</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c14ace4b-b819-47cd-8840-510da16625cf">
+          <AttributeID>SECCION</AttributeID>
+          <Name>SECCION</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e7a75705-70f2-4df7-a2dc-744cf6fd64cc">
+          <AttributeID>DIVISION</AttributeID>
+          <Name>DIVISION</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1dafaf91-873c-46c8-ad93-41d61ad35aa9">
+          <AttributeID>CLASE</AttributeID>
+          <Name>CLASE</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="68baa623-3077-4ca5-bce3-112123619e66">
+          <AttributeID>GRUPO</AttributeID>
+          <Name>GRUPO</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e25be8a4-1dce-4e4c-926e-44faa714acfd">
+      <ID>SECTOR ECON</ID>
+      <Name>Sector Econ</Name>
+      <EstimatedCount>8</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="414f195d-29cf-4ad1-8f8c-f497f8f5c38a">
+          <DataType>WChar</DataType>
+          <DataSize>25</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="21b9be18-79a5-4788-9ce7-ba0a40dc6ee7">
+            <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+            <ColumnID>SECTOR_ECON</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2ce0eabf-c4c8-4846-8e1d-9a43e1998f7a">
+        <DataType>WChar</DataType>
+        <DataSize>25</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="eb96abe1-5c29-47d3-9d4e-c3f0a9865777">
+          <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+          <ColumnID>SECTOR_ECON</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7abf3f12-6195-4614-8116-395d78a8ea65">
+      <ID>RANGO PERMANENCIA</ID>
+      <Name>Rango Permanencia</Name>
+      <EstimatedCount>13</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="11f07ce7-1f43-491a-814c-3613eea80238">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9de150fb-e8d0-4872-9736-1556aeb5ee6d">
+            <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+            <ColumnID>RANGO_PERMANENCIA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="12b2aabd-5fdf-46c9-bbd5-50d8f2ceae74">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="67fbfdba-6d74-4727-80a2-ac21159c56b1">
+          <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+          <ColumnID>RANGO_PERMANENCIA</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="51fe6255-c7ee-43aa-9ccb-82fdc51a6b9e">
+      <ID>CIIU</ID>
+      <Name>CIIU</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="73b7fb23-9caf-4ea3-a0b9-bf52fbfe111f">
+          <DataType>WChar</DataType>
+          <DataSize>25</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="21544444-632d-4213-b26e-31a58da9c4af">
+            <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+            <ColumnID>CIIU</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4287a88d-7031-4085-9161-76a401df4c19">
+        <DataType>WChar</DataType>
+        <DataSize>25</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="cfb78df5-f9a4-43bd-83ad-a2925736fe08">
+          <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+          <ColumnID>CIIU</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5eefa610-cd79-4faa-a978-18dc452e1b05">
+      <ID>ACTIV ECON</ID>
+      <Name>Actividad Econ</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4002daab-5896-4236-8f19-63db325564b9">
+          <DataType>WChar</DataType>
+          <DataSize>25</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0d73a50e-b3dc-47d7-be55-c3008ee4b0d8">
+            <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+            <ColumnID>ACTIV_ECON</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="5c2ca292-ad6e-4459-8db3-71cf816890dd">
+        <DataType>WChar</DataType>
+        <DataSize>25</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b09cb6b9-2d67-49c8-9f5e-12727e97d2cd">
+          <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+          <ColumnID>ACTIV_ECON</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="839d5029-a0de-4c39-bde2-fb5cff202186">
+      <ID>SECCION</ID>
+      <Name>SECCION</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="34fed77f-2aa0-4643-b649-53ce57a7c77f">
+          <DataType>WChar</DataType>
+          <DataSize>232</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="21b6d469-d63c-430e-84cb-687fc1ea1504">
+            <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+            <ColumnID>SECCION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b17953d0-9b42-413a-8557-3d5d1aad23f0">
+        <DataType>WChar</DataType>
+        <DataSize>232</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a39747e3-343b-4b92-91fd-c4504d50f8ce">
+          <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+          <ColumnID>SECCION</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d4e30619-fcff-48a7-b9c3-612f45186441">
+      <ID>DIVISION</ID>
+      <Name>DIVISION</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9797dfaa-7e38-48fd-acbc-c37d41166dff">
+          <DataType>WChar</DataType>
+          <DataSize>227</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c43ea857-2e64-4bae-b1f6-f829b5a549e1">
+            <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+            <ColumnID>DIVISION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="82f2debb-2be9-41af-8f8c-dd7650204224">
+        <DataType>WChar</DataType>
+        <DataSize>227</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e0a4d9b7-3d87-49be-9cfa-ac300b3ff205">
+          <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+          <ColumnID>DIVISION</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5fa61eeb-7a37-4964-a3c2-a5c97378737b">
+      <ID>CLASE</ID>
+      <Name>CLASE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="59e71bfa-893e-4011-b4c3-8fe6492d2959">
+          <DataType>WChar</DataType>
+          <DataSize>227</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a4f5775e-0338-40c0-b3fe-10cfb5b92744">
+            <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+            <ColumnID>CLASE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d6c71d1e-0b12-4641-a028-a2aecd3c8fdf">
+        <DataType>WChar</DataType>
+        <DataSize>227</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="08699811-2f82-4ba2-8d9b-5a53cefd6421">
+          <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+          <ColumnID>CLASE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d6f0ec9b-4991-4c9b-a5ae-4d94c7337a2f">
+      <ID>GRUPO</ID>
+      <Name>GRUPO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e2ea2d95-3385-4c63-bb05-668a8d8b23fe">
+          <DataType>WChar</DataType>
+          <DataSize>227</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e627caef-c0b8-483d-9610-133174725290">
+            <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+            <ColumnID>GRUPO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="95f7f32f-43ce-4b5d-bea8-8cc18b2ba2d5">
+        <DataType>WChar</DataType>
+        <DataSize>227</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c235a577-47ef-42a3-8627-5abc59f31b8d">
+          <TableID>DIM_CLIENTES_MOVIMIENTO</TableID>
+          <ColumnID>GRUPO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Cliente_con_Movimiento</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="88d14486-eede-489b-b334-bd149d666c3a">
+      <ID>Hierarchy 1</ID>
+      <Name>Sector_Econ</Name>
+      <AllMemberName>All Sector_Econ</AllMemberName>
+      <Levels>
+        <Level dwd:design-time-name="9f3b39a9-9c5b-4d53-9bb7-89b550c6ac70">
+          <ID>Nombre Cliente</ID>
+          <Name>Nombre Cliente</Name>
+          <SourceAttributeID>ID CLIENTE</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="61651a1c-208d-4bad-92bf-54ef43467b95">
+          <ID>Sector Econ</ID>
+          <Name>Sector Econ</Name>
+          <SourceAttributeID>SECTOR ECON</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="5792c2a5-e7f6-4a01-920b-ac76ceb27145">
+          <ID>Actividad Econ</ID>
+          <Name>Actividad Econ</Name>
+          <SourceAttributeID>ACTIV ECON</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="d7cddf90-c5a2-4bda-bfba-5748878ac90f">
+          <ID>CIIU</ID>
+          <Name>CIIU</Name>
+          <SourceAttributeID>CIIU</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="fd202c51-f0e7-4a7e-ba2c-dc13477dd513">
+      <ID>Hierarchy</ID>
+      <Name>Rango Permanencia_Client</Name>
+      <AllMemberName>All Rango_Permanencia_Client</AllMemberName>
+      <Levels>
+        <Level dwd:design-time-name="a457e225-3988-4789-bdef-5eaf09e50ffb">
+          <ID>Rango Permanencia</ID>
+          <Name>Rango Permanencia</Name>
+          <SourceAttributeID>RANGO PERMANENCIA</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="29a7fd8c-57f8-45cb-ab8d-9dff837d84e2">
+      <ID>Hierarchy 2</ID>
+      <Name>SAP CIIU</Name>
+      <Levels>
+        <Level dwd:design-time-name="59728bb1-b640-4c5e-851d-659bb9167aff">
+          <ID>SECCION</ID>
+          <Name>SECCION</Name>
+          <SourceAttributeID>SECCION</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="e2a76ceb-31eb-4ddd-b884-e3697dd8148d">
+          <ID>DIVISION</ID>
+          <Name>DIVISION</Name>
+          <SourceAttributeID>DIVISION</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="1141b715-5273-4332-a0b1-3c2fec01c562">
+          <ID>GRUPO</ID>
+          <Name>GRUPO</Name>
+          <SourceAttributeID>GRUPO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="aa300ca3-da08-450d-8670-6ccc41956ef7">
+          <ID>CLASE</ID>
+          <Name>CLASE</Name>
+          <SourceAttributeID>CLASE</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="0cac87e6-9fce-4235-95fb-ebcc7bbb1e8e">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="bd5f75e0-c935-4802-b541-5c0ea2bf16d0" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -1,0 +1,745 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/26/2019 10:51:04 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D_SERV-DBI01"
+  DTS:CreatorName="SERVIENT\jeison.coy.out"
+  DTS:DTSID="{09A66A03-067E-40F9-A269-E364C6EFE2AB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="EXTRAER_LSTSSFACE"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{4B280E92-2A9F-44A9-BA51-87EC4154A99A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{03FFEE82-5C1B-47D9-9E56-5BA6F08C2F36}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{931C0F5A-25BC-4906-9CE2-E51AFEEBEF47}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Transportar"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\Audit"
+                  componentClassID="Microsoft.Lineage"
+                  contactInfo="Audit;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Includes data about the environment in which the package runs. Map system variables to new output columns. For example, add the name of the computer and operator to the data flow."
+                  name="Audit">
+                  <inputs>
+                    <input
+                      refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\Audit.Inputs[Audit Input 1]"
+                      name="Audit Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\Audit.Outputs[Audit Output 1]"
+                      exclusionGroup="1"
+                      name="Audit Output 1"
+                      synchronousInputId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\Audit.Inputs[Audit Input 1]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]"
+                          dataType="date"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]"
+                          name="FECHA_EXTRACCION_DW">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies which audit item this column produces."
+                              name="LineageItemSelected"
+                              typeConverter="LineageItemSelected">4</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[PAR].[TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">ROWS_PER_BATCH = 1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">0</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{D18A7BEB-EEA8-48E8-BF45-DB69B0250A40}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SERV-DBI01 SIG_COLOMBIA_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_TIPO_MOVIMIENTO]"
+                          cachedDataType="ui1"
+                          cachedName="ID_TIPO_MOVIMIENTO"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPO_MOVIMIENTO]"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIPO_MOVIMIENTO]" />
+                        <inputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NOMBRE_TIPO_MOVIMIENTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NOMBRE_TIPO_MOVIMIENTO"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_TIPO_MOVIMIENTO]"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_TIPO_MOVIMIENTO]" />
+                        <inputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DESCRIPCION_TIPO_MOVIMIENTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="DESCRIPCION_TIPO_MOVIMIENTO"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPCION_TIPO_MOVIMIENTO]"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DESCRIPCION_TIPO_MOVIMIENTO]" />
+                        <inputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ESTADO_TIPO_MOVIMIENTO]"
+                          cachedDataType="bool"
+                          cachedName="ESTADO_TIPO_MOVIMIENTO"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO_TIPO_MOVIMIENTO]"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[ESTADO_TIPO_MOVIMIENTO]" />
+                        <inputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LOGIN_CREACION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="LOGIN_CREACION"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_CREACION]"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_CREACION]" />
+                        <inputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_CREACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_CREACION"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]" />
+                        <inputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LOGIN_MODIFICACION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="LOGIN_MODIFICACION"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_MODIFICACION]"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_MODIFICACION]" />
+                        <inputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_MODIFICACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_MODIFICACION"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]" />
+                        <inputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_EXTRACCION_DW]"
+                          cachedDataType="date"
+                          cachedName="FECHA_EXTRACCION_DW"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPO_MOVIMIENTO]"
+                          dataType="ui1"
+                          name="ID_TIPO_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_TIPO_MOVIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NOMBRE_TIPO_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPCION_TIPO_MOVIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="DESCRIPCION_TIPO_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO_TIPO_MOVIMIENTO]"
+                          dataType="bool"
+                          name="ESTADO_TIPO_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_CREACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="LOGIN_CREACION" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_CREACION" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_MODIFICACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="LOGIN_MODIFICACION" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_MODIFICACION" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_EXTRACCION_DW" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+       [ID_TIPO_MOVIMIENTO]
+      ,[NOMBRE_TIPO_MOVIMIENTO]
+      ,UPPER([DESCRIPCION_TIPO_MOVIMIENTO]) DESCRIPCION_TIPO_MOVIMIENTO
+      ,[ESTADO_TIPO_MOVIMIENTO]
+      ,[LOGIN_CREACION]
+      ,[FECHA_CREACION]
+      ,[LOGIN_MODIFICACION]
+      ,[FECHA_MODIFICACION]
+  FROM [dbo].[TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS] WITH(NOLOCK)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{1F3F1236-7F80-4CDC-8209-0C4900042D29}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[FacturacionElectronica]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIPO_MOVIMIENTO]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPO_MOVIMIENTO]"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIPO_MOVIMIENTO]"
+                          name="ID_TIPO_MOVIMIENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_TIPO_MOVIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_TIPO_MOVIMIENTO]"
+                          length="100"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_TIPO_MOVIMIENTO]"
+                          name="NOMBRE_TIPO_MOVIMIENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DESCRIPCION_TIPO_MOVIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPCION_TIPO_MOVIMIENTO]"
+                          length="500"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DESCRIPCION_TIPO_MOVIMIENTO]"
+                          name="DESCRIPCION_TIPO_MOVIMIENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[ESTADO_TIPO_MOVIMIENTO]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ESTADO_TIPO_MOVIMIENTO]"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[ESTADO_TIPO_MOVIMIENTO]"
+                          name="ESTADO_TIPO_MOVIMIENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_CREACION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_CREACION]"
+                          length="15"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_CREACION]"
+                          name="LOGIN_CREACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                          name="FECHA_CREACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_MODIFICACION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_MODIFICACION]"
+                          length="15"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_MODIFICACION]"
+                          name="LOGIN_MODIFICACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                          name="FECHA_MODIFICACION"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPO_MOVIMIENTO]"
+                          dataType="ui1"
+                          name="ID_TIPO_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_TIPO_MOVIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NOMBRE_TIPO_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPCION_TIPO_MOVIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="DESCRIPCION_TIPO_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ESTADO_TIPO_MOVIMIENTO]"
+                          dataType="bool"
+                          name="ESTADO_TIPO_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_CREACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="LOGIN_CREACION" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_CREACION" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_MODIFICACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="LOGIN_MODIFICACION" />
+                        <externalMetadataColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_MODIFICACION" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_TIPO_MOVIMIENTO]"
+                          dataType="ui1"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_TIPO_MOVIMIENTO]"
+                          name="ID_TIPO_MOVIMIENTO" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_TIPO_MOVIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_TIPO_MOVIMIENTO]"
+                          name="NOMBRE_TIPO_MOVIMIENTO" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DESCRIPCION_TIPO_MOVIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DESCRIPCION_TIPO_MOVIMIENTO]"
+                          name="DESCRIPCION_TIPO_MOVIMIENTO" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ESTADO_TIPO_MOVIMIENTO]"
+                          dataType="bool"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ESTADO_TIPO_MOVIMIENTO]"
+                          name="ESTADO_TIPO_MOVIMIENTO" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOGIN_CREACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOGIN_CREACION]"
+                          name="LOGIN_CREACION" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                          name="FECHA_CREACION" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOGIN_MODIFICACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOGIN_MODIFICACION]"
+                          name="LOGIN_MODIFICACION" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                          name="FECHA_MODIFICACION" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar.Paths[Audit Output 1]"
+                  endId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Audit Output 1"
+                  startId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\Audit.Outputs[Audit Output 1]" />
+                <path
+                  refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar.Paths[OLE DB Source Output]"
+                  endId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\Audit.Inputs[Audit Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Truncar PAR"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1060FD0E-F14B-4737-9E36-58785F2F2265}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncar PAR"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D18A7BEB-EEA8-48E8-BF45-DB69B0250A40}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [PAR].[TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{A7BDD554-876B-4CE9-857C-D52097DE79BA}"
+          DTS:From="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Truncar PAR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="134.4,41.6"
+          Id="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar"
+          TopLeft="95,95.7647058930777" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Truncar PAR"
+          TopLeft="90,20" />
+        <EdgeLayout
+          Id="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS.PrecedenceConstraints[Constraint]"
+          TopLeft="160.5,61.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.1647058930777"
+              Start="0,0"
+              End="0,26.6647058930777">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.6647058930777" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="368.8,190.4"
+          Size="368.8,233.6"
+          Id="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS"
+          TopLeft="254.5,45.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="103.2,41.6"
+          Id="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\Audit"
+          TopLeft="403,139" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source"
+          TopLeft="382.28571427355,58" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination"
+          TopLeft="365,213" />
+        <EdgeLayout
+          Id="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar.Paths[OLE DB Source Output]"
+          TopLeft="456.042857136775,99.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.4"
+              Start="0,0"
+              End="0,31.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar.Paths[Audit Output 1]"
+          TopLeft="452.5,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PAR_TIPOS_MOVIMIENTOS_FACTURAS_ELECTRONICAS\Transportar\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

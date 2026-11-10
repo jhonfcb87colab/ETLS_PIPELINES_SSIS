@@ -1,0 +1,236 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="9c00fd9e-b801-41f1-bc1b-c14727bc19c1" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>MOXP VEHICULOS</ID>
+  <Name>MOXP VEHICULOS</Name>
+  <CreatedTimestamp>2021-02-10T11:13:43.103333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2021-02-10T11:17:15.276667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-11-03T04:33:25.746667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="0a74eef5-5edf-45ad-9850-b0fc701e94bc">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="98937893-b286-44c5-9200-d210d4262c68">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>NO DISPONIBLE</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="6ee2cbcc-8a14-4834-9b66-884111a0ae54">
+      <ID>PLACA VEHICULO</ID>
+      <Name>PLACA VEHICULO</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4efcb529-6f73-4df9-8c6f-472d0e898ba2">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b34afd0a-dfc2-4c91-b430-eb3a5dd8db0d">
+            <TableID>DIM_MOXP_VEHICULOS</TableID>
+            <ColumnID>PLACA_VEHICULO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="818d1862-4272-4784-948f-72bfb16761db">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a1facbc5-9f84-4f8e-8dc6-a2c0d24e2a03">
+          <TableID>DIM_MOXP_VEHICULOS</TableID>
+          <ColumnID>PLACA_VEHICULO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="268b2911-ab9e-462f-ba91-fcea49e55a1f">
+          <AttributeID>TIPO VEHICULO</AttributeID>
+          <Name>TIPO VEHICULO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="71c9e686-df48-4048-abe9-c117a879b5b4">
+          <AttributeID>EMPRESA TRANSPORTADORA</AttributeID>
+          <Name>EMPRESA TRANSPORTADORA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="43a9b0f8-c031-4bea-bcfa-d618da047754">
+          <AttributeID>CAPA PESO VEHICULO</AttributeID>
+          <Name>CAPA PESO VEHICULO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9fb19190-bdaf-4047-a956-d0fc93723ca3">
+          <AttributeID>CAPA VOLU VEHICULO</AttributeID>
+          <Name>CAPA VOLU VEHICULO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e1d29f54-5626-4046-a0e2-c4f6dfa47830">
+          <AttributeID>MODELO</AttributeID>
+          <Name>MODELO</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8c3bd565-8e86-4ed5-b46d-44c96d99dfc5">
+      <ID>TIPO VEHICULO</ID>
+      <Name>TIPO VEHICULO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="91b057c6-b8e3-4db9-ae3e-51946149ff7e">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e55e6976-b3c5-49f5-bb7b-d6a72124085b">
+            <TableID>DIM_MOXP_VEHICULOS</TableID>
+            <ColumnID>TIPO_VEHICULO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e5f3073c-1441-4d92-8c32-8b857fe803c0">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="163e1173-78a2-4d6a-bc8f-8ce8784c5943">
+          <TableID>DIM_MOXP_VEHICULOS</TableID>
+          <ColumnID>TIPO_VEHICULO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b2541d09-eed8-405f-ae57-b117b899a015">
+      <ID>EMPRESA TRANSPORTADORA</ID>
+      <Name>EMPRESA TRANSPORTADORA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="da417eab-6a9a-4c4d-941a-2ade27fedd3c">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fb9cbc5d-21c7-48ba-94bf-070653bba570">
+            <TableID>DIM_MOXP_VEHICULOS</TableID>
+            <ColumnID>EMPRESA_TRANSPORTADORA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d14b72fa-f7c2-48d4-94e5-a66d0cb5273b">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e450e248-53f7-4ad3-98b9-8a6ffd73aabc">
+          <TableID>DIM_MOXP_VEHICULOS</TableID>
+          <ColumnID>EMPRESA_TRANSPORTADORA</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ca8b038a-7932-4a10-a33c-9e99ce226c9e">
+      <ID>CAPA PESO VEHICULO</ID>
+      <Name>CAPA PESO VEHICULO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="77796d2c-137b-4feb-912d-0a75535ef3cb">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d31aeef1-424c-403f-af7a-900681c195e6">
+            <TableID>DIM_MOXP_VEHICULOS</TableID>
+            <ColumnID>CAPA_PESO_VEHICULO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="8b1e0988-2da0-49ba-a161-100bf165acea">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="75604366-40e8-4812-8fc0-a95149b65536">
+          <TableID>DIM_MOXP_VEHICULOS</TableID>
+          <ColumnID>CAPA_PESO_VEHICULO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2faa5111-9127-4945-b9e5-eff292f4b866">
+      <ID>CAPA VOLU VEHICULO</ID>
+      <Name>CAPA VOLU VEHICULO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4d8e76cd-7b70-43c0-b034-dea5faee3a29">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1f4e1204-46c8-4583-9f23-c9f82649826e">
+            <TableID>DIM_MOXP_VEHICULOS</TableID>
+            <ColumnID>CAPA_VOLU_VEHICULO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="3ea68b8f-0153-4669-bee4-cbeb0bd87185">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b3e676c3-3b79-47dd-9e20-2a96befd1d8f">
+          <TableID>DIM_MOXP_VEHICULOS</TableID>
+          <ColumnID>CAPA_VOLU_VEHICULO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f3d1d2c6-2116-4888-b7b8-027d853353a8">
+      <ID>MODELO</ID>
+      <Name>MODELO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="88c5b58b-a4d5-4b6c-87d2-53d15c9d78a8">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="82f90d47-5e2b-43d3-8916-93f23f2f891e">
+            <TableID>DIM_MOXP_VEHICULOS</TableID>
+            <ColumnID>MODELO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="69459589-17e2-4bf6-baa2-44b67a957458">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="bda0516f-6f14-4d52-80b1-81fe644b69bc">
+          <TableID>DIM_MOXP_VEHICULOS</TableID>
+          <ColumnID>MODELO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>TODOS</AttributeAllMemberName>
+  <ProactiveCaching dwd:design-time-name="e6734ae0-17e4-421d-9740-5622646e648f">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="8e73e5fd-ff3d-4317-928b-fbfa505e97b7" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -1,0 +1,234 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="efeca4eb-1774-4a2c-a66e-5e7477aa31b7" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>GEOGRAFIA_DESTINO_TAREA</ID>
+  <Name>GEOGRAFIA_DESTINO_TAREA</Name>
+  <CreatedTimestamp>2013-01-11T22:34:53.033333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-01-11T22:34:53.033333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="6" scrolltop="-2778" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="95" x="5027" y="10028" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="CIUDAD_DESTINO_TAREA" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="5265" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000800009114000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DIM_CIUDAD_DESTINO_TAREA" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>6</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-2778</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>95</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="170">
+            <Shape Id="Clave Dimension" Expanded="false">
+              <Attributes>
+                <Attribute Id="Clave Dimension" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="NOMBRE CIUDAD" Expanded="false">
+              <Attributes>
+                <Attribute Id="NOMBRE CIUDAD" />
+              </Attributes>
+              <Position x="237" y="20" />
+            </Shape>
+            <Shape Id="NOMBRE REGIONAL" Expanded="false">
+              <Attributes>
+                <Attribute Id="NOMBRE REGIONAL" />
+              </Attributes>
+              <Position x="455" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-09-27T12:06:01.093333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="21d5cf73-27c7-4265-a629-068950368020">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="bb8b653c-25af-4d75-8e06-9e4ac625010f">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="79f60cb9-fafd-4edb-b109-8382ca1d73f2">
+      <ID>Clave Dimension</ID>
+      <Name>Clave Dimension</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>9603</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a84b1bd5-f05f-4511-a6c5-6e89120ec2d9">
+          <DataType>WChar</DataType>
+          <DataSize>34</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="19542a66-3bcf-421f-8b21-e3c982ed1bec">
+            <TableID>DIM_CIUDAD_DESTINO_TAREA</TableID>
+            <ColumnID>Clave_Dimension</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="92f34f91-e749-4443-b2ab-7d5b82a07559">
+        <DataType>WChar</DataType>
+        <DataSize>34</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c3bd7010-12be-42f6-ad56-06ae34bd9f2f">
+          <TableID>DIM_CIUDAD_DESTINO_TAREA</TableID>
+          <ColumnID>Clave_Dimension</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="debd52bb-7250-4cdb-96b8-b4109e6258ff">
+          <AttributeID>NOMBRE CIUDAD</AttributeID>
+          <Name>Ciudad_Destino_Tarea</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="05396980-0b6a-406a-995e-3a4c375b200a">
+      <ID>NOMBRE CIUDAD</ID>
+      <Name>Ciudad_Destino_Tarea</Name>
+      <EstimatedCount>9603</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d6cefa3c-378f-496a-aca2-d40db6f5b4cb">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="089fb63a-741b-4e63-b4f8-bb5782ca5f73">
+            <TableID>DIM_CIUDAD_DESTINO_TAREA</TableID>
+            <ColumnID>NOMBRE_CIUDAD</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="247900ec-c256-442f-ad07-74447cdb9a5c">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="888a29dc-e8b9-4200-b29c-ce23b7a664ed">
+          <TableID>DIM_CIUDAD_DESTINO_TAREA</TableID>
+          <ColumnID>NOMBRE_CIUDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="99d5c45d-39c0-4ffe-8d4e-f47dcf092f75">
+          <AttributeID>NOMBRE REGIONAL</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Regional_Destino_Tarea</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2dfa89bc-498d-4aee-be7c-03073f78746d">
+      <ID>NOMBRE REGIONAL</ID>
+      <Name>Regional_Destino_Tarea</Name>
+      <EstimatedCount>11</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d5b09d3e-ac34-407a-9896-bed133a76e0a">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ecbd6ce2-c5a2-40b9-a55e-6ac5afb3a620">
+            <TableID>DIM_CIUDAD_DESTINO_TAREA</TableID>
+            <ColumnID>NOMBRE_REGIONAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e41f22f1-ce08-440c-bd20-2ae7f4ec1073">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="85511430-0f2f-4c93-9668-08561fc7ff3e">
+          <TableID>DIM_CIUDAD_DESTINO_TAREA</TableID>
+          <ColumnID>NOMBRE_REGIONAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Nombre Regional</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="bc76b35d-3ba4-44d8-942e-610ee1f22994">
+      <ID>Hierarchy</ID>
+      <Name>GEOGRAFIA_DESTINO_TAREA</Name>
+      <Levels>
+        <Level dwd:design-time-name="28a3e643-c350-48ea-9855-6d6effe1b3e2">
+          <ID>Regional_Destino_Tarea</ID>
+          <Name>Regional_Destino_Tarea</Name>
+          <SourceAttributeID>NOMBRE REGIONAL</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="174db3a0-4931-411a-8dd7-5e96a9efe21a">
+          <ID>Ciudad_Destino_Tarea</ID>
+          <Name>Ciudad_Destino_Tarea</Name>
+          <SourceAttributeID>NOMBRE CIUDAD</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="d1b1315e-e0f4-408e-bf8e-165ddb5c8df2">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="cd5cf826-98c3-4032-aee7-8a3ed7f50925" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

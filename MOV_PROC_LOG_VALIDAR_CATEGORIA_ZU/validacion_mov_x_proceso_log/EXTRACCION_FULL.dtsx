@@ -1,0 +1,1708 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/5/2020 2:10:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D_SERV-DBI01"
+  DTS:CreatorName="SERVIENT\luisd.vargas.out"
+  DTS:DTSID="{6F913A96-7879-4A7D-8773-6B7382279CDC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:ForceExecutionResult="0"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="EXTRACCION_FULL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="125"
+  DTS:VersionGUID="{E5FA6492-2DB0-4592-B834-8335ACB70FF7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D3208E15-EC39-46A6-82B7-EC812428E916}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DATE) @[$Project::FULL_FACH_FIN] == (DT_DATE) &quot;1900-01-01&quot;?&#xA;&#xA; (DT_DATE)((DT_WSTR,4)YEAR(DATEADD(&quot;MM&quot;, -22, GETDATE()))+&quot;-&quot;&#xA;+RIGHT(&quot;0&quot;+(DT_WSTR,2)MONTH(DATEADD(&quot;MM&quot;,-22,GETDATE() )),2)+&quot;-15&quot;)&#xA;:(DT_DATE) @[$Project::FULL_FACH_FIN]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FechaFin">
+      <DTS:VariableValue
+        DTS:DataType="7">12/15/2024</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C3077FF8-55CD-4478-9DEC-934AD8A7CB4D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DATE) @[$Project::FULL_FACH_INI]  == (DT_DATE) &quot;1900-01-01&quot;?&#xA;&#xA;(DT_DATE)((DT_WSTR,4)YEAR(DATEADD(&quot;MM&quot;, -22, GETDATE()))+&quot;-&quot;&#xA;+RIGHT(&quot;0&quot;+(DT_WSTR,2)MONTH(DATEADD(&quot;MM&quot;,-22,GETDATE() )),2)+&quot;-01&quot;)&#xA;:(DT_DATE) @[$Project::FULL_FACH_INI]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FechaIni">
+      <DTS:VariableValue
+        DTS:DataType="7">12/1/2024</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9EC6188A-6D19-42CA-B6B8-80DAEC350176}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="DATEADD(&quot;Month&quot;,3,GETDATE())"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable">
+      <DTS:VariableValue
+        DTS:DataType="7">1/30/2027 4:19:03 PM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Obtener Fuentes - Fact"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{C2629D17-09EA-406B-94A1-657ABA0D4288}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Obtener Fuentes - Fact">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Obtener Fuentes - Fact\Transportar"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{70B682B9-422E-4929-BC95-047F00364552}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Transportar"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[TMP].[MOXP_01]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">9000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{A947580C-C7C7-4E60-B63D-7A9EA12E8F3A}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SERV-DBI01.SIG_COLOMBIA_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GU_ID_CIUDAD_ORIGEN]"
+                          cachedDataType="i4"
+                          cachedName="GU_ID_CIUDAD_ORIGEN"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_CIUDAD_ORIGEN]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_CIUDAD_ORIGEN]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GU_ID_CIUDAD_DESTINO]"
+                          cachedDataType="i4"
+                          cachedName="GU_ID_CIUDAD_DESTINO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_CIUDAD_DESTINO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_CIUDAD_DESTINO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GU_ID_TIEMPO]"
+                          cachedDataType="ui1"
+                          cachedName="GU_ID_TIEMPO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_TIEMPO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_TIEMPO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GU_ID_PRODUCTO]"
+                          cachedDataType="i2"
+                          cachedName="GU_ID_PRODUCTO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_PRODUCTO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_PRODUCTO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GU_ID_SUBPRODUCTO]"
+                          cachedDataType="i2"
+                          cachedName="GU_ID_SUBPRODUCTO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_SUBPRODUCTO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_SUBPRODUCTO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GU_ID_TIPOGUIA]"
+                          cachedDataType="ui1"
+                          cachedName="GU_ID_TIPOGUIA"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_TIPOGUIA]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_TIPOGUIA]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SE_NUMERO_GUIA]"
+                          cachedDataType="numeric"
+                          cachedName="SE_NUMERO_GUIA"
+                          cachedPrecision="20"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_NUMERO_GUIA]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_NUMERO_GUIA]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SE_FECHA_HORA_MOVIMIENTO]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="SE_FECHA_HORA_MOVIMIENTO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_FECHA_HORA_MOVIMIENTO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_FECHA_HORA_MOVIMIENTO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SE_ID_CONCEPTO]"
+                          cachedDataType="ui1"
+                          cachedName="SE_ID_CONCEPTO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_ID_CONCEPTO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_ID_CONCEPTO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SE_ID_TIPOENVIO]"
+                          cachedDataType="ui1"
+                          cachedName="SE_ID_TIPOENVIO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_ID_TIPOENVIO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_ID_TIPOENVIO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SE_NUMERO_PIEZAS]"
+                          cachedDataType="i2"
+                          cachedName="SE_NUMERO_PIEZAS"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_NUMERO_PIEZAS]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_NUMERO_PIEZAS]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SE_PESO_ENVIO]"
+                          cachedDataType="numeric"
+                          cachedName="SE_PESO_ENVIO"
+                          cachedPrecision="8"
+                          cachedScale="3"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_PESO_ENVIO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_PESO_ENVIO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_PROCESO]"
+                          cachedDataType="i2"
+                          cachedName="DC_ID_PROCESO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_PROCESO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_PROCESO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_CIUDAD_CANAL]"
+                          cachedDataType="i4"
+                          cachedName="DC_ID_CIUDAD_CANAL"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_CIUDAD_CANAL]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_CANAL]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_CIUDAD_ZONA_URBA]"
+                          cachedDataType="i4"
+                          cachedName="DC_ID_CIUDAD_ZONA_URBA"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_CIUDAD_ZONA_URBA]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_ZONA_URBA]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_CIUDAD_DIVISION_ORIGEN]"
+                          cachedDataType="i4"
+                          cachedName="DC_ID_CIUDAD_DIVISION_ORIGEN"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_CIUDAD_DIVISION_ORIGEN]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_DIVISION_ORIGEN]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_CIUDAD_DESTINO]"
+                          cachedDataType="i4"
+                          cachedName="DC_ID_CIUDAD_DESTINO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_CIUDAD_DESTINO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_DESTINO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_DIVISION_ORIGEN]"
+                          cachedDataType="i4"
+                          cachedName="DC_ID_DIVISION_ORIGEN"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_DIVISION_ORIGEN]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_DIVISION_ORIGEN]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_DIVISION_DESTINO]"
+                          cachedDataType="i4"
+                          cachedName="DC_ID_DIVISION_DESTINO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_DIVISION_DESTINO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_DIVISION_DESTINO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_NUMERO_MOVI]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DC_NUMERO_MOVI"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_NUMERO_MOVI]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_NUMERO_MOVI]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_CONSECUT_MOVI]"
+                          cachedDataType="numeric"
+                          cachedName="DC_CONSECUT_MOVI"
+                          cachedPrecision="7"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_CONSECUT_MOVI]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_CONSECUT_MOVI]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_PLACA_VEHICULO_DOCU]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="DC_PLACA_VEHICULO_DOCU"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_PLACA_VEHICULO_DOCU]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_PLACA_VEHICULO_DOCU]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_TIPO_ZONA_URBA]"
+                          cachedDataType="ui1"
+                          cachedName="DC_ID_TIPO_ZONA_URBA"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_TIPO_ZONA_URBA]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_TIPO_ZONA_URBA]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_ZONA_URBA]"
+                          cachedDataType="i2"
+                          cachedName="DC_ID_ZONA_URBA"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_ZONA_URBA]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_ZONA_URBA]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_PAIS_OPERATIVO]"
+                          cachedDataType="i2"
+                          cachedName="DC_ID_PAIS_OPERATIVO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_PAIS_OPERATIVO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_PAIS_OPERATIVO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_CIUDAD_OPERATIVO]"
+                          cachedDataType="i4"
+                          cachedName="DC_ID_CIUDAD_OPERATIVO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_CIUDAD_OPERATIVO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_OPERATIVO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_OPERATIVO]"
+                          cachedDataType="i2"
+                          cachedName="DC_ID_OPERATIVO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_OPERATIVO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_OPERATIVO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ESTADO_MOVIMI]"
+                          cachedDataType="ui1"
+                          cachedName="DC_ESTADO_MOVIMI"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ESTADO_MOVIMI]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ESTADO_MOVIMI]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_PAIS_DIVISION_ORIGEN]"
+                          cachedDataType="i2"
+                          cachedName="DC_ID_PAIS_DIVISION_ORIGEN"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_PAIS_DIVISION_ORIGEN]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_PAIS_DIVISION_ORIGEN]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GU_ID_CLIENTE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="GU_ID_CLIENTE"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_CLIENTE]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_CLIENTE]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DC_ID_PAIS_DESTINO]"
+                          cachedDataType="i2"
+                          cachedName="DC_ID_PAIS_DESTINO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_PAIS_DESTINO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_PAIS_DESTINO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GU_FECHA_ENVIO]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="GU_FECHA_ENVIO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_FECHA_ENVIO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_FECHA_ENVIO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SE_ID_ESTA_FISICO]"
+                          cachedDataType="ui1"
+                          cachedName="SE_ID_ESTA_FISICO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_ID_ESTA_FISICO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_ID_ESTA_FISICO]" />
+                        <inputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GU_ID_ESTADOENVIO]"
+                          cachedDataType="ui1"
+                          cachedName="GU_ID_ESTADOENVIO"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_ESTADOENVIO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_ESTADOENVIO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_CIUDAD_ORIGEN]"
+                          dataType="i4"
+                          name="GU_ID_CIUDAD_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          name="GU_ID_CIUDAD_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_TIEMPO]"
+                          dataType="ui1"
+                          name="GU_ID_TIEMPO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_PRODUCTO]"
+                          dataType="i2"
+                          name="GU_ID_PRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_SUBPRODUCTO]"
+                          dataType="i2"
+                          name="GU_ID_SUBPRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_TIPOGUIA]"
+                          dataType="ui1"
+                          name="GU_ID_TIPOGUIA" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="SE_NUMERO_GUIA"
+                          precision="20" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_FECHA_HORA_MOVIMIENTO]"
+                          dataType="dbTimeStamp"
+                          name="SE_FECHA_HORA_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_ID_CONCEPTO]"
+                          dataType="ui1"
+                          name="SE_ID_CONCEPTO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_ID_TIPOENVIO]"
+                          dataType="ui1"
+                          name="SE_ID_TIPOENVIO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_NUMERO_PIEZAS]"
+                          dataType="i2"
+                          name="SE_NUMERO_PIEZAS" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_PESO_ENVIO]"
+                          dataType="numeric"
+                          name="SE_PESO_ENVIO"
+                          precision="8"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_PROCESO]"
+                          dataType="i2"
+                          name="DC_ID_PROCESO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_CIUDAD_CANAL]"
+                          dataType="i4"
+                          name="DC_ID_CIUDAD_CANAL" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_CIUDAD_ZONA_URBA]"
+                          dataType="i4"
+                          name="DC_ID_CIUDAD_ZONA_URBA" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_CIUDAD_DIVISION_ORIGEN]"
+                          dataType="i4"
+                          name="DC_ID_CIUDAD_DIVISION_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          name="DC_ID_CIUDAD_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_DIVISION_ORIGEN]"
+                          dataType="i4"
+                          name="DC_ID_DIVISION_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_DIVISION_DESTINO]"
+                          dataType="i4"
+                          name="DC_ID_DIVISION_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_NUMERO_MOVI]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DC_NUMERO_MOVI" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_CONSECUT_MOVI]"
+                          dataType="numeric"
+                          name="DC_CONSECUT_MOVI"
+                          precision="7" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_PLACA_VEHICULO_DOCU]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="DC_PLACA_VEHICULO_DOCU" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_TIPO_ZONA_URBA]"
+                          dataType="ui1"
+                          name="DC_ID_TIPO_ZONA_URBA" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_ZONA_URBA]"
+                          dataType="i2"
+                          name="DC_ID_ZONA_URBA" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_PAIS_OPERATIVO]"
+                          dataType="i2"
+                          name="DC_ID_PAIS_OPERATIVO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_CIUDAD_OPERATIVO]"
+                          dataType="i4"
+                          name="DC_ID_CIUDAD_OPERATIVO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_OPERATIVO]"
+                          dataType="i2"
+                          name="DC_ID_OPERATIVO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ESTADO_MOVIMI]"
+                          dataType="ui1"
+                          name="DC_ESTADO_MOVIMI" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_ID_HORA]"
+                          dataType="i4"
+                          name="SE_ID_HORA" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GR_ID_TIPO_COBRO]"
+                          dataType="i4"
+                          name="GR_ID_TIPO_COBRO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GU_ID_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_PAIS_DIVISION_ORIGEN]"
+                          dataType="i2"
+                          name="DC_ID_PAIS_DIVISION_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_PAIS_DESTINO]"
+                          dataType="i2"
+                          name="DC_ID_PAIS_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DC_ID_MOXP_BODEGA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DC_ID_MOXP_BODEGA" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_ID_FECHA_EZU]"
+                          dataType="dbTimeStamp"
+                          name="SE_ID_FECHA_EZU" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_FECHA_ENVIO]"
+                          dataType="dbTimeStamp"
+                          name="GU_FECHA_ENVIO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_VEJEZ_CALE]"
+                          dataType="i4"
+                          name="ID_VEJEZ_CALE" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_VEJEZ_HABIL]"
+                          dataType="i4"
+                          name="ID_VEJEZ_HABIL" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_FECHA_HORA_MOVIMIENTO_FIN]"
+                          dataType="dbTimeStamp"
+                          name="SE_FECHA_HORA_MOVIMIENTO_FIN" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_FECHA_HORA_MOVIMIENTO_INI]"
+                          dataType="dbTimeStamp"
+                          name="SE_FECHA_HORA_MOVIMIENTO_INI" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_ID_DIA_HABIL_INI]"
+                          dataType="i4"
+                          name="SE_ID_DIA_HABIL_INI" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_ID_DIA_HABIL_FIN]"
+                          dataType="i4"
+                          name="SE_ID_DIA_HABIL_FIN" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_TIPO_TRAYECTO]"
+                          dataType="i4"
+                          name="GU_ID_TIPO_TRAYECTO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SE_ID_ESTA_FISICO]"
+                          dataType="i4"
+                          name="SE_ID_ESTA_FISICO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GU_ID_ESTADOENVIO]"
+                          dataType="ui1"
+                          name="GU_ID_ESTADOENVIO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRIR_NUME_ORDE_SERVI]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GRIR_NUME_ORDE_SERVI" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRIR_NUMERO_APROBACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GRIR_NUMERO_APROBACION" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRIR_ID_MODAL_PAGO]"
+                          dataType="i4"
+                          name="GRIR_ID_MODAL_PAGO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRIR_MODAL_PAGO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GRIR_MODAL_PAGO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRIR_VALOR_X_RECAUDAR]"
+                          dataType="r8"
+                          name="GRIR_VALOR_X_RECAUDAR" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRIR_VALOR_RECAUDADO]"
+                          dataType="r8"
+                          name="GRIR_VALOR_RECAUDADO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRIR_VALOR_SALDO]"
+                          dataType="r8"
+                          name="GRIR_VALOR_SALDO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRIR_NUMERO_CODI_EFECTY]"
+                          dataType="i4"
+                          name="GRIR_NUMERO_CODI_EFECTY" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TC_ID_PROCESO]"
+                          dataType="i4"
+                          name="TC_ID_PROCESO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TC_BODEGA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TC_BODEGA" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TC_OPERATIVO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TC_OPERATIVO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TC_ID_AUXILIAR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="TC_ID_AUXILIAR" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TC_NOMBRE_AUXILIAR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="TC_NOMBRE_AUXILIAR" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EF_PROYECTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="EF_PROYECTO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EF_PAP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="EF_PAP" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EF_ID_FECHA_RECAUDO]"
+                          dataType="dbTimeStamp"
+                          name="EF_ID_FECHA_RECAUDO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EF_NIT_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="EF_NIT_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EF_NOMBRE_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="EF_NOMBRE_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EF_ORDEN_SERVICIO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="EF_ORDEN_SERVICIO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EF_VALOR]"
+                          dataType="r8"
+                          name="EF_VALOR" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GR_ID_ESTADO_LEGALIZADO]"
+                          dataType="i4"
+                          name="GR_ID_ESTADO_LEGALIZADO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GR_ESTADO_LEGALIZADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="GR_ESTADO_LEGALIZADO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GR_ID_ESTADO_RECAUDO]"
+                          dataType="i4"
+                          name="GR_ID_ESTADO_RECAUDO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GR_ESTADO_RECAUDO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="GR_ESTADO_RECAUDO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_EST_CONCEPTO]"
+                          dataType="ui1"
+                          name="ID_EST_CONCEPTO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_EST_PROCESO]"
+                          dataType="ui1"
+                          name="ID_EST_PROCESO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CARACT_ENTREGA]"
+                          dataType="i4"
+                          name="ID_CARACT_ENTREGA" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TipoPruebaEntrega]"
+                          dataType="i4"
+                          name="ID_TipoPruebaEntrega" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ModoEntrega]"
+                          dataType="i4"
+                          name="ID_ModoEntrega" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">--DECLARE @FECHA_INI DATE = '2022-11-13';
+--DECLARE @FECHA_FIN DATE = '2022-11-25';
+
+DECLARE @FECHA_INI DATE = ? ;
+DECLARE @FECHA_FIN DATE = ? ;
+
+WITH SEGUI_ENVIO AS (
+	SELECT  
+		 NUMERO_GUIA
+		,FECHA_HORA_MOVIMIENTO
+		,ID_CONCEPTO
+		,ID_TIPOENVIO
+		,NUMERO_PIEZAS
+		,PESO_ENVIO
+		,ID_ESTA_FISICO
+		,ID_PROCESO
+		,NUMERO_MOVIMI
+		,CONSECUT_MOVIMI
+	FROM  DBO.SEGUIMIENTO_ENVIO AS SE WITH (NOLOCK, INDEX(IX_FECHA_HORA_MOVIMIENTO_BI))   
+	WHERE
+		SE.FECHA_HORA_MOVIMIENTO &gt;= @FECHA_INI
+	AND
+		SE.FECHA_HORA_MOVIMIENTO &lt; @FECHA_FIN
+)
+, GUIA_SEGUI AS (
+SELECT 
+	SE.NUMERO_GUIA
+	,SE.FECHA_HORA_MOVIMIENTO
+	,SE.ID_CONCEPTO
+	,SE.ID_TIPOENVIO
+	,SE.NUMERO_PIEZAS
+	,SE.PESO_ENVIO
+	,SE.ID_ESTA_FISICO
+	,SE.ID_PROCESO
+	,SE.NUMERO_MOVIMI
+	,SE.CONSECUT_MOVIMI
+	,GU.ID_TIPOGUIA 
+	,GU.ID_CIUDAD_ORIGEN 
+	,GU.ID_CIUDAD_DESTINO
+	,GU.ID_TIEMPO 
+	,GU.ID_PRODUCTO 
+	,GU.ID_SUBPRODUCTO 
+	,GU.ID_CLIENTE 
+	,GU.FECHA_ENVIO 
+    ,GU.ID_ESTADOENVIO 
+FROM SEGUI_ENVIO AS SE 
+INNER JOIN .GUIAS GU WITH (NOLOCK, INDEX(PK_GUIAS_NEW))
+ON	SE.NUMERO_GUIA = GU.NUMERO_GUIA
+)
+
+SELECT  
+	 SE.NUMERO_GUIA AS SE_NUMERO_GUIA
+	,SE.FECHA_HORA_MOVIMIENTO AS SE_FECHA_HORA_MOVIMIENTO
+	,SE.ID_CONCEPTO AS SE_ID_CONCEPTO
+	,SE.ID_TIPOENVIO AS SE_ID_TIPOENVIO
+	,SE.NUMERO_PIEZAS AS SE_NUMERO_PIEZAS
+	,SE.PESO_ENVIO AS SE_PESO_ENVIO
+	,DC.ID_PROCESO AS DC_ID_PROCESO
+	,DC.NUMERO_MOVIMI AS DC_NUMERO_MOVI
+	,DC.CONSECUT_MOVIMI AS DC_CONSECUT_MOVI
+	,DC.ID_CIUDAD_CANAL AS DC_ID_CIUDAD_CANAL
+	,DC.ID_CIUDAD_ZONA_URBA AS DC_ID_CIUDAD_ZONA_URBA
+	,DC.ID_PAIS_DIVISION_ORIGEN AS DC_ID_PAIS_DIVISION_ORIGEN
+	,DC.ID_CIUDAD_DIVISION_ORIGEN AS DC_ID_CIUDAD_DIVISION_ORIGEN
+	,DC.ID_DIVISION_ORIGEN AS DC_ID_DIVISION_ORIGEN
+	,DC.ID_PAIS_DESTINO AS DC_ID_PAIS_DESTINO
+	,DC.ID_CIUDAD_DESTINO AS DC_ID_CIUDAD_DESTINO
+	,DC.ID_DIVISION_DESTINO AS DC_ID_DIVISION_DESTINO
+	,DC.PLACA_VEHICULO_DOCU AS DC_PLACA_VEHICULO_DOCU
+	,DC.ID_TIPO_ZONA_URBA AS DC_ID_TIPO_ZONA_URBA
+	,DC.ID_ZONA_URBA AS DC_ID_ZONA_URBA
+	,DC.ID_PAIS_OPERATIVO AS DC_ID_PAIS_OPERATIVO
+	,DC.ID_CIUDAD_OPERATIVO AS DC_ID_CIUDAD_OPERATIVO
+	,DC.ID_OPERATIVO AS DC_ID_OPERATIVO
+	,DC.ESTADO_MOVIMI AS DC_ESTADO_MOVIMI
+	,SE.ID_TIPOGUIA AS GU_ID_TIPOGUIA
+	,SE.ID_CIUDAD_ORIGEN AS GU_ID_CIUDAD_ORIGEN
+	,SE.ID_CIUDAD_DESTINO AS GU_ID_CIUDAD_DESTINO
+	,SE.ID_TIEMPO AS GU_ID_TIEMPO
+	,SE.ID_PRODUCTO AS GU_ID_PRODUCTO
+	,SE.ID_SUBPRODUCTO AS GU_ID_SUBPRODUCTO
+	,SE.ID_CLIENTE AS GU_ID_CLIENTE
+	,SE.FECHA_ENVIO AS GU_FECHA_ENVIO
+                   ,SE.ID_ESTADOENVIO AS GU_ID_ESTADOENVIO
+                   ,SE.ID_ESTA_FISICO AS SE_ID_ESTA_FISICO
+
+FROM
+	DBO.DOCUMENTOS DC WITH(NOLOCK, INDEX(PK_DOCUMENTOS_NEW))
+INNER JOIN
+	GUIA_SEGUI SE WITH (NOLOCK)   
+ON	(DC.ID_PROCESO = SE.ID_PROCESO
+AND	DC.NUMERO_MOVIMI = SE.NUMERO_MOVIMI
+AND	DC.CONSECUT_MOVIMI = SE.CONSECUT_MOVIMI)
+AND	(DC.ID_PROCESO IN (5,6,7,8,9,10,11,12,14,15,16,17,18,19,20,21,24,25,28))</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{C3077FF8-55CD-4478-9DEC-934AD8A7CB4D};"Parameter1:Input",{D3208E15-EC39-46A6-82B7-EC812428E916};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{5BEC2E7D-7E7B-42F9-BA36-95330FC645D4}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SERV-BTADBC001]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_CIUDAD_ORIGEN]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_CIUDAD_ORIGEN]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_CIUDAD_ORIGEN]"
+                          name="GU_ID_CIUDAD_ORIGEN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_CIUDAD_DESTINO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_CIUDAD_DESTINO]"
+                          name="GU_ID_CIUDAD_DESTINO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_TIEMPO]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_TIEMPO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_TIEMPO]"
+                          name="GU_ID_TIEMPO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_PRODUCTO]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_PRODUCTO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_PRODUCTO]"
+                          name="GU_ID_PRODUCTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_SUBPRODUCTO]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_SUBPRODUCTO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_SUBPRODUCTO]"
+                          name="GU_ID_SUBPRODUCTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_TIPOGUIA]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_TIPOGUIA]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_TIPOGUIA]"
+                          name="GU_ID_TIPOGUIA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_NUMERO_GUIA]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_NUMERO_GUIA]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_NUMERO_GUIA]"
+                          name="SE_NUMERO_GUIA"
+                          precision="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_FECHA_HORA_MOVIMIENTO]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_FECHA_HORA_MOVIMIENTO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_FECHA_HORA_MOVIMIENTO]"
+                          name="SE_FECHA_HORA_MOVIMIENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_ID_CONCEPTO]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_ID_CONCEPTO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_ID_CONCEPTO]"
+                          name="SE_ID_CONCEPTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_ID_TIPOENVIO]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_ID_TIPOENVIO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_ID_TIPOENVIO]"
+                          name="SE_ID_TIPOENVIO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_NUMERO_PIEZAS]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_NUMERO_PIEZAS]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_NUMERO_PIEZAS]"
+                          name="SE_NUMERO_PIEZAS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_PESO_ENVIO]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_PESO_ENVIO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_PESO_ENVIO]"
+                          name="SE_PESO_ENVIO"
+                          precision="8"
+                          scale="3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_PROCESO]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_PROCESO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_PROCESO]"
+                          name="DC_ID_PROCESO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_CANAL]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_CIUDAD_CANAL]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_CANAL]"
+                          name="DC_ID_CIUDAD_CANAL"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_ZONA_URBA]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_CIUDAD_ZONA_URBA]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_ZONA_URBA]"
+                          name="DC_ID_CIUDAD_ZONA_URBA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_DIVISION_ORIGEN]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_CIUDAD_DIVISION_ORIGEN]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_DIVISION_ORIGEN]"
+                          name="DC_ID_CIUDAD_DIVISION_ORIGEN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_CIUDAD_DESTINO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_DESTINO]"
+                          name="DC_ID_CIUDAD_DESTINO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_DIVISION_ORIGEN]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_DIVISION_ORIGEN]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_DIVISION_ORIGEN]"
+                          name="DC_ID_DIVISION_ORIGEN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_DIVISION_DESTINO]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_DIVISION_DESTINO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_DIVISION_DESTINO]"
+                          name="DC_ID_DIVISION_DESTINO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_NUMERO_MOVI]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_NUMERO_MOVI]"
+                          length="30"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_NUMERO_MOVI]"
+                          name="DC_NUMERO_MOVI"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_CONSECUT_MOVI]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_CONSECUT_MOVI]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_CONSECUT_MOVI]"
+                          name="DC_CONSECUT_MOVI"
+                          precision="7"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_PLACA_VEHICULO_DOCU]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_PLACA_VEHICULO_DOCU]"
+                          length="10"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_PLACA_VEHICULO_DOCU]"
+                          name="DC_PLACA_VEHICULO_DOCU"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_TIPO_ZONA_URBA]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_TIPO_ZONA_URBA]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_TIPO_ZONA_URBA]"
+                          name="DC_ID_TIPO_ZONA_URBA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_ZONA_URBA]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_ZONA_URBA]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_ZONA_URBA]"
+                          name="DC_ID_ZONA_URBA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_PAIS_OPERATIVO]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_PAIS_OPERATIVO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_PAIS_OPERATIVO]"
+                          name="DC_ID_PAIS_OPERATIVO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_OPERATIVO]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_CIUDAD_OPERATIVO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_CIUDAD_OPERATIVO]"
+                          name="DC_ID_CIUDAD_OPERATIVO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_OPERATIVO]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_OPERATIVO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_OPERATIVO]"
+                          name="DC_ID_OPERATIVO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ESTADO_MOVIMI]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ESTADO_MOVIMI]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ESTADO_MOVIMI]"
+                          name="DC_ESTADO_MOVIMI"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_PAIS_DIVISION_ORIGEN]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_PAIS_DIVISION_ORIGEN]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_PAIS_DIVISION_ORIGEN]"
+                          name="DC_ID_PAIS_DIVISION_ORIGEN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_PAIS_DESTINO]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_PAIS_DESTINO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[DC_ID_PAIS_DESTINO]"
+                          name="DC_ID_PAIS_DESTINO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_CLIENTE]"
+                          length="20"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_CLIENTE]"
+                          name="GU_ID_CLIENTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_FECHA_ENVIO]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_FECHA_ENVIO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_FECHA_ENVIO]"
+                          name="GU_FECHA_ENVIO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_ID_ESTA_FISICO]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_ID_ESTA_FISICO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[SE_ID_ESTA_FISICO]"
+                          name="SE_ID_ESTA_FISICO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_ESTADOENVIO]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_ESTADOENVIO]"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].Columns[GU_ID_ESTADOENVIO]"
+                          name="GU_ID_ESTADOENVIO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_CIUDAD_ORIGEN]"
+                          dataType="i4"
+                          name="GU_ID_CIUDAD_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          name="GU_ID_CIUDAD_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_TIEMPO]"
+                          dataType="ui1"
+                          name="GU_ID_TIEMPO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_PRODUCTO]"
+                          dataType="i2"
+                          name="GU_ID_PRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_SUBPRODUCTO]"
+                          dataType="i2"
+                          name="GU_ID_SUBPRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_TIPOGUIA]"
+                          dataType="ui1"
+                          name="GU_ID_TIPOGUIA" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="SE_NUMERO_GUIA"
+                          precision="20" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_FECHA_HORA_MOVIMIENTO]"
+                          dataType="dbTimeStamp"
+                          name="SE_FECHA_HORA_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_ID_CONCEPTO]"
+                          dataType="ui1"
+                          name="SE_ID_CONCEPTO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_ID_TIPOENVIO]"
+                          dataType="ui1"
+                          name="SE_ID_TIPOENVIO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_NUMERO_PIEZAS]"
+                          dataType="i2"
+                          name="SE_NUMERO_PIEZAS" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_PESO_ENVIO]"
+                          dataType="numeric"
+                          name="SE_PESO_ENVIO"
+                          precision="8"
+                          scale="3" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_PROCESO]"
+                          dataType="i2"
+                          name="DC_ID_PROCESO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_CIUDAD_CANAL]"
+                          dataType="i4"
+                          name="DC_ID_CIUDAD_CANAL" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_CIUDAD_ZONA_URBA]"
+                          dataType="i4"
+                          name="DC_ID_CIUDAD_ZONA_URBA" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_CIUDAD_DIVISION_ORIGEN]"
+                          dataType="i4"
+                          name="DC_ID_CIUDAD_DIVISION_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          name="DC_ID_CIUDAD_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_DIVISION_ORIGEN]"
+                          dataType="i4"
+                          name="DC_ID_DIVISION_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_DIVISION_DESTINO]"
+                          dataType="i4"
+                          name="DC_ID_DIVISION_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_NUMERO_MOVI]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DC_NUMERO_MOVI" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_CONSECUT_MOVI]"
+                          dataType="numeric"
+                          name="DC_CONSECUT_MOVI"
+                          precision="7" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_PLACA_VEHICULO_DOCU]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="DC_PLACA_VEHICULO_DOCU" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_TIPO_ZONA_URBA]"
+                          dataType="ui1"
+                          name="DC_ID_TIPO_ZONA_URBA" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_ZONA_URBA]"
+                          dataType="i2"
+                          name="DC_ID_ZONA_URBA" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_PAIS_OPERATIVO]"
+                          dataType="i2"
+                          name="DC_ID_PAIS_OPERATIVO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_CIUDAD_OPERATIVO]"
+                          dataType="i4"
+                          name="DC_ID_CIUDAD_OPERATIVO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_OPERATIVO]"
+                          dataType="i2"
+                          name="DC_ID_OPERATIVO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ESTADO_MOVIMI]"
+                          dataType="ui1"
+                          name="DC_ESTADO_MOVIMI" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_PAIS_DIVISION_ORIGEN]"
+                          dataType="i2"
+                          name="DC_ID_PAIS_DIVISION_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DC_ID_PAIS_DESTINO]"
+                          dataType="i2"
+                          name="DC_ID_PAIS_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="GU_ID_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_FECHA_ENVIO]"
+                          dataType="dbTimeStamp"
+                          name="GU_FECHA_ENVIO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SE_ID_ESTA_FISICO]"
+                          dataType="ui1"
+                          name="SE_ID_ESTA_FISICO" />
+                        <externalMetadataColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GU_ID_ESTADOENVIO]"
+                          dataType="ui1"
+                          name="GU_ID_ESTADOENVIO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_CIUDAD_ORIGEN]"
+                          dataType="i4"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_CIUDAD_ORIGEN]"
+                          name="GU_ID_CIUDAD_ORIGEN" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_CIUDAD_DESTINO]"
+                          name="GU_ID_CIUDAD_DESTINO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_TIEMPO]"
+                          dataType="ui1"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_TIEMPO]"
+                          name="GU_ID_TIEMPO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_PRODUCTO]"
+                          dataType="i2"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_PRODUCTO]"
+                          name="GU_ID_PRODUCTO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_SUBPRODUCTO]"
+                          dataType="i2"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_SUBPRODUCTO]"
+                          name="GU_ID_SUBPRODUCTO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_NUMERO_MOVI]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_NUMERO_MOVI]"
+                          name="DC_NUMERO_MOVI" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_CONSECUT_MOVI]"
+                          dataType="numeric"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_CONSECUT_MOVI]"
+                          name="DC_CONSECUT_MOVI"
+                          precision="7" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_TIPOGUIA]"
+                          dataType="ui1"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_TIPOGUIA]"
+                          name="GU_ID_TIPOGUIA" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_NUMERO_GUIA]"
+                          dataType="numeric"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_NUMERO_GUIA]"
+                          name="SE_NUMERO_GUIA"
+                          precision="20" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_PAIS_DIVISION_ORIGEN]"
+                          dataType="i2"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_PAIS_DIVISION_ORIGEN]"
+                          name="DC_ID_PAIS_DIVISION_ORIGEN" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_FECHA_HORA_MOVIMIENTO]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_FECHA_HORA_MOVIMIENTO]"
+                          name="SE_FECHA_HORA_MOVIMIENTO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_ID_CONCEPTO]"
+                          dataType="ui1"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_ID_CONCEPTO]"
+                          name="SE_ID_CONCEPTO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_PAIS_DESTINO]"
+                          dataType="i2"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_PAIS_DESTINO]"
+                          name="DC_ID_PAIS_DESTINO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_ID_TIPOENVIO]"
+                          dataType="ui1"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_ID_TIPOENVIO]"
+                          name="SE_ID_TIPOENVIO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_NUMERO_PIEZAS]"
+                          dataType="i2"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_NUMERO_PIEZAS]"
+                          name="SE_NUMERO_PIEZAS" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_PLACA_VEHICULO_DOCU]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_PLACA_VEHICULO_DOCU]"
+                          name="DC_PLACA_VEHICULO_DOCU" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_TIPO_ZONA_URBA]"
+                          dataType="ui1"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_TIPO_ZONA_URBA]"
+                          name="DC_ID_TIPO_ZONA_URBA" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_ZONA_URBA]"
+                          dataType="i2"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_ZONA_URBA]"
+                          name="DC_ID_ZONA_URBA" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_PAIS_OPERATIVO]"
+                          dataType="i2"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_PAIS_OPERATIVO]"
+                          name="DC_ID_PAIS_OPERATIVO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_CIUDAD_OPERATIVO]"
+                          dataType="i4"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_CIUDAD_OPERATIVO]"
+                          name="DC_ID_CIUDAD_OPERATIVO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_OPERATIVO]"
+                          dataType="i2"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_OPERATIVO]"
+                          name="DC_ID_OPERATIVO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ESTADO_MOVIMI]"
+                          dataType="ui1"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ESTADO_MOVIMI]"
+                          name="DC_ESTADO_MOVIMI" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_PESO_ENVIO]"
+                          dataType="numeric"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_PESO_ENVIO]"
+                          name="SE_PESO_ENVIO"
+                          precision="8"
+                          scale="3" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_PROCESO]"
+                          dataType="i2"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_PROCESO]"
+                          name="DC_ID_PROCESO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_CIUDAD_CANAL]"
+                          dataType="i4"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_CIUDAD_CANAL]"
+                          name="DC_ID_CIUDAD_CANAL" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_CIUDAD_ZONA_URBA]"
+                          dataType="i4"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_CIUDAD_ZONA_URBA]"
+                          name="DC_ID_CIUDAD_ZONA_URBA" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_CIUDAD_DIVISION_ORIGEN]"
+                          dataType="i4"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_CIUDAD_DIVISION_ORIGEN]"
+                          name="DC_ID_CIUDAD_DIVISION_ORIGEN" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_CIUDAD_DESTINO]"
+                          name="DC_ID_CIUDAD_DESTINO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_CLIENTE]"
+                          name="GU_ID_CLIENTE" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_FECHA_ENVIO]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_FECHA_ENVIO]"
+                          name="GU_FECHA_ENVIO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_ESTADOENVIO]"
+                          dataType="ui1"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GU_ID_ESTADOENVIO]"
+                          name="GU_ID_ESTADOENVIO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_ID_ESTA_FISICO]"
+                          dataType="ui1"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SE_ID_ESTA_FISICO]"
+                          name="SE_ID_ESTA_FISICO" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_DIVISION_ORIGEN]"
+                          dataType="i4"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_DIVISION_ORIGEN]"
+                          name="DC_ID_DIVISION_ORIGEN" />
+                        <outputColumn
+                          refId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_DIVISION_DESTINO]"
+                          dataType="i4"
+                          lineageId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DC_ID_DIVISION_DESTINO]"
+                          name="DC_ID_DIVISION_DESTINO" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Obtener Fuentes - Fact\Transportar.Paths[OLE DB Source Output]"
+                  endId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Obtener Fuentes - Fact\Truncar TMP"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3F4F4186-878E-4BAC-9476-883B9699E2CA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncar TMP"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A947580C-C7C7-4E60-B63D-7A9EA12E8F3A}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE TMP.MOXP_01" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Obtener Fuentes - Fact.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{AECA553F-0278-4891-B520-54A2F5EA59FC}"
+          DTS:From="Package\Obtener Fuentes - Fact\Truncar TMP"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Obtener Fuentes - Fact\Transportar" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Obtener Fuentes - Fact\Transportar"
+          TopLeft="69,104.5" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Obtener Fuentes - Fact\Truncar TMP"
+          TopLeft="66.5,26.5" />
+        <EdgeLayout
+          Id="Package\Obtener Fuentes - Fact.PrecedenceConstraints[Constraint]"
+          TopLeft="136,68.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="289,218"
+          Size="289,261"
+          Id="Package\Obtener Fuentes - Fact"
+          TopLeft="181.5,30.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Obtener Fuentes - Fact\Transportar">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source"
+          TopLeft="16,5.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination"
+          TopLeft="6.50000000000001,111.5" />
+        <EdgeLayout
+          Id="Package\Obtener Fuentes - Fact\Transportar.Paths[OLE DB Source Output]"
+          TopLeft="91.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Obtener Fuentes - Fact\Transportar\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Obtener Fuentes - Fact\Transportar\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

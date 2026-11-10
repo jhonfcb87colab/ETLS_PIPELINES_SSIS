@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SERV-DBI01.SIG_COL_LOGISTICA"
+  DTS:DTSID="{7DDD5A58-D4F0-4A86-B8CF-E03A5E431400}"
+  DTS:CreationName="MSOLAP100">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=SERV-DBI01;Initial Catalog=SIG_COL_LOGISTICA;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

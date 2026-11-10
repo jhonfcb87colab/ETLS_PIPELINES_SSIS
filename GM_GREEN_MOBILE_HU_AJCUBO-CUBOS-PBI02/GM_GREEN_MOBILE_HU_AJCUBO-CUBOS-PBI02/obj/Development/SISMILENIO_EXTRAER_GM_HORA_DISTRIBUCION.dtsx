@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/25/2018 10:44:28 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D_SERV-DBI01"
+  DTS:CreatorName="SERVIENT\oscarf.rojas"
+  DTS:DTSID="{94C37B65-1F82-4D0F-A015-B2D53C2B15D5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="SISMILENIO_EXTRAER_GM_HORA_DISTRIBUCION"
+  DTS:PackageType="5"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{901F9884-D501-4732-A115-1FA4E015EACF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[D_SERV-DBIO1 SIG_SOL_LOGISTICA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0C51D2BC-0EEA-49A6-9B62-4BC32C5DF6BA}"
+      DTS:ObjectName="D_SERV-DBIO1 SIG_SOL_LOGISTICA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SERV-DBI01;Initial Catalog=SIG_COL_LOGISTICA_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[serv-btadbc001 Mece Logistico]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4238796E-2AE4-4AF3-928C-26774EECE91D}"
+      DTS:ObjectName="serv-btadbc001 Mece Logistico">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=serv-btadbc001;Initial Catalog=Mece_Logistico;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\GM HORA DISTRIBUCION"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2ADA82C5-A005-49F6-BA79-C159A850E15C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GM HORA DISTRIBUCION">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\GM HORA DISTRIBUCION\INSERT"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{973FCE66-8356-494A-B589-5759A5419D69}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="INSERT"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0C51D2BC-0EEA-49A6-9B62-4BC32C5DF6BA}"
+              SQLTask:SqlStatementSource="INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (-888,'NO REPORTADO',13,'NO REPORTADO',4,'NO REPORTADO')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (0,'HORA 00',11,'12 AM - 02 AM',3,'OTRO')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (1,'HORA 01',11,'12 AM - 02 AM',3,'OTRO')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (2,'HORA 02',12,'02 AM - 04 AM',3,'OTRO')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (3,'HORA 03',12,'02 AM - 04 AM',3,'OTRO')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (4,'HORA 04',1,'04 AM - 06 AM',3,'OTRO')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (5,'HORA 05',1,'04 AM - 06 AM',3,'OTRO')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (6,'HORA 06',2,'06 AM - 08 AM',1,'06 AM - 02 PM')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (7,'HORA 07',2,'06 AM - 08 AM',1,'06 AM - 02 PM')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (8,'HORA 08',3,'08 AM - 10 AM',1,'06 AM - 02 PM')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (9,'HORA 09',3,'08 AM - 10 AM',1,'06 AM - 02 PM')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (10,'HORA 10',4,'10 AM - 12 PM',1,'06 AM - 02 PM')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (11,'HORA 11',4,'10 AM - 12 PM',1,'06 AM - 02 PM')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (12,'HORA 12',5,'12 PM - 02 PM',1,'06 AM - 02 PM')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (13,'HORA 13',5,'12 PM - 02 PM',1,'06 AM - 02 PM')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (14,'HORA 14',6,'02 PM - 04 PM',2,'02 PM - 06 PM')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (15,'HORA 15',6,'02 PM - 04 PM',2,'02 PM - 06 PM')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (16,'HORA 16',7,'04 PM - 06 PM',2,'02 PM - 06 PM')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (17,'HORA 17',7,'04 PM - 06 PM',2,'02 PM - 06 PM')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (18,'HORA 18',8,'06 PM - 08 PM',3,'OTRO')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (19,'HORA 19',8,'06 PM - 08 PM',3,'OTRO')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (20,'HORA 20',9,'08 PM - 10 PM',3,'OTRO')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (21,'HORA 21',9,'08 PM - 10 PM',3,'OTRO')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (22,'HORA 22',10,'10 PM - 12 AM',3,'OTRO')&#xA;GO&#xA;&#xA;INSERT INTO DIM.GM_HORA_DISTRIBUCION&#xA;           (ID_HORA_REPR&#xA;           ,HORA_REPR&#xA;           ,ID_GRUPO_HDOS&#xA;           ,GRUPO_HDOS&#xA;           ,ID_GRUPO_HDIST&#xA;           ,GRUPO_HDIST)&#xA;     VALUES&#xA;           (23,'HORA 23',10,'10 PM - 12 AM',3,'OTRO')&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GM HORA DISTRIBUCION\TRUNCATE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{DC3E1F3D-A754-4107-B2C7-7A23ABF7DAEB}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0C51D2BC-0EEA-49A6-9B62-4BC32C5DF6BA}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM.GM_HORA_DISTRIBUCION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GM HORA DISTRIBUCION.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{0F0352BE-A9CE-4910-956D-06942A016DD2}"
+          DTS:From="Package\GM HORA DISTRIBUCION\TRUNCATE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\GM HORA DISTRIBUCION\INSERT" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="115,42"
+          Id="Package\GM HORA DISTRIBUCION\INSERT"
+          TopLeft="81,114" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\GM HORA DISTRIBUCION\TRUNCATE"
+          TopLeft="71.5,24.5" />
+        <EdgeLayout
+          Id="Package\GM HORA DISTRIBUCION.PrecedenceConstraints[Constraint]"
+          TopLeft="137.75,66.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.5"
+              Start="0,0"
+              End="0,40">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="285,206"
+          Size="285,249"
+          Id="Package\GM HORA DISTRIBUCION"
+          TopLeft="33,75" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

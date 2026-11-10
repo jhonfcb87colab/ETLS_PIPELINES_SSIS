@@ -1,0 +1,167 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e78463fb-4f62-472a-b313-6ba406c28cfd" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>CV_SISTEMA_HORARIO</ID>
+  <Name>CV_SISTEMA_HORARIO</Name>
+  <CreatedTimestamp>2015-07-22T22:13:59.583333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2015-07-22T22:19:52.29Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-11-03T10:41:05.966667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="e38cc676-586f-42dd-9e1f-a1d803f339b8">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="d448a29a-c7e0-4bef-a001-08d23c04eabd">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="991d7f7a-d06e-44cc-8157-5b52ed29b65c">
+      <ID>24 HORAS</ID>
+      <Name>24 HORAS</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="339381cf-543c-4c6c-98c3-9e21b4d4898b">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a983b451-e355-4990-95bc-8768ff3afc9c">
+            <TableID>TMP_CV_HORAS</TableID>
+            <ColumnID>_x0032_4_HORAS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7aa05d35-2dcf-48b6-8d05-e851b30e568f">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f7117d75-bede-4be9-8014-df62c19ef4c7">
+          <TableID>TMP_CV_HORAS</TableID>
+          <ColumnID>_x0032_4_HORAS</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="e41d84ed-c83f-4543-b2fe-26b2df02230e">
+          <AttributeID>12 HORAS</AttributeID>
+          <Name>12 HORAS</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d66ff6fe-65a9-4c51-b3b7-14ef7e517651">
+          <AttributeID>MERIDIANO</AttributeID>
+          <Name>MERIDIANO</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7ca22302-4774-4ed4-b1b1-aeb601e81ae9">
+      <ID>12 HORAS</ID>
+      <Name>12 HORAS</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4aba7682-8469-430f-9ac5-829c1641ef01">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1f6a4841-6789-4eda-adba-ebe59ed31719">
+            <TableID>TMP_CV_HORAS</TableID>
+            <ColumnID>_x0031_2_HORAS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e6cae651-9c2d-4730-98ea-59389528d150">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8fa4cbc6-9b5e-4a74-b01c-26fe4fc9a9a0">
+          <TableID>TMP_CV_HORAS</TableID>
+          <ColumnID>_x0031_2_HORAS</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="37465094-104f-45df-a32e-85160b34e1c8">
+      <ID>MERIDIANO</ID>
+      <Name>MERIDIANO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bbc30a21-7daa-436e-81b6-1d78fec933e7">
+          <DataType>WChar</DataType>
+          <DataSize>2</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="79cdeb71-ff1e-439e-adb4-442b412de42b">
+            <TableID>TMP_CV_HORAS</TableID>
+            <ColumnID>MERIDIANO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7bdc0b87-5e49-4c12-8a75-5535de8deabc">
+        <DataType>WChar</DataType>
+        <DataSize>2</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="54382e6a-9a88-4088-9014-2a8ed246228b">
+          <TableID>TMP_CV_HORAS</TableID>
+          <ColumnID>MERIDIANO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="e2dc1cbc-b2f7-4fa7-ad5e-fca03099de2e">
+      <ID>Hierarchy</ID>
+      <Name>FORMATO_12_HORAS</Name>
+      <Levels>
+        <Level dwd:design-time-name="79397455-7936-4d62-9e8d-b09c4a4b55e8">
+          <ID>MERIDIANO</ID>
+          <Name>MERIDIANO</Name>
+          <SourceAttributeID>MERIDIANO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="f9128a1e-a973-4b7b-af31-fc26b2e48f71">
+          <ID>12 HORAS</ID>
+          <Name>12 HORAS</Name>
+          <SourceAttributeID>12 HORAS</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="c46c5e60-8d06-4c32-a5b1-91d9cafbfb2c">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="0642143f-17eb-40c3-8427-259cca75f3d4" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

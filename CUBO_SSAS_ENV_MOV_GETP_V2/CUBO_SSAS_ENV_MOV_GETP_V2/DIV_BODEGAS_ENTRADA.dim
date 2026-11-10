@@ -1,0 +1,168 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="46fc44b9-9f20-4ca3-a8e9-f4d9e421ddd9" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DIV_BODEGAS_ENTRADA</ID>
+  <Name>DIV_BODEGAS_ENTRADA</Name>
+  <CreatedTimestamp>2014-08-20T17:16:24.146667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2014-08-20T17:23:55.01Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-11-01T12:34:04.493333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="4fc7533d-178d-4a60-b523-69ec841146a0">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="b396d388-ab24-4ee8-88cb-c86af9d3c56e">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="faeba121-0c9b-444c-96d3-c9061ab22913">
+      <ID>Clave Dim Bod Ent</ID>
+      <Name>Clave Dim Bod Ent</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="514bbf62-1b0f-4b59-aaaf-31a39cb59218">
+          <DataType>WChar</DataType>
+          <DataSize>39</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="020a6064-54d8-4af5-ba2a-812c0171f7df">
+            <TableID>DIM_DIV_BODEGAS_ENTRADA</TableID>
+            <ColumnID>Clave_Dim_Bod_Ent</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="79a5489f-ec30-4d9e-a101-89b2c7db99d2">
+        <DataType>WChar</DataType>
+        <DataSize>39</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="5fa6910a-6d01-4220-b1f0-2253e2a80603">
+          <TableID>DIM_DIV_BODEGAS_ENTRADA</TableID>
+          <ColumnID>Clave_Dim_Bod_Ent</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="4817a1f0-40be-4ca7-b4b8-6d011ce7ff38">
+          <AttributeID>ID DIVISION BOD ENTRADA</AttributeID>
+          <Name>NOMBRE DIVISION BOD ENTRADA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f905eeda-078f-4a31-9a02-40540d8fe5bd">
+          <AttributeID>NOMBRE TIPO DIVISION BOD ENTRADA</AttributeID>
+          <Name>NOMBRE TIPO DIVISION BOD ENTRADA</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0cc6dc98-3283-4946-9e54-c5a7134627b8">
+      <ID>ID DIVISION BOD ENTRADA</ID>
+      <Name>NOMBRE DIVISION BOD ENTRADA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="85f8b91c-e018-439a-834d-f55ea1572649">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="87ff12b8-669b-4a82-a921-2608919c0008">
+            <TableID>DIM_DIV_BODEGAS_ENTRADA</TableID>
+            <ColumnID>ID_DIVISION_BOD_ENTRADA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2fca0b7e-d0f7-4d24-bcb7-e675704fdf62">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="24c9917a-afa1-4f4a-a06e-0ec683b0b705">
+          <TableID>DIM_DIV_BODEGAS_ENTRADA</TableID>
+          <ColumnID>NOMBRE_DIVISION_BOD_ENTRADA</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="24e92550-dca4-4b0f-9945-9ba06cc39000">
+      <ID>NOMBRE TIPO DIVISION BOD ENTRADA</ID>
+      <Name>NOMBRE TIPO DIVISION BOD ENTRADA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2fb6a11a-e6f5-449c-b6cc-cb2914910aff">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3793c41b-8e47-466e-8df2-9198867e41de">
+            <TableID>DIM_DIV_BODEGAS_ENTRADA</TableID>
+            <ColumnID>NOMBRE_TIPO_DIVISION_BOD_ENTRADA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="266ca774-9b01-4eee-9239-47127d83346e">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="ce1c7cda-94bb-4374-b8da-7e06c1be05bd">
+          <TableID>DIM_DIV_BODEGAS_ENTRADA</TableID>
+          <ColumnID>NOMBRE_TIPO_DIVISION_BOD_ENTRADA</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="c26d95f0-142b-4f06-b404-dfd1bac4b5d1">
+      <ID>Hierarchy</ID>
+      <Name>DIV_BODEGAS_ENTRADA</Name>
+      <Levels>
+        <Level dwd:design-time-name="0c820f3f-6d09-4837-930e-9d33850480a0">
+          <ID>NOMBRE TIPO DIVISION BOD ENTRADA</ID>
+          <Name>NOMBRE TIPO DIVISION BOD ENTRADA</Name>
+          <SourceAttributeID>NOMBRE TIPO DIVISION BOD ENTRADA</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="f8522e01-1881-4f1e-8da2-d50d77f950c3">
+          <ID>NOMBRE DIVISION BOD ENTRADA</ID>
+          <Name>NOMBRE DIVISION BOD ENTRADA</Name>
+          <SourceAttributeID>ID DIVISION BOD ENTRADA</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="e7a8b46f-94ea-4357-ae1d-d3495ad34d9d">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="6d82fa57-3157-4392-98fb-73164c144a54" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

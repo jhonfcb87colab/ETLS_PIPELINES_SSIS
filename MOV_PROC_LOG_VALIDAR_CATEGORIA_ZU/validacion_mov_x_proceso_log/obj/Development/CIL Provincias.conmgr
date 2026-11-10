@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="CIL Provincias"
+  DTS:DTSID="{9FFAB32D-59BC-45E5-811A-C1663EAF8608}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=BOPVSVWSSMCP;Initial Catalog=Mece_logistico;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Intent=READONLY;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

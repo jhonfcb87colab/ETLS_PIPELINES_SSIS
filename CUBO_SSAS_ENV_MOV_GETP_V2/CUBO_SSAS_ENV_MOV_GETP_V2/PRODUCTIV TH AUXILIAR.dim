@@ -1,0 +1,144 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="92ca5cd1-6b36-4bb2-af5f-e52862f8014a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>PRODUCTIV TH AUXILIAR</ID>
+  <Name>PRODUCTIV TH AUXILIAR</Name>
+  <CreatedTimestamp>2014-01-10T13:28:40.143333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2014-01-10T13:57:13.213333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-11-03T09:52:38.46Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="5a2060de-0c29-4f0b-9947-4bc783ea5673">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="f42e6b8c-c6d0-43cb-8494-a52afe4f3a76">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="eeac4f38-5813-4599-ab6b-0a3c1b077483">
+      <ID>ID AUXILIAR</ID>
+      <Name>ID AUXILIAR</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f23df376-c843-4fa2-be0a-f8dcfabdcca3">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bd2e839d-465d-43fb-b3d7-190979ab6aee">
+            <TableID>PRODUCTIV_TH_AUXILIAR</TableID>
+            <ColumnID>ID_AUXILIAR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b00556b2-218f-4ef0-9381-7571239d3388">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e0bef136-e57f-4b1e-b293-8c4df388afe9">
+          <TableID>PRODUCTIV_TH_AUXILIAR</TableID>
+          <ColumnID>ID_AUXILIAR</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="04f482b1-3087-4ed6-91f8-cefdc3b9b694">
+          <AttributeID>NOMBRE AUXILIAR</AttributeID>
+          <Name>NOMBRE AUXILIAR</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8174f558-f9ed-4110-91b8-f81c916ded20">
+      <ID>NOMBRE AUXILIAR</ID>
+      <Name>NOMBRE AUXILIAR</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="968882aa-b33c-4897-a9d8-0971bbd06095">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7ff1667b-4708-4b73-a4d5-988d2076d7af">
+            <TableID>PRODUCTIV_TH_AUXILIAR</TableID>
+            <ColumnID>NOMBRE_AUXILIAR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="aea779be-d4bb-4557-9fed-a80427fa2069">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a11bf917-04af-470e-9159-ba78609f9081">
+          <TableID>PRODUCTIV_TH_AUXILIAR</TableID>
+          <ColumnID>NOMBRE_AUXILIAR</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="4c342185-fe0f-460c-b69d-d71401f51feb">
+      <ID>Hierarchy</ID>
+      <Name>Auxiliar</Name>
+      <Levels>
+        <Level dwd:design-time-name="7caa9e8c-46aa-438c-a449-1c859f0a0085">
+          <ID>NOMBRE AUXILIAR</ID>
+          <Name>NOMBRE AUXILIAR</Name>
+          <SourceAttributeID>NOMBRE AUXILIAR</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="825f8dfc-d9be-4ef6-afa6-c4db7d289a0d">
+          <ID>ID AUXILIAR</ID>
+          <Name>ID AUXILIAR</Name>
+          <SourceAttributeID>ID AUXILIAR</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="f75ec1b6-436c-4aa9-a16f-def9f73cae65">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="848e8a96-b01f-467c-adb4-93483105c0f2" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

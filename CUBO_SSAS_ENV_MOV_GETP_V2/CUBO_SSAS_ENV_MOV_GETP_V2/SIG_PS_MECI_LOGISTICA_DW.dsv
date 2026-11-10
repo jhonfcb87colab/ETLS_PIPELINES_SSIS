@@ -1,0 +1,1650 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SIG_PS_MECI_LOGISTICA_DW</ID>
+  <Name>SIG_PS_MECI_LOGISTICA_DW</Name>
+  <CreatedTimestamp>2013-07-10T21:57:35.95Z</CreatedTimestamp>
+  <LastSchemaUpdate>2015-02-10T14:02:50.143333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>SIG_COL_LOGISTICA_DW</DataSourceID>
+  <Schema>
+    <xs:schema id="SIG_PS_MECI_LOGISTICA_DW" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="SIG_PS_MECI_LOGISTICA_DW" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="DIM_MECI_PS_COLABORADOR" msprop:DbTableName="MECI_PS_COLABORADOR" msprop:FriendlyName="MECI_PS_COLABORADOR" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_COLABORADOR" msprop:DbColumnName="ID_COLABORADOR" msprop:FriendlyName="ID_COLABORADOR">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="11" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_COLABORADOR" msprop:DbColumnName="NOMBRE_COLABORADOR" msprop:FriendlyName="NOMBRE_COLABORADOR" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_JOB_FAMILY" msprop:DbTableName="MECI_PS_JOB_FAMILY" msprop:FriendlyName="MECI_PS_JOB_FAMILY" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_JOB_FAMILY" msprop:DbColumnName="ID_JOB_FAMILY" msprop:FriendlyName="ID_JOB_FAMILY">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_JOB_FAMILY" msprop:DbColumnName="DESCR_JOB_FAMILY" msprop:FriendlyName="DESCR_JOB_FAMILY" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ESTADO" msprop:DbColumnName="ESTADO" msprop:FriendlyName="ESTADO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="FAC_MECI_PS_BENEFICIOS" msprop:DbTableName="MECI_PS_BENEFICIOS" msprop:FriendlyName="MECI_PS_BENEFICIOS" msprop:DbSchemaName="FAC" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TIME_ID" msprop:DbColumnName="TIME_ID" msprop:FriendlyName="TIME_ID" type="xs:int" minOccurs="0" />
+                  <xs:element name="FECHA" msprop:DbColumnName="FECHA" msprop:FriendlyName="FECHA" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="AÑO" msprop:DbColumnName="AÑO" msprop:FriendlyName="AÑO" type="xs:int" minOccurs="0" />
+                  <xs:element name="MES" msprop:DbColumnName="MES" msprop:FriendlyName="MES" type="xs:int" minOccurs="0" />
+                  <xs:element name="QUINCENA" msprop:DbColumnName="QUINCENA" msprop:FriendlyName="QUINCENA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_COLABORADOR" msprop:DbColumnName="ID_COLABORADOR" msprop:FriendlyName="ID_COLABORADOR" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="11" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_GENERO" msprop:DbColumnName="ID_GENERO" msprop:FriendlyName="ID_GENERO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_EST_CIVIL" msprop:DbColumnName="ID_EST_CIVIL" msprop:FriendlyName="ID_EST_CIVIL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ESTADO_COLAB" msprop:DbColumnName="ID_ESTADO_COLAB" msprop:FriendlyName="ID_ESTADO_COLAB" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_NM_CONCEPTO" msprop:DbColumnName="ID_NM_CONCEPTO" msprop:FriendlyName="ID_NM_CONCEPTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="18" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_TIPO_CONCEPTO" msprop:DbColumnName="ID_TIPO_CONCEPTO" msprop:FriendlyName="ID_TIPO_CONCEPTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="VALOR" msprop:DbColumnName="VALOR" msprop:FriendlyName="VALOR" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="ID_POSICION" msprop:DbColumnName="ID_POSICION" msprop:FriendlyName="ID_POSICION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="8" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_LOCALIZACION" msprop:DbColumnName="ID_LOCALIZACION" msprop:FriendlyName="ID_LOCALIZACION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="PAIS" msprop:DbColumnName="PAIS" msprop:FriendlyName="PAIS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DEPARTAMENTO" msprop:DbColumnName="DEPARTAMENTO" msprop:FriendlyName="DEPARTAMENTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="REGIONAL" msprop:DbColumnName="REGIONAL" msprop:FriendlyName="REGIONAL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CIUDAD" msprop:DbColumnName="CIUDAD" msprop:FriendlyName="CIUDAD" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_MACROPROCESO" msprop:DbColumnName="ID_MACROPROCESO" msprop:FriendlyName="ID_MACROPROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_PROCESO" msprop:DbColumnName="ID_PROCESO" msprop:FriendlyName="ID_PROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_SUBPROCESO" msprop:DbColumnName="ID_SUBPROCESO" msprop:FriendlyName="ID_SUBPROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_EF_CARGO_COLABORADOR" msprop:DbColumnName="FECHA_EF_CARGO_COLABORADOR" msprop:FriendlyName="FECHA_EF_CARGO_COLABORADOR" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="ID_CARGO" msprop:DbColumnName="ID_CARGO" msprop:FriendlyName="ID_CARGO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ENT_CONTRATANTE" msprop:DbColumnName="ID_ENT_CONTRATANTE" msprop:FriendlyName="ID_ENT_CONTRATANTE" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="12" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_GRUPO_PAGO" msprop:DbColumnName="ID_GRUPO_PAGO" msprop:FriendlyName="ID_GRUPO_PAGO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ENT_RECIBE_SERVICIO" msprop:DbColumnName="ID_ENT_RECIBE_SERVICIO" msprop:FriendlyName="ID_ENT_RECIBE_SERVICIO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_TIPO_EJECUCION" msprop:DbColumnName="ID_TIPO_EJECUCION" msprop:FriendlyName="ID_TIPO_EJECUCION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ACCION" msprop:DbColumnName="ID_ACCION" msprop:FriendlyName="ID_ACCION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ACCION_MOTIVO" msprop:DbColumnName="ID_ACCION_MOTIVO" msprop:FriendlyName="ID_ACCION_MOTIVO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_JOB_FAMILY" msprop:DbColumnName="ID_JOB_FAMILY" msprop:FriendlyName="ID_JOB_FAMILY" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="EDAD" msprop:DbColumnName="EDAD" msprop:FriendlyName="EDAD" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="PERMANENCIA" msprop:DbColumnName="PERMANENCIA" msprop:FriendlyName="PERMANENCIA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CANT_COLABORADORES" msprop:DbColumnName="CANT_COLABORADORES" msprop:FriendlyName="CANT_COLABORADORES" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="VIGENTE" msprop:DbColumnName="VIGENTE" msprop:FriendlyName="VIGENTE" type="xs:int" minOccurs="0" />
+                  <xs:element name="INACTIVO" msprop:DbColumnName="INACTIVO" msprop:FriendlyName="INACTIVO" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_CLASE_CONCEPTO" msprop:DbColumnName="ID_CLASE_CONCEPTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_NUM_GRP_CONCEPTO" msprop:DbColumnName="ID_NUM_GRP_CONCEPTO" type="xs:int" minOccurs="0" />
+                  <xs:element name="CLAVE_PERMANENCIA" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="CLAVE_PERMANENCIA" msprop:ComputedColumnExpression="CONVERT(VARCHAR, AÑO) + right( '0' + convert(varchar,MES),2) + CONVERT(VARCHAR, ID_COLABORADOR)" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="62" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CLAVE_EDAD" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="Clave para la Edad" msprop:DbColumnName="CLAVE_EDAD" msprop:ComputedColumnExpression="CONVERT(VARCHAR, AÑO) + ID_COLABORADOR" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="41" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_CATEGORIA" msprop:DbColumnName="ID_CATEGORIA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="4" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ENT_EPS" msprop:DbColumnName="ID_ENT_EPS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="9" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ENT_FPENSION" msprop:DbColumnName="ID_ENT_FPENSION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="9" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ENT_FCESANTIAS" msprop:DbColumnName="ID_ENT_FCESANTIAS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="9" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ENT_ARP" msprop:DbColumnName="ID_ENT_ARP" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="9" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ENT_CAJA_COMP" msprop:DbColumnName="ID_ENT_CAJA_COMP" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="9" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NIVEL_EDUC_ACTUAL" msprop:DbColumnName="NIVEL_EDUC_ACTUAL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_COMPANIA_MISION" msprop:DbColumnName="ID_COMPANIA_MISION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_NIVEL" msprop:DbColumnName="ID_NIVEL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SETID_CARGO" msprop:DbColumnName="SETID_CARGO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CLAVE_CARGO" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="Clave para relacionar el cargo" msprop:DbColumnName="CLAVE_CARGO" msprop:ComputedColumnExpression="CONVERT(VARCHAR, SETID_CARGO) + CONVERT(VARCHAR, ID_CARGO)" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="60" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="HORAS_EXT" msprop:DbColumnName="HORAS_EXT" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="DIAS_LABORADOS" msprop:DbColumnName="DIAS_LABORADOS" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="CLAVE_CONCEPTO" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="GRUPO CONCEPTO Y CONCEPTO" msprop:DbColumnName="CLAVE_CONCEPTO" msprop:ComputedColumnExpression="CONVERT(VARCHAR(8),ID_NUM_GRP_CONCEPTO) + '_' + ID_NM_CONCEPTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="27" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CLAVE_ACCION" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="ACCION Y MOTIVO" msprop:DbColumnName="CLAVE_ACCION" msprop:ComputedColumnExpression="ID_ACCION + '_' + ID_ACCION_MOTIVO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="7" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_QUINCENA" msprop:DbTableName="MECI_PS_QUINCENA" msprop:FriendlyName="MECI_PS_QUINCENA" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="QUINCENA" msprop:DbColumnName="QUINCENA" msprop:FriendlyName="QUINCENA">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_ACCION" msprop:DbTableName="MECI_PS_ACCION" msprop:FriendlyName="MECI_PS_ACCION" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_ACCION" msprop:DbColumnName="ID_ACCION" msprop:FriendlyName="ID_ACCION">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_ACCION" msprop:DbColumnName="DESCR_ACCION" msprop:FriendlyName="DESCR_ACCION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="ID_ACCION_MOTIVO" msprop:DbColumnName="ID_ACCION_MOTIVO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_ACC_MOTIVO" msprop:DbColumnName="DESCR_ACC_MOTIVO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CLAVE_ACCION" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="ACCION Y MOTIVO" msprop:DbColumnName="CLAVE_ACCION" msprop:ComputedColumnExpression="ID_ACCION + '_' + ID_ACCION_MOTIVO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="7" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_POSICION" msprop:DbTableName="MECI_PS_POSICION" msprop:FriendlyName="MECI_PS_POSICION" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SETID" msprop:DbColumnName="SETID" msprop:FriendlyName="SETID" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_POSICION" msprop:DbColumnName="ID_POSICION" msprop:FriendlyName="ID_POSICION">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="8" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_COMPANIA" msprop:DbColumnName="ID_COMPANIA" msprop:FriendlyName="ID_COMPANIA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_MACROPROCESO" msprop:DbColumnName="ID_MACROPROCESO" msprop:FriendlyName="ID_MACROPROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_PROCESO" msprop:DbColumnName="ID_PROCESO" msprop:FriendlyName="ID_PROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_SUBPROCESO" msprop:DbColumnName="ID_SUBPROCESO" msprop:FriendlyName="ID_SUBPROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_SUBPROCESO" msprop:DbColumnName="DESCR_SUBPROCESO" msprop:FriendlyName="DESCR_SUBPROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_CARGO" msprop:DbColumnName="ID_CARGO" msprop:FriendlyName="ID_CARGO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_CARGO" msprop:DbColumnName="DESCR_CARGO" msprop:FriendlyName="DESCR_CARGO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ACCION" msprop:DbColumnName="ID_ACCION" msprop:FriendlyName="ID_ACCION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_ENTIDAD_CONTRATANTE" msprop:DbTableName="MECI_PS_ENTIDAD_CONTRATANTE" msprop:FriendlyName="MECI_PS_ENTIDAD_CONTRATANTE" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_ENT_CONTRATANTE" msprop:DbColumnName="ID_ENT_CONTRATANTE" msprop:FriendlyName="ID_ENT_CONTRATANTE">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="12" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_ENT_CONTRATANTE" msprop:DbColumnName="DESCR_ENT_CONTRATANTE" msprop:FriendlyName="DESCR_ENT_CONTRATANTE">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_GRUPO_PAGO" msprop:DbTableName="MECI_PS_GRUPO_PAGO" msprop:FriendlyName="MECI_PS_GRUPO_PAGO" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_GRUPO_PAGO" msprop:DbColumnName="ID_GRUPO_PAGO" msprop:FriendlyName="ID_GRUPO_PAGO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_GRUPO_PAGO" msprop:DbColumnName="DESCR_GRUPO_PAGO" msprop:FriendlyName="DESCR_GRUPO_PAGO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_GENERO" msprop:DbTableName="MECI_PS_GENERO" msprop:FriendlyName="MECI_PS_GENERO" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_GENERO" msprop:DbColumnName="ID_GENERO" msprop:FriendlyName="ID_GENERO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="4" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_GENERO" msprop:DbColumnName="DESCR_GENERO" msprop:FriendlyName="DESCR_GENERO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_LOCALIZACION" msprop:DbTableName="MECI_PS_LOCALIZACION" msprop:FriendlyName="MECI_PS_LOCALIZACION" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_LOCALIZACION" msprop:DbColumnName="ID_LOCALIZACION" msprop:FriendlyName="ID_LOCALIZACION">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="PAIS" msprop:DbColumnName="PAIS" msprop:FriendlyName="PAIS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_REGIONAL" msprop:DbColumnName="ID_REGIONAL" msprop:FriendlyName="ID_REGIONAL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="REGIONAL" msprop:DbColumnName="REGIONAL" msprop:FriendlyName="REGIONAL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_DEPARTAMENTO" msprop:DbColumnName="ID_DEPARTAMENTO" msprop:FriendlyName="ID_DEPARTAMENTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DEPARTAMENTO" msprop:DbColumnName="DEPARTAMENTO" msprop:FriendlyName="DEPARTAMENTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_CIUDAD" msprop:DbColumnName="ID_CIUDAD" msprop:FriendlyName="ID_CIUDAD" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CIUDAD" msprop:DbColumnName="CIUDAD" msprop:FriendlyName="CIUDAD" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="UBICACION" msprop:DbColumnName="UBICACION" msprop:FriendlyName="UBICACION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DIRECCION" msprop:DbColumnName="DIRECCION" msprop:FriendlyName="DIRECCION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="55" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_GRUPO_CONCEPTOS" msprop:DbTableName="MECI_PS_GRUPO_CONCEPTOS" msprop:FriendlyName="MECI_PS_GRUPO_CONCEPTOS" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_NUM_GRP_CONCEPTO" msprop:DbColumnName="ID_NUM_GRP_CONCEPTO" msprop:FriendlyName="ID_NUM_GRP_CONCEPTO" type="xs:int" />
+                  <xs:element name="ID_NM_GRP_CONCEPTO" msprop:DbColumnName="ID_NM_GRP_CONCEPTO" msprop:FriendlyName="ID_NM_GRP_CONCEPTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="18" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_GRUPO" msprop:DbColumnName="DESCR_GRUPO" msprop:FriendlyName="DESCR_GRUPO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_NUM_CONCEPTO" msprop:DbColumnName="ID_NUM_CONCEPTO" msprop:FriendlyName="ID_NUM_CONCEPTO" type="xs:int" minOccurs="0" />
+                  <xs:element name="ID_NM_CONCEPTO" msprop:DbColumnName="ID_NM_CONCEPTO" msprop:FriendlyName="ID_NM_CONCEPTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="18" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_CONCEPTO" msprop:DbColumnName="DESCR_CONCEPTO" msprop:FriendlyName="DESCR_CONCEPTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ENTRY_TYPE_ID" msprop:DbColumnName="ENTRY_TYPE_ID" msprop:FriendlyName="ENTRY_TYPE_ID" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="CLAVE_CONCEPTO" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="GRUPO CONCEPTO Y CONCEPTO" msprop:DbColumnName="CLAVE_CONCEPTO" msprop:ComputedColumnExpression="CONVERT(VARCHAR(8),ID_NUM_GRP_CONCEPTO) + '_' + ID_NM_CONCEPTO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="27" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_TIPO_EJECUCION" msprop:DbTableName="MECI_PS_TIPO_EJECUCION" msprop:FriendlyName="MECI_PS_TIPO_EJECUCION" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_TIPO_EJECUCION" msprop:DbColumnName="ID_TIPO_EJECUCION" msprop:FriendlyName="ID_TIPO_EJECUCION">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_TIPO_EJECUCION" msprop:DbColumnName="DESCR_TIPO_EJECUCION" msprop:FriendlyName="DESCR_TIPO_EJECUCION">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_CLASE_CONCEPTO" msprop:DbTableName="MECI_PS_CLASE_CONCEPTO" msprop:FriendlyName="MECI_PS_CLASE_CONCEPTO" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="DESCR_CLASE_CONCEPTO" msprop:DbColumnName="DESCR_CLASE_CONCEPTO" msprop:FriendlyName="DESCR_CLASE_CONCEPTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="ID_CLASE_CONCEPTO" msprop:DbColumnName="ID_CLASE_CONCEPTO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="4" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_CATEGORIA_POSICION" msprop:DbTableName="MECI_PS_CATEGORIA_POSICION" msprop:FriendlyName="MECI_PS_CATEGORIA_POSICION" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_CATEGORIA_PO" msprop:DbColumnName="ID_CATEGORIA_PO" msprop:FriendlyName="ID_CATEGORIA_PO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="4" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_CATEGORIA_PO" msprop:DbColumnName="DESCR_CATEGORIA_PO" msprop:FriendlyName="DESCR_CATEGORIA_PO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_ESTRUCTURA_ORGANIZACIONAL" msprop:DbTableName="MECI_PS_ESTRUCTURA_ORGANIZACIONAL" msprop:FriendlyName="MECI_PS_ESTRUCTURA_ORGANIZACIONAL" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_MACROPROCESO" msprop:DbColumnName="ID_MACROPROCESO" msprop:FriendlyName="ID_MACROPROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_MACROPROCESO" msprop:DbColumnName="DESCR_MACROPROCESO" msprop:FriendlyName="DESCR_MACROPROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_PROCESO" msprop:DbColumnName="ID_PROCESO" msprop:FriendlyName="ID_PROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_PROCESO" msprop:DbColumnName="DESCR_PROCESO" msprop:FriendlyName="DESCR_PROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_SUBPROCESO" msprop:DbColumnName="ID_SUBPROCESO" msprop:FriendlyName="ID_SUBPROCESO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_SUBPROCESO" msprop:DbColumnName="DESCR_SUBPROCESO" msprop:FriendlyName="DESCR_SUBPROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_TIPO_CONCEPTO" msprop:DbTableName="MECI_PS_TIPO_CONCEPTO" msprop:FriendlyName="MECI_PS_TIPO_CONCEPTO" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_TIPO_CONCEPTO" msprop:DbColumnName="ID_TIPO_CONCEPTO" msprop:FriendlyName="ID_TIPO_CONCEPTO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_TIPO_CONCEPTO" msprop:DbColumnName="DESCR_TIPO_CONCEPTO" msprop:FriendlyName="DESCR_TIPO_CONCEPTO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_ESTADO_CIVIL" msprop:DbTableName="MECI_PS_ESTADO_CIVIL" msprop:FriendlyName="MECI_PS_ESTADO_CIVIL" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_EST_CIVIL" msprop:DbColumnName="ID_EST_CIVIL" msprop:FriendlyName="ID_EST_CIVIL">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="4" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_ESTADO_CIVIL" msprop:DbColumnName="DESCR_ESTADO_CIVIL" msprop:FriendlyName="DESCR_ESTADO_CIVIL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_TIEMPO" msprop:DbTableName="TIEMPO" msprop:FriendlyName="TIEMPO" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TIME_ID" msprop:DbColumnName="TIME_ID" msprop:FriendlyName="TIME_ID" type="xs:int" />
+                  <xs:element name="DATE" msprop:DbColumnName="DATE" msprop:FriendlyName="DATE" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="DAY" msprop:DbColumnName="DAY" msprop:FriendlyName="DAY" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="MONTH" msprop:DbColumnName="MONTH" msprop:FriendlyName="MONTH" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="YEAR" msprop:DbColumnName="YEAR" msprop:FriendlyName="YEAR" type="xs:int" minOccurs="0" />
+                  <xs:element name="DAY_OF_MONTH" msprop:DbColumnName="DAY_OF_MONTH" msprop:FriendlyName="DAY_OF_MONTH" type="xs:int" minOccurs="0" />
+                  <xs:element name="WEEK_OF_YEAR" msprop:DbColumnName="WEEK_OF_YEAR" msprop:FriendlyName="WEEK_OF_YEAR" type="xs:int" minOccurs="0" />
+                  <xs:element name="MONTH_OF_YEAR" msprop:DbColumnName="MONTH_OF_YEAR" msprop:FriendlyName="MONTH_OF_YEAR" type="xs:int" minOccurs="0" />
+                  <xs:element name="QUARTER_OF_YEAR" msprop:DbColumnName="QUARTER_OF_YEAR" msprop:FriendlyName="QUARTER_OF_YEAR" type="xs:int" minOccurs="0" />
+                  <xs:element name="ANO_MES" msprop:IsLogical="True" msprop:FriendlyName="ANO_MES" msprop:Description="Clave para el atributo Mes" msprop:DbColumnName="ANO_MES" msprop:ComputedColumnExpression="convert(varchar, year) + right( '0' + convert(varchar,month_of_year),2)" type="xs:string" minOccurs="0" />
+                  <xs:element name="AÑO_CUATRIMESTRE" msprop:IsLogical="True" msprop:Description="" msprop:DbColumnName="AÑO_CUATRIMESTRE" msprop:ComputedColumnExpression="convert(varchar, year) + right( '0' + convert(varchar,quarter_of_year),2)" type="xs:string" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_SI_NO_SALARIAL" msprop:DbTableName="MECI_SI_NO_SALARIAL" msprop:FriendlyName="MECI_SI_NO_SALARIAL" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_CLASE_CONCEPTO" msprop:DbColumnName="ID_CLASE_CONCEPTO" msprop:FriendlyName="ID_CLASE_CONCEPTO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCRIPCION_CLAS_CONCEP" msprop:DbColumnName="DESCRIPCION_CLAS_CONCEP" msprop:FriendlyName="DESCRIPCION_CLAS_CONCEP" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_ESTADO_COLABORADOR" msprop:DbTableName="MECI_PS_ESTADO_COLABORADOR" msprop:FriendlyName="MECI_PS_ESTADO_COLABORADOR" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_ESTADO_COLAB" msprop:DbColumnName="ID_ESTADO_COLAB" msprop:FriendlyName="ID_ESTADO_COLAB">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="4" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_ESTADO_COLAB" msprop:DbColumnName="DESCR_ESTADO_COLAB" msprop:FriendlyName="DESCR_ESTADO_COLAB" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="MECI_PS_COLAB_VIGENTES" msprop:IsLogical="True" msprop:FriendlyName="MECI_PS_COLAB_VIGENTES" msprop:DbTableName="MECI_PS_COLAB_VIGENTES" msprop:TableType="View" msprop:Description="Colaboradores con estado Activo" msprop:QueryDefinition="SELECT DISTINCT ID_COLABORADOR, ID_ESTADO_COLAB&#xD;&#xA;FROM         FAC.MECI_PS_BENEFICIOS WITH (NOLOCK)" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_COLABORADOR" msprop:DbColumnName="ID_COLABORADOR" msprop:FriendlyName="ID_COLABORADOR">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="11" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ESTADO_COLAB" msprop:DbColumnName="ID_ESTADO_COLAB" msprop:FriendlyName="ID_ESTADO_COLAB" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="MECI_PS_COLAB_INACTIVOS" msprop:IsLogical="True" msprop:FriendlyName="MECI_PS_COLAB_INACTIVOS" msprop:DbTableName="MECI_PS_COLAB_INACTIVOS" msprop:TableType="View" msprop:Description="Colaboradores con estado Inactivo" msprop:QueryDefinition="SELECT DISTINCT ID_COLABORADOR, ID_ESTADO_COLAB&#xD;&#xA;FROM         FAC.MECI_PS_BENEFICIOS WITH (NOLOCK)&#xD;&#xA;WHERE     (ID_ESTADO_COLAB = 'I')" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_COLABORADOR" msprop:DbColumnName="ID_COLABORADOR" msprop:FriendlyName="ID_COLABORADOR">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="11" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_ESTADO_COLAB" msprop:DbColumnName="ID_ESTADO_COLAB" msprop:FriendlyName="ID_ESTADO_COLAB" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_CATEGORIA_CONCEPTO" msprop:DbTableName="MECI_PS_CATEGORIA_CONCEPTO" msprop:FriendlyName="MECI_PS_CATEGORIA_CONCEPTO" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_CATEGORIA" msprop:DbColumnName="ID_CATEGORIA" msprop:FriendlyName="ID_CATEGORIA">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="4" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_CATEGORIA" msprop:DbColumnName="DESCR_CATEGORIA" msprop:FriendlyName="DESCR_CATEGORIA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_NIVEL_EDUCATIVO" msprop:DbTableName="MECI_PS_NIVEL_EDUCATIVO" msprop:FriendlyName="MECI_PS_NIVEL_EDUCATIVO" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="NIVEL_EDUC_ACTUAL" msprop:DbColumnName="NIVEL_EDUC_ACTUAL" msprop:FriendlyName="NIVEL_EDUC_ACTUAL">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_NIVEL_EDUC" msprop:DbColumnName="DESCR_NIVEL_EDUC" msprop:FriendlyName="DESCR_NIVEL_EDUC" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="MARKET" msprop:DbColumnName="MARKET" msprop:FriendlyName="MARKET" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_NIVEL" msprop:DbTableName="MECI_PS_NIVEL" msprop:FriendlyName="MECI_PS_NIVEL" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_NIVEL" msprop:DbColumnName="ID_NIVEL" msprop:FriendlyName="ID_NIVEL">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_NIVEL" msprop:DbColumnName="DESCR_NIVEL" msprop:FriendlyName="DESCR_NIVEL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_COMPANIA_MISION" msprop:DbTableName="MECI_PS_COMPANIA_MISION" msprop:FriendlyName="MECI_PS_COMPANIA_MISION" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_COMPANIA_MISION" msprop:DbColumnName="ID_COMPANIA_MISION" msprop:FriendlyName="ID_COMPANIA_MISION">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_COMPANIA_MISION" msprop:DbColumnName="DESCR_COMPANIA_MISION" msprop:FriendlyName="DESCR_COMPANIA_MISION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_ENTIDAD_AFILIACION_SS" msprop:DbTableName="MECI_PS_ENTIDAD_AFILIACION_SS" msprop:FriendlyName="MECI_PS_ENTIDAD_AFILIACION_SS" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_ENTIDAD_AFIL" msprop:DbColumnName="ID_ENTIDAD_AFIL" msprop:FriendlyName="ID_ENTIDAD_AFIL">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="8" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_ENTIDAD_AFIL" msprop:DbColumnName="DESCR_ENTIDAD_AFIL" msprop:FriendlyName="DESCR_ENTIDAD_AFIL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NIT_ENTIDAD_AFIL" msprop:DbColumnName="NIT_ENTIDAD_AFIL" msprop:FriendlyName="NIT_ENTIDAD_AFIL" type="xs:int" minOccurs="0" />
+                  <xs:element name="DIGITO_VERIF" msprop:DbColumnName="DIGITO_VERIF" msprop:FriendlyName="DIGITO_VERIF" type="xs:int" minOccurs="0" />
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_CARGO" msprop:DbTableName="MECI_PS_CARGO" msprop:FriendlyName="MECI_PS_CARGO" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SETID" msprop:DbColumnName="SETID" msprop:FriendlyName="SETID" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_CARGO" msprop:DbColumnName="ID_CARGO" msprop:FriendlyName="ID_CARGO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA" msprop:DbColumnName="FECHA" msprop:FriendlyName="FECHA" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="EFF_STATUS" msprop:DbColumnName="EFF_STATUS" msprop:FriendlyName="EFF_STATUS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_CARGO" msprop:DbColumnName="DESCR_CARGO" msprop:FriendlyName="DESCR_CARGO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_JOB_FUNCION" msprop:DbColumnName="ID_JOB_FUNCION" msprop:FriendlyName="ID_JOB_FUNCION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="JOB_SUB_FUNC" msprop:DbColumnName="JOB_SUB_FUNC" msprop:FriendlyName="JOB_SUB_FUNC" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SETID_SALARIO" msprop:DbColumnName="SETID_SALARIO" msprop:FriendlyName="SETID_SALARIO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SAL_ADMIN_PLAN" msprop:DbColumnName="SAL_ADMIN_PLAN" msprop:FriendlyName="SAL_ADMIN_PLAN" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="4" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="GRADE" msprop:DbColumnName="GRADE" msprop:FriendlyName="GRADE" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="STEP" msprop:DbColumnName="STEP" msprop:FriendlyName="STEP" type="xs:short" minOccurs="0" />
+                  <xs:element name="MANAGER_LEVEL" msprop:DbColumnName="MANAGER_LEVEL" msprop:FriendlyName="MANAGER_LEVEL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_MANAGER_LEVEL" msprop:DbColumnName="DESCR_MANAGER_LEVEL" msprop:FriendlyName="DESCR_MANAGER_LEVEL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SURVEY_SALARY" msprop:DbColumnName="SURVEY_SALARY" msprop:FriendlyName="SURVEY_SALARY" type="xs:int" minOccurs="0" />
+                  <xs:element name="CURRENCY_CD" msprop:DbColumnName="CURRENCY_CD" msprop:FriendlyName="CURRENCY_CD" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="STD_HOURS" msprop:DbColumnName="STD_HOURS" msprop:FriendlyName="STD_HOURS" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="COMP_FREQUENCY" msprop:DbColumnName="COMP_FREQUENCY" msprop:FriendlyName="COMP_FREQUENCY" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_COMP_FREQUENCY" msprop:DbColumnName="DESCR_COMP_FREQUENCY" msprop:FriendlyName="DESCR_COMP_FREQUENCY" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_JOB_FAMILY" msprop:DbColumnName="ID_JOB_FAMILY" msprop:FriendlyName="ID_JOB_FAMILY" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="REG_TEMP" msprop:DbColumnName="REG_TEMP" msprop:FriendlyName="REG_TEMP" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_REG_TEMP" msprop:DbColumnName="DESCR_REG_TEMP" msprop:FriendlyName="DESCR_REG_TEMP" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="COMPANY" msprop:DbColumnName="COMPANY" msprop:FriendlyName="COMPANY" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="GVT_PAY_BASIS" msprop:DbColumnName="GVT_PAY_BASIS" msprop:FriendlyName="GVT_PAY_BASIS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_GVT_PAY_BASIS" msprop:DbColumnName="DESCR_GVT_PAY_BASIS" msprop:FriendlyName="DESCR_GVT_PAY_BASIS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="LAST_UPDATE_DATE" msprop:DbColumnName="LAST_UPDATE_DATE" msprop:FriendlyName="LAST_UPDATE_DATE" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" msprop:FriendlyName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="CLAVE_CARGO" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="Clave para relacionar el cargo" msprop:DbColumnName="CLAVE_CARGO" msprop:ComputedColumnExpression="CONVERT(VARCHAR, SETID) + CONVERT(VARCHAR, ID_CARGO)">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="60" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="MECI_PS_EDAD_COLABORADOR" msprop:IsLogical="True" msprop:FriendlyName="MECI_PS_EDAD_COLABORADOR" msprop:DbTableName="MECI_PS_EDAD_COLABORADOR" msprop:TableType="View" msprop:Description="MECI_PS_EDAD_COLABORADOR" msprop:QueryDefinition="SELECT DISTINCT EDAD&#xD;&#xA;FROM         FAC.MECI_PS_BENEFICIOS" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="EDAD" msprop:DbColumnName="EDAD" msprop:FriendlyName="EDAD">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="MECI_PS_PERMANENCIA_COLABORADOR" msprop:IsLogical="True" msprop:FriendlyName="MECI_PS_PERMANENCIA_COLABORADOR" msprop:DbTableName="MECI_PS_PERMANENCIA_COLABORADOR" msprop:TableType="View" msprop:Description="PERMANENCIA DEL COLABORADOR EN LA EMPRESA" msprop:QueryDefinition="SELECT DISTINCT PERMANENCIA AS TIEMPO_PERMANENCIA&#xD;&#xA;FROM            FAC.MECI_PS_BENEFICIOS WITH (NOLOCK)" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TIEMPO_PERMANENCIA" msprop:DbColumnName="TIEMPO_PERMANENCIA" msprop:FriendlyName="TIEMPO_PERMANENCIA">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_MECI_PS_AUSENCIAS" msprop:DbTableName="MECI_PS_AUSENCIAS" msprop:FriendlyName="MECI_PS_AUSENCIAS" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SETID" msprop:DbColumnName="SETID" msprop:FriendlyName="SETID" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_CLASE_AUS" msprop:DbColumnName="ID_CLASE_AUS" msprop:FriendlyName="ID_CLASE_AUS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="4" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_CLASE_AUS" msprop:DbColumnName="DESCR_CLASE_AUS" msprop:FriendlyName="DESCR_CLASE_AUS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_TIPO_AUS" msprop:DbColumnName="ID_TIPO_AUS" msprop:FriendlyName="ID_TIPO_AUS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_TIPO_AUS" msprop:DbColumnName="DESCR_TIPO_AUS" msprop:FriendlyName="DESCR_TIPO_AUS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_AUSENCIA" msprop:DbColumnName="ID_AUSENCIA" msprop:FriendlyName="ID_AUSENCIA">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="3" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DESCR_AUSENCIA" msprop:DbColumnName="DESCR_AUSENCIA" msprop:FriendlyName="DESCR_AUSENCIA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CLAVE_AUSENCIA" msdata:ReadOnly="true" msprop:IsLogical="True" msprop:Description="CLAVE PARA AUSENCIAS" msprop:DbColumnName="CLAVE_AUSENCIA" msprop:ComputedColumnExpression="ID_TIPO_AUS  +  ID_AUSENCIA">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_AUDIT_BASE_DATOS_SIG" msprop:DbTableName="AUDIT_BASE_DATOS_SIG" msprop:FriendlyName="AUDIT_BASE_DATOS_SIG" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_BASE_DATOS" msprop:DbColumnName="ID_BASE_DATOS" msprop:FriendlyName="ID_BASE_DATOS" type="xs:int" />
+                  <xs:element name="NOMBRE_BASE_DATOS" msprop:DbColumnName="NOMBRE_BASE_DATOS" msprop:FriendlyName="NOMBRE_BASE_DATOS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_AUDIT_CUBOS" msprop:DbTableName="AUDIT_CUBOS" msprop:FriendlyName="AUDIT_CUBOS" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID_BASE_DATOS" msprop:DbColumnName="ID_BASE_DATOS" msprop:FriendlyName="ID_BASE_DATOS" type="xs:int" minOccurs="0" />
+                  <xs:element name="NOMBRE_BASE_DATOS" msprop:DbColumnName="NOMBRE_BASE_DATOS" msprop:FriendlyName="NOMBRE_BASE_DATOS" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_CUBO" msprop:DbColumnName="NOMBRE_CUBO" msprop:FriendlyName="NOMBRE_CUBO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="60" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="FAC_AUDIT_LOGIN_CUBES" msprop:DbTableName="AUDIT_LOGIN_CUBES" msprop:FriendlyName="AUDIT_LOGIN_CUBES" msprop:DbSchemaName="FAC" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TIME_ID" msprop:DbColumnName="TIME_ID" msprop:FriendlyName="TIME_ID" type="xs:int" minOccurs="0" />
+                  <xs:element name="FECHA" msprop:DbColumnName="FECHA" msprop:FriendlyName="FECHA" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="AÑO" msprop:DbColumnName="AÑO" msprop:FriendlyName="AÑO" type="xs:int" minOccurs="0" />
+                  <xs:element name="MES" msprop:DbColumnName="MES" msprop:FriendlyName="MES" type="xs:int" minOccurs="0" />
+                  <xs:element name="DIA" msprop:DbColumnName="DIA" msprop:FriendlyName="DIA" type="xs:int" minOccurs="0" />
+                  <xs:element name="USUARIO" msprop:DbColumnName="USUARIO" msprop:FriendlyName="USUARIO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_LOCALIZACION" msprop:DbColumnName="ID_LOCALIZACION" msprop:FriendlyName="ID_LOCALIZACION" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_SUBPROCESO" msprop:DbColumnName="ID_SUBPROCESO" msprop:FriendlyName="ID_SUBPROCESO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CLAVE_CARGO" msprop:DbColumnName="CLAVE_CARGO" msprop:FriendlyName="CLAVE_CARGO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="15" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ID_BASE_DATOS" msprop:DbColumnName="ID_BASE_DATOS" msprop:FriendlyName="ID_BASE_DATOS" type="xs:int" minOccurs="0" />
+                  <xs:element name="NOMBRE_CUBO" msprop:DbColumnName="NOMBRE_CUBO" msprop:FriendlyName="NOMBRE_CUBO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="60" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ROL" msprop:DbColumnName="ROL" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="60" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CEDULA" msprop:DbColumnName="CEDULA" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="11" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FECHA_ACTUALIZACION" msprop:DbColumnName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_AUDIT_ROL" msprop:DbTableName="AUDIT_ROL" msprop:FriendlyName="AUDIT_ROL" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ROL_PERFIL_SIG" msprop:DbColumnName="ROL_PERFIL_SIG" msprop:FriendlyName="ROL_PERFIL_SIG">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="60" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DIM_AUDIT_USUARIOS" msprop:DbTableName="AUDIT_USUARIOS" msprop:FriendlyName="AUDIT_USUARIOS" msprop:DbSchemaName="DIM" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CEDULA" msprop:DbColumnName="CEDULA" msprop:FriendlyName="CEDULA">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="11" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NOMBRE_USUARIO" msprop:DbColumnName="NOMBRE_USUARIO" msprop:FriendlyName="NOMBRE_USUARIO" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="USUARIO" msprop:DbColumnName="USUARIO" msprop:FriendlyName="USUARIO">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="40" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_COLABORADOR" />
+          <xs:field xpath="ID_COLABORADOR" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_JOB_FAMILY_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_JOB_FAMILY" />
+          <xs:field xpath="ID_JOB_FAMILY" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_QUINCENA_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_QUINCENA" />
+          <xs:field xpath="QUINCENA" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_ACCION_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_ACCION" />
+          <xs:field xpath="CLAVE_ACCION" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_POSICION_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_POSICION" />
+          <xs:field xpath="ID_POSICION" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_ENTIDAD_CONTRATANTE_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_ENTIDAD_CONTRATANTE" />
+          <xs:field xpath="ID_ENT_CONTRATANTE" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_GRUPO_PAGO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_GRUPO_PAGO" />
+          <xs:field xpath="ID_GRUPO_PAGO" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_GENERO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_GENERO" />
+          <xs:field xpath="ID_GENERO" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_LOCALIZACION_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_LOCALIZACION" />
+          <xs:field xpath="ID_LOCALIZACION" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_GRUPO_CONCEPTOS_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_GRUPO_CONCEPTOS" />
+          <xs:field xpath="CLAVE_CONCEPTO" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_TIPO_EJECUCION_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_TIPO_EJECUCION" />
+          <xs:field xpath="ID_TIPO_EJECUCION" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_CLASE_CONCEPTO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_CLASE_CONCEPTO" />
+          <xs:field xpath="ID_CLASE_CONCEPTO" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_ESTRUCTURA_ORGANIZACIONAL_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_ESTRUCTURA_ORGANIZACIONAL" />
+          <xs:field xpath="ID_SUBPROCESO" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_TIPO_CONCEPTO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_TIPO_CONCEPTO" />
+          <xs:field xpath="ID_TIPO_CONCEPTO" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_ESTADO_CIVIL_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_ESTADO_CIVIL" />
+          <xs:field xpath="ID_EST_CIVIL" />
+        </xs:unique>
+        <xs:unique name="DIM_TIEMPO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_TIEMPO" />
+          <xs:field xpath="TIME_ID" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_SI_NO_SALARIAL_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_SI_NO_SALARIAL" />
+          <xs:field xpath="ID_CLASE_CONCEPTO" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_ESTADO_COLABORADOR_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_ESTADO_COLABORADOR" />
+          <xs:field xpath="ID_ESTADO_COLAB" />
+        </xs:unique>
+        <xs:unique name="MECI_PS_COLAB_VIGENTES_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//MECI_PS_COLAB_VIGENTES" />
+          <xs:field xpath="ID_COLABORADOR" />
+        </xs:unique>
+        <xs:unique name="MECI_PS_COLAB_INACTIVOS_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//MECI_PS_COLAB_INACTIVOS" />
+          <xs:field xpath="ID_COLABORADOR" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_CATEGORIA_CONCEPTO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_CATEGORIA_CONCEPTO" />
+          <xs:field xpath="ID_CATEGORIA" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_NIVEL_EDUCATIVO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_NIVEL_EDUCATIVO" />
+          <xs:field xpath="NIVEL_EDUC_ACTUAL" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_NIVEL_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_NIVEL" />
+          <xs:field xpath="ID_NIVEL" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_COMPANIA_MISION_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_COMPANIA_MISION" />
+          <xs:field xpath="ID_COMPANIA_MISION" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_ENTIDAD_AFILIACION_SS_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_ENTIDAD_AFILIACION_SS" />
+          <xs:field xpath="ID_ENTIDAD_AFIL" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_CARGO_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_CARGO" />
+          <xs:field xpath="CLAVE_CARGO" />
+        </xs:unique>
+        <xs:unique name="MECI_PS_EDAD_COLABORADOR_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//MECI_PS_EDAD_COLABORADOR" />
+          <xs:field xpath="EDAD" />
+        </xs:unique>
+        <xs:unique name="MECI_PS_PERMANENCIA_COLABORADOR_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//MECI_PS_PERMANENCIA_COLABORADOR" />
+          <xs:field xpath="TIEMPO_PERMANENCIA" />
+        </xs:unique>
+        <xs:unique name="DIM_MECI_PS_AUSENCIAS_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_MECI_PS_AUSENCIAS" />
+          <xs:field xpath="CLAVE_AUSENCIA" />
+        </xs:unique>
+        <xs:unique name="DIM_AUDIT_BASE_DATOS_SIG_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_AUDIT_BASE_DATOS_SIG" />
+          <xs:field xpath="ID_BASE_DATOS" />
+        </xs:unique>
+        <xs:unique name="DIM_AUDIT_CUBOS_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_AUDIT_CUBOS" />
+          <xs:field xpath="NOMBRE_CUBO" />
+        </xs:unique>
+        <xs:unique name="DIM_AUDIT_ROL_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_AUDIT_ROL" />
+          <xs:field xpath="ROL_PERFIL_SIG" />
+        </xs:unique>
+        <xs:unique name="DIM_AUDIT_USUARIOS_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//DIM_AUDIT_USUARIOS" />
+          <xs:field xpath="USUARIO" />
+        </xs:unique>
+      </xs:element>
+      <xs:annotation>
+        <xs:appinfo>
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_CLASE_CONCEPTO" msdata:parent="DIM_MECI_PS_CLASE_CONCEPTO" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_CLASE_CONCEPTO" msdata:childkey="ID_CLASE_CONCEPTO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_COLABORADOR" msdata:parent="DIM_MECI_PS_COLABORADOR" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_COLABORADOR" msdata:childkey="ID_COLABORADOR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_ENTIDAD_CONTRATANTE" msdata:parent="DIM_MECI_PS_ENTIDAD_CONTRATANTE" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_ENT_CONTRATANTE" msdata:childkey="ID_ENT_CONTRATANTE" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_ESTADO_CIVIL" msdata:parent="DIM_MECI_PS_ESTADO_CIVIL" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_EST_CIVIL" msdata:childkey="ID_EST_CIVIL" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_ESTRUCTURA_ORGANIZACIONAL" msdata:parent="DIM_MECI_PS_ESTRUCTURA_ORGANIZACIONAL" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_SUBPROCESO" msdata:childkey="ID_SUBPROCESO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_GENERO" msdata:parent="DIM_MECI_PS_GENERO" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_GENERO" msdata:childkey="ID_GENERO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_GRUPO_PAGO" msdata:parent="DIM_MECI_PS_GRUPO_PAGO" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_GRUPO_PAGO" msdata:childkey="ID_GRUPO_PAGO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_JOB_FAMILY" msdata:parent="DIM_MECI_PS_JOB_FAMILY" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_JOB_FAMILY" msdata:childkey="ID_JOB_FAMILY" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_LOCALIZACION" msdata:parent="DIM_MECI_PS_LOCALIZACION" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_LOCALIZACION" msdata:childkey="ID_LOCALIZACION" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_POSICION" msdata:parent="DIM_MECI_PS_POSICION" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_POSICION" msdata:childkey="ID_POSICION" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_QUINCENA" msdata:parent="DIM_MECI_PS_QUINCENA" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="QUINCENA" msdata:childkey="QUINCENA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_TIPO_CONCEPTO" msdata:parent="DIM_MECI_PS_TIPO_CONCEPTO" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_TIPO_CONCEPTO" msdata:childkey="ID_TIPO_CONCEPTO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_TIPO_EJECUCION" msdata:parent="DIM_MECI_PS_TIPO_EJECUCION" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_TIPO_EJECUCION" msdata:childkey="ID_TIPO_EJECUCION" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_SI_NO_SALARIAL" msdata:parent="DIM_MECI_SI_NO_SALARIAL" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_CLASE_CONCEPTO" msdata:childkey="ID_CLASE_CONCEPTO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-TIEMPO" msdata:parent="DIM_TIEMPO" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="TIME_ID" msdata:childkey="TIME_ID" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_ESTADO_COLABORADOR" msdata:parent="DIM_MECI_PS_ESTADO_COLABORADOR" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_ESTADO_COLAB" msdata:childkey="ID_ESTADO_COLAB" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_COLAB_VIGENTES" msdata:parent="MECI_PS_COLAB_VIGENTES" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_COLABORADOR" msdata:childkey="ID_COLABORADOR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_COLAB_INACTIVOS" msdata:parent="MECI_PS_COLAB_INACTIVOS" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_COLABORADOR" msdata:childkey="ID_COLABORADOR" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_CATEGORIA_CONCEPTO" msdata:parent="DIM_MECI_PS_CATEGORIA_CONCEPTO" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_CATEGORIA" msdata:childkey="ID_CATEGORIA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_NIVEL" msdata:parent="DIM_MECI_PS_NIVEL" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_NIVEL" msdata:childkey="ID_NIVEL" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_COMPANIA_MISION" msdata:parent="DIM_MECI_PS_COMPANIA_MISION" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_COMPANIA_MISION" msdata:childkey="ID_COMPANIA_MISION" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_NIVEL_EDUCATIVO" msdata:parent="DIM_MECI_PS_NIVEL_EDUCATIVO" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="NIVEL_EDUC_ACTUAL" msdata:childkey="NIVEL_EDUC_ACTUAL" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_ENTIDAD_AFILIACION_SS" msdata:parent="DIM_MECI_PS_ENTIDAD_AFILIACION_SS" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_ENTIDAD_AFIL" msdata:childkey="ID_ENT_EPS" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_ENTIDAD_AFILIACION_SS1" msdata:parent="DIM_MECI_PS_ENTIDAD_AFILIACION_SS" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_ENTIDAD_AFIL" msdata:childkey="ID_ENT_FPENSION" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_ENTIDAD_AFILIACION_SS2" msdata:parent="DIM_MECI_PS_ENTIDAD_AFILIACION_SS" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_ENTIDAD_AFIL" msdata:childkey="ID_ENT_FCESANTIAS" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_ENTIDAD_AFILIACION_SS3" msdata:parent="DIM_MECI_PS_ENTIDAD_AFILIACION_SS" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_ENTIDAD_AFIL" msdata:childkey="ID_ENT_ARP" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_ENTIDAD_AFILIACION_SS4" msdata:parent="DIM_MECI_PS_ENTIDAD_AFILIACION_SS" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="ID_ENTIDAD_AFIL" msdata:childkey="ID_ENT_CAJA_COMP" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_CARGO" msdata:parent="DIM_MECI_PS_CARGO" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="CLAVE_CARGO" msdata:childkey="CLAVE_CARGO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_EDAD_COLABORADOR" msdata:parent="MECI_PS_EDAD_COLABORADOR" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="EDAD" msdata:childkey="EDAD" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_PERMANENCIA_COLABORADOR" msdata:parent="MECI_PS_PERMANENCIA_COLABORADOR" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="TIEMPO_PERMANENCIA" msdata:childkey="PERMANENCIA" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_GRUPO_CONCEPTOS1" msdata:parent="DIM_MECI_PS_GRUPO_CONCEPTOS" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="CLAVE_CONCEPTO" msdata:childkey="CLAVE_CONCEPTO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="MECI_PS_BENEFICIOS-MECI_PS_ACCION" msdata:parent="DIM_MECI_PS_ACCION" msdata:child="FAC_MECI_PS_BENEFICIOS" msdata:parentkey="CLAVE_ACCION" msdata:childkey="CLAVE_ACCION" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="AUDIT_LOGIN_CUBES-AUDIT_ROL" msdata:parent="DIM_AUDIT_ROL" msdata:child="FAC_AUDIT_LOGIN_CUBES" msdata:parentkey="ROL_PERFIL_SIG" msdata:childkey="ROL" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="AUDIT_LOGIN_CUBES-AUDIT_BASE_DATOS_SIG" msdata:parent="DIM_AUDIT_BASE_DATOS_SIG" msdata:child="FAC_AUDIT_LOGIN_CUBES" msdata:parentkey="ID_BASE_DATOS" msdata:childkey="ID_BASE_DATOS" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="AUDIT_LOGIN_CUBES-AUDIT_CUBOS" msdata:parent="DIM_AUDIT_CUBOS" msdata:child="FAC_AUDIT_LOGIN_CUBES" msdata:parentkey="NOMBRE_CUBO ID_BASE_DATOS" msdata:childkey="NOMBRE_CUBO ID_BASE_DATOS" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="AUDIT_LOGIN_CUBES-TIEMPO" msdata:parent="DIM_TIEMPO" msdata:child="FAC_AUDIT_LOGIN_CUBES" msdata:parentkey="TIME_ID" msdata:childkey="TIME_ID" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="AUDIT_LOGIN_CUBES-MECI_PS_LOCALIZACION" msdata:parent="DIM_MECI_PS_LOCALIZACION" msdata:child="FAC_AUDIT_LOGIN_CUBES" msdata:parentkey="ID_LOCALIZACION" msdata:childkey="ID_LOCALIZACION" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="AUDIT_LOGIN_CUBES-MECI_PS_ESTRUCTURA_ORGANIZACIONAL" msdata:parent="DIM_MECI_PS_ESTRUCTURA_ORGANIZACIONAL" msdata:child="FAC_AUDIT_LOGIN_CUBES" msdata:parentkey="ID_SUBPROCESO" msdata:childkey="ID_SUBPROCESO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="AUDIT_LOGIN_CUBES-MECI_PS_CARGO" msdata:parent="DIM_MECI_PS_CARGO" msdata:child="FAC_AUDIT_LOGIN_CUBES" msdata:parentkey="CLAVE_CARGO" msdata:childkey="CLAVE_CARGO" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="AUDIT_LOGIN_CUBES-AUDIT_USUARIOS" msdata:parent="DIM_AUDIT_USUARIOS" msdata:child="FAC_AUDIT_LOGIN_CUBES" msdata:parentkey="USUARIO" msdata:childkey="USUARIO" msprop:IsLogical="True" msprop:Description="" />
+        </xs:appinfo>
+      </xs:annotation>
+    </xs:schema>
+    <SIG_PS_MECI_LOGISTICA_DW xmlns="" />
+  </Schema>
+</DataSourceView>

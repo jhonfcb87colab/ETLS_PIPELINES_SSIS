@@ -1,0 +1,167 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f2f3f4c6-41d0-4066-aeb3-5499c363b2a2" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>CATEGORIA ZONA URBANA</ID>
+  <Name>CATEGORIA ZONA URBANA</Name>
+  <CreatedTimestamp>2023-09-01T22:43:00.303333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2025-10-05T06:56:08.306667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-10-30T18:56:05.033333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="626d301d-fb26-4099-9620-2fc4b9d4dcab">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="1809f595-9fee-46b1-81ef-a0006c285356">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="fcf52086-1b54-40f9-987f-c6c43ab6d5bc">
+      <ID>CLAVE DIMENSION</ID>
+      <Name>CLAVE DIMENSION</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a497b343-56c2-4b33-8d6a-468bfbcadea6">
+          <DataType>WChar</DataType>
+          <DataSize>37</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6de1c447-44d0-4dc0-87e4-f62b00631a6c">
+            <TableID>DIM_CATEGORIA_ZONA_URBANA</TableID>
+            <ColumnID>CLAVE_DIMENSION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="44d0d4ec-d0a9-43c8-a952-bca7c4ea7cf3">
+        <DataType>WChar</DataType>
+        <DataSize>37</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b59decd2-d070-4c3e-a063-d45e4aaf3550">
+          <TableID>DIM_CATEGORIA_ZONA_URBANA</TableID>
+          <ColumnID>CLAVE_DIMENSION</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="b678ba07-25ec-4b3a-ae97-0ba4dc88ca41">
+          <AttributeID>ID CATEGORIA ZONA URBA</AttributeID>
+          <Name>ID CATEGORIA ZONA URBA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3210ddd3-5fa6-450c-b515-40dcd46dc307">
+          <AttributeID>NOMBRE CATEGORIA ZONA URBA</AttributeID>
+          <Name>NOMBRE CATEGORIA ZONA URBA</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8176755a-5ae1-43e0-8ea9-d80fbfa7e486">
+      <ID>ID CATEGORIA ZONA URBA</ID>
+      <Name>ID CATEGORIA ZONA URBA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="49dcdec2-eec3-4c7d-8e76-723273d5cab1">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1fb86307-e6e7-49b9-8251-dbed7e53a41b">
+            <TableID>DIM_CATEGORIA_ZONA_URBANA</TableID>
+            <ColumnID>ID_CATEGORIA_ZONA_URBA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="51c6df83-41de-40c4-8bdf-a723bdb126df">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="ff56b95c-1a24-4dd3-ab5a-fefa69afa45b">
+          <TableID>DIM_CATEGORIA_ZONA_URBANA</TableID>
+          <ColumnID>ID_CATEGORIA_ZONA_URBA</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fc53536c-272a-4e0d-b7b1-e1c3edd5de03">
+      <ID>NOMBRE CATEGORIA ZONA URBA</ID>
+      <Name>NOMBRE CATEGORIA ZONA URBA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f9722a64-1e3e-4afe-97a6-e1edc172d65c">
+          <DataType>WChar</DataType>
+          <DataSize>19</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fe18fadf-592f-4574-886d-006d7daae013">
+            <TableID>DIM_CATEGORIA_ZONA_URBANA</TableID>
+            <ColumnID>NOMBRE_CATEGORIA_ZONA_URBA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7a5d5b98-7b86-4e89-a7c4-649884f6739f">
+        <DataType>WChar</DataType>
+        <DataSize>19</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c34b49dc-7733-41fd-97af-6dd332992a28">
+          <TableID>DIM_CATEGORIA_ZONA_URBANA</TableID>
+          <ColumnID>NOMBRE_CATEGORIA_ZONA_URBA</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="83b8b20a-0341-4070-a977-81bb77b65351">
+      <ID>Hierarchy</ID>
+      <Name>Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="e9e1ad1b-c898-44f8-9a17-58e1b4727374">
+          <ID>NOMBRE CATEGORIA ZONA URBA</ID>
+          <Name>NOMBRE CATEGORIA ZONA URBA</Name>
+          <SourceAttributeID>NOMBRE CATEGORIA ZONA URBA</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="6b5f446e-c5c1-4270-a174-40ffc7b8cb4b">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="af393564-90ca-40a7-b2e9-8224ba834097" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

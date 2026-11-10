@@ -1,0 +1,261 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="887ae68c-900a-4fcd-b870-2aee95144cc8" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SDM INCONSISTENCIAS</ID>
+  <Name>SDM_INCONSISTENCIAS</Name>
+  <CreatedTimestamp>2013-01-11T22:37:32.826667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-01-11T22:37:32.826667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-10-19T21:33:59.373333Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="fff1dc13-d663-4eac-9eec-e888068aa7c8">
+    <DataSourceViewID>SIG_SDM_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="070e5742-52e3-4144-9294-389c70eb3c38">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="3b2cfffc-e629-4eab-9967-2869cacca93e">
+      <ID>NUMERO ORDEN</ID>
+      <Name>NUMERO ORDEN</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="50b04a7f-55a4-43c9-98c3-be2f0387650a">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d5db955a-f874-429d-b8aa-4a09108160ab">
+            <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+            <ColumnID>NUMERO_ORDEN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7fa10509-7c2d-4267-b9a8-215e127c2bd4">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="57cfbe8a-3255-49dc-96f2-d9259dbc5715">
+          <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+          <ColumnID>NUMERO_ORDEN</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="3739b8f0-1347-4f70-9158-17261c9efa34">
+          <AttributeID>ID CAUSAL INCOSISTENCIA</AttributeID>
+          <Name>ID CAUSAL INCOSISTENCIA</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6678620d-7dc2-46ad-a46c-bc194cd222e8">
+          <AttributeID>ID ESTADO</AttributeID>
+          <Name>ID ESTADO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="48628382-d409-4257-9001-bc0dba219687">
+          <AttributeID>ID SERVICIO</AttributeID>
+          <Name>ID SERVICIO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="2b6fa058-d92b-4e38-b283-c095feec2471">
+          <AttributeID>TIME ID</AttributeID>
+          <Name>TIME ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="473f05a4-503e-44ad-a22a-97232afc9a0b">
+          <AttributeID>ID CIUDAD ORIGEN</AttributeID>
+          <Name>ID CIUDAD ORIGEN</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8f383374-4fa0-4743-aeb3-3326d5ee6ff5">
+          <AttributeID>ID CIUDAD DESTINO</AttributeID>
+          <Name>ID CIUDAD DESTINO</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="48887840-e6cc-4e0e-8383-1592870682a8">
+      <ID>ID CAUSAL INCOSISTENCIA</ID>
+      <Name>ID CAUSAL INCOSISTENCIA</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e4a47e27-5244-4d8f-ad12-cae2d3e8a7d2">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0deff53a-af39-4ed4-a81b-638636073d81">
+            <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+            <ColumnID>ID_CAUSAL_INCOSISTENCIA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="6d58ab94-87ea-4fb8-a728-fa06f9d64f67">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="891d1d17-e2a6-4a19-a696-8ad20bd6783f">
+          <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+          <ColumnID>ID_CAUSAL_INCOSISTENCIA</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1d51e4cc-c103-4f39-ba3e-5127e5a9706b">
+      <ID>ID ESTADO</ID>
+      <Name>ID ESTADO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="cd48d0fa-c1dd-4c82-9bc4-ff409a953b44">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="27ac62b1-474a-4b05-922d-0493ebd5a1d3">
+            <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+            <ColumnID>ID_ESTADO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="83f654d0-532c-4b4c-86b1-ac8935e876dc">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1f145b24-9723-456a-bc84-06719139e058">
+          <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+          <ColumnID>ID_ESTADO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1e082176-67f0-417f-bc49-dbed17ed8f5c">
+      <ID>ID SERVICIO</ID>
+      <Name>ID SERVICIO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="10f107ff-3aca-4dd3-8835-160cc352546e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a2bcc309-5dc6-4af9-8462-b0f507a130f3">
+            <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+            <ColumnID>ID_SERVICIO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2a435b03-9104-4d21-92d9-33e71d09fefd">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="24831031-93a6-40ff-a665-8261c50d72b8">
+          <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+          <ColumnID>ID_SERVICIO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fe3fc5e7-6981-4f72-a221-7317ff4b569d">
+      <ID>TIME ID</ID>
+      <Name>TIME ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8870bc21-a0f8-42d7-bf54-211097368ccc">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="67eb154f-5eeb-46a1-ba18-b826feb956b2">
+            <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+            <ColumnID>TIME_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7f93c7e2-cd1b-46b5-bdde-0fe679d6b2c4">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="fd532890-2966-4bc1-9329-1a57399ae5d2">
+          <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+          <ColumnID>TIME_ID</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="83f19915-dcf0-4ca4-a727-a362552b0356">
+      <ID>ID CIUDAD ORIGEN</ID>
+      <Name>ID CIUDAD ORIGEN</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="47696066-37f3-4647-9d21-90cb17052c33">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a21e7f8c-13e6-4719-9fc8-e4224a175004">
+            <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+            <ColumnID>ID_CIUDAD_ORIGEN</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="bde4589e-f3d9-477d-94d7-f0619cf6972b">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="1d8d7116-e8ed-4698-a200-9fa01b313f84">
+          <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+          <ColumnID>ID_CIUDAD_ORIGEN</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2cb29093-a040-4ded-83be-40f521e0e1a5">
+      <ID>ID CIUDAD DESTINO</ID>
+      <Name>ID CIUDAD DESTINO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="73a3f39c-d0ca-49b9-abcf-1e4f19ae8688">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ddbf1e85-54d2-4418-b9c0-31121d6b17f9">
+            <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+            <ColumnID>ID_CIUDAD_DESTINO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a0394363-a56a-4bc6-a464-026db8640134">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="48d5dd5d-fd1a-42e0-b1ed-fd8c222641d1">
+          <TableID>FAC_SDM_INCONSISTENCIAS</TableID>
+          <ColumnID>ID_CIUDAD_DESTINO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching dwd:design-time-name="b001dff3-43ff-4885-b67e-5e8fc9388514">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="08e7616f-34ed-4cf5-9a3c-77c4c38c49e8" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

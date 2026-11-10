@@ -1,0 +1,2077 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/7/2025 10:23:51 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="T_SERV-DBI01"
+  DTS:CreatorName="SERVIENT\inteligencianegocios"
+  DTS:DTSID="{CE592580-77C3-40D5-92DB-79C3B2E13D17}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="Comparacion_DG_MCP"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{1E10F414-E67B-4ADB-83BD-18303C046740}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[0DESA_LSTSSDGN]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{76F45933-2C1C-4773-A2FD-8571202B1F64}"
+      DTS:ObjectName="0DESA_LSTSSDGN">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LSTSSDGN;Initial Catalog=Mece_Logistico;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Intent=READONLY;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[0DESA_SERV-DBMCP]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{21A30069-EA5C-4D5E-99D1-17F4129E1946}"
+      DTS:ObjectName="0DESA_SERV-DBMCP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SERV-DBMCP;Initial Catalog=Mece_logistico;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Intent=READONLY;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[0DESA_SIG_COLOMBIA_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{47A89BB8-8EF7-4B00-BD86-5E64EEBA9FFC}"
+      DTS:ObjectName="0DESA_SIG_COLOMBIA_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=D_SERV-DBI01;Initial Catalog=SIG_COLOMBIA_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[0DESA_SIG_COLOMBIA_DW 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4F729CB6-2753-4B35-BAA4-C83F6B9DBA42}"
+      DTS:ObjectName="0DESA_SIG_COLOMBIA_DW 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=D_SERV-DBI01;Initial Catalog=SIG_COLOMBIA_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5DAE1BC1-09AE-431B-AD87-2E03324AD764}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&#xA;DECLARE @FECHA_I DATETIME, @FECHA_INI DATETIME, @FECHA_FIN DATETIME, @FECHA_MANUAL DATETIME&#xA;&#xA;SET @FECHA_MANUAL = '2017-04-01 00:00:00.000' --SE CAMBIA LA FECHA DEL 01/09/2016 POR 01/04/2017, YA QUE EL CAMBIO APLICA SOLO DESDE ABRIL 2017 &#xA;SET @FECHA_I =       '&quot;+ @[User::STR_FECHA_INI] +&quot;'; &#xA;SET @FECHA_FIN =  '&quot;+ @[User::STR_FECHA_FIN]    +&quot;';&#xA;&#xA;--SET @FECHA_I = CONVERT(DATETIME,CONVERT(CHAR(11),?)) ;&#xA;--SET @FECHA_FIN = CONVERT(DATETIME,CONVERT(CHAR(11),?))  ;&#xA;&#xA;IF @FECHA_I &gt;= @FECHA_MANUAL&#xA;&#x9;BEGIN&#xA;&#x9;&#x9;SET @FECHA_INI = @FECHA_I&#xA;&#x9;END&#xA;ELSE&#xA;&#x9;BEGIN&#xA;&#x9;&#x9;SET @FECHA_INI = @FECHA_MANUAL&#xA;&#x9;END&#xA;&#xA;&#xA;;WITH SEGUIMI_ENVIO AS (&#xA;&#x9;SELECT&#x9;MIN(FECHA_HORA_MOVIMIENTO) AS FECHA_HORA_MOVIMIENTO, NUMERO_GUIA&#xA;&#x9;FROM MECE_LOGISTICO.DBO.SEGUIMIENTO_ENVIO  WITH (NOLOCK)&#xA;&#x9;WHERE FECHA_HORA_MOVIMIENTO &gt;=  @FECHA_INI &#x9;&#x9;&#xA;&#x9;&#x9;AND FECHA_HORA_MOVIMIENTO &lt;  @FECHA_FIN&#x9;&#x9;&#xA;&#x9;&#x9;AND ID_PROCESO IN (5,6) &#xA;&#x9;GROUP BY NUMERO_GUIA&#xA;)&#xA;&#xA;SELECT --CONVERT(NUMERIC,CONVERT(DATETIME,CONVERT(CHAR(11),GUIAS.FECHA_ENVIO)))AS TIMEID,&#xA;&#x9;&#x9;--GUIAS.FECHA_ENVIO, --AS FECHA, --CONVERT(DATETIME,CONVERT(CHAR(11),GUIAS.FECHA_ENVIO))AS FECHA,&#xA;&#x9;&#x9;SE_FECH.FECHA_HORA_MOVIMIENTO,&#xA;&#x9;&#x9;GUIAS.ID_PAIS_ORIGEN, --ISNULL(GUIAS.ID_PAIS_ORIGEN,0) AS ID_PAIS_ORIGEN,&#xA;&#x9;&#x9;GUIAS.ID_CIUDAD_ORIGEN, --ISNULL(GUIAS.ID_CIUDAD_ORIGEN,0) AS ID_CIUDAD_ORIGEN,&#xA;&#x9;&#x9;GUIAS.ID_PAIS_DESTINO, --ISNULL(GUIAS.ID_PAIS_DESTINO,0) AS ID_PAIS_DESTINO,&#xA;&#x9;&#x9;GUIAS.ID_CIUDAD_DESTINO, --ISNULL(GUIAS.ID_CIUDAD_DESTINO,0) AS ID_CIUDAD_DESTINO,&#xA;&#x9;&#x9;GUIAS.ID_TIPOGUIA, --ISNULL(GUIAS.ID_TIPOGUIA,0) AS ID_TIPOGUIA,&#xA;&#x9;&#x9;GUIAS.ID_CLIENTE, --ISNULL(GUIAS.ID_CLIENTE,0) AS ID_CLIENTE,&#xA;&#x9;&#x9;GUIAS.ID_ESTADOENVIO, --ISNULL(GUIAS.ID_ESTADOENVIO,0) AS ID_ESTADOENVIO,&#xA;&#x9;&#x9;GUIAS.ID_DOCU_ULT_MOVI, --ISNULL(GUIAS.ID_DOCU_ULT_MOVI,0) AS   ID_PROCESO,&#xA;&#x9;&#x9;GUIAS.ID_MEDTRANS, --ISNULL(GUIAS.ID_MEDTRANS,0) AS ID_MEDTRANS,&#xA;&#x9;&#x9;GUIAS.ID_PRODUCTO, --ISNULL(GUIAS.ID_PRODUCTO,0) AS ID_PRODUCTO,&#xA;&#x9;&#x9;GUIAS.ID_SUBPRODUCTO, --ISNULL(GUIAS.ID_SUBPRODUCTO,0) AS ID_SUBPRODUCTO,&#xA;&#x9;&#x9;GUIAS.ID_ESTADOGUIA, --ISNULL(GUIAS.ID_ESTADOGUIA,0) AS ID_ESTADOGUIA,&#xA;&#x9;&#x9;GUIAS.ID_TIEMPO AS ID_TIEMPO_ENTREGA, --ISNULL(GUIAS.ID_TIEMPO,0) AS ID_TIEMPO_ENTREGA,&#xA;&#x9;&#x9;GUIAS.ID_REQUIERE_EMBALAJE AS ID_REQ_EMBALAJE, --ISNULL(GUIAS.ID_REQUIERE_EMBALAJE,0) AS ID_REQ_EMBALAJE,&#xA;&#x9;&#x9;GUIAS.NUMERO_GUIA, --COUNT(DISTINCT GUIAS.NUMERO_GUIA) AS CANTIDAD_GUIAS,&#xA;&#x9;&#x9;GUIAS.NUMERO_PIEZAS, --SUM(CASE WHEN ISNULL(GUIAS.NUMERO_PIEZAS,0) = 0 THEN 1 ELSE GUIAS.NUMERO_PIEZAS END) AS CANTIDAD_PIEZAS,&#xA;&#x9;&#x9;GUIAS.FECHA_ENTREGA, --ISNULL(DATEDIFF(MI,GUIAS.FECHA_ENTREGA,GUIAS.FECHA_MODIFICACION),0) AS TIEMPO_DIGITALIZACION,&#xA;&#x9;&#x9;GUIAS.FECHA_MODIFICACION&#xA;&#x9;&#x9;--ISNULL((DATEDIFF(HH,FECHA_ENVIO,FECHA_ENTREGA)),0) AS TIEMPO_PROMESA_H&#xA;FROM &#x9;MECE_LOGISTICO.DBO.GUIAS GUIAS WITH (NOLOCK, INDEX(UK_GUIA)  )&#xA;&#x9;&#x9;INNER JOIN&#x9;SEGUIMI_ENVIO AS SE_FECH  &#xA;&#x9;&#x9;&#x9;ON SE_FECH.NUMERO_GUIA = GUIAS.NUMERO_GUIA --SE.NUMERO_GUIA = SE_FECH.NUMERO_GUIA&#xA;&#x9;&#x9;WHERE GUIAS.ID_DOCU_ULT_MOVI &gt;= 4 -- ID_PROCESO&#xA;OPTION (RECOMPILE)&#xA;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DG">
+      <DTS:VariableValue
+        DTS:DataType="8">
+DECLARE @FECHA_I DATETIME, @FECHA_INI DATETIME, @FECHA_FIN DATETIME, @FECHA_MANUAL DATETIME
+
+SET @FECHA_MANUAL = '2017-04-01 00:00:00.000' --SE CAMBIA LA FECHA DEL 01/09/2016 POR 01/04/2017, YA QUE EL CAMBIO APLICA SOLO DESDE ABRIL 2017 
+SET @FECHA_I =       '20261012'; 
+SET @FECHA_FIN =  '20261023';
+
+--SET @FECHA_I = CONVERT(DATETIME,CONVERT(CHAR(11),?)) ;
+--SET @FECHA_FIN = CONVERT(DATETIME,CONVERT(CHAR(11),?))  ;
+
+IF @FECHA_I &gt;= @FECHA_MANUAL
+	BEGIN
+		SET @FECHA_INI = @FECHA_I
+	END
+ELSE
+	BEGIN
+		SET @FECHA_INI = @FECHA_MANUAL
+	END
+
+
+;WITH SEGUIMI_ENVIO AS (
+	SELECT	MIN(FECHA_HORA_MOVIMIENTO) AS FECHA_HORA_MOVIMIENTO, NUMERO_GUIA
+	FROM MECE_LOGISTICO.DBO.SEGUIMIENTO_ENVIO  WITH (NOLOCK)
+	WHERE FECHA_HORA_MOVIMIENTO &gt;=  @FECHA_INI 		
+		AND FECHA_HORA_MOVIMIENTO &lt;  @FECHA_FIN		
+		AND ID_PROCESO IN (5,6) 
+	GROUP BY NUMERO_GUIA
+)
+
+SELECT --CONVERT(NUMERIC,CONVERT(DATETIME,CONVERT(CHAR(11),GUIAS.FECHA_ENVIO)))AS TIMEID,
+		--GUIAS.FECHA_ENVIO, --AS FECHA, --CONVERT(DATETIME,CONVERT(CHAR(11),GUIAS.FECHA_ENVIO))AS FECHA,
+		SE_FECH.FECHA_HORA_MOVIMIENTO,
+		GUIAS.ID_PAIS_ORIGEN, --ISNULL(GUIAS.ID_PAIS_ORIGEN,0) AS ID_PAIS_ORIGEN,
+		GUIAS.ID_CIUDAD_ORIGEN, --ISNULL(GUIAS.ID_CIUDAD_ORIGEN,0) AS ID_CIUDAD_ORIGEN,
+		GUIAS.ID_PAIS_DESTINO, --ISNULL(GUIAS.ID_PAIS_DESTINO,0) AS ID_PAIS_DESTINO,
+		GUIAS.ID_CIUDAD_DESTINO, --ISNULL(GUIAS.ID_CIUDAD_DESTINO,0) AS ID_CIUDAD_DESTINO,
+		GUIAS.ID_TIPOGUIA, --ISNULL(GUIAS.ID_TIPOGUIA,0) AS ID_TIPOGUIA,
+		GUIAS.ID_CLIENTE, --ISNULL(GUIAS.ID_CLIENTE,0) AS ID_CLIENTE,
+		GUIAS.ID_ESTADOENVIO, --ISNULL(GUIAS.ID_ESTADOENVIO,0) AS ID_ESTADOENVIO,
+		GUIAS.ID_DOCU_ULT_MOVI, --ISNULL(GUIAS.ID_DOCU_ULT_MOVI,0) AS   ID_PROCESO,
+		GUIAS.ID_MEDTRANS, --ISNULL(GUIAS.ID_MEDTRANS,0) AS ID_MEDTRANS,
+		GUIAS.ID_PRODUCTO, --ISNULL(GUIAS.ID_PRODUCTO,0) AS ID_PRODUCTO,
+		GUIAS.ID_SUBPRODUCTO, --ISNULL(GUIAS.ID_SUBPRODUCTO,0) AS ID_SUBPRODUCTO,
+		GUIAS.ID_ESTADOGUIA, --ISNULL(GUIAS.ID_ESTADOGUIA,0) AS ID_ESTADOGUIA,
+		GUIAS.ID_TIEMPO AS ID_TIEMPO_ENTREGA, --ISNULL(GUIAS.ID_TIEMPO,0) AS ID_TIEMPO_ENTREGA,
+		GUIAS.ID_REQUIERE_EMBALAJE AS ID_REQ_EMBALAJE, --ISNULL(GUIAS.ID_REQUIERE_EMBALAJE,0) AS ID_REQ_EMBALAJE,
+		GUIAS.NUMERO_GUIA, --COUNT(DISTINCT GUIAS.NUMERO_GUIA) AS CANTIDAD_GUIAS,
+		GUIAS.NUMERO_PIEZAS, --SUM(CASE WHEN ISNULL(GUIAS.NUMERO_PIEZAS,0) = 0 THEN 1 ELSE GUIAS.NUMERO_PIEZAS END) AS CANTIDAD_PIEZAS,
+		GUIAS.FECHA_ENTREGA, --ISNULL(DATEDIFF(MI,GUIAS.FECHA_ENTREGA,GUIAS.FECHA_MODIFICACION),0) AS TIEMPO_DIGITALIZACION,
+		GUIAS.FECHA_MODIFICACION
+		--ISNULL((DATEDIFF(HH,FECHA_ENVIO,FECHA_ENTREGA)),0) AS TIEMPO_PROMESA_H
+FROM 	MECE_LOGISTICO.DBO.GUIAS GUIAS WITH (NOLOCK, INDEX(UK_GUIA)  )
+		INNER JOIN	SEGUIMI_ENVIO AS SE_FECH  
+			ON SE_FECH.NUMERO_GUIA = GUIAS.NUMERO_GUIA --SE.NUMERO_GUIA = SE_FECH.NUMERO_GUIA
+		WHERE GUIAS.ID_DOCU_ULT_MOVI &gt;= 4 -- ID_PROCESO
+OPTION (RECOMPILE)
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EB9AE67E-CEF8-4F14-826D-13D0A1AAB869}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&#xA;DECLARE @FECHA_I DATETIME, @FECHA_INI DATETIME, @FECHA_FIN DATETIME, @FECHA_MANUAL DATETIME&#xA;&#xA;SET @FECHA_MANUAL = '2017-04-01 00:00:00.000' --SE CAMBIA LA FECHA DEL 01/09/2016 POR 01/04/2017, YA QUE EL CAMBIO APLICA SOLO DESDE ABRIL 2017 &#xA;SET @FECHA_I =       '&quot;+ @[User::STR_FECHA_INI] +&quot;'; &#xA;SET @FECHA_FIN =  '&quot;+ @[User::STR_FECHA_FIN]    +&quot;';&#xA;&#xA;&#xA;--SET @FECHA_I = CONVERT(DATETIME,CONVERT(CHAR(11),?)) ;&#xA;--SET @FECHA_FIN = CONVERT(DATETIME,CONVERT(CHAR(11),?))  ;&#xA;&#xA;IF @FECHA_I &gt;= @FECHA_MANUAL&#xA;&#x9;BEGIN&#xA;&#x9;&#x9;SET @FECHA_INI = @FECHA_I&#xA;&#x9;END&#xA;ELSE&#xA;&#x9;BEGIN&#xA;&#x9;&#x9;SET @FECHA_INI = @FECHA_MANUAL&#xA;&#x9;END&#xA;&#xA;&#xA;;WITH SEGUIMI_ENVIO AS (&#xA;&#x9;SELECT&#x9;MIN(FECHA_HORA_MOVIMIENTO) AS FECHA_HORA_MOVIMIENTO, NUMERO_GUIA&#xA;&#x9;FROM MECE_LOGISTICO.DBO.SEGUIMIENTO_ENVIO  WITH (NOLOCK)&#xA;&#x9;WHERE FECHA_HORA_MOVIMIENTO &gt;=  @FECHA_INI &#x9;&#x9;&#xA;&#x9;&#x9;AND FECHA_HORA_MOVIMIENTO &lt;  @FECHA_FIN&#x9;&#x9;&#xA;&#x9;&#x9;AND ID_PROCESO IN (5,6) &#xA;&#x9;GROUP BY NUMERO_GUIA&#xA;)&#xA;&#xA;SELECT --CONVERT(NUMERIC,CONVERT(DATETIME,CONVERT(CHAR(11),GUIAS.FECHA_ENVIO)))AS TIMEID,&#xA;&#x9;&#x9;--GUIAS.FECHA_ENVIO, --AS FECHA, --CONVERT(DATETIME,CONVERT(CHAR(11),GUIAS.FECHA_ENVIO))AS FECHA,&#xA;&#x9;&#x9;SE_FECH.FECHA_HORA_MOVIMIENTO,&#xA;&#x9;&#x9;GUIAS.ID_PAIS_ORIGEN, --ISNULL(GUIAS.ID_PAIS_ORIGEN,0) AS ID_PAIS_ORIGEN,&#xA;&#x9;&#x9;GUIAS.ID_CIUDAD_ORIGEN, --ISNULL(GUIAS.ID_CIUDAD_ORIGEN,0) AS ID_CIUDAD_ORIGEN,&#xA;&#x9;&#x9;GUIAS.ID_PAIS_DESTINO, --ISNULL(GUIAS.ID_PAIS_DESTINO,0) AS ID_PAIS_DESTINO,&#xA;&#x9;&#x9;GUIAS.ID_CIUDAD_DESTINO, --ISNULL(GUIAS.ID_CIUDAD_DESTINO,0) AS ID_CIUDAD_DESTINO,&#xA;&#x9;&#x9;GUIAS.ID_TIPOGUIA, --ISNULL(GUIAS.ID_TIPOGUIA,0) AS ID_TIPOGUIA,&#xA;&#x9;&#x9;GUIAS.ID_CLIENTE, --ISNULL(GUIAS.ID_CLIENTE,0) AS ID_CLIENTE,&#xA;&#x9;&#x9;GUIAS.ID_ESTADOENVIO, --ISNULL(GUIAS.ID_ESTADOENVIO,0) AS ID_ESTADOENVIO,&#xA;&#x9;&#x9;GUIAS.ID_DOCU_ULT_MOVI, --ISNULL(GUIAS.ID_DOCU_ULT_MOVI,0) AS   ID_PROCESO,&#xA;&#x9;&#x9;GUIAS.ID_MEDTRANS, --ISNULL(GUIAS.ID_MEDTRANS,0) AS ID_MEDTRANS,&#xA;&#x9;&#x9;GUIAS.ID_PRODUCTO, --ISNULL(GUIAS.ID_PRODUCTO,0) AS ID_PRODUCTO,&#xA;&#x9;&#x9;GUIAS.ID_SUBPRODUCTO, --ISNULL(GUIAS.ID_SUBPRODUCTO,0) AS ID_SUBPRODUCTO,&#xA;&#x9;&#x9;GUIAS.ID_ESTADOGUIA, --ISNULL(GUIAS.ID_ESTADOGUIA,0) AS ID_ESTADOGUIA,&#xA;&#x9;&#x9;GUIAS.ID_TIEMPO AS ID_TIEMPO_ENTREGA, --ISNULL(GUIAS.ID_TIEMPO,0) AS ID_TIEMPO_ENTREGA,&#xA;&#x9;&#x9;GUIAS.ID_REQUIERE_EMBALAJE AS ID_REQ_EMBALAJE, --ISNULL(GUIAS.ID_REQUIERE_EMBALAJE,0) AS ID_REQ_EMBALAJE,&#xA;&#x9;&#x9;GUIAS.NUMERO_GUIA, --COUNT(DISTINCT GUIAS.NUMERO_GUIA) AS CANTIDAD_GUIAS,&#xA;&#x9;&#x9;GUIAS.NUMERO_PIEZAS, --SUM(CASE WHEN ISNULL(GUIAS.NUMERO_PIEZAS,0) = 0 THEN 1 ELSE GUIAS.NUMERO_PIEZAS END) AS CANTIDAD_PIEZAS,&#xA;&#x9;&#x9;GUIAS.FECHA_ENTREGA, --ISNULL(DATEDIFF(MI,GUIAS.FECHA_ENTREGA,GUIAS.FECHA_MODIFICACION),0) AS TIEMPO_DIGITALIZACION,&#xA;&#x9;&#x9;GUIAS.FECHA_MODIFICACION&#xA;&#x9;&#x9;--ISNULL((DATEDIFF(HH,FECHA_ENVIO,FECHA_ENTREGA)),0) AS TIEMPO_PROMESA_H&#xA;FROM &#x9;MECE_LOGISTICO.DBO.GUIAS GUIAS WITH (NOLOCK )&#xA;&#x9;&#x9;INNER JOIN&#x9;SEGUIMI_ENVIO AS SE_FECH  &#xA;&#x9;&#x9;&#x9;ON SE_FECH.NUMERO_GUIA = GUIAS.NUMERO_GUIA --SE.NUMERO_GUIA = SE_FECH.NUMERO_GUIA&#xA;&#x9;&#x9;WHERE GUIAS.ID_DOCU_ULT_MOVI &gt;= 4 -- ID_PROCESO&#xA;OPTION ( RECOMPILE )&#xA;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MCP">
+      <DTS:VariableValue
+        DTS:DataType="8">
+DECLARE @FECHA_I DATETIME, @FECHA_INI DATETIME, @FECHA_FIN DATETIME, @FECHA_MANUAL DATETIME
+
+SET @FECHA_MANUAL = '2017-04-01 00:00:00.000' --SE CAMBIA LA FECHA DEL 01/09/2016 POR 01/04/2017, YA QUE EL CAMBIO APLICA SOLO DESDE ABRIL 2017 
+SET @FECHA_I =       '20261012'; 
+SET @FECHA_FIN =  '20261023';
+
+
+--SET @FECHA_I = CONVERT(DATETIME,CONVERT(CHAR(11),?)) ;
+--SET @FECHA_FIN = CONVERT(DATETIME,CONVERT(CHAR(11),?))  ;
+
+IF @FECHA_I &gt;= @FECHA_MANUAL
+	BEGIN
+		SET @FECHA_INI = @FECHA_I
+	END
+ELSE
+	BEGIN
+		SET @FECHA_INI = @FECHA_MANUAL
+	END
+
+
+;WITH SEGUIMI_ENVIO AS (
+	SELECT	MIN(FECHA_HORA_MOVIMIENTO) AS FECHA_HORA_MOVIMIENTO, NUMERO_GUIA
+	FROM MECE_LOGISTICO.DBO.SEGUIMIENTO_ENVIO  WITH (NOLOCK)
+	WHERE FECHA_HORA_MOVIMIENTO &gt;=  @FECHA_INI 		
+		AND FECHA_HORA_MOVIMIENTO &lt;  @FECHA_FIN		
+		AND ID_PROCESO IN (5,6) 
+	GROUP BY NUMERO_GUIA
+)
+
+SELECT --CONVERT(NUMERIC,CONVERT(DATETIME,CONVERT(CHAR(11),GUIAS.FECHA_ENVIO)))AS TIMEID,
+		--GUIAS.FECHA_ENVIO, --AS FECHA, --CONVERT(DATETIME,CONVERT(CHAR(11),GUIAS.FECHA_ENVIO))AS FECHA,
+		SE_FECH.FECHA_HORA_MOVIMIENTO,
+		GUIAS.ID_PAIS_ORIGEN, --ISNULL(GUIAS.ID_PAIS_ORIGEN,0) AS ID_PAIS_ORIGEN,
+		GUIAS.ID_CIUDAD_ORIGEN, --ISNULL(GUIAS.ID_CIUDAD_ORIGEN,0) AS ID_CIUDAD_ORIGEN,
+		GUIAS.ID_PAIS_DESTINO, --ISNULL(GUIAS.ID_PAIS_DESTINO,0) AS ID_PAIS_DESTINO,
+		GUIAS.ID_CIUDAD_DESTINO, --ISNULL(GUIAS.ID_CIUDAD_DESTINO,0) AS ID_CIUDAD_DESTINO,
+		GUIAS.ID_TIPOGUIA, --ISNULL(GUIAS.ID_TIPOGUIA,0) AS ID_TIPOGUIA,
+		GUIAS.ID_CLIENTE, --ISNULL(GUIAS.ID_CLIENTE,0) AS ID_CLIENTE,
+		GUIAS.ID_ESTADOENVIO, --ISNULL(GUIAS.ID_ESTADOENVIO,0) AS ID_ESTADOENVIO,
+		GUIAS.ID_DOCU_ULT_MOVI, --ISNULL(GUIAS.ID_DOCU_ULT_MOVI,0) AS   ID_PROCESO,
+		GUIAS.ID_MEDTRANS, --ISNULL(GUIAS.ID_MEDTRANS,0) AS ID_MEDTRANS,
+		GUIAS.ID_PRODUCTO, --ISNULL(GUIAS.ID_PRODUCTO,0) AS ID_PRODUCTO,
+		GUIAS.ID_SUBPRODUCTO, --ISNULL(GUIAS.ID_SUBPRODUCTO,0) AS ID_SUBPRODUCTO,
+		GUIAS.ID_ESTADOGUIA, --ISNULL(GUIAS.ID_ESTADOGUIA,0) AS ID_ESTADOGUIA,
+		GUIAS.ID_TIEMPO AS ID_TIEMPO_ENTREGA, --ISNULL(GUIAS.ID_TIEMPO,0) AS ID_TIEMPO_ENTREGA,
+		GUIAS.ID_REQUIERE_EMBALAJE AS ID_REQ_EMBALAJE, --ISNULL(GUIAS.ID_REQUIERE_EMBALAJE,0) AS ID_REQ_EMBALAJE,
+		GUIAS.NUMERO_GUIA, --COUNT(DISTINCT GUIAS.NUMERO_GUIA) AS CANTIDAD_GUIAS,
+		GUIAS.NUMERO_PIEZAS, --SUM(CASE WHEN ISNULL(GUIAS.NUMERO_PIEZAS,0) = 0 THEN 1 ELSE GUIAS.NUMERO_PIEZAS END) AS CANTIDAD_PIEZAS,
+		GUIAS.FECHA_ENTREGA, --ISNULL(DATEDIFF(MI,GUIAS.FECHA_ENTREGA,GUIAS.FECHA_MODIFICACION),0) AS TIEMPO_DIGITALIZACION,
+		GUIAS.FECHA_MODIFICACION
+		--ISNULL((DATEDIFF(HH,FECHA_ENVIO,FECHA_ENTREGA)),0) AS TIEMPO_PROMESA_H
+FROM 	MECE_LOGISTICO.DBO.GUIAS GUIAS WITH (NOLOCK )
+		INNER JOIN	SEGUIMI_ENVIO AS SE_FECH  
+			ON SE_FECH.NUMERO_GUIA = GUIAS.NUMERO_GUIA --SE.NUMERO_GUIA = SE_FECH.NUMERO_GUIA
+		WHERE GUIAS.ID_DOCU_ULT_MOVI &gt;= 4 -- ID_PROCESO
+OPTION ( RECOMPILE )
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ECDD90FB-C0DC-47AE-8264-00CB18D05C88}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DATE)@[$Project::FULL_FACH_FIN]  ==  (DT_DATE) &quot;1900-01-01&quot; ? &#xA;((DT_WSTR,4)YEAR(DATEADD(&quot;DD&quot;,  1  , GETDATE()))+&quot;&quot;&#xA;+RIGHT(&quot;0&quot;+(DT_WSTR,2)MONTH(DATEADD(&quot;DD&quot;,  1  ,GETDATE() )),2)+&quot;&quot;&#xA;+RIGHT(&quot;0&quot;+(DT_WSTR,2)DAY(DATEADD(&quot;DD&quot;,  1  ,GETDATE() )),2))&#xA;&#xA;:  (DT_STR, 4, 1252) YEAR( (DT_DATE)@[$Project::FULL_FACH_FIN] ) + RIGHT(&quot;0&quot; + (DT_STR, 2, 1252) MONTH(  (DT_DATE)@[$Project::FULL_FACH_FIN]   ), 2)  +  RIGHT(&quot;0&quot; + (DT_STR, 2, 1252) DAY(   (DT_DATE)@[$Project::FULL_FACH_FIN]   ), 2)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="STR_FECHA_FIN">
+      <DTS:VariableValue
+        DTS:DataType="8">20261023</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{32D7EBB7-74F3-4F0B-9E6D-B21F7387BA5C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_DATE)@[$Project::FULL_FACH_INI]    == (DT_DATE) &quot;1900-01-01&quot; ? &#xA;((DT_WSTR,4)YEAR(DATEADD(&quot;DD&quot;, -@[$Project::DiaIni], GETDATE()))+&quot;&quot;&#xA;+RIGHT(&quot;0&quot;+(DT_WSTR,2)MONTH(DATEADD(&quot;DD&quot;,-@[$Project::DiaIni],GETDATE() )),2)+&quot;&quot;&#xA;+RIGHT(&quot;0&quot;+(DT_WSTR,2)DAY(DATEADD(&quot;DD&quot;, -@[$Project::DiaIni],GETDATE() )),2))&#xA;&#xA;:  (DT_STR, 4, 1252) YEAR( (DT_DATE) @[$Project::FULL_FACH_INI] ) + RIGHT(&quot;0&quot; + (DT_STR, 2, 1252) MONTH(  (DT_DATE) @[$Project::FULL_FACH_INI]   ), 2)  +  RIGHT(&quot;0&quot; + (DT_STR, 2, 1252) DAY(   (DT_DATE) @[$Project::FULL_FACH_INI]   ), 2)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="STR_FECHA_INI">
+      <DTS:VariableValue
+        DTS:DataType="8">20261012</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CONSULTAS A USAR"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{14de2ea2-3f42-4512-86b1-a3d62ffe316c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CONSULTAS A USAR"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4F729CB6-2753-4B35-BAA4-C83F6B9DBA42}"
+          SQLTask:SqlStatementSource="&#xA;--CONEXIÓIN A DESARRROLLO BI&#xA;USE SIG_COLOMBIA_DW;&#xA;&#xA;TRUNCATE TABLE [TMP].[ENVIOS_MOV_SOURCE_DG];&#xA;TRUNCATE TABLE [TMP].[ENVIOS_MOV_SOURCE_CILS];&#xA;&#xA;--- Valida el numero de registros&#xA;SELECT COUNT(1) FROM [TMP].[ENVIOS_MOV_SOURCE_DG]&#xA;SELECT COUNT(1) FROM [TMP].[ENVIOS_MOV_SOURCE_CILS]&#xA;&#xA;&#xA;--- VALIDAR NUMERO DE PIEZAS &#xA;SELECT SUM(NUMERO_PIEZAS) CANT_PIEZ FROM [TMP].[ENVIOS_MOV_SOURCE_DG]&#xA;SELECT SUM(NUMERO_PIEZAS) CANT_PIEZ FROM [TMP].[ENVIOS_MOV_SOURCE_CILS]&#xA;&#xA;&#xA;--- Valida diferencias entre piezas y guias&#xA;SELECT 'DG' AS TBL,   CONVERT(DATE, FECHA_HORA_MOVIMIENTO) AS FHM, SUM(NUMERO_PIEZAS) CANT_PIEZ, COUNT(NUMERO_GUIA) AS CANT_GUIAS &#xA;FROM [TMP].[ENVIOS_MOV_SOURCE_DG] GROUP BY CONVERT(DATE, FECHA_HORA_MOVIMIENTO) -- ORDER BY 2  &#xA;UNION&#xA;SELECT 'MUCIPIOS' AS TBL, CONVERT(DATE, FECHA_HORA_MOVIMIENTO) AS FHM, SUM(NUMERO_PIEZAS) CANT_PIEZ, COUNT(NUMERO_GUIA) AS TT &#xA;FROM [TMP].[ENVIOS_MOV_SOURCE_CILS] GROUP BY CONVERT(DATE, FECHA_HORA_MOVIMIENTO) ORDER BY 2&#xA;&#xA;&#xA;&#xA;&#xA;-- MUESTRA DATOS DE DIFERENCIA ENTRE NUMERO DE GUIAS, PIEZAS &#xA;SELECT  DG.FECHA_HORA_MOVIMIENTO AS DG_FECHA_HORA_MOVIMIENTO,  CL.FECHA_HORA_MOVIMIENTO AS MCP_FECHA_HORA_MOVIMIENTO,&#xA;CL.NUMERO_GUIA AS MCP_NUMERO_GUIA, DG.NUMERO_GUIA AS DG_NUMERO_GUIA, &#xA;DG.NUMERO_PIEZAS AS DG_NUMERO_PIEZAS, CL.NUMERO_PIEZAS AS MCP_NUMERO_PIEZAS &#xA;FROM  [TMP].[ENVIOS_MOV_SOURCE_CILS] CL  WITH(NOLOCK) &#xA;LEFT JOIN      [TMP].[ENVIOS_MOV_SOURCE_DG] DG  WITH(NOLOCK)&#xA;ON CL.NUMERO_GUIA = DG.NUMERO_GUIA &#xA;WHERE  LEN(CL.NUMERO_GUIA) &gt; 7  AND&#xA;--DG.FECHA_HORA_MOVIMIENTO &gt;=  CONVERT(DATETIME, '2025-10-01') AND DG.FECHA_HORA_MOVIMIENTO &lt; CONVERT(DATETIME, '2025-10-02') AND&#xA; -- DG.NUMERO_PIEZAS &lt;&gt; CL.NUMERO_PIEZAS   -- AND   --&#xA; DG.NUMERO_GUIA IS NULL&#xA;ORDER BY  1 &#xA;&#xA;---------------------&#xA;-- El siguiente es para consultar las guias del paso anterior &#xA;-- tanto en DG como en  CILS (municipios)&#xA;-- SERV-DBMCP&#xA;-- LSTSSDGN&#xA;&#xA;&#xA;----------------- CONEXIÓN A PRODUCCIÓN ----------------------------&#xA;--Siguiente es para consultar las guias del paso anterior en los servidores DG y MUNICIPIOS&#xA;select NUMERO_GUIA, ID_PROCESO, NUMERO_MOVIMI, CONSECUT_MOVIMI from .SEGUIMIENTO_ENVIO as se&#xA;where ID_PROCESO IN (5,6)  AND NUMERO_GUIA = 2241378159&#xA;order by FECHA_HORA_MOVIMIENTO&#xA;&#xA; &#xA;------------OTRAS CONSULTAS----------------------&#xA;--- TOMA LAS GUIAS QUE NO SE HAN MIGRADO A DG&#xA;SELECT distinct CLS.NUMERO_GUIA AS CLS_NUMERO_GUIA, DG.NUMERO_GUIA AS DG_NUMERO_GUIA , CLS.NUMERO_PIEZAS AS CLS_NUMERO_PIEZAS, DG.NUMERO_PIEZAS AS DG_NUMERO_PIEZAS&#xA;, CONCAT(',''', CONVERT(VARCHAR(25), CLS.NUMERO_GUIA) , '''') &#xA;FROM [TMP].[ENVIOS_MOV_SOURCE_CILS] AS CLS &#xA;LEFT JOIN [TMP].[ENVIOS_MOV_SOURCE_DG] AS DG ON CLS.NUMERO_GUIA = DG.NUMERO_GUIA&#xA;WHERE LEN(CLs.NUMERO_GUIA) &gt; 7  AND DG.NUMERO_GUIA IS NULL&#xA;ORDER BY 3 DESC&#xA;&#xA;&#xA;&#xA;--- MUSETRA diferencias entre piezas &#xA;SELECT CLS.NUMERO_GUIA, CLS.NUMERO_PIEZAS AS CLS_NUMERO_PIEZAS,DG.NUMERO_PIEZAS AS DG_NUMERO_PIEZAS&#xA;FROM [TMP].[ENVIOS_MOV_SOURCE_CILS] AS CLS &#xA;LEFT JOIN [TMP].[ENVIOS_MOV_SOURCE_DG] AS DG ON CLS.NUMERO_GUIA = DG.NUMERO_GUIA&#xA;WHERE CLS.NUMERO_PIEZAS &lt;&gt; DG.NUMERO_PIEZAS&#xA;&#xA;-- GUIAS CON REPORTE EN PIEZAS DISTINTAS&#xA;SELECT  SUM( CLS.NUMERO_PIEZAS) AS CLS_NUMERO_PIEZAS, SUM(DG.NUMERO_PIEZAS) AS DG_NUMERO_PIEZAS&#xA;FROM [TMP].[ENVIOS_MOV_SOURCE_CILS] AS CLS &#xA;LEFT JOIN [TMP].[ENVIOS_MOV_SOURCE_DG] AS DG ON CLS.NUMERO_GUIA = DG.NUMERO_GUIA&#xA;WHERE CLS.NUMERO_PIEZAS &lt;&gt; DG.NUMERO_PIEZAS&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{441AB2AF-4EE8-483D-89CF-48CE9D9D7CD9}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\DFT_DG"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{2e046cec-0a52-456d-a1a2-0ee3b07d4aa1}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_DG"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\DFT_DG\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[TMP].[ENVIOS_MOV_SOURCE_DG]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">ROWS_PER_BATCH = 1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">9000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[0DESA_SIG_COLOMBIA_DW 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[0DESA_SIG_COLOMBIA_DW 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_HORA_MOVIMIENTO]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_HORA_MOVIMIENTO"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_HORA_MOVIMIENTO]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_HORA_MOVIMIENTO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_PAIS_ORIGEN]"
+                          cachedDataType="i2"
+                          cachedName="ID_PAIS_ORIGEN"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_ORIGEN]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS_ORIGEN]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CIUDAD_ORIGEN]"
+                          cachedDataType="i4"
+                          cachedName="ID_CIUDAD_ORIGEN"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_ORIGEN]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_ORIGEN]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_PAIS_DESTINO]"
+                          cachedDataType="i2"
+                          cachedName="ID_PAIS_DESTINO"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_DESTINO]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS_DESTINO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CIUDAD_DESTINO]"
+                          cachedDataType="i4"
+                          cachedName="ID_CIUDAD_DESTINO"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_DESTINO]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_DESTINO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_TIPOGUIA]"
+                          cachedDataType="ui1"
+                          cachedName="ID_TIPOGUIA"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPOGUIA]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIPOGUIA]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CLIENTE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="ID_CLIENTE"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_ESTADOENVIO]"
+                          cachedDataType="ui1"
+                          cachedName="ID_ESTADOENVIO"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADOENVIO]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADOENVIO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_DOCU_ULT_MOVI]"
+                          cachedDataType="i2"
+                          cachedName="ID_DOCU_ULT_MOVI"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_DOCU_ULT_MOVI]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_DOCU_ULT_MOVI]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_MEDTRANS]"
+                          cachedDataType="ui1"
+                          cachedName="ID_MEDTRANS"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MEDTRANS]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_MEDTRANS]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_PRODUCTO]"
+                          cachedDataType="i2"
+                          cachedName="ID_PRODUCTO"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUCTO]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_SUBPRODUCTO]"
+                          cachedDataType="i2"
+                          cachedName="ID_SUBPRODUCTO"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_SUBPRODUCTO]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_SUBPRODUCTO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_ESTADOGUIA]"
+                          cachedDataType="ui1"
+                          cachedName="ID_ESTADOGUIA"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADOGUIA]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADOGUIA]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_TIEMPO_ENTREGA]"
+                          cachedDataType="ui1"
+                          cachedName="ID_TIEMPO_ENTREGA"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIEMPO_ENTREGA]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIEMPO_ENTREGA]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_REQ_EMBALAJE]"
+                          cachedDataType="ui1"
+                          cachedName="ID_REQ_EMBALAJE"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_REQ_EMBALAJE]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_REQ_EMBALAJE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NUMERO_GUIA]"
+                          cachedDataType="numeric"
+                          cachedName="NUMERO_GUIA"
+                          cachedPrecision="20"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_GUIA]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[NUMERO_GUIA]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NUMERO_PIEZAS]"
+                          cachedDataType="i2"
+                          cachedName="NUMERO_PIEZAS"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_PIEZAS]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[NUMERO_PIEZAS]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_ENTREGA]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_ENTREGA"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_ENTREGA]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_ENTREGA]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_MODIFICACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_MODIFICACION"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_HORA_MOVIMIENTO]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_HORA_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_ORIGEN]"
+                          dataType="i2"
+                          name="ID_PAIS_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_ORIGEN]"
+                          dataType="i4"
+                          name="ID_CIUDAD_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_DESTINO]"
+                          dataType="i2"
+                          name="ID_PAIS_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          name="ID_CIUDAD_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPOGUIA]"
+                          dataType="ui1"
+                          name="ID_TIPOGUIA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ID_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADOENVIO]"
+                          dataType="ui1"
+                          name="ID_ESTADOENVIO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_DOCU_ULT_MOVI]"
+                          dataType="i2"
+                          name="ID_DOCU_ULT_MOVI" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MEDTRANS]"
+                          dataType="ui1"
+                          name="ID_MEDTRANS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUCTO]"
+                          dataType="i2"
+                          name="ID_PRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_SUBPRODUCTO]"
+                          dataType="i2"
+                          name="ID_SUBPRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADOGUIA]"
+                          dataType="ui1"
+                          name="ID_ESTADOGUIA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIEMPO_ENTREGA]"
+                          dataType="ui1"
+                          name="ID_TIEMPO_ENTREGA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_REQ_EMBALAJE]"
+                          dataType="ui1"
+                          name="ID_REQ_EMBALAJE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="NUMERO_GUIA"
+                          precision="20" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_PIEZAS]"
+                          dataType="i2"
+                          name="NUMERO_PIEZAS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_ENTREGA]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_ENTREGA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_MODIFICACION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PROCESO]"
+                          dataType="i2"
+                          name="ID_PROCESO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_MOVIMI]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="NUMERO_MOVIMI" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONSECUT_MOVIMI]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="CONSECUT_MOVIMI" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO_MOVIMI]"
+                          dataType="ui1"
+                          name="ESTADO_MOVIMI" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DFT_DG\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable">User::DG</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DFT_DG\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{0F71B9E3-67F3-480C-9D98-4B662F275574}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[PRD_LSTSSDGN]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_HORA_MOVIMIENTO]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_HORA_MOVIMIENTO]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_HORA_MOVIMIENTO]"
+                          name="FECHA_HORA_MOVIMIENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS_ORIGEN]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_ORIGEN]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS_ORIGEN]"
+                          name="ID_PAIS_ORIGEN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_ORIGEN]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_ORIGEN]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_ORIGEN]"
+                          name="ID_CIUDAD_ORIGEN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS_DESTINO]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_DESTINO]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS_DESTINO]"
+                          name="ID_PAIS_DESTINO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_DESTINO]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_DESTINO]"
+                          name="ID_CIUDAD_DESTINO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIPOGUIA]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPOGUIA]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIPOGUIA]"
+                          name="ID_TIPOGUIA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                          length="20"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                          name="ID_CLIENTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADOENVIO]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADOENVIO]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADOENVIO]"
+                          name="ID_ESTADOENVIO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_DOCU_ULT_MOVI]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_DOCU_ULT_MOVI]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_DOCU_ULT_MOVI]"
+                          name="ID_DOCU_ULT_MOVI"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_MEDTRANS]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_MEDTRANS]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_MEDTRANS]"
+                          name="ID_MEDTRANS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PRODUCTO]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]"
+                          name="ID_PRODUCTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_SUBPRODUCTO]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_SUBPRODUCTO]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_SUBPRODUCTO]"
+                          name="ID_SUBPRODUCTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADOGUIA]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADOGUIA]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADOGUIA]"
+                          name="ID_ESTADOGUIA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIEMPO_ENTREGA]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_TIEMPO_ENTREGA]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIEMPO_ENTREGA]"
+                          name="ID_TIEMPO_ENTREGA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_REQ_EMBALAJE]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_REQ_EMBALAJE]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_REQ_EMBALAJE]"
+                          name="ID_REQ_EMBALAJE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[NUMERO_GUIA]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_GUIA]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[NUMERO_GUIA]"
+                          name="NUMERO_GUIA"
+                          precision="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[NUMERO_PIEZAS]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_PIEZAS]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[NUMERO_PIEZAS]"
+                          name="NUMERO_PIEZAS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_ENTREGA]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_ENTREGA]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_ENTREGA]"
+                          name="FECHA_ENTREGA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                          name="FECHA_MODIFICACION"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_HORA_MOVIMIENTO]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_HORA_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_ORIGEN]"
+                          dataType="i2"
+                          name="ID_PAIS_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_ORIGEN]"
+                          dataType="i4"
+                          name="ID_CIUDAD_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_DESTINO]"
+                          dataType="i2"
+                          name="ID_PAIS_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          name="ID_CIUDAD_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPOGUIA]"
+                          dataType="ui1"
+                          name="ID_TIPOGUIA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ID_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADOENVIO]"
+                          dataType="ui1"
+                          name="ID_ESTADOENVIO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_DOCU_ULT_MOVI]"
+                          dataType="i2"
+                          name="ID_DOCU_ULT_MOVI" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_MEDTRANS]"
+                          dataType="ui1"
+                          name="ID_MEDTRANS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PRODUCTO]"
+                          dataType="i2"
+                          name="ID_PRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_SUBPRODUCTO]"
+                          dataType="i2"
+                          name="ID_SUBPRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADOGUIA]"
+                          dataType="ui1"
+                          name="ID_ESTADOGUIA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_TIEMPO_ENTREGA]"
+                          dataType="ui1"
+                          name="ID_TIEMPO_ENTREGA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_REQ_EMBALAJE]"
+                          dataType="ui1"
+                          name="ID_REQ_EMBALAJE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="NUMERO_GUIA"
+                          precision="20" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_PIEZAS]"
+                          dataType="i2"
+                          name="NUMERO_PIEZAS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_ENTREGA]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_ENTREGA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_MODIFICACION" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_HORA_MOVIMIENTO]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_HORA_MOVIMIENTO]"
+                          name="FECHA_HORA_MOVIMIENTO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_ORIGEN]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_ORIGEN]"
+                          name="ID_PAIS_ORIGEN" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_ORIGEN]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_ORIGEN]"
+                          name="ID_CIUDAD_ORIGEN" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_DESTINO]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_DESTINO]"
+                          name="ID_PAIS_DESTINO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_DESTINO]"
+                          name="ID_CIUDAD_DESTINO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_TIPOGUIA]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_TIPOGUIA]"
+                          name="ID_TIPOGUIA" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                          name="ID_CLIENTE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ESTADOENVIO]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ESTADOENVIO]"
+                          name="ID_ESTADOENVIO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_DOCU_ULT_MOVI]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_DOCU_ULT_MOVI]"
+                          name="ID_DOCU_ULT_MOVI" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_MEDTRANS]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_MEDTRANS]"
+                          name="ID_MEDTRANS" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PRODUCTO]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PRODUCTO]"
+                          name="ID_PRODUCTO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_SUBPRODUCTO]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_SUBPRODUCTO]"
+                          name="ID_SUBPRODUCTO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ESTADOGUIA]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ESTADOGUIA]"
+                          name="ID_ESTADOGUIA" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_TIEMPO_ENTREGA]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_TIEMPO_ENTREGA]"
+                          name="ID_TIEMPO_ENTREGA" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_REQ_EMBALAJE]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_REQ_EMBALAJE]"
+                          name="ID_REQ_EMBALAJE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NUMERO_GUIA]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NUMERO_GUIA]"
+                          name="NUMERO_GUIA"
+                          precision="20" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NUMERO_PIEZAS]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NUMERO_PIEZAS]"
+                          name="NUMERO_PIEZAS" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_ENTREGA]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_ENTREGA]"
+                          name="FECHA_ENTREGA" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                          name="FECHA_MODIFICACION" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\DFT_DG.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\DFT_DG\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\DFT_DG\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\DFT_MCP"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{aaa8eb6a-4d6b-4b37-a7a9-72b545d6affb}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_MCP"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\DFT_MCP\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[TMP].[ENVIOS_MOV_SOURCE_CILS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">CHECK_CONSTRAINTS,ROWS_PER_BATCH = 9000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">1000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[0DESA_SIG_COLOMBIA_DW 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[0DESA_SIG_COLOMBIA_DW 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_HORA_MOVIMIENTO]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_HORA_MOVIMIENTO"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_HORA_MOVIMIENTO]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_HORA_MOVIMIENTO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_PAIS_ORIGEN]"
+                          cachedDataType="i2"
+                          cachedName="ID_PAIS_ORIGEN"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_ORIGEN]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS_ORIGEN]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CIUDAD_ORIGEN]"
+                          cachedDataType="i4"
+                          cachedName="ID_CIUDAD_ORIGEN"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_ORIGEN]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_ORIGEN]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_PAIS_DESTINO]"
+                          cachedDataType="i2"
+                          cachedName="ID_PAIS_DESTINO"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_DESTINO]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS_DESTINO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CIUDAD_DESTINO]"
+                          cachedDataType="i4"
+                          cachedName="ID_CIUDAD_DESTINO"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_DESTINO]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_DESTINO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_TIPOGUIA]"
+                          cachedDataType="ui1"
+                          cachedName="ID_TIPOGUIA"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPOGUIA]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIPOGUIA]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CLIENTE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="ID_CLIENTE"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_ESTADOENVIO]"
+                          cachedDataType="ui1"
+                          cachedName="ID_ESTADOENVIO"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADOENVIO]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADOENVIO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_DOCU_ULT_MOVI]"
+                          cachedDataType="i2"
+                          cachedName="ID_DOCU_ULT_MOVI"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_DOCU_ULT_MOVI]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_DOCU_ULT_MOVI]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_MEDTRANS]"
+                          cachedDataType="ui1"
+                          cachedName="ID_MEDTRANS"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MEDTRANS]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_MEDTRANS]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_PRODUCTO]"
+                          cachedDataType="i2"
+                          cachedName="ID_PRODUCTO"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUCTO]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_SUBPRODUCTO]"
+                          cachedDataType="i2"
+                          cachedName="ID_SUBPRODUCTO"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_SUBPRODUCTO]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_SUBPRODUCTO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_ESTADOGUIA]"
+                          cachedDataType="ui1"
+                          cachedName="ID_ESTADOGUIA"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADOGUIA]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADOGUIA]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_TIEMPO_ENTREGA]"
+                          cachedDataType="ui1"
+                          cachedName="ID_TIEMPO_ENTREGA"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIEMPO_ENTREGA]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIEMPO_ENTREGA]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_REQ_EMBALAJE]"
+                          cachedDataType="ui1"
+                          cachedName="ID_REQ_EMBALAJE"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_REQ_EMBALAJE]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_REQ_EMBALAJE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NUMERO_GUIA]"
+                          cachedDataType="numeric"
+                          cachedName="NUMERO_GUIA"
+                          cachedPrecision="20"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_GUIA]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[NUMERO_GUIA]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NUMERO_PIEZAS]"
+                          cachedDataType="i2"
+                          cachedName="NUMERO_PIEZAS"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_PIEZAS]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[NUMERO_PIEZAS]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_ENTREGA]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_ENTREGA"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_ENTREGA]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_ENTREGA]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_MODIFICACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_MODIFICACION"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_HORA_MOVIMIENTO]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_HORA_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_ORIGEN]"
+                          dataType="i2"
+                          name="ID_PAIS_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_ORIGEN]"
+                          dataType="i4"
+                          name="ID_CIUDAD_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_DESTINO]"
+                          dataType="i2"
+                          name="ID_PAIS_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          name="ID_CIUDAD_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPOGUIA]"
+                          dataType="ui1"
+                          name="ID_TIPOGUIA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ID_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADOENVIO]"
+                          dataType="ui1"
+                          name="ID_ESTADOENVIO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_DOCU_ULT_MOVI]"
+                          dataType="i2"
+                          name="ID_DOCU_ULT_MOVI" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MEDTRANS]"
+                          dataType="ui1"
+                          name="ID_MEDTRANS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUCTO]"
+                          dataType="i2"
+                          name="ID_PRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_SUBPRODUCTO]"
+                          dataType="i2"
+                          name="ID_SUBPRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADOGUIA]"
+                          dataType="ui1"
+                          name="ID_ESTADOGUIA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIEMPO_ENTREGA]"
+                          dataType="ui1"
+                          name="ID_TIEMPO_ENTREGA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_REQ_EMBALAJE]"
+                          dataType="ui1"
+                          name="ID_REQ_EMBALAJE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="NUMERO_GUIA"
+                          precision="20" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_PIEZAS]"
+                          dataType="i2"
+                          name="NUMERO_PIEZAS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_ENTREGA]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_ENTREGA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_MODIFICACION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PROCESO]"
+                          dataType="i2"
+                          name="ID_PROCESO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUMERO_MOVIMI]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="NUMERO_MOVIMI" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONSECUT_MOVIMI]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="CONSECUT_MOVIMI" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO_MOVIMI]"
+                          dataType="ui1"
+                          name="ESTADO_MOVIMI" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DFT_MCP\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable">User::MCP</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[0DESA_SERV-DBMCP]"
+                      connectionManagerRefId="Package.ConnectionManagers[0DESA_SERV-DBMCP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_HORA_MOVIMIENTO]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_HORA_MOVIMIENTO]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_HORA_MOVIMIENTO]"
+                          name="FECHA_HORA_MOVIMIENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS_ORIGEN]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_ORIGEN]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS_ORIGEN]"
+                          name="ID_PAIS_ORIGEN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_ORIGEN]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_ORIGEN]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_ORIGEN]"
+                          name="ID_CIUDAD_ORIGEN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS_DESTINO]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_DESTINO]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PAIS_DESTINO]"
+                          name="ID_PAIS_DESTINO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_DESTINO]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_DESTINO]"
+                          name="ID_CIUDAD_DESTINO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIPOGUIA]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPOGUIA]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIPOGUIA]"
+                          name="ID_TIPOGUIA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                          length="20"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                          name="ID_CLIENTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADOENVIO]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADOENVIO]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADOENVIO]"
+                          name="ID_ESTADOENVIO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_DOCU_ULT_MOVI]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_DOCU_ULT_MOVI]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_DOCU_ULT_MOVI]"
+                          name="ID_DOCU_ULT_MOVI"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_MEDTRANS]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_MEDTRANS]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_MEDTRANS]"
+                          name="ID_MEDTRANS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PRODUCTO]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_PRODUCTO]"
+                          name="ID_PRODUCTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_SUBPRODUCTO]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_SUBPRODUCTO]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_SUBPRODUCTO]"
+                          name="ID_SUBPRODUCTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADOGUIA]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADOGUIA]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADOGUIA]"
+                          name="ID_ESTADOGUIA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIEMPO_ENTREGA]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_TIEMPO_ENTREGA]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_TIEMPO_ENTREGA]"
+                          name="ID_TIEMPO_ENTREGA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_REQ_EMBALAJE]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_REQ_EMBALAJE]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_REQ_EMBALAJE]"
+                          name="ID_REQ_EMBALAJE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[NUMERO_GUIA]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_GUIA]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[NUMERO_GUIA]"
+                          name="NUMERO_GUIA"
+                          precision="20"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[NUMERO_PIEZAS]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_PIEZAS]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[NUMERO_PIEZAS]"
+                          name="NUMERO_PIEZAS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_ENTREGA]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_ENTREGA]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_ENTREGA]"
+                          name="FECHA_ENTREGA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                          name="FECHA_MODIFICACION"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_HORA_MOVIMIENTO]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_HORA_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_ORIGEN]"
+                          dataType="i2"
+                          name="ID_PAIS_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_ORIGEN]"
+                          dataType="i4"
+                          name="ID_CIUDAD_ORIGEN" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_DESTINO]"
+                          dataType="i2"
+                          name="ID_PAIS_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          name="ID_CIUDAD_DESTINO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPOGUIA]"
+                          dataType="ui1"
+                          name="ID_TIPOGUIA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ID_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADOENVIO]"
+                          dataType="ui1"
+                          name="ID_ESTADOENVIO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_DOCU_ULT_MOVI]"
+                          dataType="i2"
+                          name="ID_DOCU_ULT_MOVI" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_MEDTRANS]"
+                          dataType="ui1"
+                          name="ID_MEDTRANS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_PRODUCTO]"
+                          dataType="i2"
+                          name="ID_PRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_SUBPRODUCTO]"
+                          dataType="i2"
+                          name="ID_SUBPRODUCTO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADOGUIA]"
+                          dataType="ui1"
+                          name="ID_ESTADOGUIA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_TIEMPO_ENTREGA]"
+                          dataType="ui1"
+                          name="ID_TIEMPO_ENTREGA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_REQ_EMBALAJE]"
+                          dataType="ui1"
+                          name="ID_REQ_EMBALAJE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_GUIA]"
+                          dataType="numeric"
+                          name="NUMERO_GUIA"
+                          precision="20" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NUMERO_PIEZAS]"
+                          dataType="i2"
+                          name="NUMERO_PIEZAS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_ENTREGA]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_ENTREGA" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_MODIFICACION" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_HORA_MOVIMIENTO]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_HORA_MOVIMIENTO]"
+                          name="FECHA_HORA_MOVIMIENTO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_ORIGEN]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_ORIGEN]"
+                          name="ID_PAIS_ORIGEN" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_ORIGEN]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_ORIGEN]"
+                          name="ID_CIUDAD_ORIGEN" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_DESTINO]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_DESTINO]"
+                          name="ID_PAIS_DESTINO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_DESTINO]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_DESTINO]"
+                          name="ID_CIUDAD_DESTINO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_TIPOGUIA]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_TIPOGUIA]"
+                          name="ID_TIPOGUIA" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                          name="ID_CLIENTE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ESTADOENVIO]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ESTADOENVIO]"
+                          name="ID_ESTADOENVIO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_DOCU_ULT_MOVI]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_DOCU_ULT_MOVI]"
+                          name="ID_DOCU_ULT_MOVI" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_MEDTRANS]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_MEDTRANS]"
+                          name="ID_MEDTRANS" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PRODUCTO]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_PRODUCTO]"
+                          name="ID_PRODUCTO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_SUBPRODUCTO]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_SUBPRODUCTO]"
+                          name="ID_SUBPRODUCTO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ESTADOGUIA]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ESTADOGUIA]"
+                          name="ID_ESTADOGUIA" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_TIEMPO_ENTREGA]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_TIEMPO_ENTREGA]"
+                          name="ID_TIEMPO_ENTREGA" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_REQ_EMBALAJE]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_REQ_EMBALAJE]"
+                          name="ID_REQ_EMBALAJE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NUMERO_GUIA]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NUMERO_GUIA]"
+                          name="NUMERO_GUIA"
+                          precision="20" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NUMERO_PIEZAS]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NUMERO_PIEZAS]"
+                          name="NUMERO_PIEZAS" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_ENTREGA]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_ENTREGA]"
+                          name="FECHA_ENTREGA" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                          name="FECHA_MODIFICACION" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\DFT_MCP.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\DFT_MCP\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\DFT_MCP\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\TRUNCA TABLAS DESARROLLO"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3784ce38-22a1-4075-9e46-80abbb98ec97}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCA TABLAS DESARROLLO"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{47A89BB8-8EF7-4B00-BD86-5E64EEBA9FFC}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [TMP].[ENVIOS_MOV_SOURCE_DG];&#xA;&#xA;TRUNCATE TABLE [TMP].[ENVIOS_MOV_SOURCE_CILS];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8F6905DF-E637-489A-BBC3-D553906B2C34}"
+          DTS:From="Package\Sequence Container\TRUNCA TABLAS DESARROLLO"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\DFT_DG" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{3023A3DF-E0C4-4EAA-886C-FB0144E695A8}"
+          DTS:From="Package\Sequence Container\TRUNCA TABLAS DESARROLLO"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\DFT_MCP" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\CONSULTAS A USAR"
+          TopLeft="7,345" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Sequence Container\DFT_DG"
+          TopLeft="3,124.5" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Sequence Container\DFT_MCP"
+          TopLeft="165,123.5" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Sequence Container\TRUNCA TABLAS DESARROLLO"
+          TopLeft="25,5.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="101.666666666667,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-39.6666666666667,77"
+              Start="0,0"
+              End="-39.6666666666667,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.1247803163445" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.1247803163445"
+                    Point2="0,31.1247803163445"
+                    Point3="-4,31.1247803163445" />
+                  <mssgle:LineSegment
+                    End="-35.6666666666667,31.1247803163445" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-35.6666666666667,31.1247803163445"
+                    Point2="-39.6666666666667,31.1247803163445"
+                    Point3="-39.6666666666667,35.1247803163445" />
+                  <mssgle:LineSegment
+                    End="-39.6666666666667,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="174.333333333333,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.6666666666667,76"
+              Start="0,0"
+              End="52.6666666666667,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7205623901582" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.7205623901582"
+                    Point2="0,30.7205623901582"
+                    Point3="4,30.7205623901582" />
+                  <mssgle:LineSegment
+                    End="48.6666666666667,30.7205623901582" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48.6666666666667,30.7205623901582"
+                    Point2="52.6666666666667,30.7205623901582"
+                    Point3="52.6666666666667,34.7205623901582" />
+                  <mssgle:LineSegment
+                    End="52.6666666666667,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="294,221"
+          Size="294,264"
+          Id="Package\Sequence Container"
+          TopLeft="195,22" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\DFT_DG">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container\DFT_DG\OLE DB Destination"
+          TopLeft="125,215" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Sequence Container\DFT_DG\OLE DB Source"
+          TopLeft="130,77" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DFT_DG.Paths[OLE DB Source Output]"
+          TopLeft="207.75,119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,96"
+              Start="0,0"
+              End="0,88.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DFT_DG\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DFT_DG\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\DFT_MCP">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container\DFT_MCP\OLE DB Destination"
+          TopLeft="83.5,179.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Sequence Container\DFT_MCP\OLE DB Source"
+          TopLeft="96.5,79.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DFT_MCP.Paths[OLE DB Source Output]"
+          TopLeft="170.25,121.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DFT_MCP\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DFT_MCP\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,203 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="2155d81d-00d1-4570-8aa4-1b2ca4a91851" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>GEOGRAFIA TIEMPO PROCESO</ID>
+  <Name>GEOGRAFIA TIEMPO PROCESO</Name>
+  <CreatedTimestamp>2013-02-07T16:54:48.033333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-02-07T21:39:23.63Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-10-19T21:34:31.466667Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="3bb1a0ea-07cd-4a4d-a3f0-8fce339b26fc">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="e74f00df-709e-4401-b870-87df5c66b4ad">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="e8566ec2-f52f-4c28-8879-2bdb9df4a0b3">
+      <ID>ID CIUDAD</ID>
+      <Name>CIUDAD</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2ce2f484-8def-47b3-b147-a9e74a3341a5">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a404a3fe-0692-4fef-8147-271b4bb38713">
+            <TableID>GEOGRAFIA_TIEMPOS_PROCESO</TableID>
+            <ColumnID>ID_CIUDAD</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="25b5ad0d-1b42-458c-9a86-4e82b0b26743">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="01726186-246c-4eed-b4b9-67256deb533b">
+          <TableID>GEOGRAFIA_TIEMPOS_PROCESO</TableID>
+          <ColumnID>NOMBRE_CIUDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="20ec364d-e1e8-4dec-b47a-31e9ebd34f31">
+          <AttributeID>ID REGIONAL</AttributeID>
+          <Name>REGIONAL</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="44915b56-ebb2-4566-aa38-21f2a11101e8">
+          <AttributeID>ID DEPARTAMENTO</AttributeID>
+          <Name>DEPARTAMENTO</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="baf0d816-be40-4544-a3ae-bc027428eb88">
+      <ID>ID PAIS</ID>
+      <Name>PAIS</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a2fdf8ac-f88e-4477-9b46-b3fe6c053dcc">
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="285ecfa1-b813-4450-9de6-5715c25ec075">
+            <TableID>GEOGRAFIA_TIEMPOS_PROCESO</TableID>
+            <ColumnID>ID_PAIS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e7b9d984-6a21-4a7d-9a17-cf382112f2bb">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d055db9e-f0ab-4d18-9446-043801975430">
+          <TableID>GEOGRAFIA_TIEMPOS_PROCESO</TableID>
+          <ColumnID>NOMBRE_PAIS</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c6bc4e35-833f-444a-8c3e-d3802c841dfe">
+      <ID>ID REGIONAL</ID>
+      <Name>REGIONAL</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6d260d13-ec06-4c03-b791-3f679de97f41">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="98b60006-ee49-4429-8074-0bfbe247b81f">
+            <TableID>GEOGRAFIA_TIEMPOS_PROCESO</TableID>
+            <ColumnID>ID_REGIONAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="64858284-763c-4716-a0c8-6973882127eb">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e596666a-4798-4cdd-90c7-36c20a155165">
+          <TableID>GEOGRAFIA_TIEMPOS_PROCESO</TableID>
+          <ColumnID>NOMBRE_REGIONAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="085b646c-009a-4ee3-b460-a7b29424586f">
+          <AttributeID>ID PAIS</AttributeID>
+          <Name>NOMBRE PAIS</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="65fbe2e2-fc60-4d76-9c63-7851c1f1a593">
+      <ID>ID DEPARTAMENTO</ID>
+      <Name>DEPARTAMENTO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7e9bf1df-797c-4a7d-bace-ba1c86c8125a">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3795addd-9d2c-4b52-a043-fccb7fb7707f">
+            <TableID>GEOGRAFIA_TIEMPOS_PROCESO</TableID>
+            <ColumnID>ID_DEPARTAMENTO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4b69bef2-5dcc-4fbc-a294-8ea8ee0dc432">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d846ada0-1218-4564-933d-b772a128f4f6">
+          <TableID>GEOGRAFIA_TIEMPOS_PROCESO</TableID>
+          <ColumnID>NOMBRE_DEPARTAMENTO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="ef890e43-4910-4777-8625-37fe4ee62881">
+      <ID>Hierarchy</ID>
+      <Name>GEOGRAFIA_PROCESO</Name>
+      <Levels>
+        <Level dwd:design-time-name="342e8328-6d69-45e0-90d0-608e5a0aaf49">
+          <ID>ID PAIS</ID>
+          <Name>ID PAIS</Name>
+          <SourceAttributeID>ID PAIS</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="ae3dbcdf-6e62-404b-a2ae-772515910ae5">
+          <ID>ID REGIONAL</ID>
+          <Name>ID REGIONAL</Name>
+          <SourceAttributeID>ID REGIONAL</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="b21eea83-c692-44e8-87fa-ac6c02f18c1f">
+          <ID>ID CIUDAD</ID>
+          <Name>ID CIUDAD</Name>
+          <SourceAttributeID>ID CIUDAD</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="e5e2e17b-871d-4c22-829a-a6f2e15cd0ca">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="fbc57f00-6eb3-4949-8bfa-30f925150418" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

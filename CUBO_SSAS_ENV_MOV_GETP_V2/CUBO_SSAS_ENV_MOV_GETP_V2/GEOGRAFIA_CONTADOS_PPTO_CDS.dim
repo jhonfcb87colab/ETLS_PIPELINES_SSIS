@@ -1,0 +1,304 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="d77784c0-100e-42f3-b184-ff8beec324e0" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>GEOGRAFIA_CONTADOS_PPTO_CDS</ID>
+  <Name>GEOGRAFIA_CONTADOS_PPTO_CDS</Name>
+  <CreatedTimestamp>2013-01-11T22:34:50.523333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-01-11T22:34:50.523333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-785" scrolltop="-4842" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9604" y="14102" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="UBICACION_CONTADOS" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="4048" height="4842" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000d00f0000ea120000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DIM_UBICACION_CONTADOS" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-785</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-4842</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="127">
+            <Shape Id="Clave Dimension" Expanded="false">
+              <Attributes>
+                <Attribute Id="Clave Dimension" />
+                <Attribute Id="ID DIVISION 1" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="ID DIVISION" Expanded="false">
+              <Attributes>
+                <Attribute Id="ID DIVISION" />
+              </Attributes>
+              <Position x="183" y="20" />
+            </Shape>
+            <Shape Id="ID CIUDAD" Expanded="false">
+              <Attributes>
+                <Attribute Id="ID CIUDAD" />
+              </Attributes>
+              <Position x="347" y="20" />
+            </Shape>
+            <Shape Id="ID REGIONAL" Expanded="false">
+              <Attributes>
+                <Attribute Id="ID REGIONAL" />
+              </Attributes>
+              <Position x="511" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2021-10-19T21:33:48.3Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="96e3e3e7-dd62-4e4c-b660-e3f2bd86302e">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="a094cb05-8441-4a89-addb-a370520df5e8">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="ba748d66-d702-4ff0-ada7-e29f9312b50a">
+      <ID>Clave Dimension</ID>
+      <Name>Clave Dimension</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>13005</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="cb915b80-6c00-4869-b142-16dc6e91d995">
+          <DataType>WChar</DataType>
+          <DataSize>11</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="040e47e9-1b2c-4e72-8e52-233c2f68cca6">
+            <TableID>DIM_UBICACION_CONTADOS</TableID>
+            <ColumnID>Clave_Dimension_Ppto_CDS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c5dcf3b8-dddf-450f-9aba-829fbbe90104">
+        <DataType>WChar</DataType>
+        <DataSize>11</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c6f09373-319c-4502-ac88-51a168137791">
+          <TableID>DIM_UBICACION_CONTADOS</TableID>
+          <ColumnID>Clave_Dimension_Ppto_CDS</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="4389369c-5cf2-4d14-b6a8-01598e514728">
+          <AttributeID>ID DIVISION</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Nombre Division</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b600ee70-2a72-4c46-bda5-9f20c18dde6c">
+          <AttributeID>ID DIVISION 1</AttributeID>
+          <Name>ID DIVISION</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="dbd58a65-3c9c-4444-a382-509bd5c3c3e6">
+      <ID>ID REGIONAL</ID>
+      <Name>Nombre Regional</Name>
+      <EstimatedCount>10</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fcd0316a-4df4-45f7-a9e1-fbb2b97cf5b0">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ac931220-983c-46b6-810a-53f78fdc008e">
+            <TableID>DIM_UBICACION_CONTADOS</TableID>
+            <ColumnID>ID_REGIONAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="3fcc34c0-7f79-48b5-ab84-f17a5e67ca1a">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="096a6203-4d18-44f0-bd08-e4559789e489">
+          <TableID>DIM_UBICACION_CONTADOS</TableID>
+          <ColumnID>NOMBRE_REGIONAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b5b9509a-6eec-4f2c-9bcb-467b37bff2af">
+      <ID>ID CIUDAD</ID>
+      <Name>Nombre Ciudad</Name>
+      <EstimatedCount>895</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fdccc7a6-77f1-458d-82e1-04c94f34824e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="72626200-235d-4b9b-ae47-3c5fff7d632b">
+            <TableID>DIM_UBICACION_CONTADOS</TableID>
+            <ColumnID>ID_CIUDAD</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0c3109dd-bbb7-414f-8f9c-1987b142b315">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="66860cea-d91c-4aa4-994a-d7c9fa2b6c23">
+          <TableID>DIM_UBICACION_CONTADOS</TableID>
+          <ColumnID>NOMBRE_CIUDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="793265e5-1737-4d8c-bf1f-ae9324cd4135">
+          <AttributeID>ID REGIONAL</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Nombre Regional</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f201a405-72c3-45f6-9ba9-39ba34f26133">
+      <ID>ID DIVISION</ID>
+      <Name>Nombre Division</Name>
+      <EstimatedCount>2293</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bedd8405-827b-4d58-b2ee-ba879e70d079">
+          <DataType>WChar</DataType>
+          <DataSize>39</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b1db0662-911c-4f96-bf31-c2cfc893b631">
+            <TableID>DIM_UBICACION_CONTADOS</TableID>
+            <ColumnID>Clave_Dimension</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="cd899395-1dcb-4611-8e71-aeab8c6c6ad9">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a1222021-bdfb-4f99-bdec-9e0a20e12d77">
+          <TableID>DIM_UBICACION_CONTADOS</TableID>
+          <ColumnID>NOMBRE_DIVISION</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="bf0e1d32-17f0-47ca-bc76-a39e29221094">
+          <AttributeID>ID CIUDAD</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Nombre Ciudad</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4eac8866-9efb-4aee-bb83-8238349c92fa">
+      <ID>ID DIVISION 1</ID>
+      <Name>ID DIVISION</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="31c9427c-7fa8-4556-9175-782af8c6eb35">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="023d16a3-df96-4f1c-8569-9a84a6942bde">
+            <TableID>DIM_UBICACION_CONTADOS</TableID>
+            <ColumnID>ID_DIVISION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2d768872-1bed-430a-94da-6533b1a4bc40">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="616431d4-db9b-42fd-a0be-eac04dae93e9">
+          <TableID>DIM_UBICACION_CONTADOS</TableID>
+          <ColumnID>ID_DIVISION</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Geografia_Contados</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="d80494b8-0257-4f96-b86b-37ff92fecdc0">
+      <ID>Hierarchy</ID>
+      <Name>GEOGRAFIA_CONTADOS</Name>
+      <AllMemberName>All Geografia_Contados</AllMemberName>
+      <Levels>
+        <Level dwd:design-time-name="4402f5f4-8abc-4609-a565-7502c4422cf0">
+          <ID>Nombre Regional</ID>
+          <Name>Nombre Regional</Name>
+          <SourceAttributeID>ID REGIONAL</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="d3b2971f-9454-44c0-9bbc-059f84ce20b8">
+          <ID>Nombre Ciudad</ID>
+          <Name>Nombre Ciudad</Name>
+          <SourceAttributeID>ID CIUDAD</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="f337b6d5-ce0c-498e-87ae-93b940f02458">
+          <ID>Nombre Division</ID>
+          <Name>Nombre Division</Name>
+          <SourceAttributeID>ID DIVISION</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="4607aceb-57a4-42f5-9ebf-abeee5dbb3a3">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="cc96c7ef-1a45-47e2-a141-1ca2d1ec3448" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

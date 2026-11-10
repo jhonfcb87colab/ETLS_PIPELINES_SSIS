@@ -1,0 +1,287 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="88dfb84a-c90d-4a7c-ac46-bba2f60eb164" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SAP REP CLIENTES FACTURAC</ID>
+  <Name>SAP REP CLIENTES FACTURAC</Name>
+  <CreatedTimestamp>2017-02-02T21:48:02.163333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2021-02-08T15:49:03.226667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-11-03T12:01:53.796667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="160239ba-bad5-479d-97dd-c9c3adca7450">
+    <DataSourceViewID>SIG_COL_SAP_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="70e678c7-6de6-4028-8b93-6035bd55da5a">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="9dd23b0a-b537-4617-8a39-827409d57972">
+      <ID>COD SER</ID>
+      <Name>COD SER</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="512d5230-2372-4d7a-89b1-79a4917fe7d0">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3c5ba290-9ee8-4836-a70c-d0f7ca232ed0">
+            <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+            <ColumnID>COD_SER</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f85c0f82-bb57-434f-ab2d-50c9f8cd9a9c">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a783f0bb-f21b-47b5-80d7-2219c8494f72">
+          <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+          <ColumnID>COD_SER</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="952ba7a1-2afc-47ae-b1c3-87d2600b6586">
+          <AttributeID>ID CLIENTE SAP</AttributeID>
+          <Name>ID CLIENTE SAP</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4360407c-ed63-43fe-afdf-7957f8b782c1">
+          <AttributeID>COD SER FACTURADOR</AttributeID>
+          <Name>COD SER FACTURADOR</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="38d647df-a209-40c9-b5ac-48c17a141465">
+          <AttributeID>ES SER FACTURADOR</AttributeID>
+          <Name>ES SER FACTURADOR</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="fad7ec99-bbfb-4bb8-a4fa-cdbec7b901b8">
+          <AttributeID>FECHA RUC</AttributeID>
+          <Name>FECHA RUC</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="47cfca1f-a5fb-41ed-93cb-0af35122b20c">
+          <AttributeID>NIT CLIENTE</AttributeID>
+          <Name>NIT CLIENTE</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="86d5436c-2932-4b11-a578-b4c6918d62ad">
+          <AttributeID>NOMBRE CLIENTE</AttributeID>
+          <Name>NOMBRE CLIENTE</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="300a60ed-4d75-41d0-9f44-b30b32478c4e">
+      <ID>ID CLIENTE SAP</ID>
+      <Name>ID CLIENTE SAP</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4766e694-e8c9-406c-b665-61faf88879b5">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8a8d5e8a-0c69-448c-aa76-018e64f6bc88">
+            <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+            <ColumnID>ID_CLIENTE_SAP</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="78aacd96-fb2c-44cf-b274-f9fe93146b42">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b26f85e1-d2ab-44f6-b365-2e12b6979ebe">
+          <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+          <ColumnID>ID_CLIENTE_SAP</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="bc806f2b-7268-42f1-a568-e9a21e4520f9">
+      <ID>COD SER FACTURADOR</ID>
+      <Name>COD SER FACTURADOR</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7736ddc2-fe25-41b4-8c6d-0eca6decab93">
+          <DataType>WChar</DataType>
+          <DataSize>15</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="67bd7e9a-28e2-4941-9fd3-594057985044">
+            <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+            <ColumnID>COD_SER_FACTURADOR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="667e1bd9-f4b0-4d6d-8619-6b766d841f38">
+        <DataType>WChar</DataType>
+        <DataSize>15</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e550a232-e6fe-4b9e-9341-026923c6ab4e">
+          <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+          <ColumnID>COD_SER_FACTURADOR</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d97f6ae2-133c-44d9-a8ba-77fc236aa494">
+      <ID>ES SER FACTURADOR</ID>
+      <Name>ES SER FACTURADOR</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="31c09883-7975-45e0-9945-3d77e987f171">
+          <DataType>WChar</DataType>
+          <DataSize>2</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="17ccad16-8193-4610-95dd-659f1df6e7d0">
+            <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+            <ColumnID>ES_SER_FACTURADOR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a479b15e-8837-45e4-9a7b-bf75e019770b">
+        <DataType>WChar</DataType>
+        <DataSize>2</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="698ff9f1-65a3-4194-9ad5-8a8a5f687d8c">
+          <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+          <ColumnID>ES_SER_FACTURADOR</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="433ca193-dfb4-4d7d-b016-d3e555b07f3b">
+      <ID>FECHA RUC</ID>
+      <Name>FECHA RUC</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="685ab0c1-9ffc-4ee2-9033-9cbd447ef2f8">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="42c1005e-85e3-4987-8c2a-e26b4fb7c5c8">
+            <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+            <ColumnID>FECHA_RUC</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ba71e1ca-b5c9-4a50-9b71-d1d29bdfd71c">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="ed6ae73c-8202-44df-a46f-12a17053dcb6">
+          <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+          <ColumnID>FECHA_RUC</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c1271487-f930-4100-a835-ccd9a1e76295">
+      <ID>NIT CLIENTE</ID>
+      <Name>NIT CLIENTE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1c9e0d27-37fe-4b5c-bc82-a1b3546b073d">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="71f75d21-48e3-40ab-8c5c-32af65d1bcf2">
+            <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+            <ColumnID>NIT_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a5ab6717-47a1-4582-a0b9-d4cb9c5130ed">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="492db128-8d47-4f99-ab82-39846b0c03a9">
+          <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+          <ColumnID>NIT_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b468ede1-cf0d-4a22-afe1-70e67a4a645f">
+      <ID>NOMBRE CLIENTE</ID>
+      <Name>NOMBRE CLIENTE</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7ae1f75a-256c-4fcd-ae8b-eb09c62052a6">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3131dbcf-aff2-4bca-8a07-a42faa2cb630">
+            <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+            <ColumnID>NOMBRE_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="cc46c579-31a9-46fa-968c-9029b0e0091f">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="516775b7-bac1-4d25-8fa3-04b65e242db6">
+          <TableID>DIM_SAP_REP_CLIENTES_FACTURAC</TableID>
+          <ColumnID>NOMBRE_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="5870bb1e-60e1-40f3-ba66-e2a6016bbc76">
+      <ID>Hierarchy</ID>
+      <Name>CLIENTE</Name>
+      <Levels>
+        <Level dwd:design-time-name="7466d49b-f5a6-4f8a-a361-411575eced63">
+          <ID>NOMBRE CLIENTE</ID>
+          <Name>NOMBRE CLIENTE</Name>
+          <SourceAttributeID>NOMBRE CLIENTE</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="cde97a35-5b81-42a8-8c9d-25239ce1be71">
+          <ID>COD SER</ID>
+          <Name>COD SER</Name>
+          <SourceAttributeID>COD SER</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="5102f96a-ab9e-4350-90e6-77aaf97b1ac1">
+          <ID>NIT CLIENTE</ID>
+          <Name>NIT CLIENTE</Name>
+          <SourceAttributeID>NIT CLIENTE</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="ac09fa9d-2cb6-43fd-ac5a-7de2c4ac8238">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="29d5562a-8235-42d6-8f68-b55b73819794" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

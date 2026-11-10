@@ -1,0 +1,352 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="77f0817e-d665-4191-9f70-dcc3cc167c42" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>GEOGRAFIA_ZONA_URBA</ID>
+  <Name>ZONA_URBANA_DISTRIBUCION</Name>
+  <CreatedTimestamp>2013-01-11T22:35:05.716667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-07-10T16:47:22.246667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-549" scrolltop="-4763" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="6535" y="14102" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="CIUDADES_ZONA_URBA" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="5159" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000800002714000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="DIM_CIUDADES_ZONA_URBA" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-549</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-4763</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="217" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="163">
+            <Shape Id="Clave Dimension" Expanded="false">
+              <Attributes>
+                <Attribute Id="Clave Dimension" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="NOMBRE ZONA URBA" Expanded="false">
+              <Attributes>
+                <Attribute Id="NOMBRE ZONA URBA" />
+              </Attributes>
+              <Position x="228" y="20" />
+            </Shape>
+            <Shape Id="NOMBRE TIPO ZONA URBA" Expanded="false">
+              <Attributes>
+                <Attribute Id="NOMBRE TIPO ZONA URBA" />
+              </Attributes>
+              <Position x="437" y="20" />
+            </Shape>
+            <Shape Id="NOMBRE CIUDAD" Expanded="false">
+              <Attributes>
+                <Attribute Id="NOMBRE CIUDAD" />
+              </Attributes>
+              <Position x="646" y="20" />
+            </Shape>
+            <Shape Id="NOMBRE REGIONAL" Expanded="false">
+              <Attributes>
+                <Attribute Id="NOMBRE REGIONAL" />
+              </Attributes>
+              <Position x="855" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-09-27T12:04:30.39Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="75a58a00-1989-4a96-a90f-4519b2eb00e7">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="36ffd2ed-0c25-4161-947b-fcdeb4391174">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="9a6e0803-626c-4282-bfd5-5204a4eb2fda">
+      <ID>Clave Dimension</ID>
+      <Name>Clave Dimension</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>6951</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9d8c0bc9-c3a5-49ef-9a55-792d566ccb4b">
+          <DataType>WChar</DataType>
+          <DataSize>37</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d4369f44-66cc-4a19-9617-d8cd924721c1">
+            <TableID>DIM_CIUDADES_ZONA_URBA</TableID>
+            <ColumnID>Clave_Dimension</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a865cc66-511c-4767-b1f4-c398eef62840">
+        <DataType>WChar</DataType>
+        <DataSize>37</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="924b84a5-c243-4847-ba30-188ddb8bab14">
+          <TableID>DIM_CIUDADES_ZONA_URBA</TableID>
+          <ColumnID>Clave_Dimension</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="405284d7-364c-49e8-b0ef-c2abe8fb12a1">
+          <AttributeID>NOMBRE ZONA URBA</AttributeID>
+          <Name>Nombre Zona Urba</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ba84a600-ec35-4d20-b342-e7478c67dc33">
+          <AttributeID>NOMBRE REGIONAL TIPO ZONA URBA</AttributeID>
+          <Name>Nombre Regional Tipo Zona Urba</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="52e1ffef-148a-44e4-903e-a6f4be8de0e3">
+      <ID>NOMBRE REGIONAL</ID>
+      <Name>Nombre Regional</Name>
+      <EstimatedCount>10</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="46cce91a-ed5a-43bc-9028-291e04ddc793">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="abc81c64-07d4-4873-812f-acdf70cfa67f">
+            <TableID>DIM_CIUDADES_ZONA_URBA</TableID>
+            <ColumnID>NOMBRE_REGIONAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="cbb57335-663e-49f0-b36c-c5c25a6c3550">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2fbdc469-ec0d-403d-a4cd-d0b04d4d8afc">
+          <TableID>DIM_CIUDADES_ZONA_URBA</TableID>
+          <ColumnID>NOMBRE_REGIONAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1dad733f-e766-4e64-b070-c13cd43c4c35">
+      <ID>NOMBRE CIUDAD</ID>
+      <Name>Nombre Ciudad</Name>
+      <EstimatedCount>738</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="84c6ad24-fa89-4341-9256-5429a1ba5fe6">
+          <DataType>WChar</DataType>
+          <DataSize>6</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="32c40ddc-1cbc-4367-9ad4-0627c0d20f38">
+            <TableID>DIM_CIUDADES_ZONA_URBA</TableID>
+            <ColumnID>Regional_Ciudad</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2056f52c-1de1-4900-bd99-0a079fc0ee5b">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="4ebb642b-d644-442a-ab07-6c61eba7365c">
+          <TableID>DIM_CIUDADES_ZONA_URBA</TableID>
+          <ColumnID>NOMBRE_CIUDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="696e6441-0ae9-4942-a6ae-bfed610fe9c4">
+          <AttributeID>NOMBRE REGIONAL</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Nombre Regional</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f2662115-1f13-424a-8c85-3878661519d1">
+      <ID>NOMBRE TIPO ZONA URBA</ID>
+      <Name>Nombre Tipo Zona Urba</Name>
+      <EstimatedCount>1000</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3df02dfe-dbd0-4d2e-b165-5c4a7663fb88">
+          <DataType>WChar</DataType>
+          <DataSize>36</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="be7c0c00-4132-4cc1-af0b-9b497957f61e">
+            <TableID>DIM_CIUDADES_ZONA_URBA</TableID>
+            <ColumnID>Regional_Ciudad_Tipo_Zona_Urba</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="bdde0ef4-b15f-4f5b-855d-021d5ba1ef28">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="51b18849-ff77-45f1-a727-850db4e53f01">
+          <TableID>DIM_CIUDADES_ZONA_URBA</TableID>
+          <ColumnID>NOMBRE_TIPO_ZONA_URBA</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="463d123d-cdbe-4f81-ae7f-749a746a23fb">
+          <AttributeID>NOMBRE CIUDAD</AttributeID>
+          <Name>Nombre Ciudad</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="dfa85b2a-6d3c-4943-b07b-fd7272757d0c">
+      <ID>NOMBRE ZONA URBA</ID>
+      <Name>Nombre Zona Urba</Name>
+      <EstimatedCount>3546</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="778f5fec-1e62-4a89-b3d2-fac5bb9114d6">
+          <DataType>WChar</DataType>
+          <DataSize>37</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="571f7021-96bb-4be4-bad2-181a134d7c90">
+            <TableID>DIM_CIUDADES_ZONA_URBA</TableID>
+            <ColumnID>Clave_Dimension</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="77016768-843e-4591-a95a-e6aaebcbb255">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d4be5288-aa14-417d-aedc-8cef994caec6">
+          <TableID>DIM_CIUDADES_ZONA_URBA</TableID>
+          <ColumnID>NOMBRE_ZONA_URBA</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="67591bc3-ab8a-41f0-910d-280a0c55d0cc">
+          <AttributeID>NOMBRE TIPO ZONA URBA</AttributeID>
+          <Name>Nombre Tipo Zona Urba</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="55d4d4bb-6f00-4008-99e6-34a56d68e6f7">
+      <ID>NOMBRE REGIONAL TIPO ZONA URBA</ID>
+      <Name>Nombre Regional Tipo Zona Urba</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="02fa2324-ac00-4f42-98a0-ddc31d9c7ad1">
+          <DataType>WChar</DataType>
+          <DataSize>83</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c8af5e2f-e101-46c8-bc6c-80a2b96883fb">
+            <TableID>DIM_CIUDADES_ZONA_URBA</TableID>
+            <ColumnID>NOMBRE_REGIONAL_TIPO_ZONA_URBA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ab006d24-792e-43c7-9079-eb0013023633">
+        <DataType>WChar</DataType>
+        <DataSize>83</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8415eed2-364e-4da6-bca1-9e0dcdfcf2a2">
+          <TableID>DIM_CIUDADES_ZONA_URBA</TableID>
+          <ColumnID>NOMBRE_REGIONAL_TIPO_ZONA_URBA</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>All Geografia_Zona_Urba</AttributeAllMemberName>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="8920a06e-a3cb-49ea-b279-3c1a1fe43fe3">
+      <ID>Hierarchy</ID>
+      <Name>REGIONAL_ZONA_URBA_DISTRI</Name>
+      <AllMemberName>All Geografia_Zona_Urba</AllMemberName>
+      <Levels>
+        <Level dwd:design-time-name="7ac0f993-94ad-43ae-b3e7-b4bf75791118">
+          <ID>Nombre Regional</ID>
+          <Name>Nombre Regional</Name>
+          <SourceAttributeID>NOMBRE REGIONAL</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="e5ff3cd3-96a6-4f89-b4d8-2ea817c26d8f">
+          <ID>Nombre Ciudad</ID>
+          <Name>Nombre Ciudad</Name>
+          <SourceAttributeID>NOMBRE CIUDAD</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="fc23d4c1-c64b-4d8c-80d4-9660e76d785f">
+          <ID>Nombre Tipo Zona Urba</ID>
+          <Name>Nombre Tipo Zona Urba</Name>
+          <SourceAttributeID>NOMBRE TIPO ZONA URBA</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="7cabd8e1-bf6a-477f-8dd0-f8b82c35ec80">
+          <ID>Nombre Zona Urba</ID>
+          <Name>Nombre Zona Urba</Name>
+          <SourceAttributeID>NOMBRE ZONA URBA</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="7d4d1ad4-291e-4a0e-8e15-2e699bde25c4">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="db91111c-07b1-4801-b0a4-4d36abb85ba0" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

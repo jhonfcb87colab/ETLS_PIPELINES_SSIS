@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "HU_PBL_ENVIOS_MOVILIZADOS_GETPV2", "HU_PBL_ENVIOS_MOVILIZADOS_GETPV2\HU_PBL_ENVIOS_MOVILIZADOS_GETPV2.dtproj", "{1C480690-9FA6-4ABF-802A-603193C1C66D}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "PRUEBAS", "PRUEBAS\PRUEBAS.dtproj", "{E40DCE6A-E659-4FA5-9C24-7AC01965E112}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C480690-9FA6-4ABF-802A-603193C1C66D}.Development|Default.ActiveCfg = Development
+		{1C480690-9FA6-4ABF-802A-603193C1C66D}.Development|Default.Build.0 = Development
+		{E40DCE6A-E659-4FA5-9C24-7AC01965E112}.Development|Default.ActiveCfg = Development
+		{E40DCE6A-E659-4FA5-9C24-7AC01965E112}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82557489-662A-487A-B385-BF4098BFA7BF}
+	EndGlobalSection
+EndGlobal

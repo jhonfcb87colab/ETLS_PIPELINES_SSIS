@@ -1,0 +1,1438 @@
+﻿<ConfigurationSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Database>
+    <DataSources>
+      <DataSource>
+        <ID>SIG_COL_LOGISTICA_DW</ID>
+        <ConnectionString>Provider=SQLNCLI11.1;Data Source=SERV-DBI01;Integrated Security=SSPI;Initial Catalog=SIG_COL_LOGISTICA_DW</ConnectionString>
+        <ImpersonationInfo>
+          <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateServiceAccount</ImpersonationMode>
+          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
+        </ImpersonationInfo>
+      </DataSource>
+      <DataSource>
+        <ID>SIG_COL_SAP_DW</ID>
+        <ConnectionString>Provider=SQLNCLI11.1;Data Source=SERV-DBI01;Integrated Security=SSPI;Initial Catalog=SIG_COL_SAP_DW</ConnectionString>
+        <ImpersonationInfo>
+          <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateServiceAccount</ImpersonationMode>
+          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
+        </ImpersonationInfo>
+      </DataSource>
+      <DataSource>
+        <ID>SIG_COL_SDM_DW</ID>
+        <ConnectionString>Provider=SQLNCLI11.1;Data Source=SERV-DBI01;Integrated Security=SSPI;Initial Catalog=SIG_COL_SDM_DW</ConnectionString>
+        <ImpersonationInfo>
+          <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateServiceAccount</ImpersonationMode>
+          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
+        </ImpersonationInfo>
+      </DataSource>
+      <DataSource>
+        <ID>SIG_LOGISTICA_DM</ID>
+        <ConnectionString>Provider=SQLNCLI11.1;Data Source=SERV-DBI01;Integrated Security=SSPI;Initial Catalog=SIG_LOGISTICA_DM</ConnectionString>
+        <ImpersonationInfo>
+          <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateServiceAccount</ImpersonationMode>
+          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
+        </ImpersonationInfo>
+      </DataSource>
+    </DataSources>
+    <Dimensions>
+      <Dimension>
+        <ID>ASESOR_A_CLIENTE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ASESOR_A_CLIENTE_TAREAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ASESOR_VENTAS_PS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>AUDIT BASE DATOS SIG</ID>
+      </Dimension>
+      <Dimension>
+        <ID>AUDIT CUBOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>AUDIT ROL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>AUDIT USUARIOS 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>AUXILIARES_DATA_MOVIL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>AÑO_CAUSACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CANTIDAD_VEHICULOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CARGOS_COM_CONTADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CARGO_A_CLIENTE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CARGO_EMPL_ESTADO_TAREAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CATEGORIA ZONA URBANA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CEDULA_CONDUCTOR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CIUDADES MOVIMIENTO DESTINO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CIUDADES MOVIMIENTO ORIGEN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CIUDAD_DESTINO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CIUDAD_ORIGEN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CIUDAD_QUE_REPORTA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CIUDAD_REPORTADA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLASE_SISTEMA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLASE_VEHICULO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLIENTES_CODSER_SM</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLIENTES_NIT_SM</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLIENTES_SUCURSALES_DEPENDENCIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLIENTES_SUCURSALES_DEPENDEN_SM</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLIENTES_SUCURS_DEPEND</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLIENTES_SUCURS_DEPEND_SDM_FDO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLIENTE_A_CLIENTE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLIENTE_CARTERA_PS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Cliente con Movimiento</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLIENTE_MOV_SECTOR_ECON</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLIENTE_PS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLIENTE_PS_REINCORPORADO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLIENTE_PS_SUC_DEP</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CLIENTE_PS_SUC_DEPEN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CONDUCTORES_DATA_MOVIL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CUMPLE TIEMPO PROMESA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CV_SEDES_DESTINO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CV_SEDES_ORIGEN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CV_SISTEMA_HORARIO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CV_TIEMPO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>CV TIPOS MOVIMIENTO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DEVUELTO REMITENTE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dia_Del_Mes_Facturacion</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM CARACTERISTICAS ENTREGA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM CPL RECOLECCION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM ESTADO LEGALIZADO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM ESTADO RECAUDO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM TIPO GUIA IMPRESION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM VEHICULO TIPO CONTRATACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_CFS_FORMA_PAGO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_CLIENTE_PS_COMISIONES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_CLENTE_PS_VEN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_CLIENTE_PS_VENDEDOR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_CLIENTE_RECAUDO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_COMP_TIPO_ACCION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_CONT_MEDIOS_DE_PAGO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_GEOGRAFIA_CONCEPTO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim_Geografia_Destino</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_GEOGRAFIA_DESTINO_ZONA_GEO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim_Geografia_Origen</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_GEOGRAFIA_ORIGEN_ZONA_GEO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_GEOGRAFIA_PE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_GEOGRAFIA_PE_ZONA_GEO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_ORIGEN TAREA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_PFR_ESTADO_RESPUESTA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_PFR_ESTADO_SOLICITUD</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Prefijo Numero Guia</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_SPP_SUBSERVICIO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_SPP_TIPO_SERVICIO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_SPP_UBICACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_TIPO_NOVEDAD_FRANQ</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM_TIP_SUBSER</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DISCONFORMIDAD</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DISPOSITIVO DATA MOVIL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIVISIONES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIVISIONES_CONFIRMACIONES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIV_BODEGAS_ENTRADA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIV_BODEGAS_SALIDA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>EMPLEADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>EMPLEADOS_CONFIRMACIONES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>EMPLEADO_COM_CONTADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>EMPRESA_TRANSPORTADORA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO CARGA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO CONCEPTO LOGISTICO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO FISICO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO NOVEDADES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO PROCESO LOGISTICO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO_CLIENTE_CARTERA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Estado Cod</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO_EMPL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Estado Envio</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO_FACTURACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Estado Guia</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO_GUIA_FACTURACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Estado_Guia_Provisionada</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO_RESPUESTA_A_CLIE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO_SOLICITUD</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO_TAREA_A_CLIENTE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO_TIPO_VEHICULO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ESTADO_VEHICULO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>EVIDENCIA FOTOGRAFICA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Facturado</ID>
+      </Dimension>
+      <Dimension>
+        <ID>FECHA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>FORMA_PAGOS_CONTADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA SDM FDO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA TIEMPO PROCESO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA_CONFIRMACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Geografia_Contados</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA_CONTADOS_N</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA_CONTADOS_PPTO_CDS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Geografia_Destino_Guia</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA_DESTINO_GUIA_DANE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA_DESTINO_TAREA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA_EMPL CONFIR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA_ORIGEN CONFIR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Geografia_Origen_Guia</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA_ORIGEN_GUIA_DANE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA_ORIGEN_TAREA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA_PERTENECE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Geografia_P_E</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA_RESPONSABLE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA_VENDEDOR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GM RECOLECCION CDS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GM RECOLECCION ESTADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GM RECOLECCION MARCA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GM RECOLECCION RECHAZOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GM RECOLECCION TIPO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GM RECOLECCION VEJEZ</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GM_HORA_DISTRIBUCION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GM_ZONA_URBANA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GUIA_REMISORIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GUIA_SCN_SM</ID>
+      </Dimension>
+      <Dimension>
+        <ID>HORA_ATENCION_CLIENTE_LLAMADAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>HORA_DATA_MOVIL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>HORA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>H_ENTRADA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>H_SALIDA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ID_CAJA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ID_FACTURA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ID_PLACA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Login Empleado</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MAK_EMPL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MANEJA_CLI</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MANEJA_CLIENTE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MANIFIESTO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MECI_PS_CARGO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MECI_PS_ESTRUCTURA_ORGANIZACIONAL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MECI_PS_LOCALIZACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MEDIO_TRANSPORTE_CONTADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MODALIDAD_PAGO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MODELO_VEHICULO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Modo Transporte</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MOTIVO_RECHAZO_RECOLECC</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MOV POR PROCESO VEHICULO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MOXP BODEGAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MOXP CLIENTES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MOXP HORAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MOXP MANIFIESTOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MOXP MODO PAGO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MOXP TIPO TRAYECTO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MOXP VEHICULOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>MOXP VEJEZ</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOMBRE_CARGO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOMBRE_CARGO_VAL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOMBRE_CLIENTE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOMBRE_CLIENTE_VAL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOMBRE_CONDUCTOR_OPERAT</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOMBRE_EMPLEADO_VAL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOMBRE_EMÇLEADO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOMBRE_SECTOR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOMBRE_SECTOR_VAL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOMBRE_UEN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOVEDAD</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOVEDADES_OPERATIVAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOVEDAD_IDO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NUMERO_DOC_PROBLEMA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NUMERO_FACTURA_COD</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NUMERO_GUIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NUMERO_GUIA_CONFIRM_SALIDA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NUMERO_GUIA_DEV_ZONA_URB</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NUMERO_GUIA_DEV_ZONA_URB_CONT</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NUMERO_GUIA_MOV_VS_FAC</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NUMERO_GUIA_PRUEBA_ENTREGA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NUMERO_GUIA_SOL_NOV_FRANQ</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NUMERO_GUIA_TIEMPO_PROCESO_ENV</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Num_Factura_COD_Env_Mov</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NUM_SOLICITUD_PROV_GUIAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>OPERATIVO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>OPERATIVOS_NOVEDADES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>ORIGEN_SERVICIO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PERIODO_CONTABLE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PERIODO_CONTABLE_CONTADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PLAN_UNICO_CONTABLE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_CLIENTES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_COLABORADORES_ME</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_COMPENSACIONES_ID_CUN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_COMPENSACIONES_ID_PQR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_COMPENSACIONES_NUMERO_GUIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_DETALLE_RESPONSABLE_INDEM</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR EMPLEADOS PROCESO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR EMPLEADOS REGISTRO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_ESTADO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_ESTADOS_INDEMNIZACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_GEOGRAFIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_GEOGRAFIA_PQR_INDEM_X_ORIG</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR HORA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_MOV_ESTADO_CUN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_MOV_ESTADO_ID_PQR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR ORIGEN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR PROCESO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_PROCESO_COLABORADOR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR REGIMEN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_RESP_INDEM_CUN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_RESP_INDEM_ID_PQR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_RESP_INDEM_NUMERO_GUIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_TIENE_GUIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR TIPOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR TIPOS SOLICITUDES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PQR_TIPO_RESPONSABLE_INDEM</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PROCESOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PROCESOS_TPE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PROCESO_CONCEPTO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PROCESO_CONCEPTO_2</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Proceso Logistico</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PRODUCTIV TH AUXILIAR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PRODUCTIV TH CLIENTE MOV</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PRODUCTIV TH CONDUCTOR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PRODUCTIV TH HORA PROC LOGISTICO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PRODUCTIV TH PLACA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PRODUCTO CONTADOS FALTANTES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PRODUCTO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PRODUCTOS_CONTADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PRODUCTO_CONT_FALTANTES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PRODUCTO_PROMOCION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PROMOCION_MICRO_MERCADEO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PROYECTO_COMISIONES_CONT</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PRUEBA_CIUDADES_MOV_ORIGEN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>PRUEBA_ENTREGA_ESTADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>All Punto_Servicio_Origen</ID>
+      </Dimension>
+      <Dimension>
+        <ID>RANGO_PESO_KILOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>RED_OPERATIVA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>REGIONAL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>REGIONAL_FACTURACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>REGIONAL_REPORTADA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>REG_EMPL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>REQUIERE_EMPAQUE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>RESPONSABLE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>RESPUESTA_CONFIRMACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP CEBE GEOGRAFIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP CIIU</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP FACILITADOR COMERCIAL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP FACILITADOR NIT</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP REP CLIENTES FACTURAC</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP REP CUENTA CONTABLE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP REP DET CARGO VENDEDOR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP REP DET CLIENTES FATURAC</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP REP DET ESFACTURADOR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP REP DET FACT UNICAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP REP DET GEOGRAFIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP REP DET NOMBRE VENDEDOR</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP REP DET PRODUCTO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>HOMOLOGACION PRODUCTOS MAT</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP REP MOTIVO ANULACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP REP NUMERO FACTURA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP_ASESOR_VENTA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP_CENTROS_BENEFICIO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP CLIENTES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP_CLIENTES_PF</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP_GEOGRAFIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP_GEOGRAFIA_SM</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP MINISTERIO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP_NUMERO_CUENTA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP_PRODUCTOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP_PUC_DRILL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP_TIEMPO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP_TIPO_DOCUMENTO_COMERCIAL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SAP_TIPO_MOVIMIENTO_FACTURACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM ESTADOS ENVIO 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM ESTADOS GUIA 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM GEOGRAFIA CIUDADES 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM GEOGRAFIA PUNTOS 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM MOV POR PROCESO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM MOVILIZADO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM ORDEN SERVICIO TIPO TRAYECTO 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM PROCESO CONCEPTO 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM TIPO CLIENTES 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM TIPO ENVIO 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM TIPO GUIA 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM UBICACION DESTINO 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM UBICACION 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM CAUSAL INCONSISTENCIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM CLIENTES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM_CLIENTES_CREDITO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM ESTADOS ENVIO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM ESTADOS FISICO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM ESTADOS GUIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM ESTADOS INCONSISTENCIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM ESTADOS ORDEN SERVICIO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM GEOGRAFIA CIUDADES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM GEOGRAFIA PUNTOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM_GEOGRAFIA_UBICACION_DESTINO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM_GEOGAFIA_UBICACION_ORIGEN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM_GUIAS_MASIVOS_PE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM_GUIAS_UTILIZADAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM INCONSISTENCIAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM_MOVILIZADO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM_MOV_POR_PROCESO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM NOVEDADES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM NUMERO ORDEN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM ORDEN SERVICIO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM ORDEN SERVICIO ESTADO ENVIO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM ORDEN SERVICIO SERVICIOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM ORDEN SERVICIO TIPO EMPAQUE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM PROCESO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM PROCESO CONCEPTO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM PRODUCTOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM SERVICIOS SUBPROD</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM TIPO CLIENTES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM TIPO CONTIENE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM TIPO EMPAQUE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM TIPO ENVIO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM TIPO GUIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM TIPO NOVEDAD</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM TIPO TRAYECTO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM UBICACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SDM UBICACION DESTINO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SERVICIO_A_CLIENTE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL ESTADO REIMPRESION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL TIENE MANIFIESTO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL TIENE SOBREPORTE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL TIPO TRAYECTO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL TRANSMITIDO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_CLIENTE_CODSER</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_CLIENTE_CODSER_SCN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_CLIENTE_CODSER_SCN_GUIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_CLIENTE_CODSER_SM</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_CLIENTE_CODSER_SM_GUIAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_CLIENTE_NIT_SCN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_CLIENTE_NIT_SCN_GUIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_CLIENTE_NIT_SM</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_CLIENTE_NIT_SM_GUIAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_ESTADO_GUIA_CANCELADO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_FACILITADOR_COMERCIAL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_FACILITADOR_COMERCIAL_GUIAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_NUMERO_GUIA_SM_SCN</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISCL_TIPO_GUIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SISTEMA_EXTRACCION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SOLUCION_CONFIRMACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SUBPROCESO_EMPL_ESTADO_TAREAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>SUB_NOVEDADES_OPERATIVAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIEMPO 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIEMPO 2</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIEMPO 3</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIEMPO REINCORP CLIENTE NIT</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIEMPO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIEMPO_CONTABILIDAD</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIEMPO_ENTREGA_CONTADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Tiempo Entrega Envio</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIEMPO_ENTREGA_NOVEDADES</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIEMPO_ENVIO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIEMPO_PROMESA_CUMPLE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Tiempo Proceso Conductor Placa</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIEMPO_REINCORP_CLIENTE_NIT</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIEMPO_VCTO_CARTERA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPO GUIA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPO_DIVISION_CONTADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPO_DOCUMENTO_CONTADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPO_ENVIO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPO_FACTURACION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPOS_FACTURA_CONTADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPO_IDP</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPO_RESPONSABLE_TAREA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPO_SOLICITANTE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPO_SOLICITUD_RECOLECC</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPO_TAREA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPO_VEHICULO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPO_VEHICULO_OPERATIVO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TIPO_VINCULACION_ESTADO_TAREAS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TRANSM_RETAIL_W_ESTADO_TRANSMISION</ID>
+      </Dimension>
+      <Dimension>
+        <ID>TRANSM_RETAIL_W_HORA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>T_SOLICITUD_M_AYUDA</ID>
+      </Dimension>
+      <Dimension>
+        <ID>UBICACION CONTADOS</ID>
+      </Dimension>
+      <Dimension>
+        <ID>UEN PROD SUBP 1</ID>
+      </Dimension>
+      <Dimension>
+        <ID>UEN PROD SUBP</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Uen_Producto_Subproducto</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Uen Produ Subp</ID>
+      </Dimension>
+      <Dimension>
+        <ID>USO_VEHICULO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>NOVEOPER VEHICULO</ID>
+      </Dimension>
+      <Dimension>
+        <ID>VEHICULOS_DATA_MOVIL</ID>
+      </Dimension>
+      <Dimension>
+        <ID>V_PORC_DESC</ID>
+      </Dimension>
+      <Dimension>
+        <ID>GEOGRAFIA_ZONA_URBA</ID>
+      </Dimension>
+    </Dimensions>
+    <MiningStructures>
+      <MiningStructure>
+        <ID>Intervalo Estructura</ID>
+      </MiningStructure>
+      <MiningStructure>
+        <ID>Tabla1 Estructura</ID>
+      </MiningStructure>
+    </MiningStructures>
+    <Cubes>
+      <Cube>
+        <ID>ENVIOS_MOVILIZADOS</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>ENVIOS MOVILIZADOS</ID>
+            <Partitions>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 12</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 11</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 10</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 09</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>ENVIOS MOVILIZADOS CONTADOS</ID>
+            <Partitions>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS CONTADOS 2026 12</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS CONTADOS 2026 11</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS CONTADOS 2026 10</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS CONTADOS 2026 09</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>GUIAS MOVILIZADAS VS FACTURADAS</ID>
+            <Partitions>
+              <Partition>
+                <ID>GUIAS MOVILIZADAS VS FACTURADAS 2026 12</ID>
+              </Partition>
+              <Partition>
+                <ID>GUIAS MOVILIZADAS VS FACTURADAS 2026 11</ID>
+              </Partition>
+              <Partition>
+                <ID>GUIAS MOVILIZADAS VS FACTURADAS 2026 10</ID>
+              </Partition>
+              <Partition>
+                <ID>GUIAS MOVILIZADAS VS FACTURADAS 2026 09</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>ENVIOS MOVILIZADOS COD</ID>
+            <Partitions>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS COD</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>PROVISION GUIAS</ID>
+            <Partitions>
+              <Partition>
+                <ID>PROVISION GUIAS</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Envios_Movilizados</ID>
+            <Partitions>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 12</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 11</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 10</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 09</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Envios_Movilizados 1</ID>
+            <Partitions>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 12</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 11</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 10</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 09</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Envios_Movilizados 2</ID>
+            <Partitions>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 12</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 11</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 10</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS 2026 09</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Envios_Movilizados_Contados</ID>
+            <Partitions>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS CONTADOS 2026 12</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS CONTADOS 2026 11</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS CONTADOS 2026 10</ID>
+              </Partition>
+              <Partition>
+                <ID>ENVIOS MOVILIZADOS CONTADOS 2026 09</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>GUIAS ENTREG TIEMPO PROMESA ENVIOS MOV</ID>
+            <Partitions>
+              <Partition>
+                <ID>GUIAS ENTREG TIEMPO PROMESA ENVIOS MOV</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>GUIAS ENTREG TIEMPO PROMESA RED OPERATIVA</ID>
+            <Partitions>
+              <Partition>
+                <ID>GUIAS ENTREG TIEMPO PROMESA RED OPERATIVA 2026 12</ID>
+              </Partition>
+              <Partition>
+                <ID>GUIAS ENTREG TIEMPO PROMESA RED OPERATIVA 2026 11</ID>
+              </Partition>
+              <Partition>
+                <ID>GUIAS ENTREG TIEMPO PROMESA RED OPERATIVA 2026 10</ID>
+              </Partition>
+              <Partition>
+                <ID>GUIAS ENTREG TIEMPO PROMESA RED OPERATIVA 2026 09</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>MOVILIZADOS VS FACTURADOS</ID>
+            <Partitions>
+              <Partition>
+                <ID>MOVILIZADOS VS FACTURADOS 2026 12</ID>
+              </Partition>
+              <Partition>
+                <ID>MOVILIZADOS VS FACTURADOS 2026 11</ID>
+              </Partition>
+              <Partition>
+                <ID>MOVILIZADOS VS FACTURADOS 2026 10</ID>
+              </Partition>
+              <Partition>
+                <ID>MOVILIZADOS VS FACTURADOS 2026 09</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>GUIAS ENTREG TIEMPO PROMESA RED OPERATIVA V2</ID>
+            <Partitions>
+              <Partition>
+                <ID>GUIAS ENTREG TIEMPO PROMESA RED OPERATIVA V2 VW 202309</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+    </Cubes>
+    <Assemblies>
+      <Assembly>
+        <ID>ASSP</ID>
+        <ImpersonationInfo>
+          <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Default</ImpersonationMode>
+          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
+        </ImpersonationInfo>
+      </Assembly>
+    </Assemblies>
+    <DataSourceImpersonationInfo>
+      <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Default</ImpersonationMode>
+      <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
+    </DataSourceImpersonationInfo>
+  </Database>
+</ConfigurationSettings>

@@ -1,0 +1,793 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/14/2018 8:48:10 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D_SERV-DBI02"
+  DTS:CreatorName="SERVIENT\jeison.coy.out"
+  DTS:DTSID="{328D8A17-430C-49A2-9846-BCCC07843D1F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="EXTRAER_SISCLINET"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{60F55C5E-0E69-47CA-81B7-4BE3C4396759}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SERT_CLIENTE_CODSER"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{6B82BE14-BE6E-4B69-BB88-9B4CD80CFDC0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SERT_CLIENTE_CODSER">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SERT_CLIENTE_CODSER\EXTRAER"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{9433F5F2-DA3E-4ED1-98B7-2ED03EBB3CA7}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EXTRAER"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SERT_CLIENTE_CODSER\EXTRAER\Audit"
+                  componentClassID="Microsoft.Lineage"
+                  contactInfo="Audit;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Includes data about the environment in which the package runs. Map system variables to new output columns. For example, add the name of the computer and operator to the data flow."
+                  name="Audit">
+                  <inputs>
+                    <input
+                      refId="Package\SERT_CLIENTE_CODSER\EXTRAER\Audit.Inputs[Audit Input 1]"
+                      name="Audit Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SERT_CLIENTE_CODSER\EXTRAER\Audit.Outputs[Audit Output 1]"
+                      exclusionGroup="1"
+                      name="Audit Output 1"
+                      synchronousInputId="Package\SERT_CLIENTE_CODSER\EXTRAER\Audit.Inputs[Audit Input 1]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]"
+                          dataType="date"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]"
+                          name="FECHA_EXTRACCION_DW">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies which audit item this column produces."
+                              name="LineageItemSelected"
+                              typeConverter="LineageItemSelected">4</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[SCN].[SERT_CLIENTE_CODSER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{D18A7BEB-EEA8-48E8-BF45-DB69B0250A40}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SERV-DBI01 SIG_COLOMBIA_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id_Pais]"
+                          cachedDataType="i2"
+                          cachedName="Id_Pais"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_Pais]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Pais]" />
+                        <inputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id_TipIdentificacion]"
+                          cachedDataType="i2"
+                          cachedName="Id_TipIdentificacion"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_TipIdentificacion]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_TipIdentificacion]" />
+                        <inputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id_Cliente]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="Id_Cliente"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_Cliente]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Cliente]" />
+                        <inputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id_CodFacturacion]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Id_CodFacturacion"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_CodFacturacion]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_CodFacturacion]" />
+                        <inputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id_Sucursal]"
+                          cachedDataType="i2"
+                          cachedName="Id_Sucursal"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_Sucursal]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Sucursal]" />
+                        <inputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id_Dependencia]"
+                          cachedDataType="i2"
+                          cachedName="Id_Dependencia"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_Dependencia]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Dependencia]" />
+                        <inputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Nom_Dependencia]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Nom_Dependencia"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nom_Dependencia]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nom_Dependencia]" />
+                        <inputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id_Estado_Depe]"
+                          cachedDataType="i2"
+                          cachedName="Id_Estado_Depe"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_Estado_Depe]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Estado_Depe]" />
+                        <inputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id_Ciudad]"
+                          cachedDataType="i4"
+                          cachedName="Id_Ciudad"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_Ciudad]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Ciudad]" />
+                        <inputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Dir_Direccion]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="Dir_Direccion"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dir_Direccion]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Dir_Direccion]" />
+                        <inputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_EXTRACCION_DW]"
+                          cachedDataType="date"
+                          cachedName="FECHA_EXTRACCION_DW"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_Pais]"
+                          dataType="i2"
+                          name="Id_Pais" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_TipIdentificacion]"
+                          dataType="i2"
+                          name="Id_TipIdentificacion" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_Cliente]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Id_Cliente" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_CodFacturacion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Id_CodFacturacion" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_Sucursal]"
+                          dataType="i2"
+                          name="Id_Sucursal" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_Dependencia]"
+                          dataType="i2"
+                          name="Id_Dependencia" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nom_Dependencia]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Nom_Dependencia" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_Estado_Depe]"
+                          dataType="i2"
+                          name="Id_Estado_Depe" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_Ciudad]"
+                          dataType="i4"
+                          name="Id_Ciudad" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dir_Direccion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Dir_Direccion" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_EXTRACCION_DW" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[SERT_CLIENTE_CODSER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        Id_Pais, Id_TipIdentificacion, Id_Cliente, Id_CodFacturacion, Id_Sucursal, Id_Dependencia, Nom_Dependencia, Id_Estado_Depe, Id_Ciudad, Dir_Direccion
+FROM            SERT_CLIENTE_CODSER WITH (NOLOCK)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{9E3263F2-36C7-485B-9D49-E740C0D8BDEA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SERV-SCNDB_SQL05.SISCliNet]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Pais]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_Pais]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Pais]"
+                          name="Id_Pais"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_TipIdentificacion]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_TipIdentificacion]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_TipIdentificacion]"
+                          name="Id_TipIdentificacion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Cliente]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_Cliente]"
+                          length="20"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Cliente]"
+                          name="Id_Cliente"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_CodFacturacion]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_CodFacturacion]"
+                          length="10"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_CodFacturacion]"
+                          name="Id_CodFacturacion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Sucursal]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_Sucursal]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Sucursal]"
+                          name="Id_Sucursal"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Dependencia]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_Dependencia]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Dependencia]"
+                          name="Id_Dependencia"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nom_Dependencia]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nom_Dependencia]"
+                          length="50"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nom_Dependencia]"
+                          name="Nom_Dependencia"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Estado_Depe]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_Estado_Depe]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Estado_Depe]"
+                          name="Id_Estado_Depe"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Ciudad]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_Ciudad]"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id_Ciudad]"
+                          name="Id_Ciudad"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Dir_Direccion]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Dir_Direccion]"
+                          length="100"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].Columns[Dir_Direccion]"
+                          name="Dir_Direccion"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_Pais]"
+                          dataType="i2"
+                          name="Id_Pais" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_TipIdentificacion]"
+                          dataType="i2"
+                          name="Id_TipIdentificacion" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_Cliente]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Id_Cliente" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_CodFacturacion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Id_CodFacturacion" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_Sucursal]"
+                          dataType="i2"
+                          name="Id_Sucursal" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_Dependencia]"
+                          dataType="i2"
+                          name="Id_Dependencia" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nom_Dependencia]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Nom_Dependencia" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_Estado_Depe]"
+                          dataType="i2"
+                          name="Id_Estado_Depe" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id_Ciudad]"
+                          dataType="i4"
+                          name="Id_Ciudad" />
+                        <externalMetadataColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Dir_Direccion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Dir_Direccion" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_Pais]"
+                          dataType="i2"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_Pais]"
+                          name="Id_Pais" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_TipIdentificacion]"
+                          dataType="i2"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_TipIdentificacion]"
+                          name="Id_TipIdentificacion" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_Cliente]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_Cliente]"
+                          name="Id_Cliente" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_CodFacturacion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_CodFacturacion]"
+                          name="Id_CodFacturacion" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_Sucursal]"
+                          dataType="i2"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_Sucursal]"
+                          name="Id_Sucursal" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_Dependencia]"
+                          dataType="i2"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_Dependencia]"
+                          name="Id_Dependencia" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nom_Dependencia]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nom_Dependencia]"
+                          name="Nom_Dependencia" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_Estado_Depe]"
+                          dataType="i2"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_Estado_Depe]"
+                          name="Id_Estado_Depe" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_Ciudad]"
+                          dataType="i4"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id_Ciudad]"
+                          name="Id_Ciudad" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Dir_Direccion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Dir_Direccion]"
+                          name="Dir_Direccion" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SERT_CLIENTE_CODSER\EXTRAER.Paths[Audit Output 1]"
+                  endId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Audit Output 1"
+                  startId="Package\SERT_CLIENTE_CODSER\EXTRAER\Audit.Outputs[Audit Output 1]" />
+                <path
+                  refId="Package\SERT_CLIENTE_CODSER\EXTRAER.Paths[OLE DB Source Output]"
+                  endId="Package\SERT_CLIENTE_CODSER\EXTRAER\Audit.Inputs[Audit Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SERT_CLIENTE_CODSER\TRUNCAR"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{75B84F27-4498-4FAF-A866-71E62B4F491A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCAR"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D18A7BEB-EEA8-48E8-BF45-DB69B0250A40}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [SCN].[SERT_CLIENTE_CODSER]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SERT_CLIENTE_CODSER.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{78AF699B-A8C5-420F-89D0-C0935B4C63EE}"
+          DTS:From="Package\SERT_CLIENTE_CODSER\TRUNCAR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SERT_CLIENTE_CODSER\EXTRAER" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="123,42"
+          Id="Package\SERT_CLIENTE_CODSER\EXTRAER"
+          TopLeft="64,112" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\SERT_CLIENTE_CODSER\TRUNCAR"
+          TopLeft="63.5,20.5" />
+        <EdgeLayout
+          Id="Package\SERT_CLIENTE_CODSER.PrecedenceConstraints[Constraint]"
+          TopLeft="125.75,62.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.5"
+              Start="0,0"
+              End="0,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="255,209"
+          Size="255,252"
+          Id="Package\SERT_CLIENTE_CODSER"
+          TopLeft="329.5,53.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SERT_CLIENTE_CODSER\EXTRAER">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source"
+          TopLeft="389,69" />
+        <NodeLayout
+          Size="103,42"
+          Id="Package\SERT_CLIENTE_CODSER\EXTRAER\Audit"
+          TopLeft="418,175" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination"
+          TopLeft="390,287" />
+        <EdgeLayout
+          Id="Package\SERT_CLIENTE_CODSER\EXTRAER.Paths[OLE DB Source Output]"
+          TopLeft="466.75,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SERT_CLIENTE_CODSER\EXTRAER.Paths[Audit Output 1]"
+          TopLeft="472.5,217">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SERT_CLIENTE_CODSER\EXTRAER\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

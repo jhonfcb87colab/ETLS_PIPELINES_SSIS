@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DS_SISCLINET_Usrsisclinet"
+  DTS:DTSID="{9CC3DF9D-E436-4353-961D-E675821D5B6C}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=LSTSSSIS\SQL05;Initial Catalog=SISCliNet;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Intent=READONLY;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,126 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="191859fe-4c9a-4f34-a4d5-5971be8cee58" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DIM_GEOGRAFIA_CONCEPTO</ID>
+  <Name>DIM_GEOGRAFIA_CONCEPTO</Name>
+  <CreatedTimestamp>2018-11-02T21:21:56.456667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2021-12-02T14:23:54.22Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-10-06T13:21:49.49Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="fe4557c6-cb85-47f5-9af5-aa45f5ea9314">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="80c69c7b-1e1e-4987-b734-34edf8c73b5d">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>NO DISPONIBLE</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="80b07609-85c9-4cc3-a17d-0e7918087a9e">
+      <ID>Regional Concepto</ID>
+      <Name>Regional Concepto</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>51</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a8c81866-9bdf-4c17-9781-9f218b95a0c2">
+          <DataType>WChar</DataType>
+          <DataSize>32</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="713e2074-4c33-40ad-85dc-f3dfdb2832b5">
+            <TableID>DIM_GEOGRAFIA_CONCEPTO</TableID>
+            <ColumnID>ID_GEOGRAFIA_CONCEPTO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="63b9c3da-a36b-4e20-8bbf-b2ada8aceaef">
+        <DataType>WChar</DataType>
+        <DataSize>61</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b84ea762-0a78-4977-b8b2-0707518c853e">
+          <TableID>DIM_GEOGRAFIA_CONCEPTO</TableID>
+          <ColumnID>GEOGRAFIA_CONCEPTO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="296a2499-36a4-472e-badf-6b9d35825729">
+          <AttributeID>Nombre Concepto</AttributeID>
+          <Name>Nombre Concepto</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5ca7ee21-8441-4444-93ad-2faf968357e1">
+      <ID>Nombre Concepto</ID>
+      <Name>Nombre Concepto</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ae8b9733-bdbf-4821-8853-3b20bdda6214">
+          <DataType>WChar</DataType>
+          <DataSize>18</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3d29dd6a-2062-4221-a4e3-0e9ef04f6516">
+            <TableID>DIM_GEOGRAFIA_CONCEPTO</TableID>
+            <ColumnID>CONCEPTO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="dd40f2db-d25b-4941-8485-f24cd19daf60">
+        <DataType>WChar</DataType>
+        <DataSize>18</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f068c3e9-7109-431a-98cc-95103b02986b">
+          <TableID>DIM_GEOGRAFIA_CONCEPTO</TableID>
+          <ColumnID>CONCEPTO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ProactiveCaching dwd:design-time-name="34c39742-ba5a-4b4a-bf82-db7c1e42e9fd">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="511303e5-7c00-4f77-ae48-1e1ffb8584e8" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

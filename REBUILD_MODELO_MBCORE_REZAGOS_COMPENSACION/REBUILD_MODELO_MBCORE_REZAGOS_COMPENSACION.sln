@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "REBUILD_MODELO_MBCORE_REZAGOS_COMPENSACION", "REBUILD_MODELO_MBCORE_REZAGOS_COMPENSACION\REBUILD_MODELO_MBCORE_REZAGOS_COMPENSACION.dtproj", "{C271107F-9811-4F2D-9B3C-84A106773672}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C271107F-9811-4F2D-9B3C-84A106773672}.Development|Default.ActiveCfg = Development
+		{C271107F-9811-4F2D-9B3C-84A106773672}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {064AB422-B213-434A-B2C6-73765F1F33D3}
+	EndGlobalSection
+EndGlobal

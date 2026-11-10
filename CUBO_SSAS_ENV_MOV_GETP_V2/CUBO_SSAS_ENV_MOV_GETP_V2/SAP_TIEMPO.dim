@@ -1,0 +1,336 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="20564928-3d76-425f-b124-b0bc70bb6a9d" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SAP_TIEMPO</ID>
+  <Name>SAP_TIEMPO</Name>
+  <CreatedTimestamp>2015-08-27T21:38:52.8Z</CreatedTimestamp>
+  <LastSchemaUpdate>2015-08-27T22:28:56.736667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-01-07T21:23:48.706667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="a9709037-d8bc-42a1-a81d-1a749ddc0fe0">
+    <DataSourceViewID>SIG_COL_SAP_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="3507680e-5522-4f17-8c10-751af8c6f254">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="28981c4c-e268-47c7-b1a0-5ebd8ff67453">
+      <ID>TIME_ID</ID>
+      <Name>TIME_ID</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c11b79ba-34e3-470f-94fc-d75124ac953b">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d5f35f11-266f-46a0-bae4-e7f0fe885b11">
+            <TableID>DIM_TIEMPO</TableID>
+            <ColumnID>TIME_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="7eb8d790-6def-42dd-b8de-e0ca7803367c">
+        <DataType>WChar</DataType>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="59b2e022-3833-497e-b8bf-1df61ddb3438">
+          <TableID>DIM_TIEMPO</TableID>
+          <ColumnID>TIME_ID</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="87e14847-6dfe-4c9b-bfec-0c22b949430c">
+          <AttributeID>DAY</AttributeID>
+          <Name>DAY</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0f0d4014-7868-41a9-826d-30220fedcf5a">
+          <AttributeID>MONTH</AttributeID>
+          <Name>MONTH</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="670928c0-47a0-431c-be53-8c4b8e63f00f">
+          <AttributeID>YEAR</AttributeID>
+          <Name>YEAR</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="abca5368-be28-4382-a467-85bbc7ad1fda">
+          <AttributeID>DAY OF MONTH</AttributeID>
+          <Name>DAY OF MONTH</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e48341f3-6f5e-4f4a-9eca-65844d1bc00b">
+          <AttributeID>WEEK OF YEAR</AttributeID>
+          <Name>WEEK OF YEAR</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5d0e17a7-b615-4a41-92f6-e87414e9b559">
+          <AttributeID>MONTH OF YEAR</AttributeID>
+          <Name>MONTH OF YEAR</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="af97f265-1615-4cb4-bde9-afc3ab584149">
+          <AttributeID>QUARTER OF YEAR</AttributeID>
+          <Name>QUARTER OF YEAR</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3f5c4f32-feca-4be6-89b3-99c5e35209f7">
+      <ID>DAY</ID>
+      <Name>Dia</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="be4624d1-b044-49ed-99b4-3d741a19e3de">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6725fb6a-c13f-48b1-9a9f-b4e42ff7ef87">
+            <TableID>DIM_TIEMPO</TableID>
+            <ColumnID>DAY_OF_MONTH</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="cabee304-d361-4aa6-a79c-19b681663243">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d9dff6ab-c5e0-47ef-83ec-bca6dac70570">
+          <TableID>DIM_TIEMPO</TableID>
+          <ColumnID>DAY</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="13b3053a-3846-448b-bb8c-e54075e0c33f">
+      <ID>MONTH</ID>
+      <Name>Mes</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bd1fbe2a-e04e-439c-af11-dc35290b2a70">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ede1edc8-0d0b-4145-a6d5-5615ecc9f8d6">
+            <TableID>DIM_TIEMPO</TableID>
+            <ColumnID>MONTH_OF_YEAR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="8cf3ccaf-4366-44b7-8232-c98efc03588e">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="0944d963-4ffc-485e-b47b-9ff1c9d28b0b">
+          <TableID>DIM_TIEMPO</TableID>
+          <ColumnID>MONTH</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b0af81eb-9583-4091-9c0b-1fe272efea84">
+      <ID>YEAR</ID>
+      <Name>Año</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6836569f-29ef-4ce7-bc27-aa3481072eab">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4cbf51d0-0273-4c8f-84f2-d137a9fcb803">
+            <TableID>DIM_TIEMPO</TableID>
+            <ColumnID>YEAR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4a2121d2-cac6-499e-96e8-038483f2f0fb">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d9720766-83bf-4208-ab91-258a5c35f4c3">
+          <TableID>DIM_TIEMPO</TableID>
+          <ColumnID>YEAR</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ef364c66-62f9-48cc-b36e-92ad12af20a6">
+      <ID>DAY OF MONTH</ID>
+      <Name>Dia del Mes</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a289021a-da2b-4e8e-88af-5a11135e2e4f">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7b97c1be-57d3-466c-a7f1-c0f8316f3ebe">
+            <TableID>DIM_TIEMPO</TableID>
+            <ColumnID>DAY_OF_MONTH</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="90fb2a36-292c-4335-92a5-ce95b6e5755c">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="df8b583e-c5e8-49be-b039-1ae57bd53f6d">
+          <TableID>DIM_TIEMPO</TableID>
+          <ColumnID>DAY_OF_MONTH</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="571e51bb-7575-440f-a893-fa5ec1c7f857">
+      <ID>WEEK OF YEAR</ID>
+      <Name>Semana del Año</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="be0182be-af72-4a81-bd6c-f3778ee4f6b6">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="671c93a6-623d-4d5c-8fd7-b5f2c74f114b">
+            <TableID>DIM_TIEMPO</TableID>
+            <ColumnID>WEEK_OF_YEAR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="92a91e31-11a5-4f5a-bf96-a014e9fe0890">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6d078290-d1ad-47e5-89e3-0b42cdef91c4">
+          <TableID>DIM_TIEMPO</TableID>
+          <ColumnID>WEEK_OF_YEAR</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8ea2092e-62fb-4b83-bed1-a3d10d43f4f3">
+      <ID>MONTH OF YEAR</ID>
+      <Name>Mes del Año</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="44ff6c04-ef59-4111-9e52-7c66003172e7">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6bd0b854-46be-46a8-9f36-bb604869389c">
+            <TableID>DIM_TIEMPO</TableID>
+            <ColumnID>MONTH_OF_YEAR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4e6998e7-56d4-4163-8305-b4e20af22ffa">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f71de07a-e7a7-4127-b685-1f8bfb9e0cb5">
+          <TableID>DIM_TIEMPO</TableID>
+          <ColumnID>MONTH_OF_YEAR</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a131c1a0-28e0-4787-ba14-32c438f9a81d">
+      <ID>QUARTER OF YEAR</ID>
+      <Name>Salto Cuantico</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4904109e-0db9-49ad-9fea-ecee9d8b802b">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b520f4c4-1ef2-4e73-aa75-fd90076b9cbf">
+            <TableID>DIM_TIEMPO</TableID>
+            <ColumnID>QUARTER_OF_YEAR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e2c54fda-1f48-4de1-b6cd-174c19e3b658">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b1db77cf-12ec-45ac-99b5-a53a75fcb9cf">
+          <TableID>DIM_TIEMPO</TableID>
+          <ColumnID>QUARTER_OF_YEAR</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="1fedbbb7-e598-4ca3-9cba-d94226b50e65">
+      <ID>Hierarchy</ID>
+      <Name>SAP Tiempo</Name>
+      <Levels>
+        <Level dwd:design-time-name="45a1a90e-2bb3-4c14-add5-0dc09e8c0520">
+          <ID>Año</ID>
+          <Name>Año</Name>
+          <SourceAttributeID>YEAR</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="bc0dc785-8a6b-4f53-aa8c-5176033b8bbe">
+          <ID>Mes</ID>
+          <Name>Mes</Name>
+          <SourceAttributeID>MONTH</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="a867ed64-eb8b-4799-b0a5-d0bd52c304f1">
+          <ID>Dia del Mes</ID>
+          <Name>Dia del Mes</Name>
+          <SourceAttributeID>DAY OF MONTH</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="63ce1472-3c59-4c74-9306-2cb7895f7f08">
+      <ID>Hierarchy 1</ID>
+      <Name>SAP Salto Cuantico</Name>
+      <Levels>
+        <Level dwd:design-time-name="88fed752-2195-40c5-be66-a9ae7aa211b1">
+          <ID>Año</ID>
+          <Name>Año</Name>
+          <SourceAttributeID>YEAR</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="6a9205d4-25a2-41d8-881a-93385fd55563">
+          <ID>Salto Cuantico</ID>
+          <Name>Salto Cuantico</Name>
+          <SourceAttributeID>QUARTER OF YEAR</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="48d2e5f9-e8a6-4c2e-abcb-7a8d8ba879f2">
+          <ID>Mes</ID>
+          <Name>Mes</Name>
+          <SourceAttributeID>MONTH</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="426249a2-8091-46c8-a157-ac9ba32ca26a">
+          <ID>Dia del Mes</ID>
+          <Name>Dia del Mes</Name>
+          <SourceAttributeID>DAY OF MONTH</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="2e9af7ca-9093-4c2f-81fe-5d0b34f7a0e4">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="0f98af47-a062-45cd-ade4-87c8289998bc" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -1,0 +1,41 @@
+﻿<Role xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Role 14</ID>
+  <Name>ALL</Name>
+  <CreatedTimestamp>2021-02-12T22:18:48.63Z</CreatedTimestamp>
+  <LastSchemaUpdate>2026-08-13T16:40:22.906667Z</LastSchemaUpdate>
+  <Description>Permisos a todos los cubos para el ingeniero Arnulfo </Description>
+  <Members>
+    <Member>
+      <Name>SERVIENT\ivan.posada</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-270902</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\sanchoa</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-29962</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\carrioj</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-20701</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\inteligencianegocios</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-224369</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\CO.MEST.Business Intelligence</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-179800</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\freddy.claro</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-224148</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\analisis.corporativo</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-265712</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\jonathan.prince</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-251789</Sid>
+    </Member>
+  </Members>
+</Role>

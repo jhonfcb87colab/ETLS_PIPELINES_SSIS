@@ -1,0 +1,2924 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>CUBO_SSAS_ENV_MOV_GETP_V2</Database>
+    <Server>d_serv-dbi02</Server>
+    <ConnectionString>Data Source=d_serv-dbi02;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.ClrAssembly</Type>
+        <TimeStamp>WCkLpVxZXOkz42B1uA2GH2tVXeo=3/11/2026 4:53:41 p.m.3/11/2026 4:54:49 p.m.ASSPAnalysis Services Stored Procedures sample project http://www.codeplex.com/ASStoredProceduresUnrestrictedDefault</TimeStamp>
+        <ID>
+          <String>ASSP</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>ObWhppjz2CSWCWdQFpaTk69MO+A=4/11/2026 9:06:08 a.m.3/11/2026 4:54:22 p.m.</TimeStamp>
+        <ID>
+          <String>SIG_COL_LOGISTICA_DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>huI3i3x3r4JtZht8pDpWpp27gck=4/11/2026 9:08:00 a.m.3/11/2026 4:54:38 p.m.</TimeStamp>
+        <ID>
+          <String>SIG_COL_SAP_DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>4gmSs411/NwOWZyKgs3iWMQ0Gag=4/11/2026 9:08:00 a.m.3/11/2026 4:54:38 p.m.</TimeStamp>
+        <ID>
+          <String>SIG_COL_SDM_DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>0wDSTSjUCzES127t00VYPgkat2Y=4/11/2026 9:08:00 a.m.3/11/2026 4:54:38 p.m.</TimeStamp>
+        <ID>
+          <String>SIG_LOGISTICA_DM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>OmkHAKLPqZzlXROHMs0ubo9fJuU=3/11/2026 4:53:07 p.m.3/11/2026 4:54:22 p.m.</TimeStamp>
+        <ID>
+          <String>SIG_COL_LOGISTICA_DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>OaSxITPuAs9D7NiLgCk0iAS7GdY=3/11/2026 4:53:09 p.m.3/11/2026 4:54:37 p.m.</TimeStamp>
+        <ID>
+          <String>SIGCOL LOGISTICA DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>4LgKnLEkaD4u+iX0f6+sECmO7os=3/11/2026 4:53:09 p.m.3/11/2026 4:54:38 p.m.</TimeStamp>
+        <ID>
+          <String>SIG_COL_SAP_DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>y0x12fhpAz/LTghBmIXUaBSlVRI=3/11/2026 4:53:09 p.m.3/11/2026 4:54:38 p.m.</TimeStamp>
+        <ID>
+          <String>SIG_LOGISTICA_DM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>+EqEnq0oOk0i7EURwS0fFLHLnuI=3/11/2026 4:53:07 p.m.3/11/2026 4:54:38 p.m.</TimeStamp>
+        <ID>
+          <String>SIG_MECI_LOGISTICA_DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>H5J4M6QgWduu7vrexHZw0IAq8+w=3/11/2026 4:53:07 p.m.3/11/2026 4:54:38 p.m.</TimeStamp>
+        <ID>
+          <String>SIG_PQR_LOGISTICA_DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>6Zd6cLCcOAx8YQfH961hxgjiY7c=3/11/2026 4:53:08 p.m.3/11/2026 4:54:38 p.m.</TimeStamp>
+        <ID>
+          <String>SIG_PS_MECI_LOGISTICA_DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>hNvdXB1iEHbTWDHygN+2tc3mBmY=3/11/2026 4:53:08 p.m.3/11/2026 4:54:38 p.m.</TimeStamp>
+        <ID>
+          <String>SIG_SDM_LOGISTICA_DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>05qRvR74h6VpdEomv9bvG5NT2X0=4/11/2026 9:06:08 a.m.3/11/2026 4:53:43 p.m.</TimeStamp>
+        <ID>
+          <String>ASESOR_A_CLIENTE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Cqql547T3xH5Gufrx+d0DDNJDdc=4/11/2026 9:06:09 a.m.3/11/2026 4:53:43 p.m.</TimeStamp>
+        <ID>
+          <String>ASESOR_A_CLIENTE_TAREAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>YncG9zcQXqurDTCcv3OCQAIXO8M=4/11/2026 9:06:09 a.m.3/11/2026 4:53:43 p.m.</TimeStamp>
+        <ID>
+          <String>ASESOR_VENTAS_PS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>QcEJSUJ6k/JNwKph3/eSn2MMsw0=4/11/2026 9:06:08 a.m.3/11/2026 4:53:43 p.m.</TimeStamp>
+        <ID>
+          <String>AUDIT BASE DATOS SIG</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>R9mRtLdpWy+xyXx08V8fXXQdmQU=4/11/2026 9:06:08 a.m.3/11/2026 4:53:43 p.m.</TimeStamp>
+        <ID>
+          <String>AUDIT CUBOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>cd3UVEU5Vlunm0KnWLiFaIWUVZI=4/11/2026 9:06:08 a.m.3/11/2026 4:53:43 p.m.</TimeStamp>
+        <ID>
+          <String>AUDIT ROL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>62TalpcBaEbSud5O8mqhhLgAkLQ=4/11/2026 9:06:08 a.m.3/11/2026 4:53:44 p.m.</TimeStamp>
+        <ID>
+          <String>AUDIT USUARIOS 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Ti9oazfDJDZDh56AOEDQo8GKc3A=4/11/2026 9:06:09 a.m.3/11/2026 4:53:44 p.m.</TimeStamp>
+        <ID>
+          <String>AUXILIARES_DATA_MOVIL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+2ZyDwrQ73NLZGQIkGb0zo7qlzc=4/11/2026 9:06:09 a.m.3/11/2026 4:53:44 p.m.</TimeStamp>
+        <ID>
+          <String>AÑO_CAUSACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>egQWXitLJ1k78ByJlFDCn30phLA=4/11/2026 9:06:09 a.m.3/11/2026 4:53:44 p.m.</TimeStamp>
+        <ID>
+          <String>CANTIDAD_VEHICULOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>d/jN97cpgWQuyG5ajuYX7MdqLPA=4/11/2026 9:06:09 a.m.3/11/2026 4:53:44 p.m.</TimeStamp>
+        <ID>
+          <String>CARGOS_COM_CONTADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/mhHdlh81gEn8kxeLVVXrB1hYB4=4/11/2026 9:06:09 a.m.3/11/2026 4:53:44 p.m.</TimeStamp>
+        <ID>
+          <String>CARGO_A_CLIENTE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>rBaEtfEyTsjiO5b3P8EfN4tGHQI=4/11/2026 9:06:09 a.m.3/11/2026 4:53:44 p.m.</TimeStamp>
+        <ID>
+          <String>CARGO_EMPL_ESTADO_TAREAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>xAa8zuO5st7v/gmuXbkjSen5eVg=4/11/2026 9:06:09 a.m.3/11/2026 4:53:44 p.m.</TimeStamp>
+        <ID>
+          <String>CATEGORIA ZONA URBANA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>aeKnQTXtpl9OdkofvY+RnAM9154=4/11/2026 9:06:09 a.m.3/11/2026 4:53:44 p.m.</TimeStamp>
+        <ID>
+          <String>CEDULA_CONDUCTOR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+rxgS+KP0J+f8i/CV6RiP/hRRKo=4/11/2026 9:06:08 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CIUDADES MOVIMIENTO DESTINO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Mq51IyeoP231DST5+Fm9L4xSUes=4/11/2026 9:06:08 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CIUDADES MOVIMIENTO ORIGEN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>qwbZ3oyIYS+DgulNTaKP1fNfFmA=4/11/2026 9:06:09 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CIUDAD_DESTINO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>b/rdJUerR9bnTafVO733TJwMN60=4/11/2026 9:06:09 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CIUDAD_ORIGEN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>j5xgPgT6gzMhO11Uczl0+f6GvAQ=4/11/2026 9:06:09 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CIUDAD_QUE_REPORTA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>zBfnLsOIqLY2R6OR67AUk7nqAsw=4/11/2026 9:06:09 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CIUDAD_REPORTADA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>MAhGhxEkWzURJa9t3JZhJ62sp8U=4/11/2026 9:06:09 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLASE_SISTEMA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Wvf2rp6D5ni/IWhUbHKfQlttImk=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLASE_VEHICULO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>mhGbcu0H0GztmHaUgOgslS4g0+E=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLIENTES_CODSER_SM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>JeG5n8zaPdoV1OIOCM04r40IV/U=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLIENTES_NIT_SM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ZeHJHAyp8TRxx+7GAiOOf28HWl4=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLIENTES_SUCURSALES_DEPENDENCIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ioinDDlkOJt+RJQMVUuafw4dnUA=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLIENTES_SUCURSALES_DEPENDEN_SM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>wGwkQC0NaEAEfqjytcvs2Pyq/II=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLIENTES_SUCURS_DEPEND</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>4zeQ2gptztnMvtF280rooWYuE6I=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLIENTES_SUCURS_DEPEND_SDM_FDO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>TUngpiQ7JLckRDsqNlsw31rG+IE=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLIENTE_A_CLIENTE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Gq8J4G7BARp6fs0A3v5GSHRy6YE=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLIENTE_CARTERA_PS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>kZ/vsZaKF3ApyWLZ634+soy5Mqc=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>Cliente con Movimiento</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>aasW4O8ogCPuoj+d90pNI+IH6ZA=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLIENTE_MOV_SECTOR_ECON</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>F2UL918iYTdi+Pcr4f5utCIx47c=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLIENTE_PS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>N/+gqvsvIZTlSM9R59QJCgMYJIU=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLIENTE_PS_REINCORPORADO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>JNfgHF8WAXg0rx17X4+JFSUnk9A=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLIENTE_PS_SUC_DEP</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>TMjjmxlXrItoe8pVoGwTbCu0eFg=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CLIENTE_PS_SUC_DEPEN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>y3ZbcCI+NnyPzp4ZiTJahwxGqhk=4/11/2026 9:06:10 a.m.3/11/2026 4:53:45 p.m.</TimeStamp>
+        <ID>
+          <String>CONDUCTORES_DATA_MOVIL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>9EN4G66VZJlmb4K797ZAgD4njcU=4/11/2026 9:06:10 a.m.3/11/2026 4:53:48 p.m.</TimeStamp>
+        <ID>
+          <String>CUMPLE TIEMPO PROMESA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>luBoKiYvScfq47h/AfPlhQ4oq6I=4/11/2026 9:06:10 a.m.3/11/2026 4:53:48 p.m.</TimeStamp>
+        <ID>
+          <String>CV_SEDES_DESTINO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ko7Q9vOplWfEuMHKWM58LScbWOc=4/11/2026 9:06:10 a.m.3/11/2026 4:53:48 p.m.</TimeStamp>
+        <ID>
+          <String>CV_SEDES_ORIGEN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>N33hsMuWRB0mV3fB36198GrTXsA=4/11/2026 9:06:10 a.m.3/11/2026 4:53:48 p.m.</TimeStamp>
+        <ID>
+          <String>CV_SISTEMA_HORARIO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>LvxXa2KeJrtvV5X9yKFqKRIoiAg=4/11/2026 9:06:10 a.m.3/11/2026 4:53:48 p.m.</TimeStamp>
+        <ID>
+          <String>CV_TIEMPO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>CUatF7MuhRYDKtTHLBZClXvdXD4=4/11/2026 9:06:10 a.m.3/11/2026 4:53:48 p.m.</TimeStamp>
+        <ID>
+          <String>CV TIPOS MOVIMIENTO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>e0WNUzkEXdDT1YilTh76qV8cVdE=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DEVUELTO REMITENTE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>89oXfHsYW7gQeff2QH7KRyGrj3g=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>Dia_Del_Mes_Facturacion</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>DWF9eFZcuggo4znHhySKei9grUw=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM CARACTERISTICAS ENTREGA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>h5voDWFN/o2O+INR2Ep0aILwq6Y=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM CPL RECOLECCION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+F0uSIBE7Bf1BBu1D3JFL+qJhWM=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM ESTADO LEGALIZADO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>4Q/ODybeSXC/IJeP3eiM4qhhF0Q=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM ESTADO RECAUDO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>c6vmBWqBVbWXuqt0vohUWhiKMtE=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM TIPO GUIA IMPRESION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>7rzAtlSLnoQVyp5JZi28Q1sNlEs=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM VEHICULO TIPO CONTRATACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ZfThjCwfScwF02cZmMD8rlUOMqk=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_CFS_FORMA_PAGO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>rCkOi23vx5Ad+bXHgk5PzvLucIw=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_CLIENTE_PS_COMISIONES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>S7eXxZV9R3MHy/zRVhSy0Z+pzNs=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_CLENTE_PS_VEN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>QMimaE3KnJlIS58lHsdAFS6dkCk=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_CLIENTE_PS_VENDEDOR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>vR9TWjn+Ktx9mV7INl/XmNpO/is=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_CLIENTE_RECAUDO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>VvDL3mHtcvS1CgRdkT5gEHyrje8=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_COMP_TIPO_ACCION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>hRd3n+/HUuv1/nRQ3QUJ7+H50nA=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_CONT_MEDIOS_DE_PAGO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+l9sPDsq8cuHknDSrSFSBrNLUW8=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_GEOGRAFIA_CONCEPTO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>rXGP7ri03L01kqc66iQ4DgF4tUY=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>Dim_Geografia_Destino</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>V2jlzPIH48jCLKCMounuXm+FieM=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_GEOGRAFIA_DESTINO_ZONA_GEO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>LeZhktYbyE0YjZ53dd9/iTCNf/o=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>Dim_Geografia_Origen</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>zRMCPFPqXEojh+foCS1IQadaDZI=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_GEOGRAFIA_ORIGEN_ZONA_GEO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>s7ioFGnnrkgjAyOnru/9afw72gE=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_GEOGRAFIA_PE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>oT3Wyz1NhXgvRvUALvEwDS+GPWw=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_GEOGRAFIA_PE_ZONA_GEO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/viu3RRd+0mKLfT9n5VP+RjN0Xg=4/11/2026 9:06:10 a.m.3/11/2026 4:53:52 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_ORIGEN TAREA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>LbT8Z6yKJhrJu/S0I+YEzVCC5EU=4/11/2026 9:06:10 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_PFR_ESTADO_RESPUESTA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>UgUxbVo76QZZ18V71Gw95JzaQac=4/11/2026 9:06:10 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_PFR_ESTADO_SOLICITUD</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>wO8aGQdhvBCJXwl5LrsgX4GE8xM=4/11/2026 9:06:10 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>Dim Prefijo Numero Guia</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>GOI4r8bWCDp8feUfmmcg7fotFAY=4/11/2026 9:06:10 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_SPP_SUBSERVICIO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>RBSwNgF7RXj6v4pqHKGNXHv+HcY=4/11/2026 9:06:10 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_SPP_TIPO_SERVICIO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Y3kn+MdT1L/06jFrvPbi83Yb9cE=4/11/2026 9:06:11 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_SPP_UBICACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>g5GdQGNlRwBLIredB03TA05LghA=4/11/2026 9:06:11 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_TIPO_NOVEDAD_FRANQ</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>JbwXzWM4LY/WlIe9VUONF1mjSaY=4/11/2026 9:06:11 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>DIM_TIP_SUBSER</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>00cqzYw/tl+ejWGZvaIWcvu2vWI=4/11/2026 9:06:11 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>DISCONFORMIDAD</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>9kLHj/WLQ7GYsb/mAwNh2voHQsM=4/11/2026 9:06:11 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>DISPOSITIVO DATA MOVIL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>r8K/Se9x/56O1rAeZUMjAKv8gc8=4/11/2026 9:06:11 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>DIVISIONES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>in7MhJS3SKCrCFkHtwsAJakHJ4M=4/11/2026 9:06:11 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>DIVISIONES_CONFIRMACIONES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>C9MIh21Ns8F/MkJi29aMAk5X0Qo=4/11/2026 9:06:11 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>DIV_BODEGAS_ENTRADA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Yi95YMVDmTg6/Mqg1bgNFbYluP8=4/11/2026 9:06:11 a.m.3/11/2026 4:53:53 p.m.</TimeStamp>
+        <ID>
+          <String>DIV_BODEGAS_SALIDA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>KQ267qOX4XReJf+PddBIvWGICQU=4/11/2026 9:06:11 a.m.3/11/2026 4:53:54 p.m.</TimeStamp>
+        <ID>
+          <String>EMPLEADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ruN43sb2RLYdqxSqJNz8PN3u7ok=4/11/2026 9:06:11 a.m.3/11/2026 4:53:54 p.m.</TimeStamp>
+        <ID>
+          <String>EMPLEADOS_CONFIRMACIONES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>mVod1b16yR3jFjRhUPkcO5zrq+U=4/11/2026 9:06:11 a.m.3/11/2026 4:53:54 p.m.</TimeStamp>
+        <ID>
+          <String>EMPLEADO_COM_CONTADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>z3CVdG/r2XkNUrb4+NrKZRwXgJ8=4/11/2026 9:06:11 a.m.3/11/2026 4:53:54 p.m.</TimeStamp>
+        <ID>
+          <String>EMPRESA_TRANSPORTADORA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>wTZQPiNtC3mW9+mE/eF5mN7GM2c=4/11/2026 9:06:11 a.m.3/11/2026 4:54:01 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO CARGA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/4a6Fm+9X4W3kSHVDXihTaIjPv0=4/11/2026 9:06:11 a.m.3/11/2026 4:54:01 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO CONCEPTO LOGISTICO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EfINAmIRsZCq7+zdVXFjDMOZNKU=4/11/2026 9:06:11 a.m.3/11/2026 4:54:01 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO FISICO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>8QYnFzf8f3qJpabNSpT/By6aHIs=4/11/2026 9:06:11 a.m.3/11/2026 4:54:01 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO NOVEDADES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>m8rn0QROaMKrFhaGy3Oz9JbsxZQ=4/11/2026 9:06:11 a.m.3/11/2026 4:54:01 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO PROCESO LOGISTICO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>SCoBIeCUD0LbEjqi1nrRvzoj//Q=4/11/2026 9:06:11 a.m.3/11/2026 4:54:01 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO_CLIENTE_CARTERA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Xt0vN3m41HHHFnxmWrZ/fpZJSq8=4/11/2026 9:06:11 a.m.3/11/2026 4:54:01 p.m.</TimeStamp>
+        <ID>
+          <String>Estado Cod</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>foOkM5afoabUrRXkoM5JH5Kvf2g=4/11/2026 9:06:11 a.m.3/11/2026 4:54:01 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO_EMPL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>RxW3AX7lNfzLolvr/kKe3OZzHRI=4/11/2026 9:06:11 a.m.3/11/2026 4:54:01 p.m.</TimeStamp>
+        <ID>
+          <String>Estado Envio</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>saGk4Oe2NgY/xp5Efyqh2hXtcI8=4/11/2026 9:06:11 a.m.3/11/2026 4:54:01 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO_FACTURACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>xkvvuwT+en0gNARm84QSRZZGJI4=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>Estado Guia</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>BH48OLd87J3otG45tdq4yUutWG8=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO_GUIA_FACTURACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>q/JM9t4Xr/pwQuJ8UGiratOuc6A=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>Estado_Guia_Provisionada</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>StnD3JZVAYEp2R3aMxyzbJ/x52o=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Q94KFrbHHNaU7Z2gHkvK/0AJzr8=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO_RESPUESTA_A_CLIE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>M+Ctn9Pfwrprc2m9wrhRJ3a+Ajc=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO_SOLICITUD</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ttvdIcJkfhPUxZh2O0Qz/doJ93o=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO_TAREA_A_CLIENTE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>j5Sf1YHeW0n7gbzM4dcOtPLlnGI=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO_TIPO_VEHICULO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+hxZuLsv+Rj4cllrnj77lASPJpQ=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>ESTADO_VEHICULO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>yWR1VFty/OVqEZFvLgtHUVCYjAc=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>EVIDENCIA FOTOGRAFICA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>iuQgjGLw6hNGEUA/gLxAPFkq1j0=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>Facturado</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>JRagfjkPxQMztD7v8a6H7ioiEEY=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>FECHA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>UHRcFzlI5KCTTBmy5C7+bhDZ8fQ=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>FORMA_PAGOS_CONTADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>NbiuX34e/wPEEDykB/DLoPD9bWg=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA SDM FDO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>9P5IWe3otJn6pRsiNeAVF+OZmbg=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA TIEMPO PROCESO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>HrcuBzgC2+/+itbEPc5Bdq0GaCw=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA_CONFIRMACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>4/GDKMDqBpuS5H0+B+Gq2PEIMzs=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>Geografia_Contados</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>YO2Qz7O5qO4kj2BUPOr/pwD5ToM=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA_CONTADOS_N</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>QafdmV3VfMCLVY6aO1L+/zSmN8U=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA_CONTADOS_PPTO_CDS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>rcSez/I42LdeLLMA3OZt9c0D1/4=4/11/2026 9:06:11 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>Geografia_Destino_Guia</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>icF4C+nOWEe4rWaKflaWN4VOtJ0=4/11/2026 9:06:08 a.m.3/11/2026 4:54:02 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA_DESTINO_GUIA_DANE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>l13wFPCnBpBe3uSAw6agVfo2Ptw=4/11/2026 9:06:11 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA_DESTINO_TAREA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Et8Al45i4tMLtRpVrmbSPTDXulo=4/11/2026 9:06:11 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA_EMPL CONFIR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+t4x52cPSqGwdzQCOnZMuovmSUY=4/11/2026 9:06:11 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA_ORIGEN CONFIR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>a0n6u2LrVxl55jHE+s0GznQv5mg=4/11/2026 9:06:11 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>Geografia_Origen_Guia</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>5kNfP8eiFswhHgy4MAEf9rDyC3c=4/11/2026 9:06:08 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA_ORIGEN_GUIA_DANE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>n+zi8o88ICYIygVPa03W7AYKrUs=4/11/2026 9:06:11 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA_ORIGEN_TAREA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>jHWad2+KyJnbGXHUR7Q6CWqgrTo=4/11/2026 9:06:11 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA_PERTENECE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>OYx14tTMVBQ6j+STiz+VE253x7A=4/11/2026 9:06:12 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>Geografia_P_E</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Frqw9D2oaz+cN6Ofy1mHheJEhf4=4/11/2026 9:06:12 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA_RESPONSABLE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>uTHLPPLVhHJ7SSEvCkc8nS4OkHc=4/11/2026 9:06:12 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA_VENDEDOR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>C3gfz4tVgC3rh44N/zlqhmgQlc0=4/11/2026 9:06:12 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GM RECOLECCION CDS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Q4jI32+7iWP7Oso3u2JBSqVI/vw=4/11/2026 9:06:12 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GM RECOLECCION ESTADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/XsRx+3mRD7NbMamQFnrjNIycdo=4/11/2026 9:06:12 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GM RECOLECCION MARCA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>zplbwOli4YRs9EJK4oiU31NMReo=4/11/2026 9:06:12 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GM RECOLECCION RECHAZOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>bn00YaeOxTfDM0jA8Y6r/C/St0U=4/11/2026 9:06:12 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GM RECOLECCION TIPO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/GwsV0XceNg1oGchbRIu5wg7o3A=4/11/2026 9:06:12 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GM RECOLECCION VEJEZ</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>VHuXgAQOrILd+E48RqiIRowkOTQ=4/11/2026 9:06:12 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GM_HORA_DISTRIBUCION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>XGJwMXMM6h2MAoanfQf3prtAqBQ=4/11/2026 9:06:12 a.m.3/11/2026 4:54:03 p.m.</TimeStamp>
+        <ID>
+          <String>GM_ZONA_URBANA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>eLrTlQyIevItGkS4O/5mvJZRLpk=4/11/2026 9:06:12 a.m.3/11/2026 4:54:04 p.m.</TimeStamp>
+        <ID>
+          <String>GUIA_REMISORIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ewWWw2nYaz9imJuGiy2OVYzEKNo=4/11/2026 9:06:12 a.m.3/11/2026 4:54:04 p.m.</TimeStamp>
+        <ID>
+          <String>GUIA_SCN_SM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>4MuwB9SoiFnZ8Fpwedg/VUd8sqA=4/11/2026 9:06:12 a.m.3/11/2026 4:54:04 p.m.</TimeStamp>
+        <ID>
+          <String>HORA_ATENCION_CLIENTE_LLAMADAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>NrfQH/R4esuz4dkUblyh3whJxGU=4/11/2026 9:06:12 a.m.3/11/2026 4:54:04 p.m.</TimeStamp>
+        <ID>
+          <String>HORA_DATA_MOVIL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+gKcpJsu6rdZF0jBFfULDR/0Zsw=4/11/2026 9:06:12 a.m.3/11/2026 4:54:04 p.m.</TimeStamp>
+        <ID>
+          <String>HORA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>DBGL6hKJrsbLQFzMRmeqh08sf9k=4/11/2026 9:06:12 a.m.3/11/2026 4:54:04 p.m.</TimeStamp>
+        <ID>
+          <String>H_ENTRADA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>T4bFHneNhVCO8GLisRHtco54Xhk=4/11/2026 9:06:12 a.m.3/11/2026 4:54:04 p.m.</TimeStamp>
+        <ID>
+          <String>H_SALIDA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>6lUbFITUfh3gLXWKDnn9TLSywEI=4/11/2026 9:06:12 a.m.3/11/2026 4:54:04 p.m.</TimeStamp>
+        <ID>
+          <String>ID_CAJA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+CKcCS6/4FGI7YZ0lErg3NXKjTg=4/11/2026 9:06:12 a.m.3/11/2026 4:54:04 p.m.</TimeStamp>
+        <ID>
+          <String>ID_FACTURA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>tu2aov8BKV45nYCIw230rh0CoHI=4/11/2026 9:06:12 a.m.3/11/2026 4:54:04 p.m.</TimeStamp>
+        <ID>
+          <String>ID_PLACA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Ojc8SjresqjjkoeLS+OrJK2dRYE=4/11/2026 9:06:12 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>Login Empleado</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>TkWzkKeHQ68Hb1FmaXphqpZl8sY=4/11/2026 9:06:12 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>MAK_EMPL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>NwPprFf2WihV6SugIKwTOdjTsk4=4/11/2026 9:06:12 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>MANEJA_CLI</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>PLhF5pO6o6CVLFwXNdj0l8M1aBE=4/11/2026 9:06:12 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>MANEJA_CLIENTE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>2eM/0GPCM+Lz5Ocw+UI/ae5Dv4M=4/11/2026 9:06:12 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>MANIFIESTO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>NVaKB5ZqUA/5053e91/h5sodv0c=4/11/2026 9:06:08 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>MECI_PS_CARGO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>k7f0xBMRlDql8RWi02d0qSs/ZeQ=4/11/2026 9:06:08 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>MECI_PS_ESTRUCTURA_ORGANIZACIONAL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>DP3vFhRSUkmHdD0mkLILOrRU1ew=4/11/2026 9:06:08 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>MECI_PS_LOCALIZACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>T9+X6oCLJPHRgiXb9bg/JZOrcZk=4/11/2026 9:06:12 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>MEDIO_TRANSPORTE_CONTADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ha9pLg5LtO2bbFao8o0t+TBR5gc=4/11/2026 9:06:08 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>MODALIDAD_PAGO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>qc0QcZKJSCot1oKXNLipYAD5EAQ=4/11/2026 9:06:12 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>MODELO_VEHICULO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>tPvq/+gvMJwlEdfRL0ErrDCC404=4/11/2026 9:06:13 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>Modo Transporte</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>JfSpJir6ucBWWvq3WBxbLrGkktA=4/11/2026 9:06:13 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>MOTIVO_RECHAZO_RECOLECC</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>YECxBM+upMsCglqnGox+msfdGM8=4/11/2026 9:06:13 a.m.3/11/2026 4:54:05 p.m.</TimeStamp>
+        <ID>
+          <String>MOV POR PROCESO VEHICULO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>RlmuXjj6PFpGmQ52m0fcUyC6/A4=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>MOXP BODEGAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>puf5RZGlOy8kvYK32ywuF1ExfS0=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>MOXP CLIENTES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>h9RBidOWoA6q0RySoPok6xyrNgg=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>MOXP HORAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>WSDn/Rnnb/64UkQAl4m0GLq9oLc=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>MOXP MANIFIESTOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>LqOubPZUwmp9ftzLhllUoAo0ftc=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>MOXP MODO PAGO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>6ZA6swpUhmvPdiLafsZL23sWC2M=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>MOXP TIPO TRAYECTO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>DJUu9uQolzZs5PdQzQe+HQUMnxk=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>MOXP VEHICULOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Jj9LfFtKbAKFDY1C9616nKAHt/I=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>MOXP VEJEZ</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>UtRayor7dLEqF2DTDGpXVQATeqs=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>NOMBRE_CARGO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Geq7l+mhC1tJHHqHuU3fKKgGNxk=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>NOMBRE_CARGO_VAL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EabR5Gn/tHHC70hWDqinqMtPJ8w=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>NOMBRE_CLIENTE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>176uP1iB0FLugko3LfhgPCAXcKc=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>NOMBRE_CLIENTE_VAL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>uxzZmMYBRJ2UHbH8o0UDbMePjZc=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>NOMBRE_CONDUCTOR_OPERAT</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>FnpwbDnd0pceycPEVPSBMwQW2xM=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>NOMBRE_EMPLEADO_VAL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>i9crMq0mrrdiu23Yi17ZhHtAS4Y=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>NOMBRE_EMÇLEADO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>M2nTPWW0UGcJcQRPrz09s5V4q28=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>NOMBRE_SECTOR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>sESrzvJU3FjMZYJ44YY0EdAebik=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>NOMBRE_SECTOR_VAL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>gjp8igW2yW1Pj53XKQOHG4fmbSg=4/11/2026 9:06:13 a.m.3/11/2026 4:54:09 p.m.</TimeStamp>
+        <ID>
+          <String>NOMBRE_UEN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>mbM7TnVwBcKvIUO3TekzR02kpb0=4/11/2026 9:06:13 a.m.3/11/2026 4:54:10 p.m.</TimeStamp>
+        <ID>
+          <String>NOVEDAD</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>DIMKOlSCg4g8ZdnJAEPRH236E+I=4/11/2026 9:06:13 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>NOVEDADES_OPERATIVAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>AAEqkSO2b3ecozCAYlcDc1Io3CY=4/11/2026 9:06:13 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>NOVEDAD_IDO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>lfizLsNhq58q1hoAtGYMIzGcTTM=4/11/2026 9:06:13 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>NUMERO_DOC_PROBLEMA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>IxjpiSDwsQbR4TqkUqYemjHtfEQ=4/11/2026 9:06:13 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>NUMERO_FACTURA_COD</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Qn6I3u5/O6Sky9CAZK7dKWg5I9c=4/11/2026 9:06:13 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>NUMERO_GUIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>dJv8/bF5eGFWo2V+2+f1ekiCN/U=4/11/2026 9:06:13 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>NUMERO_GUIA_CONFIRM_SALIDA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>u9z3KNDWM2kOB1q27lKZUJmnm6c=4/11/2026 9:06:13 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>NUMERO_GUIA_DEV_ZONA_URB</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>5nWDvXA1XZiISXNILvNImkKHj+s=4/11/2026 9:06:14 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>NUMERO_GUIA_DEV_ZONA_URB_CONT</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>WNn9aErtJ9dcCjH05XLuNIaKJT4=4/11/2026 9:06:14 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>NUMERO_GUIA_MOV_VS_FAC</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Lhu1cCM9yeAirkqlt9LVys2ZHvY=4/11/2026 9:06:14 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>NUMERO_GUIA_PRUEBA_ENTREGA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>cAWobOBM7Z/hx+eLThSTJ5jM8gY=4/11/2026 9:06:14 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>NUMERO_GUIA_SOL_NOV_FRANQ</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>UjJnj0ZV4y7yBhDS8krSkk4bEVQ=4/11/2026 9:06:14 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>NUMERO_GUIA_TIEMPO_PROCESO_ENV</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ajd04SxzRM9yubzcU+lbVYGyINM=4/11/2026 9:06:14 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>Num_Factura_COD_Env_Mov</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Y6ZvSuBZTL6aP5qRuDATvyNILi0=4/11/2026 9:06:14 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>NUM_SOLICITUD_PROV_GUIAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>TnMmEzY6eCWjBlEIrBivODst5hk=4/11/2026 9:06:14 a.m.3/11/2026 4:54:11 p.m.</TimeStamp>
+        <ID>
+          <String>OPERATIVO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/88zuOXMs8ml2WQJ094obvUhRn0=4/11/2026 9:06:14 a.m.3/11/2026 4:54:12 p.m.</TimeStamp>
+        <ID>
+          <String>OPERATIVOS_NOVEDADES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>rQCSCNlvIpAiQj/AvycKnrkkInI=4/11/2026 9:06:14 a.m.3/11/2026 4:54:12 p.m.</TimeStamp>
+        <ID>
+          <String>ORIGEN_SERVICIO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>6FJJO4y5lqhT7/ff0s4Kq4xuOuk=4/11/2026 9:06:14 a.m.3/11/2026 4:54:12 p.m.</TimeStamp>
+        <ID>
+          <String>PERIODO_CONTABLE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>OVIgUhwIhKa77sQn4lfzJ5s1UCc=4/11/2026 9:06:14 a.m.3/11/2026 4:54:12 p.m.</TimeStamp>
+        <ID>
+          <String>PERIODO_CONTABLE_CONTADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>fyw04Sh92AuYwiBd2e3W4/sYm5w=4/11/2026 9:06:14 a.m.3/11/2026 4:54:12 p.m.</TimeStamp>
+        <ID>
+          <String>PLAN_UNICO_CONTABLE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>wH8xBIW7Ln+KaYuikWC9lz+kKrc=4/11/2026 9:06:08 a.m.3/11/2026 4:54:12 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_CLIENTES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>SXL927lnrfqYWeshECbTWm7kxJM=4/11/2026 9:06:08 a.m.3/11/2026 4:54:12 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_COLABORADORES_ME</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>pkPootIwcXTVmAA6sdFd784xocg=4/11/2026 9:06:08 a.m.3/11/2026 4:54:12 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_COMPENSACIONES_ID_CUN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/iEkJCa13221iJ8F6oFjgGw0+7M=4/11/2026 9:06:08 a.m.3/11/2026 4:54:12 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_COMPENSACIONES_ID_PQR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>QPfHaMxKg1ZU/4dixs7vLLUNVu8=4/11/2026 9:06:08 a.m.3/11/2026 4:54:12 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_COMPENSACIONES_NUMERO_GUIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>4K1Mzw3A4FclJtqDrj5qHdf2cA0=4/11/2026 9:06:08 a.m.3/11/2026 4:54:12 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_DETALLE_RESPONSABLE_INDEM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Nam7FveqwpPTi347bJhU8DFSJLg=4/11/2026 9:06:08 a.m.3/11/2026 4:54:12 p.m.</TimeStamp>
+        <ID>
+          <String>PQR EMPLEADOS PROCESO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ml8mfw8g1ErobpYBOB1hsqjuub8=4/11/2026 9:06:08 a.m.3/11/2026 4:54:12 p.m.</TimeStamp>
+        <ID>
+          <String>PQR EMPLEADOS REGISTRO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>yCuOnNESzZj31fBZT3lVE/F6nBo=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_ESTADO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>dmO9HLY5SkOcVVqQJvknHftK1uE=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_ESTADOS_INDEMNIZACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>2KZkKAdMNZLy9M3BVyEt/4H88Hg=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_GEOGRAFIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>fX6BqEaa1RAde03vmOr2TmhLoVc=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_GEOGRAFIA_PQR_INDEM_X_ORIG</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Z9/1JKvd3a71Jk3kAh2ZclxH6JY=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR HORA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>cjdxq6YgAAcczDjPKwUnHggO56c=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_MOV_ESTADO_CUN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>HWwANa4fc+OFIOImcp2I2z8mHZQ=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_MOV_ESTADO_ID_PQR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>h+Xhqrp5ik31aBLb8gPcajhC0Wg=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR ORIGEN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>k6DcCDNnMYmAjaRr24VIIy+V0ZQ=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR PROCESO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>bAfVFAKdTfM4ew45C4Bd3MHPkjM=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_PROCESO_COLABORADOR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>2e5cB8h3CV5NnVhyVjzYtZ00+JQ=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR REGIMEN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>gkd14IdQjVx1rHjI8Sx9WeP9SH4=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_RESP_INDEM_CUN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>AItun6YPv1mEh29b6u9QweK5lUg=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_RESP_INDEM_ID_PQR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>oKGo6R/6jF9cxprF5bUn9G7tDNc=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_RESP_INDEM_NUMERO_GUIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ul6SCXqP0OZrc8PY9kOGitx4B5w=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_TIENE_GUIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>v4JK19VUp5RkE1s0xeOKt7BMPac=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR TIPOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>MsjvQeMtvNU4msfGBVU3r7qCSRU=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR TIPOS SOLICITUDES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>jUKx8zk+71azc01uJGobKDKWuok=4/11/2026 9:06:08 a.m.3/11/2026 4:54:13 p.m.</TimeStamp>
+        <ID>
+          <String>PQR_TIPO_RESPONSABLE_INDEM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Zai+41iw1EUUByPseJ/Ek2ryL5Q=4/11/2026 9:06:14 a.m.3/11/2026 4:54:14 p.m.</TimeStamp>
+        <ID>
+          <String>PROCESOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>b9BfC8eYpab+9VgwKzgAPwdD7RI=4/11/2026 9:06:14 a.m.3/11/2026 4:54:14 p.m.</TimeStamp>
+        <ID>
+          <String>PROCESOS_TPE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>3CoS9XoUZqLoOd4DrbOXLA2hVBQ=4/11/2026 9:06:14 a.m.3/11/2026 4:54:14 p.m.</TimeStamp>
+        <ID>
+          <String>PROCESO_CONCEPTO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>6VnPLrbxKchK7ByVfv1whvyYfzE=4/11/2026 9:06:14 a.m.3/11/2026 4:54:14 p.m.</TimeStamp>
+        <ID>
+          <String>PROCESO_CONCEPTO_2</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>U4QZ2IENQotDVRb+TG96DgQGo2k=4/11/2026 9:06:14 a.m.3/11/2026 4:54:14 p.m.</TimeStamp>
+        <ID>
+          <String>Proceso Logistico</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>FU/cMONH6+NXRSR5Zsm8NN+OUjw=4/11/2026 9:06:14 a.m.3/11/2026 4:54:14 p.m.</TimeStamp>
+        <ID>
+          <String>PRODUCTIV TH AUXILIAR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>wu8jfqL5o8boJJ9MsyeIbB7dcdw=4/11/2026 9:06:14 a.m.3/11/2026 4:54:14 p.m.</TimeStamp>
+        <ID>
+          <String>PRODUCTIV TH CLIENTE MOV</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>InXm4jveZx1M0DH/56/qsJ6JiKg=4/11/2026 9:06:14 a.m.3/11/2026 4:54:14 p.m.</TimeStamp>
+        <ID>
+          <String>PRODUCTIV TH CONDUCTOR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ngFqJvlf3oojXWN5l58YpmNHia8=4/11/2026 9:06:14 a.m.3/11/2026 4:54:14 p.m.</TimeStamp>
+        <ID>
+          <String>PRODUCTIV TH HORA PROC LOGISTICO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>k9hOqVaFlDvUNQCchGdyNRc9xQU=4/11/2026 9:06:14 a.m.3/11/2026 4:54:14 p.m.</TimeStamp>
+        <ID>
+          <String>PRODUCTIV TH PLACA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>L50QFtfG1qtglgOQ3FyInoadKGQ=4/11/2026 9:06:14 a.m.3/11/2026 4:54:15 p.m.</TimeStamp>
+        <ID>
+          <String>PRODUCTO CONTADOS FALTANTES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>egoThG2AJmMnOKL2ZtwiHv1IDnw=4/11/2026 9:06:14 a.m.3/11/2026 4:54:15 p.m.</TimeStamp>
+        <ID>
+          <String>PRODUCTO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>JxQIYEaoHDxRE3ZagGhhXu7S8vM=4/11/2026 9:06:14 a.m.3/11/2026 4:54:15 p.m.</TimeStamp>
+        <ID>
+          <String>PRODUCTOS_CONTADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/eqHnhm07IHrJWCafueB5fldY0k=4/11/2026 9:06:14 a.m.3/11/2026 4:54:15 p.m.</TimeStamp>
+        <ID>
+          <String>PRODUCTO_CONT_FALTANTES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>MrwNZ426SVlWCzUzsU/aD6H3N6I=4/11/2026 9:06:14 a.m.3/11/2026 4:54:15 p.m.</TimeStamp>
+        <ID>
+          <String>PRODUCTO_PROMOCION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>CoBeT5xM7cZ7gOM26lOb7UleNmM=4/11/2026 9:06:14 a.m.3/11/2026 4:54:15 p.m.</TimeStamp>
+        <ID>
+          <String>PROMOCION_MICRO_MERCADEO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>N7pBleYADICXDcz6PvmWtW9omzw=4/11/2026 9:06:14 a.m.3/11/2026 4:54:15 p.m.</TimeStamp>
+        <ID>
+          <String>PROYECTO_COMISIONES_CONT</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ij7P3AAiDEtT8W/l/wlQlF5cMIU=4/11/2026 9:06:14 a.m.3/11/2026 4:54:15 p.m.</TimeStamp>
+        <ID>
+          <String>PRUEBA_CIUDADES_MOV_ORIGEN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>kAWGtj0r/bsMe6MvTdkMyNTtejc=4/11/2026 9:06:14 a.m.3/11/2026 4:54:15 p.m.</TimeStamp>
+        <ID>
+          <String>PRUEBA_ENTREGA_ESTADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>hKkloFTsfuq2Ob6HKj7fzNHTrCY=4/11/2026 9:06:14 a.m.3/11/2026 4:54:15 p.m.</TimeStamp>
+        <ID>
+          <String>All Punto_Servicio_Origen</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>IAQb761a9dVwbW/5lCoPvIlWriM=4/11/2026 9:06:14 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>RANGO_PESO_KILOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>fL7nVhqAIg62bIwFGxO7bG8vhqc=4/11/2026 9:06:14 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>RED_OPERATIVA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Vwl57Qdf2Ca4wU2SwwVqFPzBbuo=4/11/2026 9:06:14 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>REGIONAL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Z0iiiDf/S+2N4YcUKsoItUYYeHI=4/11/2026 9:06:14 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>REGIONAL_FACTURACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>IK6EgRQw4hTV/jdWXH5rjWUIBRI=4/11/2026 9:06:14 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>REGIONAL_REPORTADA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>H3MX6fPtiQavh7pmjlNUCRM5SFg=4/11/2026 9:06:14 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>REG_EMPL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>MP72WLV2OZrA5Is8FXbCSFonnwk=4/11/2026 9:06:14 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>REQUIERE_EMPAQUE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>nnuKcvkX2i/IZbzkaVN+Kg1Vg+M=4/11/2026 9:06:14 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>RESPONSABLE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>5BzqwgXyf2IRoApmToqzLt/DSG4=4/11/2026 9:06:14 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>RESPUESTA_CONFIRMACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>FUuQyqxrEUhfuF7E0XqWlK5klrI=4/11/2026 9:08:00 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>SAP CEBE GEOGRAFIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/guR7JSCRDeidQcatvhCBvRHZ6I=4/11/2026 9:08:00 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>SAP CIIU</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ssZ4RhbC9HcuClbYhfVQpuKgd+0=4/11/2026 9:08:00 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>SAP FACILITADOR COMERCIAL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>TsfMnSTw2ucC6v952JDla2//lrw=4/11/2026 9:08:00 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>SAP FACILITADOR NIT</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>zLufdAtlGshi3BIEb4QNUKkeBpw=4/11/2026 9:08:00 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>SAP REP CLIENTES FACTURAC</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>CFR+MSnwJTwi/y9UCCuhjI/aoW0=4/11/2026 9:08:00 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>SAP REP CUENTA CONTABLE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/x7akx/Ur48Wb9al+TzTg6LrqWw=4/11/2026 9:08:00 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>SAP REP DET CARGO VENDEDOR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>9cNEnCfyCP343Rt6F34XvvL7Qv0=4/11/2026 9:08:00 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>SAP REP DET CLIENTES FATURAC</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>xpEZjoD8peqRCMjDcVwiuC0R2Pw=4/11/2026 9:08:00 a.m.3/11/2026 4:54:16 p.m.</TimeStamp>
+        <ID>
+          <String>SAP REP DET ESFACTURADOR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>6vZe374L/zkEKPrUtr7zlS13gRk=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP REP DET FACT UNICAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>DcakgkXDafFdX2XuOecTIHpKcBQ=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP REP DET GEOGRAFIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>iNegbxJMcnRuQPhI8RUkC7gdH6w=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP REP DET NOMBRE VENDEDOR</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EacWM604Gx2MimuzVWGyPCYMrj8=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP REP DET PRODUCTO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>5y/xKq+swwyGNiY2tA+/zJxOUgg=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>HOMOLOGACION PRODUCTOS MAT</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>aKpQiErbOPDiEbzB7evy14oOTaE=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP REP MOTIVO ANULACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>d80SqS2hZ+KPsnETYA7jeE0bx0k=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP REP NUMERO FACTURA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/05W4beV3iZutxI5nQ8Sspt20ss=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP_ASESOR_VENTA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>iq2FJ+Wy8o3A/LRXMO9GpUv0JmY=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP_CENTROS_BENEFICIO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>AhaxhxP+WptnNYwdz3xthzcWCD8=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP CLIENTES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>eBBYaMxkARtNFQIKpFf3EV5p9oA=4/11/2026 9:06:14 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP_CLIENTES_PF</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>6Sa3bxxsBkLpUENHeKTWzmcKsLs=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP_GEOGRAFIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>sMemjcmE2uVQxlKRrHPQ+svSm9U=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP_GEOGRAFIA_SM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>WcnfoZpbv6t/VzeqC0GdsndVKQA=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP MINISTERIO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>vg9ucbUEcfuxLLq7tAlQokl99w0=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP_NUMERO_CUENTA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>YvwsGRMN+Vp05w4HCP9NNaVbV9g=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP_PRODUCTOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>sIXfzVLoEXg+mi/ByKbYVGbDuRI=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP_PUC_DRILL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/oADdPIXTJ3qnqI9tq9gBNS8z/I=4/11/2026 9:08:00 a.m.3/11/2026 4:54:17 p.m.</TimeStamp>
+        <ID>
+          <String>SAP_TIEMPO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>2WQ3h145UFUfoO1AuLemJpMTD+o=4/11/2026 9:08:00 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SAP_TIPO_DOCUMENTO_COMERCIAL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>1Oq7wf2Rn+2HoAlRrpQXZaNv5Lc=4/11/2026 9:08:00 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SAP_TIPO_MOVIMIENTO_FACTURACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ntzGk6ecaDcvaNV9MTOtPCIlKg0=4/11/2026 9:06:08 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SDM ESTADOS ENVIO 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>TSmIZdzYUp+lzjnDxb5KxrMiMEc=4/11/2026 9:06:08 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SDM ESTADOS GUIA 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ngliEvQHRXxlSH1djQyrSisiAM0=4/11/2026 9:06:08 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SDM GEOGRAFIA CIUDADES 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>E8BJcungk73x+bdN/hjA1SLI/ng=4/11/2026 9:06:09 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SDM GEOGRAFIA PUNTOS 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>XDDU852MbyxrZXApR18FA7Wk0g0=4/11/2026 9:06:09 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SDM MOV POR PROCESO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>AJeVdHkzo9dFfiQfvhFK1oqqLS4=4/11/2026 9:06:08 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SDM MOVILIZADO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>TuAhONCmmH1/odNvPwvOzIXUloE=4/11/2026 9:06:09 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SDM ORDEN SERVICIO TIPO TRAYECTO 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EadCHwuwDheJ5ANrTypfWmVoxn4=4/11/2026 9:06:08 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SDM PROCESO CONCEPTO 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>qEMcj6im9/n6ZLt0XKQYMyoGJOU=4/11/2026 9:06:09 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SDM TIPO CLIENTES 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>NCiInxNz18izqGkmWN8OqxW2KkI=4/11/2026 9:06:08 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SDM TIPO ENVIO 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>9Tl223CI39MUkP5OncajqX7cMXc=4/11/2026 9:06:08 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SDM TIPO GUIA 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>54WHCDnc//mVDwaMVrLZHejCanQ=4/11/2026 9:06:08 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SDM UBICACION DESTINO 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>81gu/XzjrEzb+WyXsEpzoY24jeE=4/11/2026 9:06:08 a.m.3/11/2026 4:54:18 p.m.</TimeStamp>
+        <ID>
+          <String>SDM UBICACION 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>SUsclLTGkcd6MuFRhUPYa3Vv36A=4/11/2026 9:06:09 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM CAUSAL INCONSISTENCIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>iXSyclMs0lOL9nO4qmjnOKJHJJY=4/11/2026 9:06:09 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM CLIENTES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>MN1XpetzZ+fm9SI3Pr9M/WLQ29I=4/11/2026 9:06:08 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM_CLIENTES_CREDITO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>TYTihllg1MeVx7KG+It4PEeEXzc=4/11/2026 9:06:09 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM ESTADOS ENVIO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>kiBksqIZDp7JR4lIfuOq7l7M0s0=4/11/2026 9:06:09 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM ESTADOS FISICO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>lnDqvJU0giza1/ThUPxvbjqhWpk=4/11/2026 9:06:09 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM ESTADOS GUIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Lu4A3vzXKR0zJcWjkeKBmFIOfBw=4/11/2026 9:06:09 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM ESTADOS INCONSISTENCIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>i95NMiJuVC8bo3ybLEhC6IM9Ccc=4/11/2026 9:06:09 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM ESTADOS ORDEN SERVICIO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>kNUMppBatQql+OuHP8kQXFwqf3g=4/11/2026 9:06:09 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM GEOGRAFIA CIUDADES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>BMcDdbrJhoLvRG4RYh9jiVZrtKc=4/11/2026 9:06:09 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM GEOGRAFIA PUNTOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>vubdbf2tFH6GDJRPElfFGNDdWLc=4/11/2026 9:06:09 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM_GEOGRAFIA_UBICACION_DESTINO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>4dUdl0qN7hIUlF0E1QvA3nlaf9Q=4/11/2026 9:06:09 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM_GEOGAFIA_UBICACION_ORIGEN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>P3o5f1qqkqBx/auseHIT6GKu1Ks=4/11/2026 9:06:09 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM_GUIAS_MASIVOS_PE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>8/iwm909fuNZuaYkqsLQnShMYlA=4/11/2026 9:06:09 a.m.3/11/2026 4:54:19 p.m.</TimeStamp>
+        <ID>
+          <String>SDM_GUIAS_UTILIZADAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>YOzAztrjMfS4ng0PJXn+nZN0GQk=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM INCONSISTENCIAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/4vHd0McY9LVZE9JDhxcnQ1gibY=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM_MOVILIZADO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>g4YDbu5nsEbFK/rkAQmk232s5P4=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM_MOV_POR_PROCESO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Xe7XfZO1hI7nlGYyJIMakdumeXs=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM NOVEDADES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>nDid9LlakK/Bl4VL4U0a+U7C5GI=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM NUMERO ORDEN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>HBsMYtwv0+U6CUdZkqSNUb7T11k=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM ORDEN SERVICIO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>oceRZO/OarxS6ZHzXqe0yPbBeD0=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM ORDEN SERVICIO ESTADO ENVIO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>v/tIWQBCuwrRF7sRdKa2jWioWcM=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM ORDEN SERVICIO SERVICIOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Z4EqABbBVwvo3Kd+4i7pz6IGsl8=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM ORDEN SERVICIO TIPO EMPAQUE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>j25rYzUZfTNQa3OHL84tqQW+HTY=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM PROCESO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>7J2m+oc1Kz5mxV3jeH3GfRjFcXk=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM PROCESO CONCEPTO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>LBzeozu9RoSSlRqpv7cBDdFTTyA=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM PRODUCTOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>YK8xiQSo6KP+IVPhzAeOSZWQaa4=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM SERVICIOS SUBPROD</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>mRxmkFzG9uRwZtmQKCFEhzB7SIo=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM TIPO CLIENTES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>C8DlIV974EMQzWRC5uevcQ4+tUk=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM TIPO CONTIENE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>aj3YM9puQgSNGKgrXJRoTiB9XnI=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM TIPO EMPAQUE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>FjtGKswqtaeKgRy+Hlcb2UyjSNE=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM TIPO ENVIO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>WwyC2NfYxvJcno8ugVkr0WB08SY=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM TIPO GUIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>tQ2saLGDqh8QnFSaCNbld/h7Et0=4/11/2026 9:06:09 a.m.3/11/2026 4:54:20 p.m.</TimeStamp>
+        <ID>
+          <String>SDM TIPO NOVEDAD</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>BgU/kQEU8DaSlDA2tQO2F2Bslzk=4/11/2026 9:06:09 a.m.3/11/2026 4:54:21 p.m.</TimeStamp>
+        <ID>
+          <String>SDM TIPO TRAYECTO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>AoGNSvGNZXxVFIwipikRAzuMEEQ=4/11/2026 9:06:09 a.m.3/11/2026 4:54:21 p.m.</TimeStamp>
+        <ID>
+          <String>SDM UBICACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>mjBX8MtQvp//VB9xOX4nbEIYy50=4/11/2026 9:06:09 a.m.3/11/2026 4:54:21 p.m.</TimeStamp>
+        <ID>
+          <String>SDM UBICACION DESTINO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/Zn9qYfKENY5CAjgCIxE3x2HgSk=4/11/2026 9:06:14 a.m.3/11/2026 4:54:22 p.m.</TimeStamp>
+        <ID>
+          <String>SERVICIO_A_CLIENTE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>5Eg5tWcQ2/4ww6mA+73K+IW++yg=4/11/2026 9:06:15 a.m.3/11/2026 4:54:43 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL ESTADO REIMPRESION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>fqI6dcbPNhp0UdRYHLlb7IKSwlA=4/11/2026 9:06:15 a.m.3/11/2026 4:54:43 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL TIENE MANIFIESTO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>7lPW6BPusr+I3htTMby9EdsD5t0=4/11/2026 9:06:15 a.m.3/11/2026 4:54:43 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL TIENE SOBREPORTE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+Xr0tmNPU3HTKxfKCdbQn7GGaf4=4/11/2026 9:06:15 a.m.3/11/2026 4:54:44 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL TIPO TRAYECTO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>66mGNS0YblM58RhiMY9ziTgLF+o=4/11/2026 9:06:15 a.m.3/11/2026 4:54:44 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL TRANSMITIDO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>GoMezYtwkxr6D3+dvCUt0OylXEU=4/11/2026 9:06:15 a.m.3/11/2026 4:54:44 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_CLIENTE_CODSER</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>FzJq37jX2AANoV+740Y+ICKfBkU=4/11/2026 9:06:15 a.m.3/11/2026 4:54:44 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_CLIENTE_CODSER_SCN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>jtZVe+00SU9A+UauzfqYuX/Sgi8=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_CLIENTE_CODSER_SCN_GUIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>zFdJOqG5C5cqoCDm9dJSPhU012k=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_CLIENTE_CODSER_SM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>rwlvzhIqSxDBTjjwM4aSU25zICc=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_CLIENTE_CODSER_SM_GUIAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>gcE5t90SoEoiRiAq3TeyOBLRAGE=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_CLIENTE_NIT_SCN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>642BvupsRWxhnN+THMM137Gtc88=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_CLIENTE_NIT_SCN_GUIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>3eYLZ7gA1NQqMnaeycsFcnsYqQg=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_CLIENTE_NIT_SM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Hibjh76huNrHtTyXF8d2ylh4QaY=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_CLIENTE_NIT_SM_GUIAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>vz7/IPKnSkuV8H+SyPaW2dBm+0w=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_ESTADO_GUIA_CANCELADO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>XVI/+BqZfQLbH/20e3k9BXSK/j0=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_FACILITADOR_COMERCIAL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>AHP7YD2TDX+ZMPykZkq/BDc1aKY=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_FACILITADOR_COMERCIAL_GUIAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/W3VDax3pGjB2ynZBjw8as7rXso=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_NUMERO_GUIA_SM_SCN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>qRgYdQ9ypimHpykZzKRwrPqeDpo=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SISCL_TIPO_GUIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>N0btlsQQjKJjPsk5BHTeFRuuqnM=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SISTEMA_EXTRACCION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>aqRNUuK6pBH5hI5Nodjl/wEeUsc=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SOLUCION_CONFIRMACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>9//9D/JHTGXRDQbG0L4n0vjwiCc=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SUBPROCESO_EMPL_ESTADO_TAREAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Puc+jbQ6zj8Koof2+ao30YV/UUE=4/11/2026 9:06:15 a.m.3/11/2026 4:54:45 p.m.</TimeStamp>
+        <ID>
+          <String>SUB_NOVEDADES_OPERATIVAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>KqDeEp2o2SYLZVobDG296MjbnZg=4/11/2026 9:06:09 a.m.3/11/2026 4:54:46 p.m.</TimeStamp>
+        <ID>
+          <String>TIEMPO 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>xfDNGBeqtfwpBoWhId305gcvZWw=4/11/2026 9:06:08 a.m.3/11/2026 4:54:46 p.m.</TimeStamp>
+        <ID>
+          <String>TIEMPO 2</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>n1GA6ywRUSqigD2qHSd2c3NVA28=4/11/2026 9:06:08 a.m.3/11/2026 4:54:46 p.m.</TimeStamp>
+        <ID>
+          <String>TIEMPO 3</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Xw6ASsgT49H79+Ibifdnp4QyyG0=4/11/2026 9:06:15 a.m.3/11/2026 4:54:46 p.m.</TimeStamp>
+        <ID>
+          <String>TIEMPO REINCORP CLIENTE NIT</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>3KNd+H+taZR6/gStKPBHVot54sc=4/11/2026 9:06:15 a.m.3/11/2026 4:54:46 p.m.</TimeStamp>
+        <ID>
+          <String>TIEMPO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>HDielO4+hKNrRsnReh2I6bHGKE8=4/11/2026 9:06:15 a.m.3/11/2026 4:54:46 p.m.</TimeStamp>
+        <ID>
+          <String>TIEMPO_CONTABILIDAD</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>goWBLWb3KiTAPKOyIpU6G2QmAKg=4/11/2026 9:06:15 a.m.3/11/2026 4:54:46 p.m.</TimeStamp>
+        <ID>
+          <String>TIEMPO_ENTREGA_CONTADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>8RVkxG4v/b4BgtZmhMYiIfcy4OU=4/11/2026 9:06:15 a.m.3/11/2026 4:54:46 p.m.</TimeStamp>
+        <ID>
+          <String>Tiempo Entrega Envio</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Pt0d1I2nQ2rObq6VFbQ1mJxFoYM=4/11/2026 9:06:15 a.m.3/11/2026 4:54:46 p.m.</TimeStamp>
+        <ID>
+          <String>TIEMPO_ENTREGA_NOVEDADES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>anr4Pgjks9r7kPaTvALAgD1EKio=4/11/2026 9:06:15 a.m.3/11/2026 4:54:46 p.m.</TimeStamp>
+        <ID>
+          <String>TIEMPO_ENVIO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>nDjn5Um/AyOl2lqWCef91jgSTEU=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIEMPO_PROMESA_CUMPLE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>tLNd3FxreTOT7xP4zSoonjiA+Fw=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>Tiempo Proceso Conductor Placa</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>YbQzo1RKdVmxsCJXfsqZ96lppzw=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIEMPO_REINCORP_CLIENTE_NIT</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Mrc65vBFk3WZFmToawtJSMMZ0nU=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIEMPO_VCTO_CARTERA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>1An0Gwa9C5zvSi+YJ9NqwLxxOHo=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIPO GUIA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>gn5p5aFeN88IaqnH3FJHJG5XMac=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIPO_DIVISION_CONTADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>RModkOPVNufIeeBTlxdLDUmWBv4=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIPO_DOCUMENTO_CONTADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EnOp91bdPCamwGes0p5sVD6BR/8=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIPO_ENVIO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>tKQ2eVA8Ejm7tS9kCEx7XmLABtk=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIPO_FACTURACION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>1+XG1kT3NqI2ht5fRcduJV/lpoE=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIPOS_FACTURA_CONTADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>2+byc+Frr6GcNS3L1D2UYkRL0rM=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIPO_IDP</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>NlZ1GhFOFitE9uKX7q22iUIqii4=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIPO_RESPONSABLE_TAREA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>9TptI3mvgTwKLbpnIzAf79QScHc=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIPO_SOLICITANTE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>uskyUvg5kuM4lFbXBMlsqjI7+J0=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIPO_SOLICITUD_RECOLECC</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>UlxpdGovOMNQHvAAVhb4RQLRwEg=4/11/2026 9:06:15 a.m.3/11/2026 4:54:47 p.m.</TimeStamp>
+        <ID>
+          <String>TIPO_TAREA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>FEAdaMqj9O1zDY3ObD13M5uEC5U=4/11/2026 9:06:15 a.m.3/11/2026 4:54:48 p.m.</TimeStamp>
+        <ID>
+          <String>TIPO_VEHICULO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>v2LmwZnmwjgztvos67lYhCXHnRg=4/11/2026 9:06:15 a.m.3/11/2026 4:54:48 p.m.</TimeStamp>
+        <ID>
+          <String>TIPO_VEHICULO_OPERATIVO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>UzLMQ9bPdaAx8bnCLFOnAUXi7Bk=4/11/2026 9:06:16 a.m.3/11/2026 4:54:48 p.m.</TimeStamp>
+        <ID>
+          <String>TIPO_VINCULACION_ESTADO_TAREAS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>/oyw9b43uXLvCMq1880G5YyFfoo=4/11/2026 9:06:16 a.m.3/11/2026 4:54:48 p.m.</TimeStamp>
+        <ID>
+          <String>TRANSM_RETAIL_W_ESTADO_TRANSMISION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>IsBZNz4AIfkmW70HEfgmc7aQV+M=4/11/2026 9:06:16 a.m.3/11/2026 4:54:48 p.m.</TimeStamp>
+        <ID>
+          <String>TRANSM_RETAIL_W_HORA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>KasvsZMce/sQO/mL/0rG4qnJ1Ew=4/11/2026 9:06:16 a.m.3/11/2026 4:54:48 p.m.</TimeStamp>
+        <ID>
+          <String>T_SOLICITUD_M_AYUDA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Z1/QeK1VdjoAZvuiL7frbeABu8U=4/11/2026 9:06:16 a.m.3/11/2026 4:54:48 p.m.</TimeStamp>
+        <ID>
+          <String>UBICACION CONTADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>VfT/Tskyi+qCyPtaxczTxRWgvSc=4/11/2026 9:06:08 a.m.3/11/2026 4:54:48 p.m.</TimeStamp>
+        <ID>
+          <String>UEN PROD SUBP 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>vRQfQpcDQ/ZjnZBCRzvb5H1eZuU=4/11/2026 9:06:09 a.m.3/11/2026 4:54:48 p.m.</TimeStamp>
+        <ID>
+          <String>UEN PROD SUBP</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>LMWQ8tPwSyJsDsy+4kY8cgO3qXU=4/11/2026 9:06:16 a.m.3/11/2026 4:54:48 p.m.</TimeStamp>
+        <ID>
+          <String>Uen_Producto_Subproducto</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>3w/TB1ngIOQQQpYfIPWgGjpSSrA=4/11/2026 9:06:16 a.m.3/11/2026 4:54:48 p.m.</TimeStamp>
+        <ID>
+          <String>Uen Produ Subp</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>vlN1MjJsWvKSYCkSj+vqcM6Uqlw=4/11/2026 9:06:16 a.m.3/11/2026 4:54:48 p.m.</TimeStamp>
+        <ID>
+          <String>USO_VEHICULO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EqV3nbefjiJcbwvopYlr0gcSJ3g=4/11/2026 9:06:16 a.m.3/11/2026 4:54:48 p.m.</TimeStamp>
+        <ID>
+          <String>NOVEOPER VEHICULO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>RUL0yDauFIzTETI9YQUd5147LM0=4/11/2026 9:06:16 a.m.3/11/2026 4:54:49 p.m.</TimeStamp>
+        <ID>
+          <String>VEHICULOS_DATA_MOVIL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>6MCj+9QoSWXthCzXz5bcRsQfqak=4/11/2026 9:06:16 a.m.3/11/2026 4:54:49 p.m.</TimeStamp>
+        <ID>
+          <String>V_PORC_DESC</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>76qaGn5dUt7tjRwVBpR2SAsY8v0=4/11/2026 9:06:16 a.m.3/11/2026 4:54:49 p.m.</TimeStamp>
+        <ID>
+          <String>GEOGRAFIA_ZONA_URBA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>9haTj/iZ0pvBuAL+7cQdZq0I4vs=4/11/2026 9:06:06 a.m.3/11/2026 4:53:54 p.m.jJbHQV7DD05f1zfJVuQtZ+xdf8o=4/11/2026 9:06:08 a.m.3/11/2026 4:54:01 p.m.</TimeStamp>
+        <ID>
+          <String>ENVIOS_MOVILIZADOS</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Role</Type>
+        <TimeStamp>aaYoneaHhnPJb3jkx2uofwrpTWo=3/11/2026 4:53:41 p.m.3/11/2026 4:53:43 p.m.</TimeStamp>
+        <ID>
+          <String>Role 14</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.MiningStructure</Type>
+        <TimeStamp>An3vYJfZOlVo46pw77+WBdEJbhE=4/11/2026 9:08:00 a.m.3/11/2026 4:54:04 p.m.</TimeStamp>
+        <ID>
+          <String>Intervalo Estructura</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.MiningStructure</Type>
+        <TimeStamp>nKZ71lBSHXyGUNCedcWO59XOVZM=4/11/2026 9:08:00 a.m.3/11/2026 4:54:46 p.m.</TimeStamp>
+        <ID>
+          <String>Tabla1 Estructura</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>t2RSL9LUyCVETWbGWcJzybuQxT8=4/11/2026 9:08:00 a.m.3/11/2026 4:53:43 p.m.</TimeStamp>
+      <ID>
+        <String>CUBO_SSAS_ENV_MOV_GETP_V2</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations>
+    <Locations>
+      <Location>
+        <ID>ASSP</ID>
+        <FilePath>\\D_serv-dbi01\jfcb\DESARROLLO_CONSTRUCCION\CUBO_SSAS_ENV_MOV_GETP_V2\CUBO_SSAS_ENV_MOV_GETP_V2\Assemblies\ASSP\ASSP.dll</FilePath>
+      </Location>
+    </Locations>
+  </AssemblyLocations>
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2026-11-04T14:09:07.8Z</LastDeployed>
+</DeploymentSnapshot>

@@ -1,0 +1,200 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="6cac3848-f455-4efd-b3fe-179aa092b976" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Tiempo Proceso Conductor Placa</ID>
+  <Name>TIEMPO_PRO_PLACA_CONDUCTOR</Name>
+  <CreatedTimestamp>2013-02-13T12:53:48.613333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-02-21T14:52:07.7Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-11-03T10:46:00.426667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="82fadc0f-09d8-4c5c-8b6c-df472a79c1c6">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="327de5e7-2c30-461d-9cbd-baf3c7931747">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="3644cb3c-3c04-40b2-89f8-83d15177c82a">
+      <ID>ID CONDUCTOR</ID>
+      <Name>ID CONDUCTOR</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="166561c0-8eea-46ab-a38c-2f38024054ff">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="31afd919-a645-41b4-85bc-085a9a1ef256">
+            <TableID>Tiempo_Proceso_Conductor_Placa</TableID>
+            <ColumnID>ID_CONDUCTOR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a3067ba6-2b48-4307-921b-413160c23799">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e77c784f-52e4-42f6-b4f8-eac6edcdf3f1">
+          <TableID>Tiempo_Proceso_Conductor_Placa</TableID>
+          <ColumnID>ID_CONDUCTOR</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="727783ba-1478-497a-b9ca-844e481f8dde">
+          <AttributeID>PLACA VEHICULO DOCU</AttributeID>
+          <Name>PLACA VEHICULO DOCU</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ffe6b1e6-80f8-40be-92c5-14016e2e6b6b">
+          <AttributeID>NOMBRE CONDUCTOR</AttributeID>
+          <Name>NOMBRE CONDUCTOR</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e0c5d172-fecd-4e7e-aff3-78353ebf4c63">
+          <AttributeID>FECHA MOVIMIENTO</AttributeID>
+          <Name>FECHA MOVIMIENTO</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c9185d90-6db4-47fa-8bcc-dee0ddaee47c">
+      <ID>PLACA VEHICULO DOCU</ID>
+      <Name>PLACA VEHICULO DOCU</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f9583d2c-dc0c-4970-9cfe-d67c0705b004">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bf77be1b-f4ff-4e2f-8cb0-4e23ca931880">
+            <TableID>Tiempo_Proceso_Conductor_Placa</TableID>
+            <ColumnID>PLACA_VEHICULO_DOCU</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="b849467e-ff3c-4d20-aefb-7508c098d175">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e7af0a5e-84de-4b67-802c-5a9d48ef5f25">
+          <TableID>Tiempo_Proceso_Conductor_Placa</TableID>
+          <ColumnID>PLACA_VEHICULO_DOCU</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8996a372-305d-49e9-b871-5b8dbe381ed3">
+      <ID>NOMBRE CONDUCTOR</ID>
+      <Name>NOMBRE CONDUCTOR</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b4b09f48-2bbf-4b91-8876-5ca917fbe3ce">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="74fd5c08-2a1e-4f58-b116-84453e7c3f0c">
+            <TableID>Tiempo_Proceso_Conductor_Placa</TableID>
+            <ColumnID>NOMBRE_CONDUCTOR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="52b11d56-9147-4bf5-9f99-e9cda83deb21">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2abc7933-162a-4fd1-9dee-07e7750c277a">
+          <TableID>Tiempo_Proceso_Conductor_Placa</TableID>
+          <ColumnID>NOMBRE_CONDUCTOR</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e0cdfedd-9c23-402f-9dbf-bb69255f9602">
+      <ID>FECHA MOVIMIENTO</ID>
+      <Name>FECHA MOVIMIENTO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0448b4a4-bf07-4a4e-896e-b5b42e0fabe3">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="63b63cb3-911a-41d0-afb9-297f834bc3f5">
+            <TableID>Tiempo_Proceso_Conductor_Placa</TableID>
+            <ColumnID>FECHA_MOVIMIENTO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a29894de-4a06-43be-84ae-a39e8b93e4f3">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d8183119-c2d5-4af4-b21b-32da625d19d4">
+          <TableID>Tiempo_Proceso_Conductor_Placa</TableID>
+          <ColumnID>FECHA_MOVIMIENTO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="ef1a939d-8cf5-44bd-993a-3634fe4022ca">
+      <ID>Hierarchy</ID>
+      <Name>Conductor</Name>
+      <Levels>
+        <Level dwd:design-time-name="6c137c6f-f56c-4c36-97d9-4aee8c63d9c8">
+          <ID>NOMBRE CONDUCTOR</ID>
+          <Name>NOMBRE CONDUCTOR</Name>
+          <SourceAttributeID>NOMBRE CONDUCTOR</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="b17a9688-6691-472a-b908-4e0eb54e5fd7">
+          <ID>ID CONDUCTOR</ID>
+          <Name>ID CONDUCTOR</Name>
+          <SourceAttributeID>ID CONDUCTOR</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="f19b44ca-e898-4e9e-be71-764efa629dd5">
+          <ID>PLACA VEHICULO DOCU</ID>
+          <Name>PLACA VEHICULO DOCU</Name>
+          <SourceAttributeID>PLACA VEHICULO DOCU</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="aafcb45d-2afd-4f2a-8d17-057c6c767571">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="9d76d4a6-b226-4d63-b71d-18cdb7217d66" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

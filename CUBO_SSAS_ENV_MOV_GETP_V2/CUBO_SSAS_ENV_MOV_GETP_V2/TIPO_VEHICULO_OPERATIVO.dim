@@ -1,0 +1,206 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="26806f47-f31b-4e61-9ed2-6871a5856da5" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>TIPO_VEHICULO_OPERATIVO</ID>
+  <Name>TIPO_VEHICULO_OPERATIVO</Name>
+  <CreatedTimestamp>2013-01-11T22:37:57.586667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-01-11T22:37:57.586667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-09-27T12:04:35.896667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="d5dc6b69-316c-4d92-9bd2-b798e3fc1c16">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="1b017489-d8ef-43b6-abc6-7d0e49d4caab">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="029670e2-e08e-46a6-be4c-e6fe5ddccfe3">
+      <ID>PLACA VEHICULO</ID>
+      <Name>Placa Vehiculo</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="61e6e346-14a0-4d85-b7ef-93dbf47e955a">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b3dd8bfe-c139-4318-8f66-60e17e55657f">
+            <TableID>DIM_VEHICULOS_OPERATIVOS</TableID>
+            <ColumnID>PLACA_VEHICULO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="559e5801-29a2-4ab9-a2b3-0064c560ad14">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="bd6d60ad-03ee-4116-9ffc-090c93320aa0">
+          <TableID>DIM_VEHICULOS_OPERATIVOS</TableID>
+          <ColumnID>PLACA_VEHICULO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="1b21d4e0-f20d-4150-9d60-e1fcdee57081">
+          <AttributeID>MODELO</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Modelo</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a7555dd4-adde-4985-946e-43460ee17aba">
+          <AttributeID>TIPO VEHICULO</AttributeID>
+          <Name>Tipo Vehiculo</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="55866529-4027-4414-b93d-837a634370aa">
+          <AttributeID>EMPRE TRANSP</AttributeID>
+          <Name>ID EMPRE TRANSP</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2e8a7e41-1dc5-4b0e-a406-5461e63d5864">
+      <ID>MODELO</ID>
+      <Name>Modelo</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fd88f377-7b93-404c-b599-8ec99b01af95">
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="afce962c-f024-48e6-8acd-eacdc37e5107">
+            <TableID>DIM_VEHICULOS_OPERATIVOS</TableID>
+            <ColumnID>MODELO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a1d577dd-c090-4229-9902-788a6c6ae477">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="972023bb-7ba9-4718-8dfc-5e17994a4629">
+          <TableID>DIM_VEHICULOS_OPERATIVOS</TableID>
+          <ColumnID>MODELO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="161206f6-2c76-4813-91c1-fe474b00554c">
+      <ID>TIPO VEHICULO</ID>
+      <Name>Tipo Vehiculo</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0aa331b0-e1ad-4beb-af8d-f949393a2a35">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d0986784-9041-4dc1-aabb-c1f4027ed766">
+            <TableID>DIM_VEHICULOS_OPERATIVOS</TableID>
+            <ColumnID>TIPO_VEHICULO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0398e197-269d-4ca0-bdb0-eb2fe36b8fbf">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="13f968b0-a836-4705-99f2-028b28e877e0">
+          <TableID>DIM_VEHICULOS_OPERATIVOS</TableID>
+          <ColumnID>TIPO_VEHICULO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5fb5c041-5d63-4b28-bef5-93b8a3d03a21">
+      <ID>EMPRE TRANSP</ID>
+      <Name>ID EMPRE TRANSP</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5c1910fe-ea90-4f56-ac94-0ac316a4c148">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b1f2261f-f420-4c05-861c-5bbfbb8f885b">
+            <TableID>DIM_VEHICULOS_OPERATIVOS</TableID>
+            <ColumnID>EMPRE_TRANSP</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="494371c4-b522-4264-8fb2-f0e576a926dc">
+        <DataType>WChar</DataType>
+        <DataSize>10</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e8c451f7-95e1-46cd-b395-f2867c7de2bd">
+          <TableID>DIM_VEHICULOS_OPERATIVOS</TableID>
+          <ColumnID>EMPRE_TRANSP</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="06d3edf9-e646-4c55-a71b-9227150b3c03">
+      <ID>Hierarchy</ID>
+      <Name>TIPO_VEHICULO_OPERATIVO</Name>
+      <Levels>
+        <Level dwd:design-time-name="8cae173d-6f69-469c-b3c4-f27dce2f53d4">
+          <ID>Tipo Vehiculo</ID>
+          <Name>Tipo Vehiculo</Name>
+          <SourceAttributeID>TIPO VEHICULO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="477e55f8-a96a-48ac-b74c-eaea722b7739">
+          <ID>Modelo</ID>
+          <Name>Modelo</Name>
+          <SourceAttributeID>MODELO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="f3f7781d-289d-47a9-88ff-07cedb7d2a9b">
+          <ID>Placa Vehiculo</ID>
+          <Name>Placa Vehiculo</Name>
+          <SourceAttributeID>PLACA VEHICULO</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="6bb4983f-7829-472b-8933-0935f5ac4faa">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="e6c36afb-1009-48b9-ace3-cb2c5e7c699d" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

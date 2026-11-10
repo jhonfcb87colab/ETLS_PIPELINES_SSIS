@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ENVIOS_MOV_GETP_V2", "ENVIOS_MOV_GETP_V2\ENVIOS_MOV_GETP_V2.dtproj", "{851BA411-022A-47E7-B0D6-79A34F3BD620}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{851BA411-022A-47E7-B0D6-79A34F3BD620}.Development|Default.ActiveCfg = Development
+		{851BA411-022A-47E7-B0D6-79A34F3BD620}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8179B386-1DC5-45EA-B11F-72F2663E9A7F}
+	EndGlobalSection
+EndGlobal

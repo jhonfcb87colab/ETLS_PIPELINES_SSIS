@@ -1,0 +1,170 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="861e0ece-64c7-41e4-91d4-f8279e6c761b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>PQR EMPLEADOS PROCESO</ID>
+  <Name>PQR_EMPLEADOS_PROCESO</Name>
+  <CreatedTimestamp>2013-01-11T22:37:14.013333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2013-01-11T22:37:14.013333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-3076" scrolltop="-9935" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="11536" y="21325" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="PQR_EMPLEADOS_PROCESO" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="5345" height="1455" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000e1140000af050000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="PQR_EMPLEADOS_PROCESO" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-3076</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-9935</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-11-03T09:49:29.573333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="1b022b4e-f375-44ca-819d-2852cf971f22">
+    <DataSourceViewID>SIG_PQR_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="4c530e9d-e2c2-4c96-8b00-e2410786f8a4">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="4859d562-4a47-4693-a627-201d48e48e2d">
+      <ID>LOGIN EMPLEADO PROCESO</ID>
+      <Name>Login Empleado</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4b47f882-ca7f-4213-a5eb-b4620c0dd672">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e208acd3-4944-4037-b10a-7fab426b488d">
+            <TableID>PQR_EMPLEADOS_PROCESO</TableID>
+            <ColumnID>LOGIN_EMPLEADO_PROCESO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2c96e2e1-bb12-4fd2-b235-6b67e3c8be80">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="316a765c-4ab6-4ba5-a1f4-36c232dda070">
+          <TableID>PQR_EMPLEADOS_PROCESO</TableID>
+          <ColumnID>LOGIN_EMPLEADO_PROCESO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="ad43d18b-f9ad-4b0f-9e05-a587b5d91fba">
+          <AttributeID>NOMBRE EMPLEADO</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>NOMBRE EMPLEADO</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6c7bf9d0-1f62-4314-b3f9-1f8659f23487">
+      <ID>NOMBRE EMPLEADO</ID>
+      <Name>NOMBRE EMPLEADO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="48b141c0-a708-4d72-9eae-6222277d1e16">
+          <DataType>WChar</DataType>
+          <DataSize>81</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c374e1c0-9df0-4717-9150-f7c92432de1b">
+            <TableID>PQR_EMPLEADOS_PROCESO</TableID>
+            <ColumnID>NOMBRE_EMPLEADO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="3c0f2489-f0e8-4d84-8d9d-1f6e74a3122c">
+        <DataType>WChar</DataType>
+        <DataSize>81</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="441159eb-ef06-48bc-a46a-99594373da24">
+          <TableID>PQR_EMPLEADOS_PROCESO</TableID>
+          <ColumnID>NOMBRE_EMPLEADO</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="6d67ad5c-a278-4953-8273-22d99985b6b7">
+      <ID>Hierarchy</ID>
+      <Name>EMPLEADOS PROCESO</Name>
+      <Levels>
+        <Level dwd:design-time-name="04efc197-ac55-47b7-bba8-5aad340770a4">
+          <ID>NOMBRE EMPLEADO</ID>
+          <Name>NOMBRE EMPLEADO</Name>
+          <SourceAttributeID>NOMBRE EMPLEADO</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="87a8b36d-3037-4a81-b403-fc710f9b7f50">
+          <ID>Login Empleado</ID>
+          <Name>Login Empleado</Name>
+          <SourceAttributeID>LOGIN EMPLEADO PROCESO</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="fb8fef4d-d261-40ba-9c05-f605d0d0df08">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="da532dbd-8872-4fb0-a4f6-94088cb6ca8d" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -1,0 +1,270 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="159fe745-51af-47dc-8f2b-c6453dbc952b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DIM VEHICULO TIPO CONTRATACION</ID>
+  <Name>DIM VEHICULO TIPO CONTRATACION</Name>
+  <CreatedTimestamp>2024-07-26T20:02:10.826667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2024-07-26T21:19:47.37Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-10-08T18:55:33.526667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="ab22bec3-82d5-4ab0-a99e-9f24f2361e8e">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="f73df535-74cf-4317-ac90-a66fd049ab9e">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <UnknownMemberName>NO DISPONIBLE</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="3e1a92a0-0316-4605-a5cd-686682d29ad5">
+      <ID>PLACA VEHICULO</ID>
+      <Name>PLACA VEHICULO</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6d0555de-4ece-4cfe-9d53-1fe1496a7e3e">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="824e3af0-3c8e-4762-babd-4768e90ff5f4">
+            <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+            <ColumnID>PLACA_VEHICULO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="c42293bd-ec8c-43cb-98ce-b52416918d21">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d1a3ed3a-67de-4091-ad44-0c2bbd573230">
+          <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+          <ColumnID>PLACA_VEHICULO</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="2d4c5b6c-8601-4ca4-a083-5ff23eccc03e">
+          <AttributeID>NOMBRE TIPO CONTRATACION</AttributeID>
+          <Name>NOMBRE TIPO CONTRATACION</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ee00dd1a-a516-447c-920b-1beff375d467">
+          <AttributeID>ESTADO DEL VEHICULO</AttributeID>
+          <Name>ESTADO DEL VEHICULO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9a9a3492-b835-4be6-b5a0-7d115020d271">
+          <AttributeID>NOMBRE TIPO VEHICULO</AttributeID>
+          <Name>NOMBRE TIPO VEHICULO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3d029740-716a-4be6-bee0-e36ec7b425ab">
+          <AttributeID>NOMBRE CLASIFICACION VEHICULO</AttributeID>
+          <Name>NOMBRE CLASIFICACION VEHICULO</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="bce674b6-876d-438c-b2dc-7fd5d7a1db0e">
+          <AttributeID>FECHA CREACION</AttributeID>
+          <Name>FECHA CREACION</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f645d145-594c-49be-ae7a-ec7301d696ce">
+          <AttributeID>FECHA MODIFICACION</AttributeID>
+          <Name>FECHA MODIFICACION</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e1593fa1-aff8-4962-b106-4354c4033ded">
+      <ID>NOMBRE TIPO CONTRATACION</ID>
+      <Name>NOMBRE TIPO CONTRATACION</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4b63007c-b8a6-48cc-8212-7292f8c1d098">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b7c784c5-a815-4313-80a4-28b7eb05a032">
+            <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+            <ColumnID>NOMBRE_TIPO_CONTRATACION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="36f77cf6-42f8-44ab-907a-8f917e420286">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="9585eb87-4550-4fed-a72e-94f1b9f81455">
+          <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+          <ColumnID>NOMBRE_TIPO_CONTRATACION</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="305319b9-3bec-4414-b3e0-a8ee888902fc">
+      <ID>ESTADO DEL VEHICULO</ID>
+      <Name>ESTADO DEL VEHICULO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bc3469b0-8fad-45e8-b4db-1b0893deca2c">
+          <DataType>WChar</DataType>
+          <DataSize>13</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a891a930-70e0-4996-9eec-fd63e5a09079">
+            <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+            <ColumnID>ESTADO_DEL_VEHICULO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4993f8c2-d719-4c85-bd9d-4535db6d2fbd">
+        <DataType>WChar</DataType>
+        <DataSize>13</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="12325a70-17c8-41ae-a99c-6aba1ab39419">
+          <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+          <ColumnID>ESTADO_DEL_VEHICULO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1cdcaa33-683b-4cb6-ae9e-ec6e8843a345">
+      <ID>NOMBRE TIPO VEHICULO</ID>
+      <Name>NOMBRE TIPO VEHICULO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4a6264ea-f3ff-4c24-bb46-4238e887ca0a">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="daf80a7c-3e54-49e0-b125-5ae1d7e5777e">
+            <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+            <ColumnID>NOMBRE_TIPO_VEHICULO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="495e1973-cf6b-4cfd-b670-2e7da17e69c2">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="749c6be7-3b3c-49d0-af28-2508c2ee0de9">
+          <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+          <ColumnID>NOMBRE_TIPO_VEHICULO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5bcc3246-936b-4287-9f09-418f94e99ff7">
+      <ID>NOMBRE CLASIFICACION VEHICULO</ID>
+      <Name>NOMBRE CLASIFICACION VEHICULO</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d97feaae-3a4d-4a77-9322-2c5025983a0b">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="315f2100-b848-4ac0-b576-57be31d4257b">
+            <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+            <ColumnID>NOMBRE_CLASIFICACION_VEHICULO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="fe3922d3-5ef8-474d-9ba5-d76de84aad90">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="e435cbee-c823-453f-8327-386645c44b5a">
+          <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+          <ColumnID>NOMBRE_CLASIFICACION_VEHICULO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="27147e8c-7719-4932-a52d-2884f8ba5ae5">
+      <ID>FECHA CREACION</ID>
+      <Name>FECHA CREACION</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8526ef39-6ef6-41cd-97b0-a69f64fff402">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="332fa5a6-b1e3-4a7b-bec7-3c5121b57ce9">
+            <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+            <ColumnID>FECHA_CREACION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="9ac8bfdd-3249-4e57-b11d-eed689cbe7c6">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="9be47157-7bd3-4953-9eee-3a62051fd995">
+          <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+          <ColumnID>FECHA_CREACION</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5f907294-247b-4200-bedf-b482b7253aad">
+      <ID>FECHA MODIFICACION</ID>
+      <Name>FECHA MODIFICACION</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9448054f-3c00-4bca-9023-e07c08039258">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="16f40290-c64c-4c56-8c57-695aa86e43e7">
+            <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+            <ColumnID>FECHA_MODIFICACION</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="bb8dd1b9-7e6a-4c14-a2fe-5fe74553d675">
+        <DataType>WChar</DataType>
+        <DataSize>30</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3ebc3daa-a09c-471f-8a0b-221fade153a4">
+          <TableID>DIM_VW_DIM_VEHICULO_TIPO_CONTRATACION</TableID>
+          <ColumnID>FECHA_MODIFICACION</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>TODOS</AttributeAllMemberName>
+  <ProactiveCaching dwd:design-time-name="b5706505-4410-4c42-a3ad-ca6b43fc75e0">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="70f1f15c-2d3c-42cc-a994-dd383cfcd7f7" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

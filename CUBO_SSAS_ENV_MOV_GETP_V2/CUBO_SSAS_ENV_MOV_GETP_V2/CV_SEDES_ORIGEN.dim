@@ -1,0 +1,254 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="da000750-890c-4f20-aa2a-e0941bff5f9d" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>CV_SEDES_ORIGEN</ID>
+  <Name>CV_SEDES_ORIGEN</Name>
+  <CreatedTimestamp>2014-11-11T19:53:50.43Z</CreatedTimestamp>
+  <LastSchemaUpdate>2014-11-11T20:01:12.776667Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2026-11-03T10:41:04.576667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="8a132882-e736-460f-a660-a2e59fc00f27">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="a83b8784-a4ed-428c-916d-873912d53aa9">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="6c9f319e-75d1-4a58-a9a3-f8031bdad711">
+      <ID>ID SEDE</ID>
+      <Name>ID_SEDE</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c3c85460-3eac-43f1-bdb0-0cdb7f29167a">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="29a4d78a-e899-465f-b79b-3370f800cf44">
+            <TableID>DIM_CV_SEDES_ORIGEN</TableID>
+            <ColumnID>ID_SEDE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="bf537b2e-95e4-4ad4-a987-ce068d0a4ab5">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="35dec6ff-c380-4382-a2c9-06bbdb04782b">
+          <TableID>DIM_CV_SEDES_ORIGEN</TableID>
+          <ColumnID>NOMBRE_SEDE</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="e997c8e9-0e59-4240-b4ee-6b4c6673ad6f">
+          <AttributeID>NOMBRE TIPO SEDE</AttributeID>
+          <Name>Tipo Sede</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ad345c25-bf0b-4a6b-97da-cff6029f798d">
+          <AttributeID>NOMBRE REGIONAL</AttributeID>
+          <Name>Regional</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0658a653-8488-4e4a-85e0-fa10ae7de6c0">
+          <AttributeID>NOMBRE CIUDAD</AttributeID>
+          <Name>Ciudad</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="42aed1f1-070e-4a08-9ac4-74ee916cc15b">
+          <AttributeID>NOMBRE SEDE</AttributeID>
+          <Name>Sede</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b973416f-1d3c-42d8-9da3-ff1ac65a9daa">
+      <ID>NOMBRE TIPO SEDE</ID>
+      <Name>Tipo Sede</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4c57b66e-fa88-4912-8059-7b799ee25fac">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cd7c6cec-5cfe-4e19-b138-73dbd90da078">
+            <TableID>DIM_CV_SEDES_ORIGEN</TableID>
+            <ColumnID>NOMBRE_TIPO_SEDE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="fff81e2e-67d6-46a0-8d09-3c03670b6d34">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c8c51b83-0130-4133-b7fa-8786a3c14b37">
+          <TableID>DIM_CV_SEDES_ORIGEN</TableID>
+          <ColumnID>NOMBRE_TIPO_SEDE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a36ac010-64b2-4896-8e00-bbf15b2b12fb">
+      <ID>NOMBRE REGIONAL</ID>
+      <Name>Regional</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="62869d9a-eb49-4e97-afb8-33b27968a410">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f45dcbb6-ce5b-48d9-bbeb-07be462ab049">
+            <TableID>DIM_CV_SEDES_ORIGEN</TableID>
+            <ColumnID>NOMBRE_REGIONAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="18b47528-872f-4448-9f23-d6c711caeb68">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="95dabdd5-d0cc-4412-8b74-17c72f2762ac">
+          <TableID>DIM_CV_SEDES_ORIGEN</TableID>
+          <ColumnID>NOMBRE_REGIONAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="55bd77dd-1f49-4628-b1b7-52104462c3e6">
+      <ID>NOMBRE CIUDAD</ID>
+      <Name>Ciudad</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="93594303-457b-460d-812e-3392273cba2b">
+          <DataType>WChar</DataType>
+          <DataSize>40</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="dc85ec04-2af3-4570-85a4-4c8e619c9d2d">
+            <TableID>DIM_CV_SEDES_ORIGEN</TableID>
+            <ColumnID>NOMBRE_CIUDAD</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0a9f5f01-719c-4b01-b2b4-81f90a5845fa">
+        <DataType>WChar</DataType>
+        <DataSize>40</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="94a293fa-d0a0-49d7-8e70-b2517b68e6a8">
+          <TableID>DIM_CV_SEDES_ORIGEN</TableID>
+          <ColumnID>NOMBRE_CIUDAD</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a3e64006-ec8a-4212-a4f1-d17c79c34d1b">
+      <ID>NOMBRE SEDE</ID>
+      <Name>Sede</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b4638f9f-505f-45d4-bcb5-940596fa24ba">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2c26a80f-92ea-4de7-8592-fe41fd9e9907">
+            <TableID>DIM_CV_SEDES_ORIGEN</TableID>
+            <ColumnID>NOMBRE_SEDE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="e2d2fd28-3562-4e20-8ecb-fce5ddcd6df9">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f7546bf0-c3c4-49b6-8f59-2ef759ce37e2">
+          <TableID>DIM_CV_SEDES_ORIGEN</TableID>
+          <ColumnID>NOMBRE_SEDE</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="9942ffda-26ca-492e-ba69-63953a1c0c13">
+      <ID>Hierarchy</ID>
+      <Name>Regional Sedes Origen</Name>
+      <Levels>
+        <Level dwd:design-time-name="bbf616a7-9cac-48b9-baae-791d82c70ab6">
+          <ID>Regional</ID>
+          <Name>Regional</Name>
+          <SourceAttributeID>NOMBRE REGIONAL</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="92903553-f13a-492f-9f7c-91b7094c5450">
+          <ID>Ciudad</ID>
+          <Name>Ciudad</Name>
+          <SourceAttributeID>NOMBRE CIUDAD</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="113b4811-e5c2-4a85-b18f-980b93d7aa12">
+          <ID>Sede</ID>
+          <Name>Sede</Name>
+          <SourceAttributeID>NOMBRE SEDE</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="c3e545d6-85d3-4df9-8cb8-962b7f5f8afe">
+          <ID>Tipo Sede</ID>
+          <Name>Tipo Sede</Name>
+          <SourceAttributeID>NOMBRE TIPO SEDE</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="f0d38f51-0478-42d3-99aa-48bc7a678c1e">
+      <ID>Hierarchy 1</ID>
+      <Name>Sedes Origen</Name>
+      <Levels>
+        <Level dwd:design-time-name="d5bb5038-a17c-4b2a-a4e8-cdec4a5e1ecc">
+          <ID>Sede</ID>
+          <Name>Sede</Name>
+          <SourceAttributeID>NOMBRE SEDE</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="cbddac91-87e7-450d-9956-dc709799500e">
+          <ID>Tipo Sede</ID>
+          <Name>Tipo Sede</Name>
+          <SourceAttributeID>NOMBRE TIPO SEDE</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="772935a7-ff2d-4881-a2db-eaefa8ceb702">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="6188706d-e6a0-456c-ab02-538e49bd81d1" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
