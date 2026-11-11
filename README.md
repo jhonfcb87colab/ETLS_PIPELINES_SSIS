@@ -1,6 +1,6 @@
 # ETLs & Pipelines SSIS/SSAS — Servientrega
 
-Repositorio de proyectos de integración de datos (ETL) desarrollados en **SQL Server Integration Services (SSIS)** y cubos analíticos en **SQL Server Analysis Services (SSAS)** para la plataforma BI de Servientrega Colombia.
+Repositorio de proyectos de integración de datos (ETL) desarrollados en **SQL Server Integration Services (SSIS)** y cubos analíticos en **SQL Server Analysis Services (SSAS)** para la plataforma BI.
 
 ---
 
