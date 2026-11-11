@@ -1,4 +1,4 @@
-# ETLs & Pipelines SSIS/SSAS — Servientrega
+# ETLs & Pipelines SSIS/SSAS — PROYECTOS
 
 Repositorio de proyectos de integración de datos (ETL) desarrollados en **SQL Server Integration Services (SSIS)** y cubos analíticos en **SQL Server Analysis Services (SSAS)** para la plataforma BI.
 
@@ -26,7 +26,7 @@ Repositorio de proyectos de integración de datos (ETL) desarrollados en **SQL S
 
 ## Arquitectura General
 
-El ecosistema de datos de Servientrega sigue un modelo clásico de **Data Warehouse** con capa operacional (OLTP), zona de staging, Data Warehouse dimensional y cubos OLAP.
+El ecosistema de datos de PROYECTOS sigue un modelo clásico de **Data Warehouse** con capa operacional (OLTP), zona de staging, Data Warehouse dimensional y cubos OLAP.
 
 ```mermaid
 graph TD
@@ -344,7 +344,7 @@ graph TD
 
 #### Descripción
 
-Pipeline ETL para la carga de datos de operaciones **Green Mobile** — el sistema de distribución y recolección móvil de Servientrega. Extrae datos operativos de SISMILENIO (movimientos de recolección y distribución en dispositivos móviles) y los carga al DW de Logística.
+Pipeline ETL para la carga de datos de operaciones **Green Mobile** — el sistema de distribución y recolección móvil de PROYECTOS. Extrae datos operativos de SISMILENIO (movimientos de recolección y distribución en dispositivos móviles) y los carga al DW de Logística.
 
 #### Paquetes SSIS
 
@@ -768,7 +768,7 @@ Los connection managers (`.conmgr`) almacenan la configuración de conexión de 
 
 ```
 SSISDB/
-└── SERVIENTREGA/
+└── PROYECTOS/
     ├── ENVIOS_MOVILIZADOS/       ← Carpeta del proyecto
     │   └── HU_PBL_ENVIOS_MOVILIZADOS_GETPV2/
     ├── GREEN_MOBILE/
