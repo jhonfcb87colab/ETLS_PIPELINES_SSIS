@@ -788,4 +788,4 @@ SSISDB/
 
 ---
 
-*Última actualización: Noviembre 2026 — Autor: John Cruz (john.cruz@servientrega.com)*
+*Última actualización: Noviembre 2026 — Autor: John Cruz *
