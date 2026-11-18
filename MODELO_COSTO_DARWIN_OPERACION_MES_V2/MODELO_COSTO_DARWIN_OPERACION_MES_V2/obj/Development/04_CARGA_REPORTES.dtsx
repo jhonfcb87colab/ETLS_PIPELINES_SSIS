@@ -1,0 +1,1829 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/26/2026 7:58:20 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="T_SERV-DBI01"
+  DTS:CreatorName="SERVIENT\inteligencianegocios"
+  DTS:DTSID="{2B7348F7-E643-44A6-81FD-94471F0FD368}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="04_CARGA_REPORTES"
+  DTS:PackageType="5"
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{932A722A-7D70-4826-B360-BE46AE548122}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2E841D53-9ABC-45EA-95A2-B2F408A665E2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_WSTR, 20) @[$Project::PERIODO]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VAR_PERIODO">
+      <DTS:VariableValue
+        DTS:DataType="8">202609</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGAR PARAMETRICAS"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{76282a66-28fc-4295-be62-e8192e73aaad}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGAR PARAMETRICAS"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B4483C3B-3955-4FDA-8350-54289B65ECCC}"
+          SQLTask:SqlStatementSource="/************************************************************************************************************************/&#xA;/***********************************************ACTUALIZAR PARAMETRICAS**************************************************/&#xA;/************************************************************************************************************************/&#xA;/************************************************************************************************************************/&#xA;DECLARE @PARAMETRO VARCHAR(20) = CONVERT(VARCHAR(20),?);---?&#xA;&#xA;DECLARE @PARAMETRO_AUX_1 DATETIME = CONVERT(DATETIME,CONCAT(@PARAMETRO,'01'))&#xA;DECLARE @PARAMETRO_AUX_2 DATETIME = DATEADD(MONTH,-1,CONVERT(DATETIME,CONCAT(@PARAMETRO,'01')))&#xA;&#xA;DECLARE @PERIODO_NUEVO INT = (((YEAR(@PARAMETRO_AUX_1)*100)+(MONTH(@PARAMETRO_AUX_1))));&#xA;DECLARE @PERIODO_ANTERIOR INT = (((YEAR(@PARAMETRO_AUX_2)*100)+(MONTH(@PARAMETRO_AUX_2))));&#xA;&#xA;/*/&#xA;SELECT&#xA;@PERIODO_NUEVO AS PERIODO_NUEVO,&#xA;@PERIODO_ANTERIOR AS PERIODO_ANTERIOR&#xA;&#xA;*/&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;------------------DECLARE @PERIODO_ANTERIOR INT = 202506;&#xA;------------------DECLARE @PERIODO_NUEVO INT = 202507;&#xA;/************************************************************************************************************************/&#xA;/************************************************************************************************************************/&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[dbo].[COSTO POR RUTA AEREA] WHERE  PERIODO_ID=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[dbo].[COSTO POR RUTA AEREA]&#xA;SELECT &#xA;CIUDAD_ORIGEN&#xA;,CIUDAD_DESTINO&#xA;,KEY_ORIGEN_DESTINO_AEREO&#xA;,VALOR_KILO&#xA;,VALOR_CORTE_GUIA&#xA;,VR_KILO_Y_CORTE_GUIA&#xA;,OBSERVACIONES&#xA;,CALCULOS_ADICIONALES&#xA;,PERIODO_ID=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[dbo].[COSTO POR RUTA AEREA] WHERE PERIODO_ID=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;/*DELETE [ACCES_DARWIN].[dbo].[Costo_Anual_rubro_auxiliar_dia] WHERE  PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[dbo].[Costo_Anual_rubro_auxiliar_dia]&#xA;SELECT &#xA;PERIODO=@PERIODO_NUEVO&#xA;,ATRIBUTO&#xA;,VALOR&#xA;FROM [ACCES_DARWIN].[dbo].[Costo_Anual_rubro_auxiliar_dia] WHERE PERIODO=@PERIODO_ANTERIOR*/&#xA;/************************************************************************************************************************/&#xA;&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].dbo.Costo_Anual_rubro_auxiliar_dia WHERE  PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].dbo.Costo_Anual_rubro_auxiliar_dia&#xA;SELECT &#xA;PERIODO&#x9;= @PERIODO_NUEVO&#xA;,ATRIBUTO&#x9;&#xA;,VALOR&#xA;FROM [ACCES_DARWIN].dbo.Costo_Anual_rubro_auxiliar_dia WHERE PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;&#xA;&#xA;DELETE [ACCES_DARWIN].[dbo].[Tarifas_Productos_Por_Periodo] WHERE  PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[dbo].[Tarifas_Productos_Por_Periodo]&#xA;SELECT &#xA;[KEY]&#xA;,PERIODO=@PERIODO_NUEVO&#xA;,ID_MODELO_CONTRATACION&#xA;,ID_PROCESO_LOGISTICO&#xA;,ID_PRODUCTO&#xA;,DETALLE_OPERACION&#xA;,VALOR&#xA;FROM [ACCES_DARWIN].[dbo].[Tarifas_Productos_Por_Periodo] WHERE PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_15_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP_LODYTRANS] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_15_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP_LODYTRANS]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_15_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP_LODYTRANS] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_15_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP_LODYTRANS] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_15_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP_LODYTRANS]&#xA;SELECT &#xA;ID_REGIONAL_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_15_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP_LODYTRANS] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_4_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_4_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_4_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_4_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_4_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP]&#xA;SELECT &#xA;ID_REGIONAL_PXP_OTROSP&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_4_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_4_3_VALORES_RECOLECCION_DOCUMENTO] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_4_3_VALORES_RECOLECCION_DOCUMENTO]&#xA;SELECT &#xA;ID_REGIONAL_PXP_DOCUMENTO&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_4_3_VALORES_RECOLECCION_DOCUMENTO] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_4_4_VALORES_RECOLECCION_OTROS_PRODUCTOS] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_4_4_VALORES_RECOLECCION_OTROS_PRODUCTOS]&#xA;SELECT &#xA;ID_REGIONAL_PXP_OTROS_P&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_4_4_VALORES_RECOLECCION_OTROS_PRODUCTOS] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_5_1_VALORES_DISTRIBUCION_PXP_AUXILIAR] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_5_1_VALORES_DISTRIBUCION_PXP_AUXILIAR]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA_PXP_AUX&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_5_1_VALORES_DISTRIBUCION_PXP_AUXILIAR] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_6_1_VALORES_DISTRIBUCION_DOCUMENTO_RAPIGO] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_6_1_VALORES_DISTRIBUCION_DOCUMENTO_RAPIGO]&#xA;SELECT &#xA;ID_REGIONAL_RAPIGO_DOC&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_6_1_VALORES_DISTRIBUCION_DOCUMENTO_RAPIGO] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_6_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_RAPIGO] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_6_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_RAPIGO]&#xA;SELECT &#xA;ID_REGIONAL_RAPIGO_MERC&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_6_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_RAPIGO] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::VAR_PERIODO"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGAR PARAMETRICAS 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{c931621d-e728-4f03-9958-198e1bb5273d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGAR PARAMETRICAS 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B4483C3B-3955-4FDA-8350-54289B65ECCC}"
+          SQLTask:SqlStatementSource="/************************************************************************************************************************/&#xA;/***********************************************ACTUALIZAR PARAMETRICAS**************************************************/&#xA;/************************************************************************************************************************/&#xA;/************************************************************************************************************************/&#xA;DECLARE @PARAMETRO VARCHAR(20) = CONVERT(VARCHAR(20),?);---?&#xA;&#xA;DECLARE @PARAMETRO_AUX_1 DATETIME = CONVERT(DATETIME,CONCAT(@PARAMETRO,'01'))&#xA;DECLARE @PARAMETRO_AUX_2 DATETIME = DATEADD(MONTH,-1,CONVERT(DATETIME,CONCAT(@PARAMETRO,'01')))&#xA;&#xA;DECLARE @PERIODO_NUEVO INT = (((YEAR(@PARAMETRO_AUX_1)*100)+(MONTH(@PARAMETRO_AUX_1))));&#xA;DECLARE @PERIODO_ANTERIOR INT = (((YEAR(@PARAMETRO_AUX_2)*100)+(MONTH(@PARAMETRO_AUX_2))));&#xA;&#xA;/*/&#xA;SELECT&#xA;@PERIODO_NUEVO AS PERIODO_NUEVO,&#xA;@PERIODO_ANTERIOR AS PERIODO_ANTERIOR&#xA;&#xA;*/&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;------------------DECLARE @PERIODO_ANTERIOR INT = 202506;&#xA;------------------DECLARE @PERIODO_NUEVO INT = 202507;&#xA;/************************************************************************************************************************/&#xA;/************************************************************************************************************************/&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[dbo].[COSTO POR RUTA AEREA] WHERE  PERIODO_ID=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[dbo].[COSTO POR RUTA AEREA]&#xA;SELECT &#xA;CIUDAD_ORIGEN&#xA;,CIUDAD_DESTINO&#xA;,KEY_ORIGEN_DESTINO_AEREO&#xA;,VALOR_KILO&#xA;,VALOR_CORTE_GUIA&#xA;,VR_KILO_Y_CORTE_GUIA&#xA;,OBSERVACIONES&#xA;,CALCULOS_ADICIONALES&#xA;,PERIODO_ID=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[dbo].[COSTO POR RUTA AEREA] WHERE PERIODO_ID=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[dbo].[Costo_Anual_rubro_auxiliar_dia] WHERE  PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[dbo].[Costo_Anual_rubro_auxiliar_dia]&#xA;SELECT &#xA;PERIODO=@PERIODO_NUEVO&#xA;,ATRIBUTO&#xA;,VALOR&#xA;FROM [ACCES_DARWIN].[dbo].[Costo_Anual_rubro_auxiliar_dia] WHERE PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[dbo].[Tarifas_Productos_Por_Periodo] WHERE  PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[dbo].[Tarifas_Productos_Por_Periodo]&#xA;SELECT &#xA;[KEY]&#xA;,PERIODO=@PERIODO_NUEVO&#xA;,ID_MODELO_CONTRATACION&#xA;,ID_PROCESO_LOGISTICO&#xA;,ID_PRODUCTO&#xA;,DETALLE_OPERACION&#xA;,VALOR&#xA;FROM [ACCES_DARWIN].[dbo].[Tarifas_Productos_Por_Periodo] WHERE PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_15_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP_LODYTRANS] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_15_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP_LODYTRANS]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_15_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP_LODYTRANS] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_15_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP_LODYTRANS] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_15_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP_LODYTRANS]&#xA;SELECT &#xA;ID_REGIONAL_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_15_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP_LODYTRANS] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_4_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_4_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_4_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_4_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_4_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP]&#xA;SELECT &#xA;ID_REGIONAL_PXP_OTROSP&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_4_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_4_3_VALORES_RECOLECCION_DOCUMENTO] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_4_3_VALORES_RECOLECCION_DOCUMENTO]&#xA;SELECT &#xA;ID_REGIONAL_PXP_DOCUMENTO&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_4_3_VALORES_RECOLECCION_DOCUMENTO] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_4_4_VALORES_RECOLECCION_OTROS_PRODUCTOS] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_4_4_VALORES_RECOLECCION_OTROS_PRODUCTOS]&#xA;SELECT &#xA;ID_REGIONAL_PXP_OTROS_P&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_4_4_VALORES_RECOLECCION_OTROS_PRODUCTOS] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_5_1_VALORES_DISTRIBUCION_PXP_AUXILIAR] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_5_1_VALORES_DISTRIBUCION_PXP_AUXILIAR]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA_PXP_AUX&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_5_1_VALORES_DISTRIBUCION_PXP_AUXILIAR] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_6_1_VALORES_DISTRIBUCION_DOCUMENTO_RAPIGO] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_6_1_VALORES_DISTRIBUCION_DOCUMENTO_RAPIGO]&#xA;SELECT &#xA;ID_REGIONAL_RAPIGO_DOC&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_6_1_VALORES_DISTRIBUCION_DOCUMENTO_RAPIGO] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_6_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_RAPIGO] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_6_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_RAPIGO]&#xA;SELECT &#xA;ID_REGIONAL_RAPIGO_MERC&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_6_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_RAPIGO] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::VAR_PERIODO"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGAR PARAMETRICAS bkl20260326"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{9726692e-8916-4c56-9e39-5e30e392c034}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGAR PARAMETRICAS bkl20260326"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B4483C3B-3955-4FDA-8350-54289B65ECCC}"
+          SQLTask:SqlStatementSource="&#xA;&#xA;&#xA;/************************************************************************************************************************/&#xA;/***********************************************ACTUALIZAR PARAMETRICAS**************************************************/&#xA;/************************************************************************************************************************/&#xA;/************************************************************************************************************************/&#xA;DECLARE @PARAMETRO VARCHAR(20) = CONVERT(VARCHAR(20),?);---?&#xA;&#xA;DECLARE @PARAMETRO_AUX_1 DATETIME = CONVERT(DATETIME,CONCAT(@PARAMETRO,'01'))&#xA;DECLARE @PARAMETRO_AUX_2 DATETIME = DATEADD(MONTH,-1,CONVERT(DATETIME,CONCAT(@PARAMETRO,'01')))&#xA;&#xA;DECLARE @PERIODO_NUEVO INT = (((YEAR(@PARAMETRO_AUX_1)*100)+(MONTH(@PARAMETRO_AUX_1))));&#xA;DECLARE @PERIODO_ANTERIOR INT = (((YEAR(@PARAMETRO_AUX_2)*100)+(MONTH(@PARAMETRO_AUX_2))));&#xA;&#xA;/*/&#xA;SELECT&#xA;@PERIODO_NUEVO AS PERIODO_NUEVO,&#xA;@PERIODO_ANTERIOR AS PERIODO_ANTERIOR&#xA;&#xA;*/&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;------------------DECLARE @PERIODO_ANTERIOR INT = 202506;&#xA;------------------DECLARE @PERIODO_NUEVO INT = 202507;&#xA;/************************************************************************************************************************/&#xA;/************************************************************************************************************************/&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[dbo].[COSTO POR RUTA AEREA] WHERE  PERIODO_ID=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[dbo].[COSTO POR RUTA AEREA]&#xA;SELECT &#xA;CIUDAD_ORIGEN&#xA;,CIUDAD_DESTINO&#xA;,KEY_ORIGEN_DESTINO_AEREO&#xA;,VALOR_KILO&#xA;,VALOR_CORTE_GUIA&#xA;,VR_KILO_Y_CORTE_GUIA&#xA;,OBSERVACIONES&#xA;,CALCULOS_ADICIONALES&#xA;,PERIODO_ID=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[dbo].[COSTO POR RUTA AEREA] WHERE PERIODO_ID=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;/*DELETE [ACCES_DARWIN].[dbo].[Costo_Anual_rubro_auxiliar_dia] WHERE  PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[dbo].[Costo_Anual_rubro_auxiliar_dia]&#xA;SELECT &#xA;PERIODO=@PERIODO_NUEVO&#xA;,ATRIBUTO&#xA;,VALOR&#xA;FROM [ACCES_DARWIN].[dbo].[Costo_Anual_rubro_auxiliar_dia] WHERE PERIODO=@PERIODO_ANTERIOR*/&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[dbo].[Tarifas_Productos_Por_Periodo] WHERE  PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[dbo].[Tarifas_Productos_Por_Periodo]&#xA;SELECT &#xA;[KEY]&#xA;,PERIODO=@PERIODO_NUEVO&#xA;,ID_MODELO_CONTRATACION&#xA;,ID_PROCESO_LOGISTICO&#xA;,ID_PRODUCTO&#xA;,DETALLE_OPERACION&#xA;,VALOR&#xA;FROM [ACCES_DARWIN].[dbo].[Tarifas_Productos_Por_Periodo] WHERE PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_14_1_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_15_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP_LODYTRANS] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_15_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP_LODYTRANS]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_15_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP_LODYTRANS] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_15_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP_LODYTRANS] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_15_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP_LODYTRANS]&#xA;SELECT &#xA;ID_REGIONAL_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_15_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP_LODYTRANS] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_4_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_4_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_4_1_VALORES_DISTRIBUCION_DOCUMENTO_PXP] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_4_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_4_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP]&#xA;SELECT &#xA;ID_REGIONAL_PXP_OTROSP&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_4_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_PXP] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_4_3_VALORES_RECOLECCION_DOCUMENTO] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_4_3_VALORES_RECOLECCION_DOCUMENTO]&#xA;SELECT &#xA;ID_REGIONAL_PXP_DOCUMENTO&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_4_3_VALORES_RECOLECCION_DOCUMENTO] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_4_4_VALORES_RECOLECCION_OTROS_PRODUCTOS] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_4_4_VALORES_RECOLECCION_OTROS_PRODUCTOS]&#xA;SELECT &#xA;ID_REGIONAL_PXP_OTROS_P&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_4_4_VALORES_RECOLECCION_OTROS_PRODUCTOS] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_5_1_VALORES_DISTRIBUCION_PXP_AUXILIAR] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_5_1_VALORES_DISTRIBUCION_PXP_AUXILIAR]&#xA;SELECT &#xA;REGIONAL_ID_TARIFA_PXP_AUX&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_5_1_VALORES_DISTRIBUCION_PXP_AUXILIAR] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_6_1_VALORES_DISTRIBUCION_DOCUMENTO_RAPIGO] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_6_1_VALORES_DISTRIBUCION_DOCUMENTO_RAPIGO]&#xA;SELECT &#xA;ID_REGIONAL_RAPIGO_DOC&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_6_1_VALORES_DISTRIBUCION_DOCUMENTO_RAPIGO] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;DELETE [ACCES_DARWIN].[PAR].[M_6_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_RAPIGO] WHERE  ID_PERIODO=@PERIODO_NUEVO&#xA;INSERT INTO [ACCES_DARWIN].[PAR].[M_6_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_RAPIGO]&#xA;SELECT &#xA;ID_REGIONAL_RAPIGO_MERC&#xA;,DETALLE&#xA;,VALOR&#xA;,ID_PERIODO=@PERIODO_NUEVO&#xA;FROM [ACCES_DARWIN].[PAR].[M_6_2_VALORES_DISTRIBUCION_OTROS_PRODUCTOS_RAPIGO] WHERE ID_PERIODO=@PERIODO_ANTERIOR&#xA;/************************************************************************************************************************/&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::VAR_PERIODO"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DEPURACION PERIODOS ANTERIORES"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{30334E07-DA0F-4928-9343-D837917B74BF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DEPURACION PERIODOS ANTERIORES"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+          SQLTask:SqlStatementSource="USE SIG_LOGISTICA_DM&#xA;-- Declaración de variables para control de lotes y acumulación&#xA;DECLARE @BatchSize INT = 1000;&#xA;DECLARE @RowsDeleted INT = 1000; -- Inicializamos en mayor a 0 para que entre al bucle&#xA;DECLARE @TotalEliminados INT = 0;&#xA;DECLARE @MES_ATRAS DATETIME = DATEADD(MONTH, -3, DATEADD(mm, -1, DATEADD(mm, DATEDIFF(mm, 0, GETDATE()), 0)))&#xA;DECLARE @DELL_PERIODO INT = (YEAR(@MES_ATRAS)*100) + MONTH(@MES_ATRAS);&#xA;PRINT(@DELL_PERIODO)&#xA;&#xA;-- Mensaje inicial&#xA;PRINT 'Iniciando el proceso de depuración por lotes...';&#xA;&#xA;-- Bucle para eliminar de 1000 en 1000 registros&#xA;WHILE @RowsDeleted &gt; 0&#xA;BEGIN&#xA;    -- Ejecutamos el DELETE utilizando TOP para limitar el impacto&#xA;    DELETE TOP (@BatchSize) [FAC].[COSTO_DARWIN_BASE_OPERACION_MES]&#xA;    WHERE PERIODO_EJECUCION &lt; @DELL_PERIODO&#xA;    &#xA;    -- Obtenemos el número exacto de filas afectadas en esta iteración&#xA;    SET @RowsDeleted = @@ROWCOUNT;&#xA;    -- Acumulamos el total de eliminados&#xA;    SET @TotalEliminados = @TotalEliminados + @RowsDeleted;    &#xA;    -- Si se eliminaron registros en este ciclo, generamos el print con la acumulación&#xA;    IF @RowsDeleted &gt; 0&#xA;    BEGIN&#xA;        PRINT 'Se eliminaron los primeros mil registros. Acumulado total actual: ' + CAST(@TotalEliminados AS VARCHAR(20));&#xA;    END  &#xA;    -- (Opcional) Una pequeña pausa de 50 milisegundos si necesitas liberar recursos de E/S en entornos altamente concurrentes&#xA;    -- WAITFOR DELAY '00:00:00.050';&#xA;END&#xA;-- Mensaje final de confirmación total&#xA;PRINT 'Proceso finalizado con éxito. Total de registros eliminados: ' + CAST(@TotalEliminados AS VARCHAR(20));&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EJECUCION REP DATA REPORTES"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{0363ff6c-a511-4054-85b0-18a1630254f7}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EJECUCION REP DATA REPORTES">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{78A29FA6-68A6-45BA-92F3-133FE5AF5056}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY\PASO 05 01  SCRIPT PYTHON"
+              DTS:CreationName="Microsoft.ExecuteProcess"
+              DTS:Description="Execute Process Task"
+              DTS:DTSID="{c49b51b7-7615-426b-bc37-d305a3727437}"
+              DTS:ExecutableType="Microsoft.ExecuteProcess"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="PASO 05 01  SCRIPT PYTHON"
+              DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExecuteProcessData
+                  Executable="\\t_serv-dbi01\T\App_Costos_Darwin\Paso05\Exe_ejecutarPS05_0100.exe" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY\PASO 05 02  EXE SP SCRIPT PYTHON Cargar tabla FACT del Dashboard de Pricing"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{cdf47650-ac38-42b2-b2ac-1dbe229aa7fe}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="PASO 05 02  EXE SP SCRIPT PYTHON Cargar tabla FACT del Dashboard de Pricing"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="/*&#xA;&#xA;&lt;h3&gt;PASO 5.2&lt;/h3&gt;&#xA;&lt;h6&gt;Cargar tabla FACT del Dashboard de Pricing  &lt;/h6&gt;&#xA;&lt;h7&gt;Cargue FACT pricing procedimeinto almacenado&lt;/h7&gt;&#xA;&#xA;&#xA;&#xA;*/&#xA;&#xA;&#xA;EXEC  [FAC].[COSTO_DARWIN_CARGA_FACT_PROC_03_RESUMEN_PARA_PBI];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY\SP COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{915C4E35-0113-4947-B458-724161B13CC5}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SP COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="EXEC [FAC].[COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{21430046-CC39-43F8-981F-8C8C76E28CEB}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY\SP COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY\PASO 05 01  SCRIPT PYTHON" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{78F07C37-CF4B-4BB5-8332-079E75E428AC}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY\PASO 05 01  SCRIPT PYTHON"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY\PASO 05 02  EXE SP SCRIPT PYTHON Cargar tabla FACT del Dashboard de Pricing" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 03  SCRIPT PYTHON"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{caeb0c3e-d7fb-4eb3-a3f3-96160ac319b8}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PASO 03  SCRIPT PYTHON"
+          DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="\\t_serv-dbi01\T\App_Costos_Darwin\Paso03\Exe_ejecutarPS03_0000.exe" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{adc89e1b-9fe8-4587-be23-c3913b4d026e}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\6 01 EXEC SP FAC COSTO_DARWIN_CARGA_FACT_PROC_04_RESUMEN_PARA_PY_2_CD_ORG_DEST"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{886e3786-7a70-4da1-bcb9-ff1fed6f9a51}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="6 01 EXEC SP FAC COSTO_DARWIN_CARGA_FACT_PROC_04_RESUMEN_PARA_PY_2_CD_ORG_DEST"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="EXEC  [FAC].[COSTO_DARWIN_CARGA_FACT_PROC_04_RESUMEN_PARA_PY_2_CD_ORG_DEST];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\6 03 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_04_RESUMEN_PARA_PBI"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{e3793662-89dd-47c7-b945-808ffa44769c}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="6 03 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_04_RESUMEN_PARA_PBI"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="EXEC [FAC].[COSTO_DARWIN_CARGA_FACT_PROC_04_RESUMEN_PARA_PBI];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\Comentarios de la ejecucion de Python"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:Disabled="True"
+              DTS:DTSID="{130924c1-005e-4475-906b-c168745cefb0}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Comentarios de la ejecucion de Python"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:SqlStatementSource="/*&#xA;&#xA;&lt;h3&gt;PASO 6&lt;/h3&gt;&#xA;&lt;h6&gt;Proceso ejecucion de script para Obtener  datos  del peso  de cuartil q3 para &lt;/h6&gt;&#xA;&lt;h7&gt;Generar campos de medicion estadistico&lt;/h7&gt;&#xA;&lt;h6&gt;OPTENER DATA AGRUPADO POR CIUDAD ORIGEN DESTINO&lt;/h6&gt;&#xA;&lt;ol&gt;&#xA;        &lt;li&gt;PESO_FISICO_GUIA_mean&lt;/li&gt;&#xA;        &lt;li&gt;PESO_FISICO_GUIA_std&lt;/li&gt;&#xA;        &lt;li&gt;PESO_FISICO_GUIA_moda&lt;/li&gt;&#xA;        &lt;li&gt;PESO_FISICO_GUIA_median&lt;/li&gt;&#xA;        &lt;li&gt;PESO_FISICO_GUIA_q75&lt;/li&gt;&#xA;        &lt;li&gt;PESO_FISICO_GUIA_max&lt;/li&gt;&#xA;        &lt;li&gt;PESO_FISICO_GUIA_Desviacion_Media_Abs&lt;/li&gt;        &#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_PESO_mean&lt;/li&gt;&#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_PESO_std&lt;/li&gt;&#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_PESO_moda&lt;/li&gt;&#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_PESO_median&lt;/li&gt;&#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_PESO_q75&lt;/li&gt;&#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_PESO_max&lt;/li&gt;&#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_PESO_Desviacion_Media_Abs&lt;/li&gt; &#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_GUIA_mean&lt;/li&gt;&#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_GUIA_std&lt;/li&gt;&#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_GUIA_moda&lt;/li&gt;&#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_GUIA_median&lt;/li&gt;&#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_GUIA_q75&lt;/li&gt;&#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_GUIA_max&lt;/li&gt;&#xA;        &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_GUIA_Desviacion_Media_Abs&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;*/" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\PASO 06 02 Generar campos de medicion estadistico REFACTORIZADO"
+              DTS:CreationName="Microsoft.ExecuteProcess"
+              DTS:Description="Execute Process Task"
+              DTS:DTSID="{c5316a75-ff6f-4080-861d-703508636c63}"
+              DTS:ExecutableType="Microsoft.ExecuteProcess"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="PASO 06 02 Generar campos de medicion estadistico REFACTORIZADO"
+              DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExecuteProcessData
+                  Executable="\\t_serv-dbi01\T\App_Costos_Darwin\Paso06\Exe_ejecutarPS06_0102_refatorizado.exe" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{074c28b1-b32f-4330-b217-2ccc0db65f52}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\Comentarios de la ejecucion de Python"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\6 01 EXEC SP FAC COSTO_DARWIN_CARGA_FACT_PROC_04_RESUMEN_PARA_PY_2_CD_ORG_DEST" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{fb709426-0c10-49a4-9177-aa31bacd1111}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\6 01 EXEC SP FAC COSTO_DARWIN_CARGA_FACT_PROC_04_RESUMEN_PARA_PY_2_CD_ORG_DEST"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\PASO 06 02 Generar campos de medicion estadistico REFACTORIZADO" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{09d78f1d-b807-4068-b95a-e3643bd3b6ab}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\PASO 06 02 Generar campos de medicion estadistico REFACTORIZADO"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\6 03 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_04_RESUMEN_PARA_PBI" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{f4ddde9b-e1e6-473d-9f0a-317beceb7406}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 01 EXEC SP FAC COSTO_DARWIN_CARGA_FACT_PROC_05_ANALISIS_COSOT_POR_TRAYECTO_ORG_DEST"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{20a8f302-ba72-4fcb-ba48-d9525de402ac}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="7 01 EXEC SP FAC COSTO_DARWIN_CARGA_FACT_PROC_05_ANALISIS_COSOT_POR_TRAYECTO_ORG_DEST"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="EXEC [FAC].[COSTO_DARWIN_CARGA_FACT_PROC_05_ANALISIS_COSOT_POR_TRAYECTO_ORG_DEST];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 02 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_06_ANALISIS_COSOT_POR_TRAYECTO_ORG_DEST_X_CLIENTE"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{39880f7d-4346-40aa-98f6-1d90a1b5ba69}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="7 02 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_06_ANALISIS_COSOT_POR_TRAYECTO_ORG_DEST_X_CLIENTE"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="EXEC [FAC].[COSTO_DARWIN_CARGA_FACT_PROC_06_ANALISIS_COSOT_POR_TRAYECTO_ORG_DEST_X_CLIENTE];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 03 EXEC SP FAC COSTO_DARWIN_CARGA_PERIODOS_DASHBOARD"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{73f1f6ed-ba90-4d25-824d-9d892064a856}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="7 03 EXEC SP FAC COSTO_DARWIN_CARGA_PERIODOS_DASHBOARD"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="EXEC [FAC].[COSTO_DARWIN_CARGA_PERIODOS_DASHBOARD];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 04 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_07_Datos_Finales_Ingreso_Y_Costo"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{01de01a0-fcec-4943-95ba-2ecb55253d3a}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="7 04 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_07_Datos_Finales_Ingreso_Y_Costo"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="EXEC [FAC].[COSTO_DARWIN_CARGA_FACT_PROC_07_Datos_Finales_Ingreso_Y_Costo];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 05 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_08_Datos_ANALISIS_CONTROL_OPERATIVO"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{f6971cb0-5ca6-4608-bb41-0bb97f046786}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="7 05 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_08_Datos_ANALISIS_CONTROL_OPERATIVO"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="EXEC [FAC].[COSTO_DARWIN_CARGA_FACT_PROC_08_Datos_ANALISIS_CONTROL_OPERATIVO];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{5dc02ce1-d781-4291-8fbd-cc27b5d52f98}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 01 EXEC SP FAC COSTO_DARWIN_CARGA_FACT_PROC_05_ANALISIS_COSOT_POR_TRAYECTO_ORG_DEST"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 02 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_06_ANALISIS_COSOT_POR_TRAYECTO_ORG_DEST_X_CLIENTE" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{8a3224bb-5105-4af8-aef8-0aa9ff115c7c}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 02 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_06_ANALISIS_COSOT_POR_TRAYECTO_ORG_DEST_X_CLIENTE"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 03 EXEC SP FAC COSTO_DARWIN_CARGA_PERIODOS_DASHBOARD" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{9d207b3b-288a-4672-8595-82d179c0e682}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 03 EXEC SP FAC COSTO_DARWIN_CARGA_PERIODOS_DASHBOARD"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 04 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_07_Datos_Finales_Ingreso_Y_Costo" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON.PrecedenceConstraints[Constraint 3]"
+              DTS:CreationName=""
+              DTS:DTSID="{10703bc7-f28b-41c5-b385-a8bc3dd8fd55}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 04 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_07_Datos_Finales_Ingreso_Y_Costo"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 3"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 05 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_08_Datos_ANALISIS_CONTROL_OPERATIVO" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{7e12a9fb-3b15-4bac-b7e6-bac9ccea7807}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\Comentarios de la ejecucion de Python COMENTARIOS PASO 4"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:Disabled="True"
+              DTS:DTSID="{3633d497-b0c4-4a82-b776-f65ace5782d1}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Comentarios de la ejecucion de Python COMENTARIOS PASO 4"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:SqlStatementSource="/*&#xA;&#xA;Ejecutar procedimeinto para corregir datos y y Cargue de la FACT&#xA;&#xA;&lt;h3&gt;PASO 4&lt;/h3&gt;&#xA;&lt;h3&gt;Cargue FACT PRINCIPAL&lt;/h3&gt;&#xA;&lt;h6&gt;Ejecutar procedimeinto para corregir datos y y Cargue de la FACT &lt;/h6&gt;&#xA;&#xA;*/" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EJECUTAR PROCEDIMEINTO ALMACENADO  AGREGAR EL CAMPO APLICA_EPS_EZU"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{17f23328-1f9e-47c3-b249-fce55c57ce83}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EJECUTAR PROCEDIMEINTO ALMACENADO  AGREGAR EL CAMPO APLICA_EPS_EZU"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="/*&#xA;EJECUTAR PROCEDIMEINTO ALMACENADO  AGREGAR EL CAMPO APLICA_EPS_EZU, si tiene entrada a zona urbana o entrada a punto de servicio&#xA;&#xA;*/&#xA;&#xA;EXEC [FAC].[COSTO_DARWIN_CARGA_FACT_PROC_02_PBI_ENTRADA];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EJECUTAR PROCEDIMEINTO ALMACENADO  AGREGAR EL CAMPO APLICA_RE_EV"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{98deee97-1262-4d06-b28d-f320cb140562}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EJECUTAR PROCEDIMEINTO ALMACENADO  AGREGAR EL CAMPO APLICA_RE_EV"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="/*&#xA;EJECUTAR PROCEDIMEINTO ALMACENADO  AGREGAR EL CAMPO APLICA_RE_EV, si tiene un proceso logistico como REPORTADO ENTREGADO o ENTREGA VERIFICADA &#xA;*/&#xA;EXEC [FAC].[COSTO_DARWIN_CARGA_FACT_PROC_03_PBI_ENTREGADO];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EJECUTAR PROCEDIMEINTO ALMACENADO  ELIMINAR DATOS DE LA FACT"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{054c67c5-abb1-46b5-8a8a-e11594c3272d}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EJECUTAR PROCEDIMEINTO ALMACENADO  ELIMINAR DATOS DE LA FACT"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="/*&#xA;EJECUTAR PROCEDIMEINTO ALMACENADO  ELIMINAR DATOS DE LA FACT&#xA;*/&#xA;&#xA;EXEC [FAC].[COSTO_DARWIN_CARGA_FACT_PROC_01_DELETE];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EXEC ACTUALIZAR Y CORREGIR ERRORES DE DATA Y CARGUE A LA FACT"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{7a4b26fd-a535-4613-9dfb-91ba9d38be6e}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EXEC ACTUALIZAR Y CORREGIR ERRORES DE DATA Y CARGUE A LA FACT"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="/*&#xA;EJECUTAR PROCEDIMEINTO ALMACENADO  PARA ACTUALIZAR Y CORREGIR ERRORES DE DATA Y CARGUE A LA FACT&#xA;&#xA;*/&#xA;&#xA;EXEC [FAC].[COSTO_DARWIN_CARGA_FACT_PROC_01];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EXEC SP FAC - COSTO_DARWIN_CARGA_FACT_PROC_09_CONDICIONALES_ENTRADAS_SALIDAS_FACTURADO"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{85E99621-5E75-4951-BAA6-BF1285598632}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EXEC SP FAC - COSTO_DARWIN_CARGA_FACT_PROC_09_CONDICIONALES_ENTRADAS_SALIDAS_FACTURADO"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+                  SQLTask:SqlStatementSource="EXEC [FAC].[COSTO_DARWIN_CARGA_FACT_PROC_09_CONDICIONALES_ENTRADAS_SALIDAS_FACTURADO]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{7a1f689c-636a-4b92-8621-3ea5adcc1561}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EJECUTAR PROCEDIMEINTO ALMACENADO  ELIMINAR DATOS DE LA FACT"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EXEC ACTUALIZAR Y CORREGIR ERRORES DE DATA Y CARGUE A LA FACT" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{cf753b7f-d051-49d1-a691-5ba276c58ea9}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EXEC ACTUALIZAR Y CORREGIR ERRORES DE DATA Y CARGUE A LA FACT"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EJECUTAR PROCEDIMEINTO ALMACENADO  AGREGAR EL CAMPO APLICA_EPS_EZU" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{a082a72f-7788-4a4c-acb7-239c7984a175}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EJECUTAR PROCEDIMEINTO ALMACENADO  AGREGAR EL CAMPO APLICA_EPS_EZU"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EJECUTAR PROCEDIMEINTO ALMACENADO  AGREGAR EL CAMPO APLICA_RE_EV" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL.PrecedenceConstraints[Constraint 3]"
+              DTS:CreationName=""
+              DTS:DTSID="{7b33f530-4e2b-43e2-b402-7dbe940d398e}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\Comentarios de la ejecucion de Python COMENTARIOS PASO 4"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 3"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EJECUTAR PROCEDIMEINTO ALMACENADO  ELIMINAR DATOS DE LA FACT" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL.PrecedenceConstraints[Constraint 4]"
+              DTS:CreationName=""
+              DTS:DTSID="{7BEF7263-5113-43D9-8B9D-3FBD3FAA3D53}"
+              DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EJECUTAR PROCEDIMEINTO ALMACENADO  AGREGAR EL CAMPO APLICA_RE_EV"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 4"
+              DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EXEC SP FAC - COSTO_DARWIN_CARGA_FACT_PROC_09_CONDICIONALES_ENTRADAS_SALIDAS_FACTURADO" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\EJECUCION REP DATA REPORTES.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{28A2197F-ED4F-4BC2-A5E5-AD6C78BB1069}"
+          DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 03  SCRIPT PYTHON"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\EJECUCION REP DATA REPORTES.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{06E71084-E98E-43E2-9DD3-98B7A18422D3}"
+          DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\EJECUCION REP DATA REPORTES.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{E79BF72B-7F0C-469B-A246-BC7B16932915}"
+          DTS:From="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\EJECUCION REP DATA REPORTES.PrecedenceConstraints[Constraint 8]"
+          DTS:CreationName=""
+          DTS:DTSID="{aeefa013-64d3-4772-9e71-3e5ae348025c}"
+          DTS:From="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 8"
+          DTS:To="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ELIMINAR DESPUES DE AGOSTO AUX UPDATE PARAMETROS AUXILIAR  KM OTROS"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{01DB8A6A-7467-448B-A162-49F30ED88E3A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ELIMINAR DESPUES DE AGOSTO AUX UPDATE PARAMETROS AUXILIAR  KM OTROS"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B4483C3B-3955-4FDA-8350-54289B65ECCC}"
+          SQLTask:SqlStatementSource="&#xA;DECLARE @PERIODO INT = 202608&#xA;DELETE [ACCES_DARWIN].dbo.Costo_Anual_rubro_auxiliar_dia WHERE PERIODO&#x9;= 202608&#xA;&#xA;INSERT INTO [ACCES_DARWIN].dbo.Costo_Anual_rubro_auxiliar_dia&#xA;SELECT &#xA;PERIODO&#x9;= @PERIODO&#xA;,ATRIBUTO&#x9;&#xA;,VALOR = IIF(ATRIBUTO='VALOR_KM_HORA_URBANO',60,VALOR)&#xA;FROM [ACCES_DARWIN].dbo.Costo_Anual_rubro_auxiliar_dia &#xA;where PERIODO=@PERIODO-1&#xA;&#xA;&#xA;SELECT * FROM [ACCES_DARWIN].dbo.Costo_Anual_rubro_auxiliar_dia WHERE PERIODO&#x9;= 202608&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PASO 01 01 SCRIPT PYTHON"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{69ca4b46-527b-4142-951e-122f737347ee}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PASO 01 01 SCRIPT PYTHON"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="\\t_serv-dbi01\T\App_Costos_Darwin\Paso01\Exe_ejecutarPS01_0101.exe" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PASO 01 02  SCRIPT PYTHON"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{3f1ecade-ad15-407b-bd6c-c23b20882851}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PASO 01 02  SCRIPT PYTHON"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="\\t_serv-dbi01\T\App_Costos_Darwin\Paso01\Exe_ejecutarPS01_0102.exe" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PASO 02 00 DEL SCRIPT DE PYTHON"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{97aef1a2-e5c0-42ee-b1e8-a85276d44338}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PASO 02 00 DEL SCRIPT DE PYTHON">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\PASO 02 00 DEL SCRIPT DE PYTHON\Comentarios de la ejecucion de Python COMENTARIOS PASO 2"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{20e77ef8-9bc6-4938-a88e-a8891aa927ba}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Comentarios de la ejecucion de Python COMENTARIOS PASO 2"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:SqlStatementSource="/*&#xA;&#xA;&lt;h3&gt;PASO 2&lt;/h3&gt;&#xA;&lt;h6&gt;EJECUCION PROCEDIMEINTOS DE  TRANSFORMACION  TABLA BASE OPERACION PRINCIPAL&lt;/h6&gt;&#xA;&lt;ol&gt;&#xA;                &lt;li&gt;TOTAL_GUIAS&lt;/li&gt;&#xA;                &lt;li&gt;KEY_SZU_RE_COBRO_DOBLE&lt;/li&gt;&#xA;                &lt;li&gt;TOTAL_PESO&lt;/li&gt;&#xA;                &lt;li&gt;VD_DOBLE_COBRO&lt;/li&gt;&#xA;                &lt;li&gt;TIPO_VEHICULO_BASE_PLACAS&lt;/li&gt;&#xA;                &lt;li&gt;KEY_IN_SOURCING&lt;/li&gt;&#xA;                &lt;li&gt;[Distancia_Km_1]&lt;/li&gt;&#xA;                &lt;li&gt;[Distancia_Km_2]&lt;/li&gt;&#xA;                &lt;li&gt;Fl_Zona_placa&lt;/li&gt;&#xA;                &lt;li&gt;Fl_Opera_placa&lt;/li&gt;&#xA;                &lt;li&gt;[Costo Promedio Flete Año Actual]&lt;/li&gt;&#xA;                &lt;li&gt;[COSTO_CON_AUXILIAR_POR_GUIA]&lt;/li&gt;&#xA;                &lt;li&gt;[TOTAL_GUIAS_RECOLECCION]&lt;/li&gt;&#xA;                &lt;li&gt;[TOTAL_GUIAS_DISTRIBUCION]&lt;/li&gt;&#xA;                &lt;li&gt;[TOTAL_DEVOLUCIONES]&lt;/li&gt;&#xA;                &lt;li&gt;COSTO_KM_IN_SOURCING&lt;/li&gt;&#xA;                &lt;li&gt;KM_INSOURCING&lt;/li&gt;&#xA;                &lt;li&gt;TIPO_VEHICULO_PLACAS_PROPIAS&lt;/li&gt;&#xA;                &lt;li&gt;GEO_CIU_DEPA&lt;/li&gt;&#xA;                &lt;li&gt;COSTO_FINAL_POR_MODELO&lt;/li&gt;&#xA;                &lt;li&gt;COSTO_UNITARIO_POR_KILO_GUIA&lt;/li&gt;&#xA;                &lt;li&gt;COSTO_UNITARIO_POR_UNIDAD_GUIA&lt;/li&gt;&#xA;                &lt;li&gt;COSTO_CON_AUXILIAR_POR_GUIA&lt;/li&gt;&#xA;                &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_PESO&lt;/li&gt;&#xA;                &lt;li&gt;COSTO_GUIA_MAS_AUXILIAR_POR_GUIA&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;*/" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PASO 02 00 DEL SCRIPT DE PYTHON\liberar almacenamiento Tablas TMP para procesamiento Base  COSTO_DARWIN_BASE_OPERACION_MES"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{bcc0c308-f9bb-42e9-a7f6-aa20178e28bb}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="liberar almacenamiento Tablas TMP para procesamiento Base  COSTO_DARWIN_BASE_OPERACION_MES"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_RE_BASE_OPERACION];&#xA;TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_SZU_BASE_OPERACION];&#xA;TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_BASE_OPERACION_MES_BASE00];&#xA;TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_BASE_OPERACION_MES_BASE01];&#xA;TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_BASE_OPERACION_MES_BASE02];&#xA;TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_BASE_OPERACION_MES_BASE03];                                          &#xA;TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_BASE_OPERACION_MES_BASE04];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PASO 02 00 DEL SCRIPT DE PYTHON\SP  EXEC TMP COSTO_DARWIN_PROC_01_CARGUE_CALCULO_BASE_OPERACION_TEMP"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{366b1a5a-8485-4042-bde9-db6d9f0b7056}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SP  EXEC TMP COSTO_DARWIN_PROC_01_CARGUE_CALCULO_BASE_OPERACION_TEMP"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+              SQLTask:SqlStatementSource="EXEC [TMP].[COSTO_DARWIN_PROC_01_CARGUE_CALCULO_BASE_OPERACION_TEMP]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PASO 02 00 DEL SCRIPT DE PYTHON\truncado Tablas TMP para procesamiento Base  COSTO_DARWIN_BASE_OPERACION_MES"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6d829b6e-e2dc-4c99-824d-21b1b3d4ec6c}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="truncado Tablas TMP para procesamiento Base  COSTO_DARWIN_BASE_OPERACION_MES"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7CAD4937-80B8-4636-9468-E8E16DF2D376}"
+              SQLTask:SqlStatementSource="/*&#xA;# pendiente estructurar consulta&#xA;# Script ajuste de pesos  asignandole el Q3 cuando sea 0 para Todos los servicios AÉREOS&#xA;*/&#xA;&#xA;&#xA;&#xA;TRUNCATE TABLE SIG_LOGISTICA_DM.[TMP].[COSTO_DARWIN_CONTROL_EJECUCION];&#xA;TRUNCATE TABLE SIG_LOGISTICA_DM.TMP.COSTO_DARWIN_BASE_OPERACION_MES;&#xA;&#xA;TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_RE_BASE_OPERACION];&#xA;TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_SZU_BASE_OPERACION];&#xA;TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_BASE_OPERACION_MES_BASE00];&#xA;TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_BASE_OPERACION_MES_BASE01];&#xA;TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_BASE_OPERACION_MES_BASE02];&#xA;TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_BASE_OPERACION_MES_BASE03];                                          &#xA;TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[COSTO_DARWIN_BASE_OPERACION_MES_BASE04];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PASO 02 00 DEL SCRIPT DE PYTHON\UPDATE  VERREDAS ORG  -  DEST"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{03B74169-5E51-4DB6-BE18-B391857A0CA5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="UPDATE  VERREDAS ORG  -  DEST"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F23E2E5D-51C2-489D-BF93-33ABA46592D1}"
+              SQLTask:SqlStatementSource="USE SIG_LOGISTICA_DM;&#xA;&#xA;&#xA;UPDATE TMP SET &#xA;TMP.VLT_RURAL_ORIG = 0&#xA;FROM SIG_LOGISTICA_DM.[TMP].[COSTO_DARWIN_BASE_OPERACION_MES] TMP&#xA;WHERE VLT_RURAL_ORIG IS NULL&#xA;&#xA;UPDATE TMP SET &#xA;TMP.VLT_RURAL_DEST = 0&#xA;FROM SIG_LOGISTICA_DM.[TMP].[COSTO_DARWIN_BASE_OPERACION_MES] TMP&#xA;WHERE  VLT_RURAL_DEST IS NULL&#xA;&#xA;&#xA;DROP TABLE IF EXISTS #GUIAS_ID_VEREDAS_RURAL&#xA;SELECT &#xA;NUMERO_GUIA&#xA;,VLT_RURAL_ORIG&#xA;,VLT_RURAL_DEST&#xA;INTO #GUIAS_ID_VEREDAS_RURAL&#xA;FROM SIG_COLOMBIA_DW.[TMP].[COSTO_DARWIN_BASE_OPERACION_MES] TMP&#xA;GROUP BY &#xA;NUMERO_GUIA&#xA;,VLT_RURAL_ORIG&#xA;,VLT_RURAL_DEST&#xA;&#xA;&#xA;--SELECT NUMERO_GUIA,COUNT(1) TT &#xA;--FROM #GUIAS_ID_VEREDAS_RURAL&#xA;--GROUP BY NUMERO_GUIA&#xA;--HAVING COUNT(1)&gt;1&#xA;&#xA;SELECT *&#xA;FROM #GUIAS_ID_VEREDAS_RURAL&#xA;&#xA;CREATE NONCLUSTERED INDEX [IX_GUIAS_ID_VEREDAS_RURAL] ON #GUIAS_ID_VEREDAS_RURAL&#xA;(&#xA;&#x9;[NUMERO_GUIA] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]&#xA;GO&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;--FROM SIG_LOGISTICA_DM.[TMP].[COSTO_DARWIN_BASE_OPERACION_MES] TMP&#xA;--WHERE VLT_RURAL_ORIG IS NULL&#xA;&#xA;UPDATE TMP SET &#xA; TMP.VLT_RURAL_DEST = RURAL.VLT_RURAL_DEST&#xA;,TMP.VLT_RURAL_ORIG = RURAL.VLT_RURAL_ORIG&#xA;FROM SIG_LOGISTICA_DM.[TMP].[COSTO_DARWIN_BASE_OPERACION_MES] TMP&#xA;INNER JOIN #GUIAS_ID_VEREDAS_RURAL RURAL&#xA;ON RURAL.NUMERO_GUIA=TMP.NUMERO_GUIA&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PASO 02 00 DEL SCRIPT DE PYTHON.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{520bd8ec-4107-42a1-b69d-881a30ab6152}"
+          DTS:From="Package\PASO 02 00 DEL SCRIPT DE PYTHON\Comentarios de la ejecucion de Python COMENTARIOS PASO 2"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\PASO 02 00 DEL SCRIPT DE PYTHON\truncado Tablas TMP para procesamiento Base  COSTO_DARWIN_BASE_OPERACION_MES" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PASO 02 00 DEL SCRIPT DE PYTHON.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{87706262-9362-4C13-9B4E-D2F39AB96F04}"
+          DTS:From="Package\PASO 02 00 DEL SCRIPT DE PYTHON\liberar almacenamiento Tablas TMP para procesamiento Base  COSTO_DARWIN_BASE_OPERACION_MES"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\PASO 02 00 DEL SCRIPT DE PYTHON\UPDATE  VERREDAS ORG  -  DEST" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PASO 02 00 DEL SCRIPT DE PYTHON.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{583d047c-e57e-45d2-8eeb-8e77a35cdce7}"
+          DTS:From="Package\PASO 02 00 DEL SCRIPT DE PYTHON\truncado Tablas TMP para procesamiento Base  COSTO_DARWIN_BASE_OPERACION_MES"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\PASO 02 00 DEL SCRIPT DE PYTHON\SP  EXEC TMP COSTO_DARWIN_PROC_01_CARGUE_CALCULO_BASE_OPERACION_TEMP" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PASO 02 00 DEL SCRIPT DE PYTHON.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{3eba8eda-f333-4c89-8b77-9f01ffc01d1f}"
+          DTS:From="Package\PASO 02 00 DEL SCRIPT DE PYTHON\SP  EXEC TMP COSTO_DARWIN_PROC_01_CARGUE_CALCULO_BASE_OPERACION_TEMP"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\PASO 02 00 DEL SCRIPT DE PYTHON\liberar almacenamiento Tablas TMP para procesamiento Base  COSTO_DARWIN_BASE_OPERACION_MES" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\UPDATE KM IN SOURCING"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{36B9AB74-0486-496E-A12C-2A06224EB6B4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="UPDATE KM IN SOURCING"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F23E2E5D-51C2-489D-BF93-33ABA46592D1}"
+          SQLTask:SqlStatementSource="UPDATE FAC SET&#xA;FAC.KM_INSOURCING=TRAY.[Distancia Km]&#xA;FROM SIG_COLOMBIA_DW.TMP.[COSTO_DARWIN_BASE_OPERACION_MES] FAC (NOLOCK)&#xA;INNER JOIN [ACCES_DARWIN].[dbo].[Distancia Trayectos ABC To ABC] TRAY (NOLOCK)&#xA;on TRAY.Key_Ori_Des_Tex=FAC.[LLAVE_ORIGEN_DESTINO]&#xA;WHERE KM_INSOURCING=0&#xA;&#xA;UPDATE FAC SET&#xA;FAC.KM_INSOURCING=TRAY.[Distancia Km]&#xA;FROM SIG_COLOMBIA_DW.TMP.[COSTO_DARWIN_BASE_OPERACION_MES] FAC (NOLOCK)&#xA;INNER JOIN [ACCES_DARWIN].[dbo].[Distancia Trayectos ABC To ABC] TRAY (NOLOCK)&#xA;on TRAY.Key_Des_Ori_Tex=FAC.[LLAVE_ORIGEN_DESTINO]&#xA;WHERE KM_INSOURCING=0&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{fbb60ec4-ae99-43d4-8afe-7160a92f6111}"
+      DTS:From="Package\PASO 01 01 SCRIPT PYTHON"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\PASO 01 02  SCRIPT PYTHON" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{45DCBE92-1395-4EB8-B368-4716EEFC11FE}"
+      DTS:From="Package\CARGAR PARAMETRICAS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\UPDATE KM IN SOURCING" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{d46cfc59-da64-4754-8f5c-9f64e60d4999}"
+      DTS:From="Package\PASO 01 02  SCRIPT PYTHON"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\PASO 02 00 DEL SCRIPT DE PYTHON" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{72B8382D-40C8-42DB-A961-1A5541D7BF76}"
+      DTS:From="Package\PASO 02 00 DEL SCRIPT DE PYTHON"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\EJECUCION REP DATA REPORTES" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{B965DBD3-6D21-4266-944A-7C63513DA16A}"
+      DTS:From="Package\UPDATE KM IN SOURCING"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\PASO 01 01 SCRIPT PYTHON" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{B89EFE26-C217-4055-9B57-4880383B9C0D}"
+      DTS:From="Package\CARGAR PARAMETRICAS 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\UPDATE KM IN SOURCING" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{663FF43B-97B2-496D-83EB-CDDD2950D115}"
+      DTS:From="Package\CARGAR PARAMETRICAS 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\CARGAR PARAMETRICAS bkl20260326" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{D0017123-7792-4829-8904-A7F8E5E12470}"
+      DTS:From="Package\UPDATE KM IN SOURCING"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\ELIMINAR DESPUES DE AGOSTO AUX UPDATE PARAMETROS AUXILIAR  KM OTROS" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{7B361890-C48C-486E-A5EA-E73B26D3E20D}"
+      DTS:From="Package\ELIMINAR DESPUES DE AGOSTO AUX UPDATE PARAMETROS AUXILIAR  KM OTROS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\PASO 01 02  SCRIPT PYTHON" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{B151EA55-92BA-4B17-A6A1-79C0A39FB1FC}"
+      DTS:From="Package\EJECUCION REP DATA REPORTES"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\DEPURACION PERIODOS ANTERIORES" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="197,42"
+          Id="Package\CARGAR PARAMETRICAS"
+          TopLeft="1310.16666666667,37" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\CARGAR PARAMETRICAS 1"
+          TopLeft="1676,131.833333333333" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\CARGAR PARAMETRICAS bkl20260326"
+          TopLeft="1641.5,50.25" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\DEPURACION PERIODOS ANTERIORES"
+          TopLeft="439,3203" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY\PASO 05 01  SCRIPT PYTHON"
+          TopLeft="124,99.5" />
+        <NodeLayout
+          Size="466,42"
+          Id="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY\PASO 05 02  EXE SP SCRIPT PYTHON Cargar tabla FACT del Dashboard de Pricing"
+          TopLeft="5.5,196.5" />
+        <NodeLayout
+          Size="395,42"
+          Id="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY\SP COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY"
+          TopLeft="33,20.5" />
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY.PrecedenceConstraints[Constraint]"
+          TopLeft="232.25,62.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY.PrecedenceConstraints[Constraint 1]"
+          TopLeft="236.25,141.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="476,293"
+          Size="476,336"
+          Id="Package\EJECUCION REP DATA REPORTES\COSTO_DARWIN_CARGA_FACT_PROC_02_RESUMEN_PARA_PY"
+          TopLeft="115,822" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 03  SCRIPT PYTHON"
+          TopLeft="252.5,34.5" />
+        <NodeLayout
+          Size="558,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\6 01 EXEC SP FAC COSTO_DARWIN_CARGA_FACT_PROC_04_RESUMEN_PARA_PY_2_CD_ORG_DEST"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="501,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\6 03 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_04_RESUMEN_PARA_PBI"
+          TopLeft="34.0000000000001,311.5" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\Comentarios de la ejecucion de Python"
+          TopLeft="153.5,5.5" />
+        <NodeLayout
+          Size="414,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico\PASO 06 02 Generar campos de medicion estadistico REFACTORIZADO"
+          TopLeft="77.5000000000001,209.5" />
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico.PrecedenceConstraints[Constraint]"
+          TopLeft="284.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico.PrecedenceConstraints[Constraint 1]"
+          TopLeft="284.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico.PrecedenceConstraints[Constraint 2]"
+          TopLeft="284.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="569,409"
+          Size="569,452"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 06 Generar campos de medicion estadistico Generar campos de medicion estadistico"
+          TopLeft="72.5,1217.5" />
+        <NodeLayout
+          Size="599,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 01 EXEC SP FAC COSTO_DARWIN_CARGA_FACT_PROC_05_ANALISIS_COSOT_POR_TRAYECTO_ORG_DEST"
+          TopLeft="49,5.5" />
+        <NodeLayout
+          Size="686,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 02 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_06_ANALISIS_COSOT_POR_TRAYECTO_ORG_DEST_X_CLIENTE"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="410,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 03 EXEC SP FAC COSTO_DARWIN_CARGA_PERIODOS_DASHBOARD"
+          TopLeft="143.5,209.5" />
+        <NodeLayout
+          Size="552,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 04 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_07_Datos_Finales_Ingreso_Y_Costo"
+          TopLeft="72.5000000000001,311.5" />
+        <NodeLayout
+          Size="594,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON\7 05 EXEC SP EXEC FAC COSTO_DARWIN_CARGA_FACT_PROC_08_Datos_ANALISIS_CONTROL_OPERATIVO"
+          TopLeft="51.5000000000001,413.5" />
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON.PrecedenceConstraints[Constraint]"
+          TopLeft="348.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON.PrecedenceConstraints[Constraint 1]"
+          TopLeft="348.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON.PrecedenceConstraints[Constraint 2]"
+          TopLeft="348.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON.PrecedenceConstraints[Constraint 3]"
+          TopLeft="348.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="697,511"
+          Size="697,554"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 07 EJECUCION PROCEDIMEINTOS ALMACENADOS ANTES DE PYTHON"
+          TopLeft="9.5,1744.5" />
+        <NodeLayout
+          Size="376,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\Comentarios de la ejecucion de Python COMENTARIOS PASO 4"
+          TopLeft="139.5,5.5" />
+        <NodeLayout
+          Size="476,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EJECUTAR PROCEDIMEINTO ALMACENADO  AGREGAR EL CAMPO APLICA_EPS_EZU"
+          TopLeft="94.5000000000001,265.5" />
+        <NodeLayout
+          Size="464,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EJECUTAR PROCEDIMEINTO ALMACENADO  AGREGAR EL CAMPO APLICA_RE_EV"
+          TopLeft="95.5000000000001,364.5" />
+        <NodeLayout
+          Size="435,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EJECUTAR PROCEDIMEINTO ALMACENADO  ELIMINAR DATOS DE LA FACT"
+          TopLeft="110,87.5" />
+        <NodeLayout
+          Size="431,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EXEC ACTUALIZAR Y CORREGIR ERRORES DE DATA Y CARGUE A LA FACT"
+          TopLeft="116.5,166.5" />
+        <NodeLayout
+          Size="607,42"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL\EXEC SP FAC - COSTO_DARWIN_CARGA_FACT_PROC_09_CONDICIONALES_ENTRADAS_SALIDAS_FACTURADO"
+          TopLeft="19,465" />
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL.PrecedenceConstraints[Constraint]"
+          TopLeft="329.75,129.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL.PrecedenceConstraints[Constraint 1]"
+          TopLeft="332.25,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL.PrecedenceConstraints[Constraint 2]"
+          TopLeft="330,307.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL.PrecedenceConstraints[Constraint 3]"
+          TopLeft="327.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL.PrecedenceConstraints[Constraint 4]"
+          TopLeft="325,406.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.5"
+              Start="0,0"
+              End="0,51">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="632,544"
+          Size="632,587"
+          Id="Package\EJECUCION REP DATA REPORTES\PASO 4 DE SCRIPT DE PYTHON Cargue FACT PRINCIPAL"
+          TopLeft="36.5,179.5" />
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES.PrecedenceConstraints[Constraint]"
+          TopLeft="349.25,76.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,103"
+              Start="0,0"
+              End="0,95.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,95.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES.PrecedenceConstraints[Constraint 1]"
+          TopLeft="352.75,766.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.5"
+              Start="0,0"
+              End="0,48">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES.PrecedenceConstraints[Constraint 2]"
+          TopLeft="355,1158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.5"
+              Start="0,0"
+              End="0,52">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EJECUCION REP DATA REPORTES.PrecedenceConstraints[Constraint 8]"
+          TopLeft="357.5,1669.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75"
+              Start="0,0"
+              End="0,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="730,2354"
+          Size="730,2396"
+          Id="Package\EJECUCION REP DATA REPORTES"
+          TopLeft="207,675.833333333333" />
+        <NodeLayout
+          Size="205,65"
+          Id="Package\ELIMINAR DESPUES DE AGOSTO AUX UPDATE PARAMETROS AUXILIAR  KM OTROS"
+          TopLeft="1310,287" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\PASO 01 01 SCRIPT PYTHON"
+          TopLeft="949.166666666667,142" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\PASO 01 02  SCRIPT PYTHON"
+          TopLeft="951.666666666667,300" />
+        <NodeLayout
+          Size="376,42"
+          Id="Package\PASO 02 00 DEL SCRIPT DE PYTHON\Comentarios de la ejecucion de Python COMENTARIOS PASO 2"
+          TopLeft="105,5.5" />
+        <NodeLayout
+          Size="575,42"
+          Id="Package\PASO 02 00 DEL SCRIPT DE PYTHON\liberar almacenamiento Tablas TMP para procesamiento Base  COSTO_DARWIN_BASE_OPERACION_MES"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="501,42"
+          Id="Package\PASO 02 00 DEL SCRIPT DE PYTHON\SP  EXEC TMP COSTO_DARWIN_PROC_01_CARGUE_CALCULO_BASE_OPERACION_TEMP"
+          TopLeft="42.5000000000001,209.5" />
+        <NodeLayout
+          Size="507,42"
+          Id="Package\PASO 02 00 DEL SCRIPT DE PYTHON\truncado Tablas TMP para procesamiento Base  COSTO_DARWIN_BASE_OPERACION_MES"
+          TopLeft="39.5,107.5" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\PASO 02 00 DEL SCRIPT DE PYTHON\UPDATE  VERREDAS ORG  -  DEST"
+          TopLeft="171,398" />
+        <EdgeLayout
+          Id="Package\PASO 02 00 DEL SCRIPT DE PYTHON.PrecedenceConstraints[Constraint]"
+          TopLeft="293,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PASO 02 00 DEL SCRIPT DE PYTHON.PrecedenceConstraints[Constraint 1]"
+          TopLeft="292.75,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.5"
+              Start="0,0"
+              End="0,37">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PASO 02 00 DEL SCRIPT DE PYTHON.PrecedenceConstraints[Constraint 4]"
+          TopLeft="293,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PASO 02 00 DEL SCRIPT DE PYTHON.PrecedenceConstraints[Constraint 5]"
+          TopLeft="293,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="586,460"
+          Size="586,503"
+          Id="Package\PASO 02 00 DEL SCRIPT DE PYTHON"
+          TopLeft="282.666666666667,74" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\UPDATE KM IN SOURCING"
+          TopLeft="1311,136" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="1059.66666666667,184">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,116"
+              Start="0,0"
+              End="0,108.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,108.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1411.08333333333,79">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="951.666666666667,323.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-83,0"
+              Start="0,0"
+              End="-75.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-75.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="573.833333333333,577">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,98.833333333333"
+              Start="0,0"
+              End="0,91.333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,91.333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="1311,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-144.833333333333,0"
+              Start="0,0"
+              End="-137.333333333333,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-137.333333333333,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="1676,154.916666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-160,0"
+              Start="0,0"
+              End="-152.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-152.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="1773.25,131.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-39.583333333333"
+              Start="0,0"
+              End="0,-32.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-32.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="1413,178">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,109"
+              Start="0,0"
+              End="0,101.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,101.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="1310,320.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-138.333333333333,0"
+              Start="0,0"
+              End="-130.833333333333,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-130.833333333333,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="571.25,3071.83333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,131.166666666667"
+              Start="0,0"
+              End="0,123.666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,123.666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
