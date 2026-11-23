@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ETL_UIAF_TRIMESTRAL", "ETL_UIAF_TRIMESTRAL\ETL_UIAF_TRIMESTRAL.dtproj", "{26DE22A9-CD19-42C0-B178-D0E7EF161966}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26DE22A9-CD19-42C0-B178-D0E7EF161966}.Development|Default.ActiveCfg = Development
+		{26DE22A9-CD19-42C0-B178-D0E7EF161966}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4434963-CB62-4B12-92C4-E21431B4BCB4}
+	EndGlobalSection
+EndGlobal

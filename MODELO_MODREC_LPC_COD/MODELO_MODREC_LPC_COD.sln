@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "MODELO_MODREC_LPC_COD", "MODELO_MODREC_LPC_COD\MODELO_MODREC_LPC_COD.dtproj", "{89BD768B-DD67-4727-82EB-8BE3A7F81C5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89BD768B-DD67-4727-82EB-8BE3A7F81C5E}.Development|Default.ActiveCfg = Development
+		{89BD768B-DD67-4727-82EB-8BE3A7F81C5E}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {111A62A4-70B0-44F4-8F35-3205EB04C05E}
+	EndGlobalSection
+EndGlobal

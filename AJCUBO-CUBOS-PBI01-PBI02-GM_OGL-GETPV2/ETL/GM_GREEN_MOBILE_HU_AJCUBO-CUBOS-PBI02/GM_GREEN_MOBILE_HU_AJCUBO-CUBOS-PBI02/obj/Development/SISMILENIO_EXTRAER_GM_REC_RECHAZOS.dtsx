@@ -1,0 +1,746 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/25/2018 10:44:28 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D_SERV-DBI01"
+  DTS:CreatorName="SERVIENT\oscarf.rojas"
+  DTS:DTSID="{48E5EB84-BDB7-4963-96D0-BEEB6286F9D4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="SISMILENIO_EXTRAER_GM_REC_RECHAZOS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{122092F1-A412-487C-8E0B-0BA21D626E47}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[serv-btadbc001 Mece Logistico]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{188D21DB-D12C-481D-9606-BD91DD727586}"
+      DTS:ObjectName="serv-btadbc001 Mece Logistico">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=serv-btadbc001;Initial Catalog=Mece_Logistico;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\GM_RECOLECCION_RECHAZOS"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BFC7F606-3688-4C61-B8BF-97CA631F0964}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GM_RECOLECCION_RECHAZOS">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{C13ECDAF-E243-4B95-9B45-A2ACA336D42E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRANSPORTAR"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\Audit"
+                  componentClassID="Microsoft.Lineage"
+                  contactInfo="Audit;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Includes data about the environment in which the package runs. Map system variables to new output columns. For example, add the name of the computer and operator to the data flow."
+                  name="Audit">
+                  <inputs>
+                    <input
+                      refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\Audit.Inputs[Audit Input 1]"
+                      name="Audit Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\Audit.Outputs[Audit Output 1]"
+                      exclusionGroup="1"
+                      name="Audit Output 1"
+                      synchronousInputId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\Audit.Inputs[Audit Input 1]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]"
+                          dataType="date"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]"
+                          name="FECHA_EXTRACCION_DW">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies which audit item this column produces."
+                              name="LineageItemSelected"
+                              typeConverter="LineageItemSelected">4</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM].[GM_RECOLECCION_RECHAZOS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">ROWS_PER_BATCH = 9000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">1000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{8EFE111D-E370-4228-B20E-35452077C2A0}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[PSIG_COL_LOGISTICA_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LOGIN_EMPLEADO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="LOGIN_EMPLEADO"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_EMPLEADO]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_CREACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_CREACION"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_MODIFICACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_MODIFICACION"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_MOTIVO_RECHAZO]"
+                          cachedDataType="i2"
+                          cachedName="ID_MOTIVO_RECHAZO"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MOTIVO_RECHAZO]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_MOTIVO_RECHAZO]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NOMBRE_MOTIVO_RECHAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="NOMBRE_MOTIVO_RECHAZO"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_MOTIVO_RECHAZO]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_MOTIVO_RECHAZO]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_EST_MOTIVO_RECHAZO]"
+                          cachedDataType="ui1"
+                          cachedName="ID_EST_MOTIVO_RECHAZO"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_EST_MOTIVO_RECHAZO]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_EST_MOTIVO_RECHAZO]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_ESTADO_SOLICITUD]"
+                          cachedDataType="ui1"
+                          cachedName="ID_ESTADO_SOLICITUD"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADO_SOLICITUD]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADO_SOLICITUD]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_EXTRACCION_DW]"
+                          cachedDataType="date"
+                          cachedName="FECHA_EXTRACCION_DW"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RESPONSABILIDAD]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="13"
+                          cachedName="RESPONSABILIDAD"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RESPONSABILIDAD]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[RESPONSABILIDAD]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_EMPLEADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="LOGIN_EMPLEADO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MOTIVO_RECHAZO]"
+                          dataType="i4"
+                          name="ID_MOTIVO_RECHAZO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_MOTIVO_RECHAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="NOMBRE_MOTIVO_RECHAZO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_EST_MOTIVO_RECHAZO]"
+                          dataType="i4"
+                          name="ID_EST_MOTIVO_RECHAZO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADO_SOLICITUD]"
+                          dataType="i4"
+                          name="ID_ESTADO_SOLICITUD" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_CREACION" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_MODIFICACION" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_EXTRACCION_DW" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RESPONSABILIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="RESPONSABILIDAD" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [ID_MOTIVO_RECHAZO]
+      ,[NOMBRE_MOTIVO_RECHAZO]
+      ,[ID_EST_MOTIVO_RECHAZO]
+      ,[ID_ESTADO_SOLICITUD]
+      ,[LOGIN_EMPLEADO]
+      ,[FECHA_CREACION]
+      ,[FECHA_MODIFICACION]
+	    ,CASE ID_RESPONSABILIDAD 
+		WHEN 1 THEN 'SERVIENTREGA'
+		WHEN 2 THEN 'CLIENTE'
+		WHEN 3 THEN 'EXTERNO'
+	ELSE 'NO DISPONIBLE'
+	END  AS RESPONSABILIDAD
+  FROM [dbo].[Motivos_Rechazos_SolicRecol] WITH (NOLOCK)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[serv-btadbc001 Mece Logistico]"
+                      connectionManagerRefId="Package.ConnectionManagers[serv-btadbc001 Mece Logistico]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_EMPLEADO]"
+                          length="15"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]"
+                          name="LOGIN_EMPLEADO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                          name="FECHA_CREACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                          name="FECHA_MODIFICACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_MOTIVO_RECHAZO]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_MOTIVO_RECHAZO]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_MOTIVO_RECHAZO]"
+                          name="ID_MOTIVO_RECHAZO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_MOTIVO_RECHAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_MOTIVO_RECHAZO]"
+                          length="40"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_MOTIVO_RECHAZO]"
+                          name="NOMBRE_MOTIVO_RECHAZO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_EST_MOTIVO_RECHAZO]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_EST_MOTIVO_RECHAZO]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_EST_MOTIVO_RECHAZO]"
+                          name="ID_EST_MOTIVO_RECHAZO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADO_SOLICITUD]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADO_SOLICITUD]"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADO_SOLICITUD]"
+                          name="ID_ESTADO_SOLICITUD"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[RESPONSABILIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RESPONSABILIDAD]"
+                          length="13"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[RESPONSABILIDAD]"
+                          name="RESPONSABILIDAD"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_EMPLEADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="LOGIN_EMPLEADO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_CREACION" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_MODIFICACION" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_MOTIVO_RECHAZO]"
+                          dataType="i2"
+                          name="ID_MOTIVO_RECHAZO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_MOTIVO_RECHAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="NOMBRE_MOTIVO_RECHAZO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_EST_MOTIVO_RECHAZO]"
+                          dataType="ui1"
+                          name="ID_EST_MOTIVO_RECHAZO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADO_SOLICITUD]"
+                          dataType="ui1"
+                          name="ID_ESTADO_SOLICITUD" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RESPONSABILIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          name="RESPONSABILIDAD" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_MOTIVO_RECHAZO]"
+                          dataType="i2"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_MOTIVO_RECHAZO]"
+                          name="ID_MOTIVO_RECHAZO" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_MOTIVO_RECHAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_MOTIVO_RECHAZO]"
+                          name="NOMBRE_MOTIVO_RECHAZO" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_EST_MOTIVO_RECHAZO]"
+                          dataType="ui1"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_EST_MOTIVO_RECHAZO]"
+                          name="ID_EST_MOTIVO_RECHAZO" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ESTADO_SOLICITUD]"
+                          dataType="ui1"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ESTADO_SOLICITUD]"
+                          name="ID_ESTADO_SOLICITUD" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOGIN_EMPLEADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOGIN_EMPLEADO]"
+                          name="LOGIN_EMPLEADO" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                          name="FECHA_CREACION" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                          name="FECHA_MODIFICACION" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RESPONSABILIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RESPONSABILIDAD]"
+                          name="RESPONSABILIDAD" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR.Paths[Audit Output 1]"
+                  endId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Audit Output 1"
+                  startId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\Audit.Outputs[Audit Output 1]" />
+                <path
+                  refId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR.Paths[OLE DB Source Output]"
+                  endId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\Audit.Inputs[Audit Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GM_RECOLECCION_RECHAZOS\TRUNCATE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0403F675-6803-4C09-8056-634FB0210120}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{8EFE111D-E370-4228-B20E-35452077C2A0}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE  [DIM].[GM_RECOLECCION_RECHAZOS]&#xA;&#xA;INSERT INTO [DIM].[GM_RECOLECCION_RECHAZOS] &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;(ID_MOTIVO_RECHAZO,NOMBRE_MOTIVO_RECHAZO,ID_EST_MOTIVO_RECHAZO,ID_ESTADO_SOLICITUD,LOGIN_EMPLEADO,FECHA_CREACION,FECHA_MODIFICACION,FECHA_EXTRACCION_DW, RESPONSABILIDAD)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;VALUES&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;('-888','NO DISPONIBLE','-888','-888','NO DISPONIBLE','1900-01-01 00:00:00.000','1900-01-01 00:00:00.000','1900-01-01 00:00:00.000','NO DISPONIBLE')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GM_RECOLECCION_RECHAZOS.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4C6DFDFA-CF26-4514-8A4D-844102A00629}"
+          DTS:From="Package\GM_RECOLECCION_RECHAZOS\TRUNCATE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR"
+          TopLeft="66,114" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\GM_RECOLECCION_RECHAZOS\TRUNCATE"
+          TopLeft="71.5,24.5" />
+        <EdgeLayout
+          Id="Package\GM_RECOLECCION_RECHAZOS.PrecedenceConstraints[Constraint]"
+          TopLeft="139.25,66.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.5"
+              Start="0,0"
+              End="0,40">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="275,188"
+          Size="275,231"
+          Id="Package\GM_RECOLECCION_RECHAZOS"
+          TopLeft="280,91" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="103,42"
+          Id="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\Audit"
+          TopLeft="167,149" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source"
+          TopLeft="145,51" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination"
+          TopLeft="134,260" />
+        <EdgeLayout
+          Id="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR.Paths[OLE DB Source Output]"
+          TopLeft="219.25,93">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR.Paths[Audit Output 1]"
+          TopLeft="219,191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69"
+              Start="0,0"
+              End="0,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GM_RECOLECCION_RECHAZOS\TRANSPORTAR\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

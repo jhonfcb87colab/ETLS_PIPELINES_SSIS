@@ -1,0 +1,193 @@
+﻿<MiningStructure xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Tabla1 Estructura</ID>
+  <Name>Tabla1 Estructura</Name>
+  <CreatedTimestamp>2026-11-12T21:59:50.793333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2026-11-12T21:59:50.793333Z</LastSchemaUpdate>
+  <Description>Estructura de la tabla Tabla1 de la hoja Hoja1 del libro Libro1</Description>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>1699-12-31T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <Columns>
+    <Column xsi:type="ScalarMiningStructureColumn">
+      <ID>ID_Macroproceso</ID>
+      <Name>ID_Macroproceso</Name>
+      <IsKey>true</IsKey>
+      <Type>Long</Type>
+      <Content>Key</Content>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Trimming>Left</Trimming>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="TableMiningStructureColumn">
+      <Annotations>
+        <Annotation>
+          <Name>MDXFilterComponent</Name>
+          <Value></Value>
+        </Annotation>
+      </Annotations>
+      <ID>Nombre_Proceso_Table</ID>
+      <Name>Nombre_Proceso_Table</Name>
+      <ForeignKeyColumns>
+        <ForeignKeyColumn>
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+        </ForeignKeyColumn>
+      </ForeignKeyColumns>
+      <Columns>
+        <Column xsi:type="ScalarMiningStructureColumn">
+          <ID>Nombre_Proceso</ID>
+          <Name>Nombre_Proceso</Name>
+          <IsKey>true</IsKey>
+          <Type>Text</Type>
+          <Content>Key</Content>
+          <KeyColumns>
+            <KeyColumn>
+              <DataType>WChar</DataType>
+              <DataSize>-1</DataSize>
+              <Trimming>Left</Trimming>
+            </KeyColumn>
+          </KeyColumns>
+        </Column>
+      </Columns>
+    </Column>
+  </Columns>
+  <MiningModels>
+    <MiningModel>
+      <ID>Asociar Nombre_Proceso</ID>
+      <Name>Asociar Nombre_Proceso</Name>
+      <CreatedTimestamp>2026-11-12T21:59:50.84Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:59:50.84Z</LastSchemaUpdate>
+      <Description>Modelo Microsoft_Association_Rules generado en la tabla Tabla1</Description>
+      <LastProcessed>1699-12-31T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Association_Rules</Algorithm>
+      <AlgorithmParameters>
+        <AlgorithmParameter>
+          <Name>MINIMUM_SUPPORT</Name>
+          <Value xsi:type="xsd:double">10</Value>
+        </AlgorithmParameter>
+        <AlgorithmParameter>
+          <Name>MINIMUM_PROBABILITY</Name>
+          <Value xsi:type="xsd:double">0.4</Value>
+        </AlgorithmParameter>
+      </AlgorithmParameters>
+      <Columns>
+        <Column>
+          <ID>ID_Macroproceso</ID>
+          <Name>ID_Macroproceso</Name>
+          <SourceColumnID>ID_Macroproceso</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column>
+          <ID>Nombre_Proceso_Table</ID>
+          <Name>Nombre_Proceso_Table</Name>
+          <SourceColumnID>Nombre_Proceso_Table</SourceColumnID>
+          <Usage>Predict</Usage>
+          <Columns>
+            <Column>
+              <ID>Nombre_Proceso</ID>
+              <Name>Nombre_Proceso</Name>
+              <SourceColumnID>Nombre_Proceso</SourceColumnID>
+              <Usage>Key</Usage>
+            </Column>
+          </Columns>
+        </Column>
+      </Columns>
+      <AllowDrillThrough>true</AllowDrillThrough>
+      <Language>1033</Language>
+      <Collation>Latin1_General_CI_AS</Collation>
+    </MiningModel>
+  </MiningModels>
+  <MiningStructurePermissions>
+    <MiningStructurePermission>
+      <ID>MiningStructurePermission</ID>
+      <Name>MiningStructurePermission</Name>
+      <CreatedTimestamp>2026-11-12T21:59:50.84Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:59:50.84Z</LastSchemaUpdate>
+      <RoleID>Role 1</RoleID>
+    </MiningStructurePermission>
+    <MiningStructurePermission>
+      <ID>MiningStructurePermission 1</ID>
+      <Name>MiningStructurePermission 1</Name>
+      <CreatedTimestamp>2026-11-12T21:59:50.873333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:59:50.873333Z</LastSchemaUpdate>
+      <RoleID>Role 2</RoleID>
+    </MiningStructurePermission>
+    <MiningStructurePermission>
+      <ID>MiningStructurePermission 2</ID>
+      <Name>MiningStructurePermission 2</Name>
+      <CreatedTimestamp>2026-11-12T21:59:50.873333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:59:50.873333Z</LastSchemaUpdate>
+      <RoleID>Role 96</RoleID>
+    </MiningStructurePermission>
+    <MiningStructurePermission>
+      <ID>MiningStructurePermission 3</ID>
+      <Name>MiningStructurePermission 3</Name>
+      <CreatedTimestamp>2026-11-12T21:59:50.886667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:59:50.886667Z</LastSchemaUpdate>
+      <RoleID>Role 90</RoleID>
+    </MiningStructurePermission>
+    <MiningStructurePermission>
+      <ID>MiningStructurePermission 4</ID>
+      <Name>MiningStructurePermission 4</Name>
+      <CreatedTimestamp>2026-11-12T21:59:50.903333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:59:50.903333Z</LastSchemaUpdate>
+      <RoleID>Role 118</RoleID>
+    </MiningStructurePermission>
+    <MiningStructurePermission>
+      <ID>MiningStructurePermission 5</ID>
+      <Name>MiningStructurePermission 5</Name>
+      <CreatedTimestamp>2026-11-12T21:59:50.916667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:59:50.916667Z</LastSchemaUpdate>
+      <RoleID>Role 20</RoleID>
+    </MiningStructurePermission>
+  </MiningStructurePermissions>
+  <ErrorConfiguration>
+    <KeyErrorLimit>-1</KeyErrorLimit>
+    <KeyErrorAction>DiscardRecord</KeyErrorAction>
+    <KeyNotFound>IgnoreError</KeyNotFound>
+  </ErrorConfiguration>
+  <ddl100_100:HoldoutMaxPercent>30</ddl100_100:HoldoutMaxPercent>
+</MiningStructure>

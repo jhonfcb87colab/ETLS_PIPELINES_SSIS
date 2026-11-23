@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="02_TRANSFORMACION"
   DTS:PackageType="5"
-  DTS:VersionBuild="43"
-  DTS:VersionGUID="{36048737-6FFC-4DBE-9D12-5A414273A2F9}">
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{48851570-0D40-419A-A058-4DF022F594A2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -20,23 +20,23 @@
       DTS:CreationName=""
       DTS:DTSID="{33411AFC-FA8A-4DDB-8DC2-DDFA85EFADB5}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;20260901&quot;"
+      DTS:Expression="&quot;20261001&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="fecha_ejecucion_desde">
       <DTS:VariableValue
-        DTS:DataType="8">20260901</DTS:VariableValue>
+        DTS:DataType="8">20261001</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{F6523CAF-4779-410B-885C-EC3CCFC20221}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;20261101&quot;"
+      DTS:Expression="&quot;20261201&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="fecha_ejecucion_hasta">
       <DTS:VariableValue
-        DTS:DataType="8">20261101</DTS:VariableValue>
+        DTS:DataType="8">20261201</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -47,7 +47,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="STR01_FECHA_INICIAL">
       <DTS:VariableValue
-        DTS:DataType="8">20260901</DTS:VariableValue>
+        DTS:DataType="8">20261001</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -58,7 +58,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="STR02_FECHA_FINAL">
       <DTS:VariableValue
-        DTS:DataType="8">20261101</DTS:VariableValue>
+        DTS:DataType="8">20261201</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -92,7 +92,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="1 Script para copiar los datos de los documentos de mece a tmp_borrar"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -132,7 +132,7 @@
                   DTS:LocaleID="-1"
                   DTS:ObjectName="PARTE 1 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="1">
+                  DTS:ThreadHint="0">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -149,7 +149,7 @@
                   DTS:LocaleID="-1"
                   DTS:ObjectName="PARTE 2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2 CORREGIDO"
                   DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-                  DTS:ThreadHint="1">
+                  DTS:ThreadHint="0">
                   <DTS:Variables />
                   <DTS:ObjectData>
                     <SQLTask:SqlTaskData
@@ -178,7 +178,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="Truncado tablas temporales principal"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -225,7 +225,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="PARTE 3 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -242,7 +242,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="PARTE 4 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -397,7 +397,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="PARTE 01"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -414,7 +414,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="PARTE 02"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -431,7 +431,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="PARTE 03"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
@@ -468,7 +468,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Paso 1-0 1 Script para copiar los datos de los documentos de mece a tmp_borrar"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -499,7 +499,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Se debe pasar a un sp Validar Paso 1-2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -516,7 +516,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncado tablas temporales principal"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -843,6 +843,93 @@
           Id="Package\PASO 2   script 2 EJECUTAR POR MES"
           TopLeft="351.5,459.642857142857" />
         <NodeLayout
+          Size="125,42"
+          Id="Package\Pasos Extraccion y preparacion de datos\MULT Paso 1-2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2\PARTE 01"
+          TopLeft="27,4" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\Pasos Extraccion y preparacion de datos\MULT Paso 1-2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2\PARTE 02"
+          TopLeft="30,55" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\Pasos Extraccion y preparacion de datos\MULT Paso 1-2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2\PARTE 03"
+          TopLeft="32,108" />
+        <EdgeLayout
+          Id="Package\Pasos Extraccion y preparacion de datos\MULT Paso 1-2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2.PrecedenceConstraints[Constraint 2]"
+          TopLeft="27,25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="3,45.3333333333333"
+              Start="0,0"
+              End="-4.5,45.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,41.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,41.3333333333333"
+                    Point2="-22.5,45.3333333333333"
+                    Point3="-18.5,45.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-4.5,45.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Pasos Extraccion y preparacion de datos\MULT Paso 1-2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2.PrecedenceConstraints[Constraint 3]"
+          TopLeft="30,81.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="2,47.3333333333333"
+              Start="0,0"
+              End="-5.5,47.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,43.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,43.3333333333333"
+                    Point2="-22.5,47.3333333333333"
+                    Point3="-18.5,47.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-5.5,47.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="162,155"
+          Size="162,198"
+          Id="Package\Pasos Extraccion y preparacion de datos\MULT Paso 1-2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2"
+          TopLeft="458,98" />
+        <NodeLayout
           Size="461,42"
           Id="Package\Pasos Extraccion y preparacion de datos\Paso 1-0 1 Script para copiar los datos de los documentos de mece a tmp_borrar"
           TopLeft="5.5,5.5" />
@@ -898,93 +985,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="125,42"
-          Id="Package\Pasos Extraccion y preparacion de datos\MULT Paso 1-2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2\PARTE 01"
-          TopLeft="27,4" />
-        <EdgeLayout
-          Id="Package\Pasos Extraccion y preparacion de datos\MULT Paso 1-2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2.PrecedenceConstraints[Constraint 2]"
-          TopLeft="27,25">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="3,45.3333333333333"
-              Start="0,0"
-              End="-4.5,45.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,41.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,41.3333333333333"
-                    Point2="-22.5,45.3333333333333"
-                    Point3="-18.5,45.3333333333333" />
-                  <mssgle:LineSegment
-                    End="-4.5,45.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="125,42"
-          Id="Package\Pasos Extraccion y preparacion de datos\MULT Paso 1-2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2\PARTE 02"
-          TopLeft="30,55" />
-        <EdgeLayout
-          Id="Package\Pasos Extraccion y preparacion de datos\MULT Paso 1-2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2.PrecedenceConstraints[Constraint 3]"
-          TopLeft="30,81.6666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="2,47.3333333333333"
-              Start="0,0"
-              End="-5.5,47.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,43.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,43.3333333333333"
-                    Point2="-22.5,47.3333333333333"
-                    Point3="-18.5,47.3333333333333" />
-                  <mssgle:LineSegment
-                    End="-5.5,47.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="125,42"
-          Id="Package\Pasos Extraccion y preparacion de datos\MULT Paso 1-2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2\PARTE 03"
-          TopLeft="32,108" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="162,155"
-          Size="162,198"
-          Id="Package\Pasos Extraccion y preparacion de datos\MULT Paso 1-2 INFO_GUIAS_MANIFIESTOS_VOLUMEN_PIEZAS V2"
-          TopLeft="458,98" />
         <EdgeLayout
           Id="Package\Pasos Extraccion y preparacion de datos.PrecedenceConstraints[Constraint 2]"
           TopLeft="335.5,199.75">

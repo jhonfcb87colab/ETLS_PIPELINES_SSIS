@@ -1,0 +1,49 @@
+﻿<Role xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Role 84</ID>
+  <Name>EJE_DIRECCION_REGIONALES</Name>
+  <CreatedTimestamp>2026-11-12T21:57:12.513333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2026-11-12T21:57:12.513333Z</LastSchemaUpdate>
+  <Description>EJE DIRECCION REGIONALES</Description>
+  <Members>
+    <Member>
+      <Name>SERVIENT\micanas</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-12216</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\jhon.lopez</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-205803</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\diana.alzate</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-254423</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\lopezcj</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-10301</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\mileidy.perez</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-244365</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\elkin.gaitan</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-205811</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\cristhian.madrigal</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-270672</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\fredy.guataquira</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-273621</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\andres.parra</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-182111</Sid>
+    </Member>
+    <Member>
+      <Name>SERVIENT\roberth.maestre</Name>
+      <Sid>S-1-5-21-527237240-1336601894-682003330-284388</Sid>
+    </Member>
+  </Members>
+</Role>

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "MODELO MPCCO GTP_V2", "MODELO MPCCO GTP_V2\MODELO MPCCO GTP_V2.dtproj", "{F4553D34-C27F-42A5-9CE0-A7B8A2D8BD13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4553D34-C27F-42A5-9CE0-A7B8A2D8BD13}.Development|Default.ActiveCfg = Development
+		{F4553D34-C27F-42A5-9CE0-A7B8A2D8BD13}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B60F94EC-C4DC-4397-9E1D-61ACC75005A5}
+	EndGlobalSection
+EndGlobal

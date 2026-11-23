@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="03_CARGA"
   DTS:PackageType="5"
-  DTS:VersionBuild="63"
-  DTS:VersionGUID="{0E86D01E-1479-4155-B001-56C0BCD64EE9}">
+  DTS:VersionBuild="64"
+  DTS:VersionGUID="{DE0F98DB-7824-44C0-97DF-8D8EE78C584A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -25,7 +25,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="PERIODO_EJECUCION">
       <DTS:VariableValue
-        DTS:DataType="3">202609</DTS:VariableValue>
+        DTS:DataType="3">202610</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -4827,6 +4827,7 @@ where ID_PROCESO&lt;&gt;14</property>
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">/*
 Nomenclatura Ing Henry
 ID_PROPIETARIO	MODELOS_DE_CONTRATACION_FLOTA
+0   CDS  
 1	INSOURCING
 2	COSOURCING
 3	INSOURCING COURIER A PIE
@@ -4839,13 +4840,16 @@ ID_PROPIETARIO	MODELOS_DE_CONTRATACION_FLOTA
 9	INSOURCING COURIER CICLA
 10	COSTO EMPRESARIO SATELITE
 11	COSTO AEREO
-12	AFOROS
+12	AFOROS /OPERADOR CLS
 13	ESPECIAL
 14	INSOURCING COURIER MOTO CARRO
 16	OUTSOURCING PXP CLICOH
 15	OUTSOURCING PXP LODYTRANS
 17	OUTSOURCING PXP AFORADORES EXTERNOS
+
 */
+
+
 
 
 
@@ -6209,6 +6213,13 @@ FROM CTE2
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="/*&#xD;&#xA;Nomenclatura Ing Henry&#xD;&#xA;ID_PROPIETARIO MODELOS_DE_CONTRATACION_FLOTA&#xD;&#xA;0   CDS  &#xD;&#xA;1 INSOURCING&#xD;&#xA;2 COSOURCING&#xD;&#xA;3 INSOURCING COURIER A PIE&#xD;&#xA;3 OUTSOURCING FLETE FIJO&#xD;&#xA;4 OUTSOURCING CONDUCTOR PXP&#xD;&#xA;5 OUTSOURCING AUXILIAR PXP&#xD;&#xA;6 ULTIMA MILLA&#xD;&#xA;7 INSOURCING COURIER A PIE&#xD;&#xA;8 INSOURCING COURIER MOTO&#xD;&#xA;9 INSOURCING COURIER CICLA&#xD;&#xA;10 COSTO EMPRESARIO SATELITE&#xD;&#xA;11 COSTO AEREO&#xD;&#xA;12 AFOROS /OPERADOR CLS&#xD;&#xA;13 ESPECIAL&#xD;&#xA;14 INSOURCING COURIER MOTO CARRO&#xD;&#xA;16 OUTSOURCING PXP CLICOH&#xD;&#xA;15 OUTSOURCING PXP LODYTRANS&#xD;&#xA;17 OUTSOURCING PXP AFORADORES EXTERNOS&#xD;&#xA;&#xD;&#xA;*/&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="325,455"
+          Id="3a12114e-2585-4228-b882-5877bbddb1ec"
+          TopLeft="1351,250" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -6484,13 +6495,13 @@ FROM CTE2
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="252,42"
-          Id="Package\OBTENER TARIFAS LIQUIDACION PAGO PXP Y AFORADORES\TRANSPORTE BI COSTO_DARWIN_BASE_LIQUIDACIONES PXP AFORO\bk MANIFIESTOS Y LIQUIDACIONES"
-          TopLeft="105,20" />
-        <NodeLayout
           Size="398,42"
           Id="Package\OBTENER TARIFAS LIQUIDACION PAGO PXP Y AFORADORES\TRANSPORTE BI COSTO_DARWIN_BASE_LIQUIDACIONES PXP AFORO\DESTINO BI COSTO_DARWIN_BASE_LIQUIDACIONES_PXP_AFORO"
           TopLeft="5,174" />
+        <NodeLayout
+          Size="252,42"
+          Id="Package\OBTENER TARIFAS LIQUIDACION PAGO PXP Y AFORADORES\TRANSPORTE BI COSTO_DARWIN_BASE_LIQUIDACIONES PXP AFORO\bk MANIFIESTOS Y LIQUIDACIONES"
+          TopLeft="105,20" />
         <EdgeLayout
           Id="Package\OBTENER TARIFAS LIQUIDACION PAGO PXP Y AFORADORES\TRANSPORTE BI COSTO_DARWIN_BASE_LIQUIDACIONES PXP AFORO.Paths[OLE DB Source Output]"
           TopLeft="231,62">

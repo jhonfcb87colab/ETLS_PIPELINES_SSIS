@@ -1,0 +1,405 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>CLIENTES_SUCURSALES_DEPENDENCIA</ID>
+  <Name>CLIENTES_SUCURSALES_DEPENDENCIA</Name>
+  <CreatedTimestamp>2026-11-12T21:57:27.133333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2026-11-12T21:57:27.133333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>1699-12-31T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding">
+    <DataSourceViewID>SIG_COL_LOGISTICA_DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration>
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <DimensionPermissions>
+    <DimensionPermission>
+      <ID>DimensionPermission</ID>
+      <Name>DimensionPermission</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.146667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.146667Z</LastSchemaUpdate>
+      <RoleID>Role 1</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 1</ID>
+      <Name>DimensionPermission 1</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.146667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.146667Z</LastSchemaUpdate>
+      <RoleID>Role 2</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 2</ID>
+      <Name>DimensionPermission 2</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.163333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.163333Z</LastSchemaUpdate>
+      <RoleID>Role 3</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 3</ID>
+      <Name>DimensionPermission 3</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.163333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.163333Z</LastSchemaUpdate>
+      <RoleID>Role 4</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 4</ID>
+      <Name>DimensionPermission 4</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.18Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.18Z</LastSchemaUpdate>
+      <RoleID>Role 7</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 5</ID>
+      <Name>DimensionPermission 5</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.18Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.18Z</LastSchemaUpdate>
+      <RoleID>Role 11</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 6</ID>
+      <Name>DimensionPermission 6</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.193333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.193333Z</LastSchemaUpdate>
+      <RoleID>Role 116</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 7</ID>
+      <Name>DimensionPermission 7</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.193333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.193333Z</LastSchemaUpdate>
+      <RoleID>Role 96</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 8</ID>
+      <Name>DimensionPermission 8</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.21Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.21Z</LastSchemaUpdate>
+      <RoleID>Role 124</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 9</ID>
+      <Name>DimensionPermission 9</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.21Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.21Z</LastSchemaUpdate>
+      <RoleID>Role 134</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 10</ID>
+      <Name>DimensionPermission 10</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.226667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.226667Z</LastSchemaUpdate>
+      <RoleID>Role 71</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 11</ID>
+      <Name>DimensionPermission 11</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.226667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.226667Z</LastSchemaUpdate>
+      <RoleID>Role 90</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 12</ID>
+      <Name>DimensionPermission 12</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.243333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.243333Z</LastSchemaUpdate>
+      <RoleID>Role 118</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 13</ID>
+      <Name>DimensionPermission 13</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.243333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.243333Z</LastSchemaUpdate>
+      <RoleID>Role 127</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 14</ID>
+      <Name>DimensionPermission 14</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.256667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.256667Z</LastSchemaUpdate>
+      <RoleID>Role 81</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 15</ID>
+      <Name>DimensionPermission 15</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.256667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.256667Z</LastSchemaUpdate>
+      <RoleID>Role 78</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+    <DimensionPermission>
+      <ID>DimensionPermission 16</ID>
+      <Name>DimensionPermission 16</Name>
+      <CreatedTimestamp>2026-11-12T21:57:27.273333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-12T21:57:27.273333Z</LastSchemaUpdate>
+      <RoleID>Role 20</RoleID>
+      <Read>Allowed</Read>
+    </DimensionPermission>
+  </DimensionPermissions>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
+  <Attributes>
+    <Attribute>
+      <ID>Codigo_Ser</ID>
+      <Name>Codigo_Ser</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>15</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding">
+            <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+            <ColumnID>CODIGO_SER</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>15</DataSize>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding">
+          <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+          <ColumnID>CODIGO_SER</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>Cliente</AttributeID>
+          <Name>Cliente</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Mes_Vencido</AttributeID>
+          <Name>Mes_Vencido</Name>
+        </AttributeRelationship>
+        <AttributeRelationship>
+          <AttributeID>Id_Cliente</AttributeID>
+          <Name>Id_Cliente</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Sucursal</ID>
+      <Name>Sucursal</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+            <ColumnID>ID_SUCURSAL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+          <ColumnID>NOMBRE_SUCURSAL</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>Dependencia</AttributeID>
+          <Name>Dependencia</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Cliente</ID>
+      <Name>Cliente</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+            <ColumnID>NOMBRE_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+          <ColumnID>NOMBRE_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship>
+          <AttributeID>Sucursal</AttributeID>
+          <Name>Sucursal</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Dependencia</ID>
+      <Name>Dependencia</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>SmallInt</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+            <ColumnID>ID_DEPENDENCIA</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>150</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+          <ColumnID>NOMBRE_DEPENDENCIA</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Mes_Vencido</ID>
+      <Name>Mes_Vencido</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>Boolean</DataType>
+          <Source xsi:type="ColumnBinding">
+            <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+            <ColumnID>MES_VENCIDO</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+          <ColumnID>MES_VENCIDO</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute>
+      <ID>Id_Cliente</ID>
+      <Name>Id_Cliente</Name>
+      <KeyColumns>
+        <KeyColumn>
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding">
+            <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+            <ColumnID>ID_CLIENTE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>DIM_CLIENTES_SUCURSALES_DEPENDENCIA</TableID>
+          <ColumnID>ID_CLIENTE</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy>
+      <ID>Hierarchy</ID>
+      <Name>Clientes_Sucursales_Dependencia</Name>
+      <Levels>
+        <Level>
+          <ID>Cliente</ID>
+          <Name>Cliente</Name>
+          <SourceAttributeID>Cliente</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Sucursal</ID>
+          <Name>Sucursal</Name>
+          <SourceAttributeID>Sucursal</SourceAttributeID>
+        </Level>
+        <Level>
+          <ID>Dependencia</ID>
+          <Name>Dependencia</Name>
+          <SourceAttributeID>Dependencia</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

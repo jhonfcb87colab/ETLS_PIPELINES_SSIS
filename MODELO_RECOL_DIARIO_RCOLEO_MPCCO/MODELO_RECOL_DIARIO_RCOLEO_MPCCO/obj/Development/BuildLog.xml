@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectInfo>
+    <Name>MODELO RECOLECCIONES DIARIO</Name>
+    <LastWriteTime>2026-03-16T21:53:32.0233785Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+  </ProjectInfo>
+  <LastBuildInfos>
+    <ProjectBuildItemInfo>
+      <Name>01_EXTRACCION RECOLECCION GM.dtsx</Name>
+      <LastWriteTime>2026-03-16T21:34:39.5306846Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>03_TRANSFORMACION RECOLECCION GM.dtsx</Name>
+      <LastWriteTime>2026-04-20T15:34:15.6993084Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>00_LLAMAR_PAQUETES.dtsx</Name>
+      <LastWriteTime>2026-03-16T21:34:39.6046765Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>04_CARGA_GM_RECOLECCION_SIG_LOGISTICA.dtsx</Name>
+      <LastWriteTime>2026-03-16T21:34:39.6206756Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>06_CARGA_TIPO_CLIENTE.dtsx</Name>
+      <LastWriteTime>2026-03-16T21:34:39.6286763Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>07_CARGA_DIM_VENCIMIENTO.dtsx</Name>
+      <LastWriteTime>2026-03-16T21:58:14.3840651Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>02_DIMENSION_ESTADOS_TIPOS_VEJEZ_CLIENTES.dtsx</Name>
+      <LastWriteTime>2026-03-16T21:34:39.6726791Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>05_CARGA_GM_RECOLECCION_SIG_COL_LOGISTICA.dtsx</Name>
+      <LastWriteTime>2026-03-16T21:34:39.7116763Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+  </LastBuildInfos>
+</BuildLog>

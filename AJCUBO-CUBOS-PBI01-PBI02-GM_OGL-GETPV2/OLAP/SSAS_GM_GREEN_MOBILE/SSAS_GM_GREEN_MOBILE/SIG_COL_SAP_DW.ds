@@ -1,0 +1,465 @@
+﻿<DataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xsi:type="RelationalDataSource" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SIG_COL_SAP_DW</ID>
+  <Name>SIG_COL_SAP_DW</Name>
+  <CreatedTimestamp>2026-11-12T21:57:13.736667Z</CreatedTimestamp>
+  <LastSchemaUpdate>2026-11-13T12:55:49.113333Z</LastSchemaUpdate>
+  <ConnectionString>Provider=SQLNCLI11.1;Data Source=SERV-DBI01;Integrated Security=SSPI;Initial Catalog=SIG_COL_SAP_DW</ConnectionString>
+  <ConnectionStringSecurity>Unchanged</ConnectionStringSecurity>
+  <ImpersonationInfo>
+    <ImpersonationMode>ImpersonateAccount</ImpersonationMode>
+    <Account>SERVIENT\inteligencianegocios</Account>
+    <ImpersonationInfoSecurity>PasswordRemoved</ImpersonationInfoSecurity>
+  </ImpersonationInfo>
+  <Timeout>PT0S</Timeout>
+  <DataSourcePermissions>
+    <DataSourcePermission>
+      <ID>DataSourcePermission</ID>
+      <Name>DataSourcePermission</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.736667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.44Z</LastSchemaUpdate>
+      <RoleID>Role 76</RoleID>
+      <ReadDefinition>Allowed</ReadDefinition>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 2</ID>
+      <Name>DataSourcePermission 2</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.75Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.456667Z</LastSchemaUpdate>
+      <RoleID>Role 52</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 4</ID>
+      <Name>DataSourcePermission 4</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.75Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.456667Z</LastSchemaUpdate>
+      <RoleID>Role 78</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 5</ID>
+      <Name>DataSourcePermission 5</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.75Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.47Z</LastSchemaUpdate>
+      <RoleID>Role 79</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 6</ID>
+      <Name>DataSourcePermission 6</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.766667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.486667Z</LastSchemaUpdate>
+      <RoleID>Role 83</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 7</ID>
+      <Name>DataSourcePermission 7</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.766667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.486667Z</LastSchemaUpdate>
+      <RoleID>Role 84</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 8</ID>
+      <Name>DataSourcePermission 8</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.78Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.503333Z</LastSchemaUpdate>
+      <RoleID>Role 88</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 10</ID>
+      <Name>DataSourcePermission 10</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.78Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.503333Z</LastSchemaUpdate>
+      <RoleID>Role 82</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 12</ID>
+      <Name>DataSourcePermission 12</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.78Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.516667Z</LastSchemaUpdate>
+      <RoleID>Role 91</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 13</ID>
+      <Name>DataSourcePermission 13</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.796667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.516667Z</LastSchemaUpdate>
+      <RoleID>Role 92</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 15</ID>
+      <Name>DataSourcePermission 15</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.796667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.533333Z</LastSchemaUpdate>
+      <RoleID>Role 97</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 16</ID>
+      <Name>DataSourcePermission 16</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.813333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.533333Z</LastSchemaUpdate>
+      <RoleID>Role 98</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 18</ID>
+      <Name>DataSourcePermission 18</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.813333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.55Z</LastSchemaUpdate>
+      <RoleID>Role 103</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 19</ID>
+      <Name>DataSourcePermission 19</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.813333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.55Z</LastSchemaUpdate>
+      <RoleID>Role 104</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 21</ID>
+      <Name>DataSourcePermission 21</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.826667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.55Z</LastSchemaUpdate>
+      <RoleID>Role 109</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 22</ID>
+      <Name>DataSourcePermission 22</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.826667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.566667Z</LastSchemaUpdate>
+      <RoleID>Role 110</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 24</ID>
+      <Name>DataSourcePermission 24</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.843333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.566667Z</LastSchemaUpdate>
+      <RoleID>Role 115</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 25</ID>
+      <Name>DataSourcePermission 25</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.843333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.58Z</LastSchemaUpdate>
+      <RoleID>Role 116</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 26</ID>
+      <Name>DataSourcePermission 26</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.843333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.58Z</LastSchemaUpdate>
+      <RoleID>Role 118</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 27</ID>
+      <Name>DataSourcePermission 27</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.86Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.596667Z</LastSchemaUpdate>
+      <RoleID>Role 119</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 29</ID>
+      <Name>DataSourcePermission 29</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.86Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.596667Z</LastSchemaUpdate>
+      <RoleID>Role 121</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 30</ID>
+      <Name>DataSourcePermission 30</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.86Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.613333Z</LastSchemaUpdate>
+      <RoleID>Role 122</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 31</ID>
+      <Name>DataSourcePermission 31</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.876667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.613333Z</LastSchemaUpdate>
+      <RoleID>Role 124</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 32</ID>
+      <Name>DataSourcePermission 32</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.876667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.613333Z</LastSchemaUpdate>
+      <RoleID>Role 125</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 34</ID>
+      <Name>DataSourcePermission 34</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.876667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.626667Z</LastSchemaUpdate>
+      <RoleID>Role 127</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 35</ID>
+      <Name>DataSourcePermission 35</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.89Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.626667Z</LastSchemaUpdate>
+      <RoleID>Role 128</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 36</ID>
+      <Name>DataSourcePermission 36</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.89Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.643333Z</LastSchemaUpdate>
+      <RoleID>Role 130</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 37</ID>
+      <Name>DataSourcePermission 37</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.906667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.643333Z</LastSchemaUpdate>
+      <RoleID>Role 131</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 39</ID>
+      <Name>DataSourcePermission 39</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.923333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.66Z</LastSchemaUpdate>
+      <RoleID>Role 133</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 40</ID>
+      <Name>DataSourcePermission 40</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.923333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.66Z</LastSchemaUpdate>
+      <RoleID>Role 134</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 41</ID>
+      <Name>DataSourcePermission 41</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.923333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.66Z</LastSchemaUpdate>
+      <RoleID>Role 136</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 42</ID>
+      <Name>DataSourcePermission 42</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.936667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.673333Z</LastSchemaUpdate>
+      <RoleID>Role 137</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 9</ID>
+      <Name>DataSourcePermission 9</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.936667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.69Z</LastSchemaUpdate>
+      <RoleID>Role 72</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 11</ID>
+      <Name>DataSourcePermission 11</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.953333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.69Z</LastSchemaUpdate>
+      <RoleID>Role 89</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 14</ID>
+      <Name>DataSourcePermission 14</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.97Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.69Z</LastSchemaUpdate>
+      <RoleID>Role 90</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 17</ID>
+      <Name>DataSourcePermission 17</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.97Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.706667Z</LastSchemaUpdate>
+      <RoleID>Role 96</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 20</ID>
+      <Name>DataSourcePermission 20</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.983333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.706667Z</LastSchemaUpdate>
+      <RoleID>Role 102</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 23</ID>
+      <Name>DataSourcePermission 23</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.983333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.72Z</LastSchemaUpdate>
+      <RoleID>Role 108</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 1</ID>
+      <Name>DataSourcePermission 1</Name>
+      <CreatedTimestamp>2026-11-12T21:57:13.983333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.72Z</LastSchemaUpdate>
+      <RoleID>Role</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 3</ID>
+      <Name>DataSourcePermission 3</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.736667Z</LastSchemaUpdate>
+      <RoleID>Role 1</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 28</ID>
+      <Name>DataSourcePermission 28</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.736667Z</LastSchemaUpdate>
+      <RoleID>Role 94</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 33</ID>
+      <Name>DataSourcePermission 33</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.016667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.753333Z</LastSchemaUpdate>
+      <RoleID>Role 2</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 38</ID>
+      <Name>DataSourcePermission 38</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.03Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.753333Z</LastSchemaUpdate>
+      <RoleID>Role 5</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 43</ID>
+      <Name>DataSourcePermission 43</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.046667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.766667Z</LastSchemaUpdate>
+      <RoleID>Role 6</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 44</ID>
+      <Name>DataSourcePermission 44</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.046667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.766667Z</LastSchemaUpdate>
+      <RoleID>Role 71</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 45</ID>
+      <Name>DataSourcePermission 45</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.063333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.766667Z</LastSchemaUpdate>
+      <RoleID>Role 12</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 46</ID>
+      <Name>DataSourcePermission 46</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.063333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.783333Z</LastSchemaUpdate>
+      <RoleID>Role 95</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 47</ID>
+      <Name>DataSourcePermission 47</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.076667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.783333Z</LastSchemaUpdate>
+      <RoleID>Role 81</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 48</ID>
+      <Name>DataSourcePermission 48</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.093333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.8Z</LastSchemaUpdate>
+      <RoleID>Role 13</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 50</ID>
+      <Name>DataSourcePermission 50</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.093333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.816667Z</LastSchemaUpdate>
+      <RoleID>Role 3</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 51</ID>
+      <Name>DataSourcePermission 51</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.11Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.83Z</LastSchemaUpdate>
+      <RoleID>Role 11</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 52</ID>
+      <Name>DataSourcePermission 52</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.11Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.83Z</LastSchemaUpdate>
+      <RoleID>Role 4</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 53</ID>
+      <Name>DataSourcePermission 53</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.123333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.83Z</LastSchemaUpdate>
+      <RoleID>Role 7</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 54</ID>
+      <Name>DataSourcePermission 54</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.123333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.846667Z</LastSchemaUpdate>
+      <RoleID>Role 101</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 55</ID>
+      <Name>DataSourcePermission 55</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.123333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.846667Z</LastSchemaUpdate>
+      <RoleID>Role 106</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 56</ID>
+      <Name>DataSourcePermission 56</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.14Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.863333Z</LastSchemaUpdate>
+      <RoleID>Role 86</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 57</ID>
+      <Name>DataSourcePermission 57</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.14Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.863333Z</LastSchemaUpdate>
+      <RoleID>Role 112</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 58</ID>
+      <Name>DataSourcePermission 58</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.156667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.876667Z</LastSchemaUpdate>
+      <RoleID>Role 75</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 59</ID>
+      <Name>DataSourcePermission 59</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.156667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.876667Z</LastSchemaUpdate>
+      <RoleID>Role 113</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 60</ID>
+      <Name>DataSourcePermission 60</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.173333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.91Z</LastSchemaUpdate>
+      <RoleID>Role 123</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 61</ID>
+      <Name>DataSourcePermission 61</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.173333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.91Z</LastSchemaUpdate>
+      <RoleID>Role 10</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 62</ID>
+      <Name>DataSourcePermission 62</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.186667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.923333Z</LastSchemaUpdate>
+      <RoleID>Role 107</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 63</ID>
+      <Name>DataSourcePermission 63</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.186667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.923333Z</LastSchemaUpdate>
+      <RoleID>Role 93</RoleID>
+    </DataSourcePermission>
+    <DataSourcePermission>
+      <ID>DataSourcePermission 64</ID>
+      <Name>DataSourcePermission 64</Name>
+      <CreatedTimestamp>2026-11-12T21:57:14.186667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-13T12:55:49.956667Z</LastSchemaUpdate>
+      <RoleID>Role 20</RoleID>
+    </DataSourcePermission>
+  </DataSourcePermissions>
+</DataSource>

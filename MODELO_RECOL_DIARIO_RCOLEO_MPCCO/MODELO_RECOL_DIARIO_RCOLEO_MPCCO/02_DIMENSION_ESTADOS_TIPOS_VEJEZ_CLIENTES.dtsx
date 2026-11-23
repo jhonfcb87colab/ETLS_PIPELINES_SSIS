@@ -1,0 +1,2631 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/25/2018 10:44:28 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D_SERV-DBI01"
+  DTS:CreatorName="SERVIENT\oscarf.rojas"
+  DTS:DTSID="{F1EC0E9C-3B5E-4B79-B704-88D20069E754}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="02_DIMENSION_ESTADOS_TIPOS_VEJEZ_CLIENTES"
+  DTS:PackageType="5"
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{DAD203FC-A36C-42A2-B091-B99B5945CBBA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CLIENTES CODIGO SER"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{320c4123-a926-49ec-9ac2-02b852d16521}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CLIENTES CODIGO SER">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CLIENTES CODIGO SER\TRANSPORTAR"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{f353d047-fa4e-4f7b-b34e-571b35d7358c}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRANSPORTAR"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\Audit"
+                  componentClassID="Microsoft.Lineage"
+                  contactInfo="Audit;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Includes data about the environment in which the package runs. Map system variables to new output columns. For example, add the name of the computer and operator to the data flow."
+                  name="Audit">
+                  <inputs>
+                    <input
+                      refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\Audit.Inputs[Audit Input 1]"
+                      name="Audit Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\Audit.Outputs[Audit Output 1]"
+                      exclusionGroup="1"
+                      name="Audit Output 1"
+                      synchronousInputId="Package\CLIENTES CODIGO SER\TRANSPORTAR\Audit.Inputs[Audit Input 1]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]"
+                          dataType="date"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]"
+                          name="FECHA_EXTRACCION_DW">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies which audit item this column produces."
+                              name="LineageItemSelected"
+                              typeConverter="LineageItemSelected">4</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PARAMETROS DG"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DECLARE  @dbo_CLIENTES_SUCURSALES AS TABLE (
+	[ID_PAIS] [smallint] NOT NULL,
+	[ID_TIPO_IDENTIFIC] [tinyint] NOT NULL,
+	[ID_CLIENTE] [char](20) NOT NULL,
+	[ID_SUCURSAL] [smallint] NOT NULL,
+	[ID_PAIS_SUCURSAL] [smallint] NULL,
+	[ID_CIUDAD] [int] NOT NULL,
+	[NOMBRE_SUCURSAL] [varchar](150) NOT NULL,
+	[DIRECCION_PRINCIPAL_SUCURSAL] [varchar](150) NULL,
+	[MANEJA_CONTACTOS_GENERAL] [bit] NULL,
+	[ID_FACILITADOR_RESPONSABLE] [char](20) NULL,
+	[ACTIVO] [bit] NULL,
+	[LOGIN_EMPLEADO] [varchar](15) NOT NULL,
+	[FECHA_CREACION] [datetime] NOT NULL,
+	[LOGIN_MODIFICACION] [varchar](15) NOT NULL,
+	[FECHA_MODIFICACION] [datetime] NOT NULL,
+	[LONGITUD] [decimal](18, 8) NULL,
+	[LATITUD] [decimal](18, 8) NULL,
+	[CODIGO_POSTAL] [nvarchar](20) NULL,
+	[DIRECCION_ESTANDARIZADA] [nvarchar](400) NULL
+)
+
+;WITH CTE_AUX AS (SELECT ROW_NUMBER() OVER(PARTITION BY CS.ID_CLIENTE,ID_SUCURSAL,CS.ID_PAIS_SUCURSAL,CS.ID_CIUDAD 
+							ORDER BY CS.FECHA_MODIFICACION DESC) AS ROW_ID, 
+					* FROM [PARAMETROS].[DBO].[CLIENTES_SUCURSALES] CS WITH(NOLOCK))
+INSERT INTO @dbo_CLIENTES_SUCURSALES
+(
+		[ID_PAIS] 
+		,[ID_TIPO_IDENTIFIC] 
+		,[ID_CLIENTE]
+		,[ID_SUCURSAL] 
+		,[ID_PAIS_SUCURSAL] 
+		,[ID_CIUDAD] 
+		,[NOMBRE_SUCURSAL] 
+		,[DIRECCION_PRINCIPAL_SUCURSAL]
+		,[MANEJA_CONTACTOS_GENERAL]
+		,[ID_FACILITADOR_RESPONSABLE]
+		,[ACTIVO] 
+		,[LOGIN_EMPLEADO] 
+		,[FECHA_CREACION] 
+		,[LOGIN_MODIFICACION] 
+		,[FECHA_MODIFICACION] 
+		,[LONGITUD] 
+		,[LATITUD] 
+		,[CODIGO_POSTAL] 
+		,[DIRECCION_ESTANDARIZADA]
+)
+SELECT 
+		[ID_PAIS] 
+		,[ID_TIPO_IDENTIFIC] 
+		,[ID_CLIENTE]
+		,[ID_SUCURSAL] 
+		,[ID_PAIS_SUCURSAL] 
+		,[ID_CIUDAD] 
+		,[NOMBRE_SUCURSAL] 
+		,[DIRECCION_PRINCIPAL_SUCURSAL]
+		,[MANEJA_CONTACTOS_GENERAL]
+		,[ID_FACILITADOR_RESPONSABLE]
+		,[ACTIVO] 
+		,[LOGIN_EMPLEADO] 
+		,[FECHA_CREACION] 
+		,[LOGIN_MODIFICACION] 
+		,[FECHA_MODIFICACION] 
+		,[LONGITUD] 
+		,[LATITUD] 
+		,[CODIGO_POSTAL] 
+		,[DIRECCION_ESTANDARIZADA]
+FROM CTE_AUX WHERE ROW_ID=1
+
+---SELECT * FROM @dbo_CLIENTES_SUCURSALES ---WHERE ID_CLIENTE = '52057968'
+
+;WITH  CTE_CODSER AS(
+			SELECT 
+					#ROW_ID = ROW_NUMBER() OVER(PARTITION BY 
+												CSD.ID_CLIENTE,CSD.ID_SUCURSAL,CSD.ID_DEPENDEN --,CSD.ID_CIUDAD_ZONA--,CSD.ID_ZONA
+												ORDER BY CSD.ID_CLIENTE,CS.FECHA_MODIFICACION DESC)
+					,CSD.ID_CLIENTE
+					,ID_CLIENTE_PS = ISNULL(CSD.ID_CLIENTE_PS,'NO DISPONIBLE')
+					,CSD.ID_SUCURSAL
+					,CSD.ID_DEPENDEN
+					,CSD.ID_PAIS_ZONA
+					,CSD.ID_CIUDAD_ZONA
+					,CSD.ID_ZONA
+					,CSD.ID_TIPO_ZONA
+					,CSD.FECHA_MODIFICACION
+				FROM [PARAMETROS].[DBO].[CLIENTES_SUCURSALES_DEPENDEN] CSD WITH(NOLOCK)
+				INNER JOIN @dbo_CLIENTES_SUCURSALES CS 
+				ON CSD.ID_CLIENTE=CS.ID_CLIENTE AND CSD.ID_SUCURSAL=CS.ID_SUCURSAL AND CSD.ID_CIUDAD_ZONA=CS.ID_CIUDAD 
+				WHERE ---CS.[ID_CLIENTE]='890900943' AND 
+				CS.[ACTIVO] =1
+				--ORDER BY 1,3,4,5
+)
+SELECT 
+		ID_CLIENTE	
+		,ID_CLIENTE_PS	
+		,ID_SUCURSAL	
+		,ID_DEPENDEN	
+		,ID_PAIS_ZONA	
+		,ID_CIUDAD_ZONA	
+		,ID_ZONA	
+		,ID_TIPO_ZONA	
+		,FECHA_MODIFICACION
+FROM CTE_CODSER WHERE #ROW_ID=1</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Connections[OleDbConnection]"
+                      connectionManagerID="{49B686EA-B8D4-47C7-AE38-FC9150CA1D25}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[DG_PARAMETROS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                          length="20"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]"
+                          name="ID_CLIENTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_CLIENTE_PS]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE_PS]"
+                          length="15"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_CLIENTE_PS]"
+                          name="ID_CLIENTE_PS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_SUCURSAL]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_SUCURSAL]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_SUCURSAL]"
+                          name="ID_SUCURSAL"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_DEPENDEN]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_DEPENDEN]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_DEPENDEN]"
+                          name="ID_DEPENDEN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_PAIS_ZONA]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_ZONA]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_PAIS_ZONA]"
+                          name="ID_PAIS_ZONA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_ZONA]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_ZONA]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_ZONA]"
+                          name="ID_CIUDAD_ZONA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_ZONA]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_ZONA]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_ZONA]"
+                          name="ID_ZONA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_TIPO_ZONA]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPO_ZONA]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_TIPO_ZONA]"
+                          name="ID_TIPO_ZONA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                          name="FECHA_MODIFICACION"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ID_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_CLIENTE_PS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="ID_CLIENTE_PS" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_SUCURSAL]"
+                          dataType="i2"
+                          name="ID_SUCURSAL" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_DEPENDEN]"
+                          dataType="i2"
+                          name="ID_DEPENDEN" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_PAIS_ZONA]"
+                          dataType="i2"
+                          name="ID_PAIS_ZONA" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_CIUDAD_ZONA]"
+                          dataType="i4"
+                          name="ID_CIUDAD_ZONA" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_ZONA]"
+                          dataType="i2"
+                          name="ID_ZONA" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[ID_TIPO_ZONA]"
+                          dataType="ui1"
+                          name="ID_TIPO_ZONA" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_MODIFICACION" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE]"
+                          name="ID_CLIENTE" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE_PS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_CLIENTE_PS]"
+                          name="ID_CLIENTE_PS" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_SUCURSAL]"
+                          dataType="i2"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_SUCURSAL]"
+                          name="ID_SUCURSAL" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_DEPENDEN]"
+                          dataType="i2"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_DEPENDEN]"
+                          name="ID_DEPENDEN" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_ZONA]"
+                          dataType="i2"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_PAIS_ZONA]"
+                          name="ID_PAIS_ZONA" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_ZONA]"
+                          dataType="i4"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_CIUDAD_ZONA]"
+                          name="ID_CIUDAD_ZONA" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_ZONA]"
+                          dataType="i2"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_ZONA]"
+                          name="ID_ZONA" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_TIPO_ZONA]"
+                          dataType="ui1"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ID_TIPO_ZONA]"
+                          name="ID_TIPO_ZONA" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                          name="FECHA_MODIFICACION" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[TMP].[RCOLEO_CLIENTES_COD_SER_SUCURSALES]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">100000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Connections[OleDbConnection]"
+                      connectionManagerID="{680D323D-BE30-458E-A7C7-26A5BA37EE6B}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SIG_COLOMBIA_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].Columns[ID_CLIENTE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="ID_CLIENTE"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_CLIENTE]" />
+                        <inputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].Columns[ID_CLIENTE_PS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="ID_CLIENTE_PS"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE_PS]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_CLIENTE_PS]" />
+                        <inputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].Columns[ID_SUCURSAL]"
+                          cachedDataType="i2"
+                          cachedName="ID_SUCURSAL"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_SUCURSAL]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_SUCURSAL]" />
+                        <inputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].Columns[ID_DEPENDEN]"
+                          cachedDataType="i2"
+                          cachedName="ID_DEPENDEN"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_DEPENDEN]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_DEPENDEN]" />
+                        <inputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].Columns[ID_PAIS_ZONA]"
+                          cachedDataType="i2"
+                          cachedName="ID_PAIS_ZONA"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_ZONA]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_PAIS_ZONA]" />
+                        <inputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].Columns[ID_CIUDAD_ZONA]"
+                          cachedDataType="i4"
+                          cachedName="ID_CIUDAD_ZONA"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_ZONA]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_CIUDAD_ZONA]" />
+                        <inputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].Columns[ID_ZONA]"
+                          cachedDataType="i2"
+                          cachedName="ID_ZONA"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_ZONA]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_ZONA]" />
+                        <inputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].Columns[ID_TIPO_ZONA]"
+                          cachedDataType="ui1"
+                          cachedName="ID_TIPO_ZONA"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPO_ZONA]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[ID_TIPO_ZONA]" />
+                        <inputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].Columns[FECHA_MODIFICACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_MODIFICACION"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]" />
+                        <inputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].Columns[FECHA_EXTRACCION_DW]"
+                          cachedDataType="date"
+                          cachedName="FECHA_EXTRACCION_DW"
+                          externalMetadataColumnId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ID_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_CLIENTE_PS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="ID_CLIENTE_PS" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_SUCURSAL]"
+                          dataType="i2"
+                          name="ID_SUCURSAL" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_DEPENDEN]"
+                          dataType="i2"
+                          name="ID_DEPENDEN" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_PAIS_ZONA]"
+                          dataType="i2"
+                          name="ID_PAIS_ZONA" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_CIUDAD_ZONA]"
+                          dataType="i4"
+                          name="ID_CIUDAD_ZONA" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_ZONA]"
+                          dataType="i2"
+                          name="ID_ZONA" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[ID_TIPO_ZONA]"
+                          dataType="ui1"
+                          name="ID_TIPO_ZONA" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_MODIFICACION" />
+                        <externalMetadataColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_EXTRACCION_DW" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CLIENTES CODIGO SER\TRANSPORTAR.Paths[Audit Output 1]"
+                  endId="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES.Inputs[OLE DB Destination Input]"
+                  name="Audit Output 1"
+                  startId="Package\CLIENTES CODIGO SER\TRANSPORTAR\Audit.Outputs[Audit Output 1]" />
+                <path
+                  refId="Package\CLIENTES CODIGO SER\TRANSPORTAR.Paths[OLE DB Source Output]"
+                  endId="Package\CLIENTES CODIGO SER\TRANSPORTAR\Audit.Inputs[Audit Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CLIENTES CODIGO SER\TRUNCATE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{20c54b16-bf5e-4582-82f0-e03be33ee220}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{680D323D-BE30-458E-A7C7-26A5BA37EE6B}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE  [TMP].[RCOLEO_CLIENTES_COD_SER_SUCURSALES]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CLIENTES CODIGO SER.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{47e0ba09-0792-4601-b0f8-450d5b1fcb64}"
+          DTS:From="Package\CLIENTES CODIGO SER\TRUNCATE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CLIENTES CODIGO SER\TRANSPORTAR" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GM RECOLECCION TIPO"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{ACA5D740-2961-4FAA-BB7C-8035C328D07F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GM RECOLECCION TIPO">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\GM RECOLECCION TIPO\DIM RECOLECCION ESTADOS GRIPO EFECTIVIDAD"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{C5BB2AF6-0991-43FB-99D4-A89E68BCBEC2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DIM RECOLECCION ESTADOS GRIPO EFECTIVIDAD"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{19887262-0DBD-4B78-A8A5-A7538F01C808}"
+              SQLTask:SqlStatementSource="USE SIG_LOGISTICA_DM;&#xA;TRUNCATE TABLE [DIM].[RCOLEO_GM_RECOLECCION_ESTADOS];&#xA;INSERT INTO [DIM].[RCOLEO_GM_RECOLECCION_ESTADOS]&#xA;SELECT &#xA;ID_ESTADO_MOVIMIENTO =-888&#x9;&#xA;,NOMBRE_ESTADO = 'NO DISPONIBLE'&#x9;&#xA;,ID_EST_ESTADO_MOVIMIENTO = -888&#x9;&#xA;,LOGIN_EMPLEADO = 'NO DISPONIBLE'&#x9;&#xA;,ID_GRUPO_EFECTIVIDAD = -888&#xA;,GRUPO_EFECTIVIDAD = 'NO DISPONIBLE'&#x9;&#xA;,ID_ASIGNACION = -888&#xA;,ASIGNACION = 'NO DISPONIBLE'&#x9;&#xA;,FECHA_CREACION = '1900-01-01 00:00:00.000'&#x9;&#xA;,FECHA_MODIFICACION = '1900-01-01 00:00:00.000'&#x9;&#xA;,FECHA_EXTRACCION_DW = '1900-01-01 00:00:00.000'&#xA;UNION ALL&#xA;SELECT &#xA;      [ID_ESTADO_SOLICITUD] AS [ID_ESTADO_MOVIMIENTO]&#xA;      ,[NOMBRE_ESTADO_SOLICITUD] AS [NOMBRE_ESTADO]&#xA;      ,[ESTADO_ESTADO_SOLICITUD] AS [ID_EST_ESTADO_MOVIMIENTO]&#xA;      ,[LOGIN_EMPLEADO_MODIFICACION] AS [LOGIN_EMPLEADO]&#xA;&#x9;  ,[ID_GRUPO_EFECTIVIDAD] = CASE WHEN [ID_ESTADO_SOLICITUD] IN (1,2) THEN 4&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (3) THEN 1&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (4) THEN 2&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (5) THEN 3&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (6,7,97,98,99) THEN 4 &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE 0 end&#xA;&#x9;  ,[GRUPO_EFECTIVIDAD] = CASE WHEN [ID_ESTADO_SOLICITUD] IN (1,2) THEN 'SIN ASIGNACION'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (3) THEN 'RECOLECCION NO REPORTADA'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (4) THEN 'RECOLECCION EXITOSA'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (5) THEN 'RECOLECCION NO EXITOSA'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (6,7,97,98,99) THEN 'SIN ASIGNACION' &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE 'NO DISPONIBLE' end&#xA;&#x9;  ,[ID_ASIGNACION] = CASE WHEN [ID_ESTADO_SOLICITUD] IN (1,2) THEN 2&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (3) THEN 1&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (4) THEN 1&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (5) THEN 1&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (6,7,97,98,99) THEN 2 &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE 0 end&#xA;&#x9;  ,[ASIGNACION] = CASE WHEN [ID_ESTADO_SOLICITUD] IN (1,2) THEN 'NO'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (3) THEN 'SI'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (4) THEN 'SI'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (5) THEN 'SI'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;WHEN [ID_ESTADO_SOLICITUD] IN (6,7,97,98,99) THEN 'NO'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ELSE 'NO DISPONIBLE' END&#xA;      ,[FECHA_CREACION]&#xA;      ,[FECHA_MODIFICACION]&#xA;      ,[FECHA_EXTRACCION_DW]&#xA;  FROM [SIG_COLOMBIA_DW].[PAR].[ESTADOS_SOLICITUDES_RECOLECCION]&#xA;  WHERE ID_PAIS=1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GM RECOLECCION TIPO\INSERT"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B8517088-2E5D-449E-9358-A1E9A4E7BF64}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="INSERT"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B9EE40B6-C62D-4F24-80BB-C4C948FEDDA1}"
+              SQLTask:SqlStatementSource="INSERT INTO DIM.RCOLEO_GM_RECOLECCION_TIPO&#xA;           (ID_RECOLECCION_TIPO&#xA;           ,RECOLECCION_TIPO)&#xA;     VALUES&#xA;           (-888,'NO DISPONIBLE')&#xA;GO&#xA;&#xA;INSERT INTO DIM.RCOLEO_GM_RECOLECCION_TIPO&#xA;           (ID_RECOLECCION_TIPO&#xA;           ,RECOLECCION_TIPO)&#xA;     VALUES&#xA;           (1,'ESPORADICAS')&#xA;GO&#xA;&#xA;INSERT INTO DIM.RCOLEO_GM_RECOLECCION_TIPO&#xA;           (ID_RECOLECCION_TIPO&#xA;           ,RECOLECCION_TIPO)&#xA;     VALUES&#xA;           (2,'FIJAS')&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GM RECOLECCION TIPO\TRUNCATE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{15CEA62B-0904-483C-97F5-BF08A5C157F0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B9EE40B6-C62D-4F24-80BB-C4C948FEDDA1}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM.RCOLEO_GM_RECOLECCION_TIPO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GM RECOLECCION TIPO.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{73C5815F-6CD6-439B-BCA6-93AF8E62041F}"
+          DTS:From="Package\GM RECOLECCION TIPO\TRUNCATE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\GM RECOLECCION TIPO\INSERT" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GM_RECOLECCION_ESTADOS"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{35EA2635-EEFC-4EEF-8375-5C353A54316F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GM_RECOLECCION_ESTADOS">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{BE31DE4B-E548-40C1-88AF-E7DC5CE8E34D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRANSPORTAR"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\Audit"
+                  componentClassID="Microsoft.Lineage"
+                  contactInfo="Audit;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Includes data about the environment in which the package runs. Map system variables to new output columns. For example, add the name of the computer and operator to the data flow."
+                  name="Audit">
+                  <inputs>
+                    <input
+                      refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\Audit.Inputs[Audit Input 1]"
+                      name="Audit Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\Audit.Outputs[Audit Output 1]"
+                      exclusionGroup="1"
+                      name="Audit Output 1"
+                      synchronousInputId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\Audit.Inputs[Audit Input 1]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]"
+                          dataType="date"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]"
+                          name="FECHA_EXTRACCION_DW">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies which audit item this column produces."
+                              name="LineageItemSelected"
+                              typeConverter="LineageItemSelected">4</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM].[RCOLEO_GM_RECOLECCION_ESTADOS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{B9EE40B6-C62D-4F24-80BB-C4C948FEDDA1}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SIG_COL_LOGISTICA_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_ESTADO_MOVIMIENTO]"
+                          cachedDataType="ui1"
+                          cachedName="ID_ESTADO_MOVIMIENTO"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADO_MOVIMIENTO]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADO_MOVIMIENTO]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NOMBRE_ESTADO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="NOMBRE_ESTADO"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_ESTADO]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_ESTADO]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_EST_ESTADO_MOVIMIENTO]"
+                          cachedDataType="ui1"
+                          cachedName="ID_EST_ESTADO_MOVIMIENTO"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_EST_ESTADO_MOVIMIENTO]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_EST_ESTADO_MOVIMIENTO]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LOGIN_EMPLEADO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="LOGIN_EMPLEADO"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_EMPLEADO]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_CREACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_CREACION"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_MODIFICACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_MODIFICACION"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_EXTRACCION_DW]"
+                          cachedDataType="date"
+                          cachedName="FECHA_EXTRACCION_DW"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GRUPO_EFECTIVIDAD]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="24"
+                          cachedName="GRUPO_EFECTIVIDAD"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRUPO_EFECTIVIDAD]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRUPO_EFECTIVIDAD]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ASIGNACION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="ASIGNACION"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ASIGNACION]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASIGNACION]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_GRUPO_EFECTIVIDAD]"
+                          cachedDataType="i4"
+                          cachedName="ID_GRUPO_EFECTIVIDAD"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_GRUPO_EFECTIVIDAD]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_GRUPO_EFECTIVIDAD]" />
+                        <inputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_ASIGNACION]"
+                          cachedDataType="i4"
+                          cachedName="ID_ASIGNACION"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ASIGNACION]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ASIGNACION]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ESTADO_MOVIMIENTO]"
+                          dataType="i4"
+                          name="ID_ESTADO_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_ESTADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="NOMBRE_ESTADO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_EST_ESTADO_MOVIMIENTO]"
+                          dataType="i4"
+                          name="ID_EST_ESTADO_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LOGIN_EMPLEADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="LOGIN_EMPLEADO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_CREACION" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_MODIFICACION" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_EXTRACCION_DW" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRUPO_EFECTIVIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="GRUPO_EFECTIVIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ASIGNACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ASIGNACION" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_GRUPO_EFECTIVIDAD]"
+                          dataType="i4"
+                          name="ID_GRUPO_EFECTIVIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ASIGNACION]"
+                          dataType="i4"
+                          name="ID_ASIGNACION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+       [ID_ESTADO_MOVIMIENTO]
+      ,[NOMBRE_ESTADO]
+      ,[ID_EST_ESTADO_MOVIMIENTO]
+      ,[LOGIN_EMPLEADO]
+      ,[FECHA_CREACION]
+      ,[FECHA_MODIFICACION]	 
+      ,CASE WHEN GRUPO_EFECTIVIDAD =  'RECOLECCION NO REPORTADA' THEN 1 WHEN GRUPO_EFECTIVIDAD = 'RECOLECCION EXITOSA' THEN 2 WHEN GRUPO_EFECTIVIDAD =  'RECOLECCION NO EXITOSA' THEN 3 ELSE 4 END ID_GRUPO_EFECTIVIDAD	  
+	  ,GRUPO_EFECTIVIDAD
+	  ,CASE WHEN ASIGNACION = 'SI' THEN 1 ELSE 2 END ID_ASIGNACION
+	  ,ASIGNACION	  
+
+FROM
+(
+SELECT [ID_ESTADO_MOVIMIENTO]
+      ,[NOMBRE_ESTADO]
+      ,[ID_EST_ESTADO_MOVIMIENTO]
+      ,[LOGIN_EMPLEADO]
+      ,[FECHA_CREACION]
+      ,[FECHA_MODIFICACION]	  
+	  ,CASE WHEN [ID_ESTADO_MOVIMIENTO] = 3 THEN 'RECOLECCION NO REPORTADA' WHEN [ID_ESTADO_MOVIMIENTO] = 4 THEN 'RECOLECCION EXITOSA' WHEN [ID_ESTADO_MOVIMIENTO] = 5 THEN 'RECOLECCION NO EXITOSA' ELSE  'SIN ASIGNACION' END GRUPO_EFECTIVIDAD	  
+	  ,CASE WHEN [ID_ESTADO_MOVIMIENTO] = 3 THEN 'SI' WHEN [ID_ESTADO_MOVIMIENTO] = 4 THEN 'SI' WHEN [ID_ESTADO_MOVIMIENTO] = 5 THEN 'SI' ELSE 'NO' END ASIGNACION
+  FROM [dbo].[ESTADO_MOVIMIENTO_RECOLECCION] WITH (NOLOCK)
+) ESTADO_MOVIMIENTO_RECOLECCION</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{929A8EC5-2B47-40C4-84A8-EDFE61AE3291}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MECE_LOGISTICO]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADO_MOVIMIENTO]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADO_MOVIMIENTO]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ESTADO_MOVIMIENTO]"
+                          name="ID_ESTADO_MOVIMIENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_ESTADO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_ESTADO]"
+                          length="50"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOMBRE_ESTADO]"
+                          name="NOMBRE_ESTADO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_EST_ESTADO_MOVIMIENTO]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_EST_ESTADO_MOVIMIENTO]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_EST_ESTADO_MOVIMIENTO]"
+                          name="ID_EST_ESTADO_MOVIMIENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_EMPLEADO]"
+                          length="15"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOGIN_EMPLEADO]"
+                          name="LOGIN_EMPLEADO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                          name="FECHA_CREACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_MODIFICACION]"
+                          name="FECHA_MODIFICACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRUPO_EFECTIVIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GRUPO_EFECTIVIDAD]"
+                          length="24"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRUPO_EFECTIVIDAD]"
+                          name="GRUPO_EFECTIVIDAD"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASIGNACION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ASIGNACION]"
+                          length="2"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ASIGNACION]"
+                          name="ASIGNACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_GRUPO_EFECTIVIDAD]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_GRUPO_EFECTIVIDAD]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_GRUPO_EFECTIVIDAD]"
+                          name="ID_GRUPO_EFECTIVIDAD"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ASIGNACION]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ASIGNACION]"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_ASIGNACION]"
+                          name="ID_ASIGNACION"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ESTADO_MOVIMIENTO]"
+                          dataType="ui1"
+                          name="ID_ESTADO_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOMBRE_ESTADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="NOMBRE_ESTADO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_EST_ESTADO_MOVIMIENTO]"
+                          dataType="ui1"
+                          name="ID_EST_ESTADO_MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOGIN_EMPLEADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="LOGIN_EMPLEADO" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_CREACION" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_MODIFICACION" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GRUPO_EFECTIVIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="24"
+                          name="GRUPO_EFECTIVIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ASIGNACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="ASIGNACION" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_GRUPO_EFECTIVIDAD]"
+                          dataType="i4"
+                          name="ID_GRUPO_EFECTIVIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_ASIGNACION]"
+                          dataType="i4"
+                          name="ID_ASIGNACION" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ESTADO_MOVIMIENTO]"
+                          dataType="ui1"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ESTADO_MOVIMIENTO]"
+                          name="ID_ESTADO_MOVIMIENTO" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_ESTADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOMBRE_ESTADO]"
+                          name="NOMBRE_ESTADO" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_EST_ESTADO_MOVIMIENTO]"
+                          dataType="ui1"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_EST_ESTADO_MOVIMIENTO]"
+                          name="ID_EST_ESTADO_MOVIMIENTO" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOGIN_EMPLEADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOGIN_EMPLEADO]"
+                          name="LOGIN_EMPLEADO" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                          name="FECHA_CREACION" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_MODIFICACION]"
+                          name="FECHA_MODIFICACION" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_GRUPO_EFECTIVIDAD]"
+                          dataType="i4"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_GRUPO_EFECTIVIDAD]"
+                          name="ID_GRUPO_EFECTIVIDAD" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GRUPO_EFECTIVIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="24"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GRUPO_EFECTIVIDAD]"
+                          name="GRUPO_EFECTIVIDAD" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ASIGNACION]"
+                          dataType="i4"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_ASIGNACION]"
+                          name="ID_ASIGNACION" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ASIGNACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ASIGNACION]"
+                          name="ASIGNACION" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR.Paths[Audit Output 1]"
+                  endId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Audit Output 1"
+                  startId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\Audit.Outputs[Audit Output 1]" />
+                <path
+                  refId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR.Paths[OLE DB Source Output]"
+                  endId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\Audit.Inputs[Audit Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GM_RECOLECCION_ESTADOS\TRUNCATE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{637E784C-A6E3-418D-9B07-A15A78FAB483}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B9EE40B6-C62D-4F24-80BB-C4C948FEDDA1}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE  DIM.RCOLEO_GM_RECOLECCION_ESTADOS&#xA;INSERT INTO [DIM].[RCOLEO_GM_RECOLECCION_ESTADOS] &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;(ID_ESTADO_MOVIMIENTO,NOMBRE_ESTADO,ID_EST_ESTADO_MOVIMIENTO,LOGIN_EMPLEADO,ID_GRUPO_EFECTIVIDAD,GRUPO_EFECTIVIDAD,ID_ASIGNACION,ASIGNACION,FECHA_CREACION,FECHA_MODIFICACION,FECHA_EXTRACCION_DW)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;VALUES&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;('-888','NO DISPONIBLE','-888','NO DISPONIBLE','-888','NO DISPONIBLE','-888','NO DISPONIBLE','1900-01-01 00:00:00.000','1900-01-01 00:00:00.000','1900-01-01 00:00:00.000')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GM_RECOLECCION_ESTADOS.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{852D3DA2-423A-45B2-9FB8-73D2F6299D60}"
+          DTS:From="Package\GM_RECOLECCION_ESTADOS\TRUNCATE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\RECOLECCION VEJEZ"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{48931e3e-f236-4718-a6b9-947332c3380c}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="RECOLECCION VEJEZ">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\RECOLECCION VEJEZ\TRANSPORTAR"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{81c723e0-985d-48af-bc79-b1d67a94e02d}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRANSPORTAR"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Audit"
+                  componentClassID="Microsoft.Lineage"
+                  contactInfo="Audit;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Includes data about the environment in which the package runs. Map system variables to new output columns. For example, add the name of the computer and operator to the data flow."
+                  name="Audit">
+                  <inputs>
+                    <input
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Audit.Inputs[Audit Input 1]"
+                      name="Audit Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Audit.Outputs[Audit Output 1]"
+                      exclusionGroup="1"
+                      name="Audit Output 1"
+                      synchronousInputId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Audit.Inputs[Audit Input 1]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]"
+                          dataType="date"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]"
+                          name="FECHA_EXTRACCION_DW">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies which audit item this column produces."
+                              name="LineageItemSelected"
+                              typeConverter="LineageItemSelected">4</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Multicast"
+                  componentClassID="Microsoft.Multicast"
+                  contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+                  name="Multicast">
+                  <inputs>
+                    <input
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Multicast.Inputs[Multicast Input 1]"
+                      name="Multicast Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Multicast.Outputs[Multicast Output 1]"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 1"
+                      synchronousInputId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Multicast.Outputs[Multicast Output 2]"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 2"
+                      synchronousInputId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Multicast.Outputs[Multicast Output 3]"
+                      dangling="true"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 3"
+                      synchronousInputId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT '0' ID_RANGO_VEJEZ,  'HOY' RANGO_VEJEZ ,'0 DIAS' DESC_RANGO_VEJEZ
+UNION
+SELECT '1' ID_RANGO_VEJEZ,  '&gt;1' RANGO_VEJEZ ,'1 DIAS' DESC_RANGO_VEJEZ
+UNION
+SELECT '2' ID_RANGO_VEJEZ,  '&gt;=2 y &lt;=3' RANGO_VEJEZ, 'DE 2 A 3 DIAS' DESC_RANGO_VEJEZ
+UNION
+SELECT '3' ID_RANGO_VEJEZ,  '&gt;=4 y &lt;=5' RANGO_VEJEZ ,'DE 4 A 5 DIAS' DESC_RANGO_VEJEZ
+UNION
+SELECT '4' ID_RANGO_VEJEZ,  '&gt;5' RANGO_VEJEZ ,'MAYOR A 5 DIAS' DESC_RANGO_VEJEZ</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{B9EE40B6-C62D-4F24-80BB-C4C948FEDDA1}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SIG_COL_LOGISTICA_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_RANGO_VEJEZ]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_RANGO_VEJEZ]"
+                          length="1"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_RANGO_VEJEZ]"
+                          name="ID_RANGO_VEJEZ"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[RANGO_VEJEZ]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RANGO_VEJEZ]"
+                          length="9"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[RANGO_VEJEZ]"
+                          name="RANGO_VEJEZ"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[DESC_RANGO_VEJEZ]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DESC_RANGO_VEJEZ]"
+                          length="14"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[DESC_RANGO_VEJEZ]"
+                          name="DESC_RANGO_VEJEZ"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_RANGO_VEJEZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="ID_RANGO_VEJEZ" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RANGO_VEJEZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="9"
+                          name="RANGO_VEJEZ" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DESC_RANGO_VEJEZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="14"
+                          name="DESC_RANGO_VEJEZ" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_RANGO_VEJEZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_RANGO_VEJEZ]"
+                          name="ID_RANGO_VEJEZ" />
+                        <outputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RANGO_VEJEZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="9"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RANGO_VEJEZ]"
+                          name="RANGO_VEJEZ" />
+                        <outputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DESC_RANGO_VEJEZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="14"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DESC_RANGO_VEJEZ]"
+                          name="DESC_RANGO_VEJEZ" />
+                        <outputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="SIG_COL_LOGISTICA"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM].[RCOLEO_GM_RECOLECCION_VEJEZ]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Connections[OleDbConnection]"
+                      connectionManagerID="{B9EE40B6-C62D-4F24-80BB-C4C948FEDDA1}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SIG_COL_LOGISTICA_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input].Columns[ID_RANGO_VEJEZ]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="ID_RANGO_VEJEZ"
+                          externalMetadataColumnId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[ID_RANGO_VEJEZ]"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_RANGO_VEJEZ]" />
+                        <inputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input].Columns[RANGO_VEJEZ]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="9"
+                          cachedName="RANGO_VEJEZ"
+                          externalMetadataColumnId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[RANGO_VEJEZ]"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[RANGO_VEJEZ]" />
+                        <inputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input].Columns[DESC_RANGO_VEJEZ]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="14"
+                          cachedName="DESC_RANGO_VEJEZ"
+                          externalMetadataColumnId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[DESC_RANGO_VEJEZ]"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[DESC_RANGO_VEJEZ]" />
+                        <inputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input].Columns[FECHA_EXTRACCION_DW]"
+                          cachedDataType="date"
+                          cachedName="FECHA_EXTRACCION_DW"
+                          externalMetadataColumnId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[ID_RANGO_VEJEZ]"
+                          dataType="i4"
+                          name="ID_RANGO_VEJEZ" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[RANGO_VEJEZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="RANGO_VEJEZ" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[DESC_RANGO_VEJEZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESC_RANGO_VEJEZ" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_EXTRACCION_DW" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="SIG_LOGISTICA"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM].[RCOLEO_GM_RECOLECCION_VEJEZ]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Connections[OleDbConnection]"
+                      connectionManagerID="{19887262-0DBD-4B78-A8A5-A7538F01C808}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SIG_LOGISTICA_DM]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input].Columns[ID_RANGO_VEJEZ]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="ID_RANGO_VEJEZ"
+                          externalMetadataColumnId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[ID_RANGO_VEJEZ]"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_RANGO_VEJEZ]" />
+                        <inputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input].Columns[RANGO_VEJEZ]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="9"
+                          cachedName="RANGO_VEJEZ"
+                          externalMetadataColumnId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[RANGO_VEJEZ]"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[RANGO_VEJEZ]" />
+                        <inputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input].Columns[DESC_RANGO_VEJEZ]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="14"
+                          cachedName="DESC_RANGO_VEJEZ"
+                          externalMetadataColumnId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[DESC_RANGO_VEJEZ]"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output].Columns[DESC_RANGO_VEJEZ]" />
+                        <inputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input].Columns[FECHA_EXTRACCION_DW]"
+                          cachedDataType="date"
+                          cachedName="FECHA_EXTRACCION_DW"
+                          externalMetadataColumnId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACCION_DW]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[ID_RANGO_VEJEZ]"
+                          dataType="i4"
+                          name="ID_RANGO_VEJEZ" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[RANGO_VEJEZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="RANGO_VEJEZ" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[DESC_RANGO_VEJEZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESC_RANGO_VEJEZ" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACCION_DW]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_EXTRACCION_DW" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\RECOLECCION VEJEZ\TRANSPORTAR.Paths[Audit Output 1]"
+                  endId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Multicast.Inputs[Multicast Input 1]"
+                  name="Audit Output 1"
+                  startId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Audit.Outputs[Audit Output 1]" />
+                <path
+                  refId="Package\RECOLECCION VEJEZ\TRANSPORTAR.Paths[Multicast Output 1]"
+                  endId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA.Inputs[OLE DB Destination Input]"
+                  name="Multicast Output 1"
+                  startId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Multicast.Outputs[Multicast Output 1]" />
+                <path
+                  refId="Package\RECOLECCION VEJEZ\TRANSPORTAR.Paths[Multicast Output 2]"
+                  endId="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA.Inputs[OLE DB Destination Input]"
+                  name="Multicast Output 2"
+                  startId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Multicast.Outputs[Multicast Output 2]" />
+                <path
+                  refId="Package\RECOLECCION VEJEZ\TRANSPORTAR.Paths[OLE DB Source Output]"
+                  endId="Package\RECOLECCION VEJEZ\TRANSPORTAR\Audit.Inputs[Audit Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\RECOLECCION VEJEZ\TRUNCATE VEJEZ SIG_COL_LOGISTICA"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6913c453-0350-497f-b963-bbe54773c929}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE VEJEZ SIG_COL_LOGISTICA"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B9EE40B6-C62D-4F24-80BB-C4C948FEDDA1}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE  DIM.RCOLEO_GM_RECOLECCION_VEJEZ&#xA;INSERT INTO DIM.RCOLEO_GM_RECOLECCION_VEJEZ&#xA;(&#xA;ID_RANGO_VEJEZ,RANGO_VEJEZ,DESC_RANGO_VEJEZ,FECHA_EXTRACCION_DW&#xA;)&#xA;VALUES&#xA;(&#xA;-888,'NO DISPONIBLE','NO DISPONIBLE','1900-01-01'&#xA;)     " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\RECOLECCION VEJEZ\TRUNCATE VEJEZ SIG_LOGISTICA"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{253da389-0811-4ae0-b9bd-67e81d3f481b}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE VEJEZ SIG_LOGISTICA"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{19887262-0DBD-4B78-A8A5-A7538F01C808}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE  DIM.RCOLEO_GM_RECOLECCION_VEJEZ&#xA;INSERT INTO DIM.RCOLEO_GM_RECOLECCION_VEJEZ&#xA;(&#xA;ID_RANGO_VEJEZ,RANGO_VEJEZ,DESC_RANGO_VEJEZ,FECHA_EXTRACCION_DW&#xA;)&#xA;VALUES&#xA;(&#xA;-888,'NO DISPONIBLE','NO DISPONIBLE','1900-01-01'&#xA;)     " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\RECOLECCION VEJEZ.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{CD112CE2-CFE1-4636-A806-BF7FD4B5EFC6}"
+          DTS:From="Package\RECOLECCION VEJEZ\TRUNCATE VEJEZ SIG_LOGISTICA"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\RECOLECCION VEJEZ\TRANSPORTAR" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\RECOLECCION VEJEZ.PrecedenceConstraints[Restricción 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{A52C92BF-11BD-47FA-BA12-1525C43B87C4}"
+          DTS:From="Package\RECOLECCION VEJEZ\TRUNCATE VEJEZ SIG_COL_LOGISTICA"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 1"
+          DTS:To="Package\RECOLECCION VEJEZ\TRUNCATE VEJEZ SIG_LOGISTICA" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\CLIENTES CODIGO SER\TRANSPORTAR"
+          TopLeft="66,114" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\CLIENTES CODIGO SER\TRUNCATE"
+          TopLeft="71.5,24.5" />
+        <EdgeLayout
+          Id="Package\CLIENTES CODIGO SER.PrecedenceConstraints[Constraint]"
+          TopLeft="139.25,66.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.5"
+              Start="0,0"
+              End="0,40">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="275,211"
+          Size="275,254"
+          Id="Package\CLIENTES CODIGO SER"
+          TopLeft="440,370" />
+        <NodeLayout
+          Size="323,42"
+          Id="Package\GM RECOLECCION TIPO\DIM RECOLECCION ESTADOS GRIPO EFECTIVIDAD"
+          TopLeft="235,67" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\GM RECOLECCION TIPO\INSERT"
+          TopLeft="81,114" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\GM RECOLECCION TIPO\TRUNCATE"
+          TopLeft="71.5,24.5" />
+        <EdgeLayout
+          Id="Package\GM RECOLECCION TIPO.PrecedenceConstraints[Constraint]"
+          TopLeft="137.75,66.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.5"
+              Start="0,0"
+              End="0,40">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="563,206"
+          Size="563,249"
+          Id="Package\GM RECOLECCION TIPO"
+          TopLeft="401,49" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR"
+          TopLeft="66,114" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\GM_RECOLECCION_ESTADOS\TRUNCATE"
+          TopLeft="71.5,24.5" />
+        <EdgeLayout
+          Id="Package\GM_RECOLECCION_ESTADOS.PrecedenceConstraints[Constraint]"
+          TopLeft="141,66.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.5"
+              Start="0,0"
+              End="0,40">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="275,211"
+          Size="275,254"
+          Id="Package\GM_RECOLECCION_ESTADOS"
+          TopLeft="103,44" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\RECOLECCION VEJEZ\TRANSPORTAR"
+          TopLeft="66,229" />
+        <NodeLayout
+          Size="267,42"
+          Id="Package\RECOLECCION VEJEZ\TRUNCATE VEJEZ SIG_COL_LOGISTICA"
+          TopLeft="10,18" />
+        <NodeLayout
+          Size="242,42"
+          Id="Package\RECOLECCION VEJEZ\TRUNCATE VEJEZ SIG_LOGISTICA"
+          TopLeft="20,117" />
+        <EdgeLayout
+          Id="Package\RECOLECCION VEJEZ.PrecedenceConstraints[Restricción]"
+          TopLeft="141.25,159">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\RECOLECCION VEJEZ.PrecedenceConstraints[Restricción 1]"
+          TopLeft="142.25,60">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="282,281"
+          Size="282,324"
+          Id="Package\RECOLECCION VEJEZ"
+          TopLeft="105,357" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CLIENTES CODIGO SER\TRANSPORTAR">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="315,42"
+          Id="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES"
+          TopLeft="129,283" />
+        <NodeLayout
+          Size="103,42"
+          Id="Package\CLIENTES CODIGO SER\TRANSPORTAR\Audit"
+          TopLeft="167,149" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG"
+          TopLeft="133,36" />
+        <EdgeLayout
+          Id="Package\CLIENTES CODIGO SER\TRANSPORTAR.Paths[OLE DB Source Output]"
+          TopLeft="216.5,78">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CLIENTES CODIGO SER\TRANSPORTAR.Paths[Audit Output 1]"
+          TopLeft="218.5,191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68,92"
+              Start="0,0"
+              End="68,84.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42"
+                    Point2="0,46"
+                    Point3="4,46" />
+                  <mssgle:LineSegment
+                    End="64,46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64,46"
+                    Point2="68,46"
+                    Point3="68,50" />
+                  <mssgle:LineSegment
+                    End="68,84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CLIENTES CODIGO SER\TRANSPORTAR\TMP RCOLEO_CLIENTES_COD_SER_SUCURSALES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CLIENTES CODIGO SER\TRANSPORTAR\PARAMETROS DG">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source"
+          TopLeft="144,53" />
+        <NodeLayout
+          Size="103,42"
+          Id="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\Audit"
+          TopLeft="167,149" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination"
+          TopLeft="136,248" />
+        <EdgeLayout
+          Id="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR.Paths[OLE DB Source Output]"
+          TopLeft="218.7,94.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.4"
+              Start="0,0"
+              End="0,46.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR.Paths[Audit Output 1]"
+          TopLeft="220,191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GM_RECOLECCION_ESTADOS\TRANSPORTAR\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\RECOLECCION VEJEZ\TRANSPORTAR">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="103,42"
+          Id="Package\RECOLECCION VEJEZ\TRANSPORTAR\Audit"
+          TopLeft="272,107.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source"
+          TopLeft="244.5,3.5" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA"
+          TopLeft="246,313.5" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\RECOLECCION VEJEZ\TRANSPORTAR\Multicast"
+          TopLeft="263.5,209.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA"
+          TopLeft="5.50000000000006,311.5" />
+        <EdgeLayout
+          Id="Package\RECOLECCION VEJEZ\TRANSPORTAR.Paths[OLE DB Source Output]"
+          TopLeft="323.25,45.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\RECOLECCION VEJEZ\TRANSPORTAR.Paths[Multicast Output 2]"
+          TopLeft="342.166666666667,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.6666666666666,62"
+              Start="0,0"
+              End="-18.6666666666666,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.2894736842105" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.2894736842105"
+                    Point2="0,25.2894736842105"
+                    Point3="-4,25.2894736842105" />
+                  <mssgle:LineSegment
+                    End="-14.6666666666666,25.2894736842105" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.6666666666666,25.2894736842105"
+                    Point2="-18.6666666666666,25.2894736842105"
+                    Point3="-18.6666666666666,29.2894736842105" />
+                  <mssgle:LineSegment
+                    End="-18.6666666666666,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\RECOLECCION VEJEZ\TRANSPORTAR.Paths[Multicast Output 1]"
+          TopLeft="304.833333333333,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-209.333333333333,60"
+              Start="0,0"
+              End="-209.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4736842105263" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4736842105263"
+                    Point2="0,24.4736842105263"
+                    Point3="-4,24.4736842105263" />
+                  <mssgle:LineSegment
+                    End="-205.333333333333,24.4736842105263" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-205.333333333333,24.4736842105263"
+                    Point2="-209.333333333333,24.4736842105263"
+                    Point3="-209.333333333333,28.4736842105263" />
+                  <mssgle:LineSegment
+                    End="-209.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\RECOLECCION VEJEZ\TRANSPORTAR.Paths[Audit Output 1]"
+          TopLeft="323.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\RECOLECCION VEJEZ\TRANSPORTAR\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_LOGISTICA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\RECOLECCION VEJEZ\TRANSPORTAR\SIG_COL_LOGISTICA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

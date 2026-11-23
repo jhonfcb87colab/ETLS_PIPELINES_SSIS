@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "MODELO MIS ENVIOS", "MODELO MIS ENVIOS\MODELO MIS ENVIOS.dtproj", "{B5BBED59-92CE-4FD3-BCCB-3881A2FD0B76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5BBED59-92CE-4FD3-BCCB-3881A2FD0B76}.Development|Default.ActiveCfg = Development
+		{B5BBED59-92CE-4FD3-BCCB-3881A2FD0B76}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9AF37D63-20DB-4D85-A53C-8ABC40531DD0}
+	EndGlobalSection
+EndGlobal

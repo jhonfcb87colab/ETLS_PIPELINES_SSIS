@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "MODELO_DESAFIO_PRODUCTIVIDAD", "MODELO_DESAFIO_PRODUCTIVIDAD\MODELO_DESAFIO_PRODUCTIVIDAD.dtproj", "{F136566D-167F-4476-BE85-D04298464200}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F136566D-167F-4476-BE85-D04298464200}.Development|Default.ActiveCfg = Development
+		{F136566D-167F-4476-BE85-D04298464200}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4F1BAB0-EFB7-4410-943C-5B05741056AD}
+	EndGlobalSection
+EndGlobal

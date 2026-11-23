@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="00_LLAMAR_PAQUETES"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{58005A0F-610F-4698-8721-EE1CCFA76DF0}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{CF1A8C3B-3E3B-4871-9B2B-F131BEC1CFB6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -101,6 +101,7 @@
           DTS:refId="Package\Ejecucion completa\03_CARGA"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
           DTS:DTSID="{CF531A31-10CE-4327-8CAF-392133BDA372}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "MODELO_RECOL_DIARIO_RCOLEO_MPCCO", "MODELO_RECOL_DIARIO_RCOLEO_MPCCO\MODELO_RECOL_DIARIO_RCOLEO_MPCCO.dtproj", "{BFBAF20D-FD9A-4457-A505-6927190ECBAE}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "MODELO_RCOLEO_DIARIO_VALIDACIONES_BELLOLA", "MODELO_RCOLEO_DIARIO_VALIDACIONES_BELLOLA\MODELO_RCOLEO_DIARIO_VALIDACIONES_BELLOLA.dtproj", "{F12072C2-2ACE-4071-9CC4-6E3FFCD5F2F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFBAF20D-FD9A-4457-A505-6927190ECBAE}.Development|Default.ActiveCfg = Development
+		{BFBAF20D-FD9A-4457-A505-6927190ECBAE}.Development|Default.Build.0 = Development
+		{F12072C2-2ACE-4071-9CC4-6E3FFCD5F2F5}.Development|Default.ActiveCfg = Development
+		{F12072C2-2ACE-4071-9CC4-6E3FFCD5F2F5}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4753528E-078F-4AFA-8FCB-11422F57E1C1}
+	EndGlobalSection
+EndGlobal

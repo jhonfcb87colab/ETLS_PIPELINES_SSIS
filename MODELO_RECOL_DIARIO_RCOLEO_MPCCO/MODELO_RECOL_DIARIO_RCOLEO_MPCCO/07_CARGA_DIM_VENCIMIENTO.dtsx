@@ -1,0 +1,1605 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/21/2018 6:08:50 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="D_SERV-DBI01"
+  DTS:CreatorName="SERVIENT\andres.torres.out"
+  DTS:DTSID="{F2F11CD5-DB94-459B-B4D9-23A8D02C8696}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="07_CARGA_DIM_VENCIMIENTO"
+  DTS:PackageType="5"
+  DTS:VersionBuild="209"
+  DTS:VersionGUID="{F6ACB3AE-AD40-4601-AD45-F1243B77294E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[RECOLECCIONES_DIM_CONCEPTO_RECHAZO]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="RECOLECCIONES_DIARIO"
+      DTS:DTSID="{3F200DBD-3247-43CE-AA76-BE6E6560597B}"
+      DTS:ObjectName="RECOLECCIONES_DIM_CONCEPTO_RECHAZO">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="22538"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\Serv-DBI01\SHARE\MULTILOGISTICA\RECOLECCIONES_DIM\DIM_ESTADO_CONCEPTO_RECHAZO.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="KEY_ESTADO_RCOLEO"
+              DTS:DTSID="{4AF493EC-F8A0-4980-9A93-1066874DB22F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID_CONFIRM_SOLICITUD"
+              DTS:DTSID="{EC9874EF-D50B-47F9-94F4-FD44521771C0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ESTADO MOVIMIENTO"
+              DTS:DTSID="{E7BD13B0-2D8F-421E-8D93-E8CE434EFC65}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID_MOTIVO_RECHAZO"
+              DTS:DTSID="{0664B060-45CE-48D1-957C-1A7507ADA1E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NOMBRE"
+              DTS:DTSID="{CB04DBF0-1F66-4B7C-988D-9930265E32D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ESTADO SOLICITUD"
+              DTS:DTSID="{0FE62FE8-4C6F-4D14-8C28-1C2F8E0AA327}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RESPONSABILIDAD"
+              DTS:DTSID="{EA56086E-5A0A-435A-A4BF-75613E990B1E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CONCEPTO"
+              DTS:DTSID="{B0FFAC5B-704D-4229-8D28-32FC2812F05C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EFICIENCIA"
+              DTS:DTSID="{7D53F2E5-E63B-47B3-9A95-6F0C3C01A0DE}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SIG_COL_LOGISTICA_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0988B2E2-E797-41B5-BFF5-ADA2373F701E}"
+      DTS:ObjectName="SIG_COL_LOGISTICA_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SERV-DBI01;Initial Catalog=SIG_COL_LOGISTICA_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8633C08F-04B5-4E39-BAD1-CEA9D4529AE4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iFechaFin">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{25393968-7BFF-4024-A8EF-89D7FFEC028A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iFechaFin1">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{44F3F78F-5E3C-4D45-A4FB-DFB263CD37C9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iFechaIni">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9119A55A-DD7C-4C41-A6A1-5D17FC88ADE3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iFechaIni1">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIMENSION VENCIMIENTO"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{1a358e1d-70e5-40ce-a986-b0eff828b5d5}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIMENSION VENCIMIENTO">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\DIMENSION VENCIMIENTO\GENERACION BASE VENCIMIENTOS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{A12B24E9-2886-4C46-825B-C35B68E21319}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="GENERACION BASE VENCIMIENTOS"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{680D323D-BE30-458E-A7C7-26A5BA37EE6B}"
+              SQLTask:SqlStatementSource="USE SIG_COLOMBIA_DW;&#xA;&#xA;DECLARE @TABLA_VENCIMIENTOS AS TABLE(ID INT,VENCIMIENTO VARCHAR(50))&#xA;INSERT INTO @TABLA_VENCIMIENTOS(ID,VENCIMIENTO)&#xA;VALUES&#xA;(0,'NO DISPONIBLE'),&#xA;(1,'MENOR A 3 DIAS DE VENCIDO'),&#xA;(2,'2 DIAS DE VENCIDO'),&#xA;(3,'1 DIA DE VENCIDO'),&#xA;(4,'CUMPLIDA'),&#xA;(5,'VENCE HOY'),&#xA;(6,'1 DIA PARA VENCERSE'),&#xA;(7,'2 DIAS PARA VENCERSE'),&#xA;(8,'MAYOR A 3 DIAS POR VENCERSE')&#xA;&#xA;&#xA;TRUNCATE TABLE [TMP].[RCOLEO_GM_DIM_VENCIMIENTO];&#xA;&#xA;INSERT INTO [TMP].[RCOLEO_GM_DIM_VENCIMIENTO]&#xA;SELECT ID, VENCIMIENTO FROM @TABLA_VENCIMIENTOS&#xA;&#xA;&#xA;---------SELECT * FROM [TMP].[RCOLEO_GM_DIM_VENCIMIENTO]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\DIMENSION VENCIMIENTO\MPCCO_DIM_TIEMPO"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5FED40A0-010E-4B55-87AB-3D52C0E9C716}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="MPCCO_DIM_TIEMPO"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{19887262-0DBD-4B78-A8A5-A7538F01C808}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [DIM].[MPCCO_DIM_TIEMPO_GENERICA];&#xA;WITH CTE AS(&#xA;            SELECT &#xA;            id = ROW_NUMBER() OVER(order BY ([YEAR]*100)+[WEEK_OF_YEAR] DESC)&#xA;            ,[YEAR] AS ANIO&#xA;            ,[WEEK_OF_YEAR] AS SEMANA&#xA;            FROM [SIG_COL_LOGISTICA_DW].[DIM].[TIEMPO] WITH(NOLOCK)&#xA;            WHERE &#xA;&#x9;&#x9;&#x9;[DATE] BETWEEN &#xA;                (&#xA;                    SELECT MIN(FECHA)&#xA;                    FROM (&#xA;                        SELECT MIN(FECHA) AS FECHA FROM [FAC].[RCOLEO_GM_RECOLECCION_HISTORICO] WITH(NOLOCK)&#xA;&#xA;                        UNION ALL&#xA;                        SELECT MIN(FECHA) FROM [FAC].[RCOLEO_GM_RECOLECCION] WITH(NOLOCK)&#xA;&#xA;                    ) AS FECHAS&#xA;                )&#xA;                AND CONVERT(DATETIME, CONVERT(DATE, DATEADD(DAY, 0, GETDATE())))&#xA;            GROUP BY [YEAR], [WEEK_OF_YEAR]&#xA;)&#xA;INSERT INTO [DIM].[MPCCO_DIM_TIEMPO_GENERICA]&#xA;SELECT &#xA;       [TIME_ID]&#xA;      ,[DATE]&#xA;      ,[DAY]&#xA;      ,[MONTH]&#xA;      ,[YEAR]&#xA;      ,[DAY_OF_MONTH]&#xA;      ,[WEEK_OF_YEAR]&#xA;      ,ORDEN_SEMANA = SEMANA.id&#xA;      ,NUMERO_SEMANA = CONCAT('SEM ',[WEEK_OF_YEAR])&#xA;      ,ANIO = [YEAR]&#xA;      ,[MONTH_OF_YEAR]&#xA;      ,[QUARTER_OF_YEAR]&#xA;      ,IIF(&#xA;            DAY(GETDATE())=DAY([DATE]) &#xA;            AND MONTH(GETDATE())=MONTH([DATE]) &#xA;            AND YEAR(GETDATE())=YEAR([DATE]),&#xA;            CONCAT('HOY',' ',[DAY],' ',[DAY_OF_MONTH],' de ',[MONTH]),&#xA;            CONCAT([DAY],' ',[DAY_OF_MONTH],' de ',[MONTH],' ',[YEAR])&#xA;        ) AS FECHA_LABEL&#xA;FROM [SIG_COL_LOGISTICA_DW].[DIM].[TIEMPO] DIM WITH(NOLOCK)&#xA;INNER JOIN CTE AS SEMANA &#xA;            ON SEMANA.ANIO= DIM.YEAR AND SEMANA.SEMANA=DIM.WEEK_OF_YEAR&#xA;WHERE [DATE]&lt;=GETDATE() AND&#xA;[DATE] BETWEEN &#xA;    (&#xA;        SELECT MIN(FECHA)&#xA;        FROM (&#xA;            SELECT MIN(FECHA) AS FECHA FROM [FAC].[RCOLEO_GM_RECOLECCION_HISTORICO] WITH(NOLOCK)&#xA;&#xA;            UNION ALL&#xA;            SELECT MIN(FECHA) FROM [FAC].[RCOLEO_GM_RECOLECCION] WITH(NOLOCK)&#xA;&#xA;        ) AS FECHAS&#xA;    )&#xA;    AND CONVERT(DATETIME, CONVERT(DATE, DATEADD(DAY, 5, GETDATE())))&#xA;ORDER BY TIME_ID DESC;&#xA;GO&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;/*&#xA;TRUNCATE TABLE [DIM].[MPCCO_DIM_TIEMPO_GENERICA];&#xA;WITH CTE AS(&#xA;            SELECT &#xA;            id = ROW_NUMBER() OVER(order BY [WEEK_OF_YEAR] DESC)&#xA;            ,[YEAR] AS ANIO&#xA;            ,[WEEK_OF_YEAR] AS SEMANA&#xA;            FROM [SIG_COL_LOGISTICA_DW].[DIM].[TIEMPO] WITH(NOLOCK)&#xA;            WHERE [DATE] BETWEEN &#xA;                (&#xA;                    SELECT MIN(FECHA)&#xA;                    FROM (&#xA;                        SELECT MIN(FECHA) AS FECHA FROM [FAC].[RCOLEO_GM_RECOLECCION_HISTORICO] WITH(NOLOCK)&#xA;&#xA;                        UNION ALL&#xA;                        SELECT MIN(FECHA) FROM [FAC].[RCOLEO_GM_RECOLECCION] WITH(NOLOCK)&#xA;&#xA;                    ) AS FECHAS&#xA;                )&#xA;                AND CONVERT(DATETIME, CONVERT(DATE, DATEADD(DAY, 5, GETDATE())))&#xA;            GROUP BY [YEAR], [WEEK_OF_YEAR]&#xA;)&#xA;INSERT INTO [DIM].[MPCCO_DIM_TIEMPO_GENERICA]&#xA;SELECT &#xA;       [TIME_ID]&#xA;      ,[DATE]&#xA;      ,[DAY]&#xA;      ,[MONTH]&#xA;      ,[YEAR]&#xA;      ,[DAY_OF_MONTH]&#xA;      ,[WEEK_OF_YEAR]&#xA;      ,ORDEN_SEMANA = SEMANA.id&#xA;      ,NUMERO_SEMANA = CONCAT('SEM ',[WEEK_OF_YEAR])&#xA;      ,ANIO = [YEAR]&#xA;      ,[MONTH_OF_YEAR]&#xA;      ,[QUARTER_OF_YEAR]&#xA;      ,IIF(&#xA;            DAY(GETDATE())=DAY([DATE]) &#xA;            AND MONTH(GETDATE())=MONTH([DATE]) &#xA;            AND YEAR(GETDATE())=YEAR([DATE]),&#xA;            CONCAT('HOY',' ',[DAY],' ',[DAY_OF_MONTH],' de ',[MONTH]),&#xA;            CONCAT([DAY],' ',[DAY_OF_MONTH],' de ',[MONTH],' ',[YEAR])&#xA;        ) AS FECHA_LABEL&#xA;FROM [SIG_COL_LOGISTICA_DW].[DIM].[TIEMPO] DIM WITH(NOLOCK)&#xA;INNER JOIN CTE AS SEMANA &#xA;            ON SEMANA.ANIO= DIM.YEAR AND SEMANA.SEMANA=DIM.WEEK_OF_YEAR&#xA;WHERE [DATE] BETWEEN &#xA;    (&#xA;        SELECT MIN(FECHA)&#xA;        FROM (&#xA;            SELECT MIN(FECHA) AS FECHA FROM [FAC].[RCOLEO_GM_RECOLECCION_HISTORICO] WITH(NOLOCK)&#xA;&#xA;            UNION ALL&#xA;            SELECT MIN(FECHA) FROM [FAC].[RCOLEO_GM_RECOLECCION] WITH(NOLOCK)&#xA;&#xA;        ) AS FECHAS&#xA;    )&#xA;    AND CONVERT(DATETIME, CONVERT(DATE, DATEADD(DAY, 5, GETDATE())))&#xA;ORDER BY TIME_ID DESC;&#xA;GO&#xA;*/" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\DIMENSION VENCIMIENTO\TRUNCATE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6f0e9719-f74c-409c-af85-203ed23a4d00}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0988B2E2-E797-41B5-BFF5-ADA2373F701E}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE  [DIM].[RCOLEO_VENCIMIENTO]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{9936fffa-c012-48b5-89ef-e8797df58fac}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="VENCIMIENTO"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DIM_VENCIMIENTO"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM].[RCOLEO_VENCIMIENTO]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">ROWS_PER_BATCH = 1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">100000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SIG_COL_LOGISTICA_DW]"
+                      connectionManagerRefId="Package.ConnectionManagers[SIG_COL_LOGISTICA_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Inputs[OLE DB Destination Input].Columns[ID]"
+                          cachedDataType="i4"
+                          cachedName="ID"
+                          externalMetadataColumnId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          lineageId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Output].Columns[ID]" />
+                        <inputColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Inputs[OLE DB Destination Input].Columns[VENCIMIENTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="VENCIMIENTO"
+                          externalMetadataColumnId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Inputs[OLE DB Destination Input].ExternalColumns[VENCIMIENTO]"
+                          lineageId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Output].Columns[VENCIMIENTO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Inputs[OLE DB Destination Input].ExternalColumns[VENCIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="VENCIMIENTO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="RCOLEO_GM_DIM_VENCIMIENTO"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT ID, VENCIMIENTO 
+FROM [TMP].[RCOLEO_GM_DIM_VENCIMIENTO]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Connections[OleDbConnection]"
+                      connectionManagerID="{680D323D-BE30-458E-A7C7-26A5BA37EE6B}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SIG_COLOMBIA_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Output].Columns[ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          lineageId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Output].Columns[ID]"
+                          name="ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Output].Columns[VENCIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Output].ExternalColumns[VENCIMIENTO]"
+                          length="50"
+                          lineageId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Output].Columns[VENCIMIENTO]"
+                          name="VENCIMIENTO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Output].ExternalColumns[VENCIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="VENCIMIENTO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          dataType="i4"
+                          lineageId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          name="ID" />
+                        <outputColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Error Output].Columns[VENCIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Error Output].Columns[VENCIMIENTO]"
+                          name="VENCIMIENTO" />
+                        <outputColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO.Paths[OLE DB Source Output]"
+                  endId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DIMENSION VENCIMIENTO.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{02335384-3e30-4c27-b72d-70a00000d8fb}"
+          DTS:From="Package\DIMENSION VENCIMIENTO\TRUNCATE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\DIMENSION VENCIMIENTO\VENCIMIENTO" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DIMENSION VENCIMIENTO.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{8FD62C0F-023B-4D03-84D8-96B408925E95}"
+          DTS:From="Package\DIMENSION VENCIMIENTO\VENCIMIENTO"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\DIMENSION VENCIMIENTO\MPCCO_DIM_TIEMPO" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\DIMENSION VENCIMIENTO.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{F244FEB4-8CA1-47B3-998F-D7E0F6360BDB}"
+          DTS:From="Package\DIMENSION VENCIMIENTO\GENERACION BASE VENCIMIENTOS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\DIMENSION VENCIMIENTO\TRUNCATE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{14ADD235-D538-4564-9B39-19179923537A}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="RECOLECCIONES DIM CONCEPTO RECHAZO">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\DIM RCOLEO_GM_RECOLECCION_RECHAZOS_CONCEPTOS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{2A25AE03-AB73-4D63-8C29-A1BC59902CD7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DIM RCOLEO_GM_RECOLECCION_RECHAZOS_CONCEPTOS"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{19887262-0DBD-4B78-A8A5-A7538F01C808}"
+              SQLTask:SqlStatementSource="USE [SIG_COLOMBIA_DW];&#xA;&#xA;WITH CTE AS(&#xA;SELECT &#xA;       ROW_NUMBER ( )   OVER ( PARTITION BY [KEY_ESTADO_RCOLEO] ORDER BY [KEY_ESTADO_RCOLEO] DESC) AS #ROWID&#xA;&#x9;&#x9;,[KEY_ESTADO_RCOLEO]&#xA;&#x9;&#x9;,[ID_CONFIRM_SOLICITUD]&#xA;&#x9;&#x9;,[ESTADO MOVIMIENTO]&#xA;&#x9;&#x9;,[ID_MOTIVO_RECHAZO]&#xA;&#x9;&#x9;,[NOMBRE]&#xA;&#x9;&#x9;,[ESTADO SOLICITUD]&#xA;&#x9;&#x9;,[RESPONSABILIDAD]&#xA;&#x9;&#x9;,[CONCEPTO]&#xA;&#x9;&#x9;,[EFICIENCIA]&#xA;&#x9;&#x9;,[FECHA_EXTRACION_DIM]&#xA;  FROM [SIG_COLOMBIA_DW].[TMP].[RCOLEO_ESTADO_CONCEPTO_RECHAZO_CSV] WITH(NOLOCK)&#xA; ) &#xA; INSERT INTO [SIG_LOGISTICA_DM].[DIM].[RCOLEO_GM_RECOLECCION_RECHAZOS_CONCEPTOS]&#xA; SELECT &#xA;&#x9; [KEY_ESTADO_RCOLEO]&#xA;&#x9;,[ID_CONFIRM_SOLICITUD]&#xA;&#x9;,[ESTADO MOVIMIENTO]&#xA;&#x9;,[ID_MOTIVO_RECHAZO]&#xA;&#x9;,[NOMBRE]&#xA;&#x9;,[ESTADO SOLICITUD]&#xA;&#x9;,[RESPONSABILIDAD]&#xA;&#x9;,[CONCEPTO]&#xA;&#x9;,[EFICIENCIA]&#xA;&#x9;,[FECHA_EXTRACION_DIM]&#xA;FROM CTE WHERE #ROWID=1&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{FCDF288C-87F8-4F83-BE69-890C9BD7F324}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="RECOLECCIONES_DIM_CONCEPTO_RECHAZO"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\Audit"
+                  componentClassID="Microsoft.Lineage"
+                  contactInfo="Audit;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Includes data about the environment in which the package runs. Map system variables to new output columns. For example, add the name of the computer and operator to the data flow."
+                  name="Audit">
+                  <inputs>
+                    <input
+                      refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\Audit.Inputs[Audit Input 1]"
+                      name="Audit Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\Audit.Outputs[Audit Output 1]"
+                      exclusionGroup="1"
+                      name="Audit Output 1"
+                      synchronousInputId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\Audit.Inputs[Audit Input 1]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACION_DIM]"
+                          dataType="date"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACION_DIM]"
+                          name="FECHA_EXTRACION_DIM">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies which audit item this column produces."
+                              name="LineageItemSelected"
+                              typeConverter="LineageItemSelected">4</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="22538"
+                  name="CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[RECOLECCIONES_DIM_CONCEPTO_RECHAZO]"
+                      connectionManagerRefId="Package.ConnectionManagers[RECOLECCIONES_DIM_CONCEPTO_RECHAZO]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[KEY_ESTADO_RCOLEO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[KEY_ESTADO_RCOLEO]"
+                          length="50"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[KEY_ESTADO_RCOLEO]"
+                          name="KEY_ESTADO_RCOLEO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[ID_CONFIRM_SOLICITUD]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[ID_CONFIRM_SOLICITUD]"
+                          length="50"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[ID_CONFIRM_SOLICITUD]"
+                          name="ID_CONFIRM_SOLICITUD"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[ESTADO MOVIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[ESTADO MOVIMIENTO]"
+                          length="50"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[ESTADO MOVIMIENTO]"
+                          name="ESTADO MOVIMIENTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[ID_MOTIVO_RECHAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[ID_MOTIVO_RECHAZO]"
+                          length="50"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[ID_MOTIVO_RECHAZO]"
+                          name="ID_MOTIVO_RECHAZO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[NOMBRE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[NOMBRE]"
+                          length="50"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[NOMBRE]"
+                          name="NOMBRE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[ESTADO SOLICITUD]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[ESTADO SOLICITUD]"
+                          length="50"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[ESTADO SOLICITUD]"
+                          name="ESTADO SOLICITUD"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[RESPONSABILIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[RESPONSABILIDAD]"
+                          length="50"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[RESPONSABILIDAD]"
+                          name="RESPONSABILIDAD"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[CONCEPTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[CONCEPTO]"
+                          length="50"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[CONCEPTO]"
+                          name="CONCEPTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[EFICIENCIA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[EFICIENCIA]"
+                          length="50"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[EFICIENCIA]"
+                          name="EFICIENCIA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[KEY_ESTADO_RCOLEO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="KEY_ESTADO_RCOLEO" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[ID_CONFIRM_SOLICITUD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ID_CONFIRM_SOLICITUD" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[ESTADO MOVIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ESTADO MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[ID_MOTIVO_RECHAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ID_MOTIVO_RECHAZO" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[NOMBRE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="NOMBRE" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[ESTADO SOLICITUD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ESTADO SOLICITUD" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[RESPONSABILIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="RESPONSABILIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[CONCEPTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="CONCEPTO" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].ExternalColumns[EFICIENCIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="EFICIENCIA" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[TMP].[RCOLEO_ESTADO_CONCEPTO_RECHAZO_CSV]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">ROWS_PER_BATCH = 1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">10000</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{680D323D-BE30-458E-A7C7-26A5BA37EE6B}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SIG_COLOMBIA_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[KEY_ESTADO_RCOLEO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="KEY_ESTADO_RCOLEO"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[KEY_ESTADO_RCOLEO]"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[KEY_ESTADO_RCOLEO]" />
+                        <inputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_CONFIRM_SOLICITUD]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_CONFIRM_SOLICITUD"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CONFIRM_SOLICITUD]"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[ID_CONFIRM_SOLICITUD]" />
+                        <inputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ESTADO MOVIMIENTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ESTADO MOVIMIENTO"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO MOVIMIENTO]"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[ESTADO MOVIMIENTO]" />
+                        <inputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_MOTIVO_RECHAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_MOTIVO_RECHAZO"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MOTIVO_RECHAZO]"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[ID_MOTIVO_RECHAZO]" />
+                        <inputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NOMBRE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="NOMBRE"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE]"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[NOMBRE]" />
+                        <inputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ESTADO SOLICITUD]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ESTADO SOLICITUD"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO SOLICITUD]"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[ESTADO SOLICITUD]" />
+                        <inputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RESPONSABILIDAD]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="RESPONSABILIDAD"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RESPONSABILIDAD]"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[RESPONSABILIDAD]" />
+                        <inputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CONCEPTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="CONCEPTO"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONCEPTO]"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[CONCEPTO]" />
+                        <inputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EFICIENCIA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="EFICIENCIA"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EFICIENCIA]"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output].Columns[EFICIENCIA]" />
+                        <inputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_EXTRACION_DIM]"
+                          cachedDataType="date"
+                          cachedName="FECHA_EXTRACION_DIM"
+                          externalMetadataColumnId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACION_DIM]"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\Audit.Outputs[Audit Output 1].Columns[FECHA_EXTRACION_DIM]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[KEY_ESTADO_RCOLEO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="KEY_ESTADO_RCOLEO" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_CONFIRM_SOLICITUD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="ID_CONFIRM_SOLICITUD" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO MOVIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="ESTADO MOVIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MOTIVO_RECHAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="ID_MOTIVO_RECHAZO" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NOMBRE" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO SOLICITUD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="ESTADO SOLICITUD" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RESPONSABILIDAD]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="RESPONSABILIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONCEPTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="CONCEPTO" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EFICIENCIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="EFICIENCIA" />
+                        <externalMetadataColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_EXTRACION_DIM]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_EXTRACION_DIM" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Paths[Audit Output 1]"
+                  endId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Audit Output 1"
+                  startId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\Audit.Outputs[Audit Output 1]" />
+                <path
+                  refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Paths[Flat File Source Output]"
+                  endId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\Audit.Inputs[Audit Input 1]"
+                  name="Flat File Source Output"
+                  startId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\TRUNCAR DIM"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{7CC79EB1-5C0D-4E89-BD29-5829264296FF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCAR DIM"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{19887262-0DBD-4B78-A8A5-A7538F01C808}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [DIM].[RCOLEO_GM_RECOLECCION_RECHAZOS_CONCEPTOS]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\TRUNCAR TABLA CONEPTOS TMP"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{0EFA05C4-66B6-4851-87A8-E80DB08C63F7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCAR TABLA CONEPTOS TMP"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{680D323D-BE30-458E-A7C7-26A5BA37EE6B}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [SIG_COLOMBIA_DW].[TMP].[RCOLEO_ESTADO_CONCEPTO_RECHAZO_CSV] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{BB63DD5F-8FEC-411C-AA32-58597F5260CF}"
+          DTS:From="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\TRUNCAR TABLA CONEPTOS TMP"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO.PrecedenceConstraints[Restricción 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{76EA3352-CAB3-4C3F-AB43-90D2EE594284}"
+          DTS:From="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 1"
+          DTS:To="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\TRUNCAR DIM" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\RECOLECCIONES DIM CONCEPTO RECHAZO.PrecedenceConstraints[Restricción 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{E0B0E2CE-22CB-491B-9914-280320F86D7E}"
+          DTS:From="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\TRUNCAR DIM"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 2"
+          DTS:To="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\DIM RCOLEO_GM_RECOLECCION_RECHAZOS_CONCEPTOS" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="249,42"
+          Id="Package\DIMENSION VENCIMIENTO\GENERACION BASE VENCIMIENTOS"
+          TopLeft="18,5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\DIMENSION VENCIMIENTO\MPCCO_DIM_TIEMPO"
+          TopLeft="53,255" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\DIMENSION VENCIMIENTO\TRUNCATE"
+          TopLeft="72.5,80.5" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\DIMENSION VENCIMIENTO\VENCIMIENTO"
+          TopLeft="67,170" />
+        <EdgeLayout
+          Id="Package\DIMENSION VENCIMIENTO.PrecedenceConstraints[Constraint]"
+          TopLeft="139.35,122.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.9"
+              Start="0,0"
+              End="0,40.4">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.4" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIMENSION VENCIMIENTO.PrecedenceConstraints[Constraint 1]"
+          TopLeft="142.25,212">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIMENSION VENCIMIENTO.PrecedenceConstraints[Restricción]"
+          TopLeft="140.25,47">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.5"
+              Start="0,0"
+              End="0,26">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="402,352"
+          Size="402,395"
+          Id="Package\DIMENSION VENCIMIENTO"
+          TopLeft="60,95" />
+        <NodeLayout
+          Size="360,42"
+          Id="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\DIM RCOLEO_GM_RECOLECCION_RECHAZOS_CONCEPTOS"
+          TopLeft="19,271" />
+        <NodeLayout
+          Size="296,42"
+          Id="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO"
+          TopLeft="10.5,82" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\TRUNCAR DIM"
+          TopLeft="82,172" />
+        <NodeLayout
+          Size="239,42"
+          Id="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\TRUNCAR TABLA CONEPTOS TMP"
+          TopLeft="38,5" />
+        <EdgeLayout
+          Id="Package\RECOLECCIONES DIM CONCEPTO RECHAZO.PrecedenceConstraints[Restricción]"
+          TopLeft="158,47">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\RECOLECCIONES DIM CONCEPTO RECHAZO.PrecedenceConstraints[Restricción 1]"
+          TopLeft="157.25,124">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\RECOLECCIONES DIM CONCEPTO RECHAZO.PrecedenceConstraints[Restricción 2]"
+          TopLeft="156,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43,57"
+              Start="0,0"
+              End="43,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="39,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39,28.5"
+                    Point2="43,28.5"
+                    Point3="43,32.5" />
+                  <mssgle:LineSegment
+                    End="43,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="385,354"
+          Size="385,397"
+          Id="Package\RECOLECCIONES DIM CONCEPTO RECHAZO"
+          TopLeft="638,65" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DIMENSION VENCIMIENTO\VENCIMIENTO">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="239,42"
+          Id="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO"
+          TopLeft="133,36" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO"
+          TopLeft="160.8,168" />
+        <EdgeLayout
+          Id="Package\DIMENSION VENCIMIENTO\VENCIMIENTO.Paths[OLE DB Source Output]"
+          TopLeft="249.9,77.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,90.4"
+              Start="0,0"
+              End="0,82.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\DIM_VENCIMIENTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIMENSION VENCIMIENTO\VENCIMIENTO\RCOLEO_GM_DIM_VENCIMIENTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination"
+          TopLeft="400,238" />
+        <NodeLayout
+          Size="103,42"
+          Id="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\Audit"
+          TopLeft="435,159" />
+        <NodeLayout
+          Size="318,42"
+          Id="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\CSV RECOLECCIONES_DIM_CONCEPTO_RECHAZO"
+          TopLeft="328,58" />
+        <EdgeLayout
+          Id="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Paths[Flat File Source Output]"
+          TopLeft="486.75,100">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO.Paths[Audit Output 1]"
+          TopLeft="486,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\RECOLECCIONES DIM CONCEPTO RECHAZO\RECOLECCIONES_DIM_CONCEPTO_RECHAZO\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
